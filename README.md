@@ -28,6 +28,21 @@ CODEX_AGENTS/      검증용 에이전트 정의 및 로그
 - Obsidian에서 이 저장소를 열고 `00_START`부터 확인합니다.
 - 변경은 항상 단일 진실 문서부터 수행합니다.
 
+**Submodule Setup**
+ai subagents 사용 시, 이 SSOT를 각 프로젝트에서 Git submodule로 연결해 사용합니다.
+
+1. 프로젝트 저장소에서 SSOT를 `docs`로 추가합니다.
+```bash
+git submodule add https://github.com/KangGyeongGu/lol-ssot.git docs
+git submodule update --init --recursive
+```
+2. SSOT 문서 업데이트가 필요하면 submodule을 갱신합니다.
+```bash
+git submodule update --remote --merge
+```
+3. `.claude/agents`에서 문서를 참조할 때는 `../docs/` 접두를 붙여 해석합니다.
+4. `docs`는 **참조 전용**이며, 구현 코드 저장소에서 SSOT 문서를 직접 수정하지 않도록 주의합니다.
+
 **AI Subagents**
 - 서브에이전트는 이 SSOT를 **참조 전용**으로 사용합니다.
 - 실제 실행 에이전트는 각 코드 레포의 `.claude/agents`에 둡니다.
