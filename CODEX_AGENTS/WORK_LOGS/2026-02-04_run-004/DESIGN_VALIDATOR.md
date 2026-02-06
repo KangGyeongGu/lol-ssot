@@ -1,0 +1,17 @@
+# DESIGN_VALIDATOR REPORT
+- run_id: 2026-02-04_run-004
+- generated_at: 2026-02-04T13:13:57Z
+- status: TODO
+
+## 검사 결과
+- Overall: PASS | FAIL
+
+## 위반 목록
+- Severity: Blocking | Major | Minor
+- File:
+- Rule:
+- Evidence:
+- Fix Direction:
+
+## 정상 항목
+-

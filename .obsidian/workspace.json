@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "fddff47299ce58f7",
+    "type": "split",
+    "children": [
+      {
+        "id": "2afb5fa43df1b2bf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8ec1c42208cb7f1d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "05_BACKEND/AGENTS/CORE_INFRA_AGENT.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CORE_INFRA_AGENT"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a1d5be097c027f2a",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f1288cdd277adcb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "813192c20bbe4eaf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "4c43d0a3797f6d4c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4d62dcafa1972a2a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 242.50312423706055
+  },
+  "right": {
+    "id": "528b052d2450702b",
+    "type": "split",
+    "children": [
+      {
+        "id": "0c7a353b2abc1ae8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5d228dd96b50766a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "00_SYSTEM/GLOBAL_RULES.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for GLOBAL_RULES"
+            }
+          },
+          {
+            "id": "df8503d887ea34bc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "00_SYSTEM/GLOBAL_RULES.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from GLOBAL_RULES"
+            }
+          },
+          {
+            "id": "af88cf227acba37d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "68555a3873e8b3a1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "ad0120e5f16f29d1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "00_SYSTEM/GLOBAL_RULES.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of GLOBAL_RULES"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "terminal:Open terminal": false
+    }
+  },
+  "active": "8ec1c42208cb7f1d",
+  "lastOpenFiles": [
+    "05_BACKEND/BE_TEST_RULES.md",
+    "05_BACKEND/AGENTS/BAN_PICK_SHOP_AGENT.md",
+    "05_BACKEND/BE_DATA_MODEL_RULES.md",
+    "05_BACKEND/AGENTS/README.md",
+    "05_BACKEND/AGENTS/REALTIME_CHAT_AGENT.md",
+    "05_BACKEND/BE_CONVENTIONS.md",
+    "05_BACKEND/BE_ARCHITECTURE.md",
+    "05_BACKEND/AGENTS/CORE_INFRA_AGENT.md",
+    "05_BACKEND/BE_API_RULES.md",
+    "05_BACKEND/BE_REALTIME_RULES.md",
+    "05_BACKEND/BE_AGENT_SPLIT.md",
+    "05_BACKEND/AGENTS/ROOM_LOBBY_AGENT.md",
+    "05_BACKEND/AGENTS/GAME_LIFECYCLE_AGENT.md",
+    "05_BACKEND/BE_STACK.md",
+    "05_BACKEND/AGENTS/STATS_RANKING_AGENT.md",
+    "05_BACKEND/AGENTS/AUTH_USER_AGENT.md",
+    "05_BACKEND_AGENTS/HANDOFF_AGENT.md",
+    "05_BACKEND_AGENTS/DB_AGENT.md",
+    "05_BACKEND_AGENTS/API_AGENT.md",
+    "05_BACKEND_AGENTS/TEST_AGENT.md",
+    "05_BACKEND/README.md",
+    "05_BACKEND/AGENTS",
+    "05_BACKEND",
+    "05_BACKEND_AGENTS/DOMAIN_AGENT.md",
+    "04_FRONTEND/VIBE_SNIPPETS.md",
+    "04_FRONTEND/WORK_LOGS/008_Deep_Refactoring/1_PLAN.md",
+    "04_FRONTEND/ANTI_PATTERNS.md",
+    "04_FRONTEND/FE_API_CLIENT.md",
+    "04_FRONTEND/WORK_LOGS/008_Deep_Refactoring",
+    "lol web mockup (before)/3. 대기실.png",
+    "lol web mockup (before)/2-2. 방리스트 조회 페이지.png",
+    "lol web mockup (before)/2-1. 방생성 모달.png",
+    "lol web mockup (before)/2. 메인페이지.png",
+    "lol web mockup (before)/1. 로그인페이지.png",
+    "lol web mockup (before)/1-1. 회원가입 모달.png",
+    "04_FRONTEND/WORK_LOGS/005-2_Lobby_Refactoring",
+    "04_FRONTEND/WORK_LOGS/005_Lobby_Feature",
+    "04_FRONTEND/WORK_LOGS/004_Core_And_Auth",
+    "04_FRONTEND/WORK_LOGS/003_Reflect_SCSS_Update",
+    "04_FRONTEND/WORK_LOGS/002_Project_Scaffolding",
+    "04_FRONTEND/WORK_LOGS/001_Feasibility_Analysis",
+    "04_FRONTEND/WORK_LOGS",
+    "lol web mockup (before)/7. 플레이 단계.png",
+    "lol web mockup (before)/9. 마이페이지.png",
+    "lol web mockup (before)/9-2. 마이페이지 전적.png",
+    "lol web mockup (before)/9-1. 마이페이지 통계.png"
+  ]
+}

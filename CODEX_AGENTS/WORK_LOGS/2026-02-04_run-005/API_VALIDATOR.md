@@ -1,0 +1,17 @@
+FAIL
+
+- 범위: `03_API/` 하위만 참조해 검증함.
+- 수행: 문서 정합성 검증만 수행, 파일 수정 없음.
+
+FAIL 항목
+1. `KICKED_USER`의 HTTP 상태 코드 기준이 문서 내부에서 충돌함.  
+`03_API/CONTRACT/REST/CONVENTIONS.md:150`는 `KICKED_USER`를 403으로 분류하지만, `03_API/CONTRACT/REST/CONVENTIONS.md:163`는 “강퇴된 방 재입장”을 409로 규정함. 관련 문서도 403 기준(`03_API/CONTRACT/REST/AUTH_GUARDS.md:62`, `03_API/PAGE_MAP/ROOM_LIST.md:46`)을 사용해 일관 기준이 깨짐.
+2. WAITING_ROOM에서 `GAME_STAGE_CHANGED` 수신 경로가 타이밍상 불명확함.  
+`03_API/LIFECYCLE.md:66`은 WAITING_ROOM 이후 `GAME_STAGE_CHANGED` 수신을 명시하지만, WAITING_ROOM 구독 목록에는 게임 토픽이 없음(`03_API/LIFECYCLE.md:58`, `03_API/PAGE_MAP/WAITING_ROOM.md:33`). 해당 이벤트는 `/topic/games/{gameId}`에서만 발행됨(`03_API/CONTRACT/REALTIME/TOPICS.md:26`).
+3. Event type 표기 재사용이 일부 비정규 약식으로 혼재됨.  
+정식 타입은 `ROOM_PLAYER_LEFT`, `ROOM_PLAYER_STATE_CHANGED`(`03_API/CONTRACT/REALTIME/EVENTS.md:24`, `03_API/CONTRACT/REALTIME/EVENTS.md:25`)인데, 다른 문서에 `ROOM_PLAYER_JOINED/LEFT/STATE_CHANGED` 약식 표기가 사용됨(`03_API/CONTRACT/REALTIME/TOPICS.md:24`, `03_API/LIFECYCLE.md:61`).
+
+PASS 항목
+1. `OPENAPI`와 `API_SUMMARY`의 method/path 집합은 일치함. (`03_API/CONTRACT/REST/OPENAPI.yaml.md`, `03_API/CONTRACT/REST/API_SUMMARY.md`)
+2. REALTIME의 핵심 Topic-Event-Command 연결은 전반적으로 일치함. (`03_API/CONTRACT/REALTIME/TOPICS.md`, `03_API/CONTRACT/REALTIME/EVENTS.md`, `03_API/CONTRACT/REALTIME/COMMANDS.md`)
+3. `LIFECYCLE`과 `PAGE_MAP`의 주요 페이지 흐름(MAIN, ROOM_LIST, BAN_PICK_SHOP, IN_GAME, RESULT)은 대체로 매핑 일치함.
