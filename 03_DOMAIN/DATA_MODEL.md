@@ -40,6 +40,29 @@
 - 재접속 복구, 부정행위 대응, 정산/통계에 필요 → persistent
 - 실시간 UI용, 계산 가능, 종료 후 불필요 → ephemeral/derived
 
+### 2.1 storage 의미(저장소)
+- persistent: DB 영속 저장 대상.
+- ephemeral/derived: Redis 실시간 상태 저장 대상(DB 테이블 없음).
+
+### 2.2 Redis 실시간 상태 범위
+- 실시간 상태(=ephemeral/derived)는 Redis가 단일 진실이다.
+- DB에는 결과/이력/정산에 필요한 persistent만 기록한다.
+
+### 2.3 Write Policy
+- write-through: 상태 변경 즉시 DB에 기록한다. Redis는 캐시/미러로만 사용한다.
+- write-back: Redis가 실시간 단일 진실이다. 종료 시점에 DB로 스냅샷을 반영한다.
+- 기본값: persistent = write-through. 예외는 아래 표에 명시한다.
+
+### 2.4 Write Policy 매핑(예외)
+| 엔티티 | write policy | 기준 |
+|---|---|---|
+| ROOM | write-back | 활성 룸 상태는 Redis에서 관리, 룸 종료 시 DB 스냅샷 저장 |
+| ROOM_PLAYER | write-back | 활성 참가 상태는 Redis에서 관리, 룸 종료 시 DB 스냅샷 저장 |
+| GAME | write-back | 진행 상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
+| GAME_PLAYER | write-back | 진행 중 점수/상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
+| GAME_BAN | write-back | 진행 중 밴/픽은 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
+| GAME_PICK | write-back | 진행 중 밴/픽은 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
+
 ---
 ## 3. 전체 엔티티 목록 요약
 | 엔티티 | storage | 설명 |

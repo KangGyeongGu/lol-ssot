@@ -82,19 +82,24 @@
 
 ---
 ## 4. 캐시/DB 경계 원칙
-### 4.1 DB에 저장해야 하는 것 (persistent)
+### 4.1 DB에 최종 저장해야 하는 것 (persistent)
 - 강퇴(ROOM_KICK), 밴/픽/구매/제출/사용 로그
 - 점수/결과(GAME_PLAYER)
 - 채팅 로그(CHAT_MESSAGE)
 - active game 추적(USER.active_game_id)
 - 재접속/감사/통계에 필요한 최소 기록
 
-### 4.2 캐시에 두는 것 (ephemeral/derived)
+### 4.2 Redis에 두는 것 (ephemeral/derived)
 - 타이핑 상태, 실시간 화면 스트림, 단계 남은 시간
 - 실시간 연결 상태(heartbeat)
 - UI 이벤트 기반 상태
 
 ### 4.3 운영 원칙
-- 실시간 로직은 Redis/메모리에서 처리해도 됨.
-- 단, 재접속/정산/제재에 필요한 기록은 반드시 DB에 남긴다.
-- 캐시 상태는 DB를 대체하지 않으며, DB가 단일 진실이다.
+- 실시간 상태는 Redis가 단일 진실이다.
+- 결과/이력/정산에 필요한 기록은 반드시 DB에 남긴다.
+- Redis 상태는 게임 종료 시 DB 기록으로 귀결되어야 한다.
+
+### 4.4 Write Policy
+- 기본값: persistent는 write-through.
+- 예외: ROOM, ROOM_PLAYER, GAME, GAME_PLAYER, GAME_BAN, GAME_PICK은 write-back(종료 시 DB 반영).
+- 최종 기준은 DATA_MODEL.md의 Write Policy 매핑을 따른다.

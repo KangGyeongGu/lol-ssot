@@ -22,6 +22,7 @@
 - `src/modules/<domain>/dto`: 요청/응답 DTO
 - `src/realtime`: STOMP 연결/구독 처리
 - `src/db`: DB 커넥션/마이그레이션
+- `src/state`: Redis 실시간 상태 저장/조회
 
 ---
 ## 2. 책임 분리 원칙
@@ -30,6 +31,7 @@
 - Repo는 DB 접근만 담당한다.
 - Realtime은 STOMP 이벤트 라우팅만 담당한다.
 - DTO는 API 계약 스키마와 1:1로 유지한다.
+- State는 Redis 실시간 상태 저장/조회 및 DB 스냅샷 반영을 담당한다.
 
 ---
 ## 3. 의존성 방향

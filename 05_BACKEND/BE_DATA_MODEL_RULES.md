@@ -12,6 +12,13 @@
 ## 1. 모델 준수 규칙
 - 엔티티/필드/관계는 DATA_MODEL.md와 1:1로 일치해야 한다.
 - storage 타입(persistent/ephemeral/derived)은 변경 금지.
+- storage 의미는 다음을 따른다.
+  - persistent: DB 영속 저장(JPA Entity/Repository 대상)
+  - ephemeral/derived: Redis 실시간 상태(DB 테이블/마이그레이션 금지)
+- write policy는 DATA_MODEL.md의 매핑을 따른다.
+- write-through: 상태 변경 즉시 DB에 기록한다.
+- write-back: Redis가 실시간 단일 진실이다. 종료 시점에 DB 스냅샷을 반영한다.
+- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다.
 
 ---
 ## 2. 마이그레이션 규칙

@@ -9,8 +9,10 @@
 - Framework: Spring Boot
 - ORM: Spring Data JPA
 - Database: PostgreSQL
+- Realtime State: Redis
 
 ---
 ## 2. 금지
 - 다른 ORM/쿼리 도구(MyBatis, jOOQ 등) 도입 금지.
 - 다른 DB로의 임의 변경 금지.
+- Redis 외 임의 캐시/상태 저장소 도입 금지.
