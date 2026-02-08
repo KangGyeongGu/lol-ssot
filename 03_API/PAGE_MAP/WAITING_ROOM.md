@@ -34,6 +34,7 @@
 | /topic/rooms/{roomId}/lobby | ROOM_PLAYER_LEFT | 퇴장/강퇴 슬롯 반영 |
 | /topic/rooms/{roomId}/lobby | ROOM_PLAYER_STATE_CHANGED | READY/UNREADY/DISCONNECTED 반영 |
 | /topic/rooms/{roomId}/lobby | ROOM_HOST_CHANGED | 방장 변경 반영 |
+| /topic/rooms/{roomId}/lobby | ROOM_GAME_STARTED | 게임 시작 알림(게임 토픽 구독 전환 트리거) |
 | /topic/rooms/{roomId}/chat | CHAT_MESSAGE | 인게임(룸 스코프) 채팅 수신 |
 | /user/queue/rooms | ROOM_KICKED | 본인 강퇴 알림 처리 |
 | /user/queue/errors | ERROR | 실시간 명령 실패 처리 |

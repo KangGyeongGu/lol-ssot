@@ -27,6 +27,7 @@
 - ROOM_HOST_CHANGED
 - ROOM_KICKED
 - GAME_STAGE_CHANGED
+- ROOM_GAME_STARTED
 - GAME_BAN_SUBMITTED
 - GAME_PICK_SUBMITTED
 - GAME_ITEM_PURCHASED
@@ -175,6 +176,21 @@ Data:
 - roomId: string
 - kickedByUserId: string
 - kickedAt: datetime
+
+### 5.6 ROOM_GAME_STARTED
+Topic: `/topic/rooms/{roomId}/lobby`
+
+Type: `ROOM_GAME_STARTED`
+
+Data:
+- roomId: string
+- gameId: string
+- gameType: GameType (NORMAL | RANKED)
+- stage: GameStage (BAN | PICK | SHOP | PLAY)
+- pageRoute: PageRoute (BAN_PICK_SHOP | IN_GAME)
+- stageStartedAt: datetime
+- stageDeadlineAt: datetime
+- remainingMs: integer
 
 ---
 ## 6. 게임 진행

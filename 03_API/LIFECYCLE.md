@@ -61,6 +61,7 @@
 - 주요 이벤트:
   - ROOM_PLAYER_JOINED / ROOM_PLAYER_LEFT / ROOM_PLAYER_STATE_CHANGED
   - ROOM_HOST_CHANGED
+  - ROOM_GAME_STARTED (gameId 수신 후 /topic/games/{gameId} 구독 전환)
 - 명령:
   - `CHAT_SEND` (INGAME, roomId 포함)
 - 게임 시작은 REST `/rooms/{roomId}/start`
