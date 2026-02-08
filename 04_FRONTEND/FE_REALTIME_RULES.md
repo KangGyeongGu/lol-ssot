@@ -31,6 +31,17 @@
 - UI 컴포넌트에서 이벤트 직접 처리 금지.
 
 ---
-## 4. 금지
+## 4. 시간 동기화 원칙
+- 시간 기준은 `meta.serverTime`이다.
+- 클라이언트는 오프셋을 계산해 서버 시간을 추정한다.
+  - offset = serverTime - ((clientSendTime + clientReceiveTime) / 2)
+- 오프셋 샘플은 RTT가 가장 낮은 값 또는 중앙값을 사용한다.
+- 로컬 타이머는 `performance.now()` 등 monotonic clock을 사용한다.
+- 재동기화 주기:
+  - 기본: 10초
+  - BAN/PICK/SHOP 단계: 2초
+
+---
+## 5. 금지
 - 페이지마다 별도 WebSocket 인스턴스 생성 금지.
 - 이벤트 페이로드를 UI에서 직접 가공/추론 금지.

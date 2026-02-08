@@ -26,6 +26,10 @@
 - ROOM_HOST_CHANGED
 - ROOM_KICKED
 - GAME_STAGE_CHANGED
+- GAME_BAN_SUBMITTED
+- GAME_PICK_SUBMITTED
+- GAME_ITEM_PURCHASED
+- GAME_SPELL_PURCHASED
 - GAME_FINISHED
 - TYPING_STATUS_CHANGED
 - ITEM_EFFECT_APPLIED
@@ -173,7 +177,61 @@ Data:
 - stageDeadlineAt: datetime
 - remainingMs: integer
 
-### 5.2 GAME_FINISHED
+### 5.2 GAME_BAN_SUBMITTED
+Topic: `/topic/games/{gameId}`
+
+Type: `GAME_BAN_SUBMITTED`
+
+Data:
+- gameId: string
+- roomId: string
+- userId: string
+- algorithmId: string
+- submittedAt: datetime
+
+### 5.3 GAME_PICK_SUBMITTED
+Topic: `/topic/games/{gameId}`
+
+Type: `GAME_PICK_SUBMITTED`
+
+Data:
+- gameId: string
+- roomId: string
+- userId: string
+- algorithmId: string
+- submittedAt: datetime
+
+### 5.4 GAME_ITEM_PURCHASED
+Topic: `/topic/games/{gameId}`
+
+Type: `GAME_ITEM_PURCHASED`
+
+Data:
+- gameId: string
+- roomId: string
+- userId: string
+- itemId: string
+- quantity: integer
+- unitPrice: integer
+- totalPrice: integer
+- purchasedAt: datetime
+
+### 5.5 GAME_SPELL_PURCHASED
+Topic: `/topic/games/{gameId}`
+
+Type: `GAME_SPELL_PURCHASED`
+
+Data:
+- gameId: string
+- roomId: string
+- userId: string
+- spellId: string
+- quantity: integer
+- unitPrice: integer
+- totalPrice: integer
+- purchasedAt: datetime
+
+### 5.6 GAME_FINISHED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_FINISHED`

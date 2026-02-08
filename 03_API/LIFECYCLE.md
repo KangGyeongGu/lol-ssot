@@ -72,6 +72,8 @@
 - 단계 진행:
   - REST `/games/{gameId}/ban`, `/pick`, `/shop/*`
   - 단계 전환은 `GAME_STAGE_CHANGED`로 동기화
+- BAN/PICK/SHOP 단계 제한시간은 각 10초로 고정한다.
+- 밴/픽/구매 결과는 `/topic/games/{gameId}` 이벤트로 전파한다.
 
 ### 3.4 IN_GAME
 - 구독:

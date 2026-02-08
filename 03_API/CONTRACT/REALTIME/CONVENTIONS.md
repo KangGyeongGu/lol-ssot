@@ -63,6 +63,17 @@
 - 모든 시간은 ISO-8601 UTC 문자열을 사용한다.
 - `meta.serverTime`이 기준이며, 클라이언트는 이 값을 타이머 동기화에 사용한다.
 
+### 4.1 클라이언트 시간 동기화
+- 클라이언트는 서버 시간을 권위 시간으로 사용한다.
+- 오프셋 계산식(예시):
+  - offset = serverTime - ((clientSendTime + clientReceiveTime) / 2)
+- 오프셋 샘플은 RTT가 가장 낮은 값 또는 중앙값을 사용한다.
+- 로컬 타이머는 `performance.now()` 등 monotonic clock을 사용한다.
+- 재동기화 주기:
+  - 기본: 10초
+  - BAN/PICK/SHOP 단계: 2초
+- remainingMs는 `stage_deadline_at - meta.serverTime` 기준으로 계산한다.
+
 ---
 ## 5. 오류 처리
 - 실시간 명령 실패 시 `/user/queue/errors`로 ERROR 이벤트를 전송한다.
@@ -72,6 +83,7 @@
 ## 6. 범위 원칙
 - 채팅/타이핑/단계 전환/효과 알림은 실시간으로 전달한다.
 - 밴/픽/구매/제출은 REST로 수행한다.
+- 밴/픽/구매 결과는 `/topic/games/{gameId}` 이벤트로 전파한다.
 - 아이템/스펠 **사용** 명령은 실시간(Command)으로 수행한다.
 
 ---

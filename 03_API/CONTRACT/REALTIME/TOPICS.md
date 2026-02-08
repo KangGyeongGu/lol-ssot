@@ -23,7 +23,7 @@
 | /topic/rooms/{roomId}/chat | ROOM | CHAT_MESSAGE | 대기실~인게임 채팅(ROOM 스코프) |
 | /topic/rooms/{roomId}/lobby | ROOM | ROOM_PLAYER_JOINED, ROOM_PLAYER_LEFT, ROOM_PLAYER_STATE_CHANGED, ROOM_HOST_CHANGED | 대기실 상태 변경 |
 | /topic/rooms/{roomId}/typing | ROOM | TYPING_STATUS_CHANGED | 인게임 타이핑 상태 |
-| /topic/games/{gameId} | GAME | GAME_STAGE_CHANGED, ITEM_EFFECT_APPLIED, SPELL_EFFECT_APPLIED, ITEM_EFFECT_BLOCKED, EFFECT_REMOVED, GAME_FINISHED | 게임 진행 이벤트 |
+| /topic/games/{gameId} | GAME | GAME_STAGE_CHANGED, GAME_BAN_SUBMITTED, GAME_PICK_SUBMITTED, GAME_ITEM_PURCHASED, GAME_SPELL_PURCHASED, ITEM_EFFECT_APPLIED, SPELL_EFFECT_APPLIED, ITEM_EFFECT_BLOCKED, EFFECT_REMOVED, GAME_FINISHED | 게임 진행 이벤트 |
 | /user/queue/errors | USER | ERROR | 명령 실패 응답 |
 | /user/queue/inventory | USER | INVENTORY_SYNC | 인벤토리 동기화(본인) |
 | /user/queue/rooms | USER | ROOM_KICKED | 강퇴 알림(본인) |

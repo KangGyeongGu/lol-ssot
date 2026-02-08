@@ -27,12 +27,19 @@
 | SHOP | 아이템 구매 | POST | /games/{gameId}/shop/items |
 | SHOP | 스펠 구매 | POST | /games/{gameId}/shop/spells |
 
+### 2.1 단계 제한시간
+- BAN/PICK/SHOP는 각 10초로 고정한다.
+
 ---
 ## 3. 실시간 구독/발행
 ### 3.1 구독
 | 채널 | 이벤트 타입 | 목적 |
 |---|---|---|
 | /topic/games/{gameId} | GAME_STAGE_CHANGED | BAN→PICK→SHOP→PLAY 단계 전환 반영 |
+| /topic/games/{gameId} | GAME_BAN_SUBMITTED | 밴 제출 결과 반영 |
+| /topic/games/{gameId} | GAME_PICK_SUBMITTED | 픽 제출 결과 반영 |
+| /topic/games/{gameId} | GAME_ITEM_PURCHASED | 아이템 구매 결과 반영 |
+| /topic/games/{gameId} | GAME_SPELL_PURCHASED | 스펠 구매 결과 반영 |
 | /topic/rooms/{roomId}/chat | CHAT_MESSAGE | 룸 채팅 수신 |
 | /user/queue/errors | ERROR | 명령 실패 처리 |
 
