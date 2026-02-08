@@ -24,6 +24,7 @@
 1. 로그인 완료 후 WebSocket 연결
 2. 기본 구독
    - `/user/queue/errors`
+   - `/user/queue/time`
    - `/user/queue/rooms`
    - `/user/queue/inventory`
 3. REST `/users/me/active-game`으로 복귀 여부 판단

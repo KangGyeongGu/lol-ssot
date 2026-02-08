@@ -18,6 +18,7 @@
 ### 1.1 EventType 목록
 - ERROR
 - CHAT_MESSAGE
+- TIME_SYNC
 - ROOM_LIST_UPSERT
 - ROOM_LIST_REMOVED
 - ROOM_PLAYER_JOINED
@@ -39,8 +40,22 @@
 - INVENTORY_SYNC
 
 ---
-## 2. 방 목록
-### 2.1 ROOM_LIST_UPSERT
+## 2. 시간 동기화
+### 2.1 TIME_SYNC
+Topic: `/user/queue/time`
+
+Type: `TIME_SYNC`
+
+Data:
+- serverTime: datetime (meta.serverTime과 동일)
+
+Rules:
+- 클라이언트는 TIME_SYNC로 오프셋을 재계산한다.
+- TIME_SYNC는 기본 10초, BAN/PICK/SHOP 단계는 2초 주기로 전송한다.
+
+---
+## 3. 방 목록
+### 3.1 ROOM_LIST_UPSERT
 Topic: `/topic/rooms/list`
 
 Type: `ROOM_LIST_UPSERT`
@@ -54,7 +69,7 @@ Rules:
 - 현재 화면에 표시 중인 roomId와 일치하면 즉시 카드 상태를 갱신한다.
 - 현재 페이지 범위 밖 변화는 업데이트 인디케이터 누적으로 처리한다.
 
-### 2.2 ROOM_LIST_REMOVED
+### 3.2 ROOM_LIST_REMOVED
 Topic: `/topic/rooms/list`
 
 Type: `ROOM_LIST_REMOVED`
@@ -69,8 +84,8 @@ Rules:
 - 현재 화면에 보이는 roomId면 즉시 제거하고, 아니면 업데이트 인디케이터 누적으로 처리한다.
 
 ---
-## 3. 채팅
-### 3.1 CHAT_MESSAGE
+## 4. 채팅
+### 4.1 CHAT_MESSAGE
 Topic: `/topic/chat/global` 또는 `/topic/rooms/{roomId}/chat`
 
 Type: `CHAT_MESSAGE`
@@ -104,8 +119,8 @@ Example:
 ```
 
 ---
-## 4. 대기실
-### 4.1 ROOM_PLAYER_JOINED
+## 5. 대기실
+### 5.1 ROOM_PLAYER_JOINED
 Topic: `/topic/rooms/{roomId}/lobby`
 
 Type: `ROOM_PLAYER_JOINED`
@@ -117,7 +132,7 @@ Data:
 - state: PlayerState (READY | UNREADY | DISCONNECTED)
 - joinedAt: datetime
 
-### 4.2 ROOM_PLAYER_LEFT
+### 5.2 ROOM_PLAYER_LEFT
 Topic: `/topic/rooms/{roomId}/lobby`
 
 Type: `ROOM_PLAYER_LEFT`
@@ -128,7 +143,7 @@ Data:
 - leftAt: datetime
 - reason: LEAVE | KICKED
 
-### 4.3 ROOM_PLAYER_STATE_CHANGED
+### 5.3 ROOM_PLAYER_STATE_CHANGED
 Topic: `/topic/rooms/{roomId}/lobby`
 
 Type: `ROOM_PLAYER_STATE_CHANGED`
@@ -139,7 +154,7 @@ Data:
 - state: PlayerState (READY | UNREADY | DISCONNECTED)
 - updatedAt: datetime
 
-### 4.4 ROOM_HOST_CHANGED
+### 5.4 ROOM_HOST_CHANGED
 Topic: `/topic/rooms/{roomId}/lobby`
 
 Type: `ROOM_HOST_CHANGED`
@@ -151,7 +166,7 @@ Data:
 - reason: HostChangeReason (LEAVE | SYSTEM | MANUAL)
 - changedAt: datetime
 
-### 4.5 ROOM_KICKED
+### 5.5 ROOM_KICKED
 Topic: `/user/queue/rooms`
 
 Type: `ROOM_KICKED`
@@ -162,8 +177,8 @@ Data:
 - kickedAt: datetime
 
 ---
-## 5. 게임 진행
-### 5.1 GAME_STAGE_CHANGED
+## 6. 게임 진행
+### 6.1 GAME_STAGE_CHANGED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_STAGE_CHANGED`
@@ -177,7 +192,7 @@ Data:
 - stageDeadlineAt: datetime
 - remainingMs: integer
 
-### 5.2 GAME_BAN_SUBMITTED
+### 6.2 GAME_BAN_SUBMITTED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_BAN_SUBMITTED`
@@ -189,7 +204,7 @@ Data:
 - algorithmId: string
 - submittedAt: datetime
 
-### 5.3 GAME_PICK_SUBMITTED
+### 6.3 GAME_PICK_SUBMITTED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_PICK_SUBMITTED`
@@ -201,7 +216,7 @@ Data:
 - algorithmId: string
 - submittedAt: datetime
 
-### 5.4 GAME_ITEM_PURCHASED
+### 6.4 GAME_ITEM_PURCHASED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_ITEM_PURCHASED`
@@ -216,7 +231,7 @@ Data:
 - totalPrice: integer
 - purchasedAt: datetime
 
-### 5.5 GAME_SPELL_PURCHASED
+### 6.5 GAME_SPELL_PURCHASED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_SPELL_PURCHASED`
@@ -231,7 +246,7 @@ Data:
 - totalPrice: integer
 - purchasedAt: datetime
 
-### 5.6 GAME_FINISHED
+### 6.6 GAME_FINISHED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_FINISHED`
@@ -252,8 +267,8 @@ Data:
   - solved: boolean
 
 ---
-## 6. 타이핑 상태
-### 6.1 TYPING_STATUS_CHANGED
+## 7. 타이핑 상태
+### 7.1 TYPING_STATUS_CHANGED
 Topic: `/topic/rooms/{roomId}/typing`
 
 Type: `TYPING_STATUS_CHANGED`
@@ -265,8 +280,8 @@ Data:
 - updatedAt: datetime
 
 ---
-## 7. 아이템/스펠 효과
-### 7.1 ITEM_EFFECT_APPLIED
+## 8. 아이템/스펠 효과
+### 8.1 ITEM_EFFECT_APPLIED
 Topic: `/topic/games/{gameId}`
 
 Type: `ITEM_EFFECT_APPLIED`

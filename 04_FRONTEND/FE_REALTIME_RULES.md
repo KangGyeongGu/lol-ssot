@@ -33,6 +33,7 @@
 ---
 ## 4. 시간 동기화 원칙
 - 시간 기준은 `meta.serverTime`이다.
+- TIME_SYNC 이벤트(`/user/queue/time`)를 기준으로 오프셋을 갱신한다.
 - 클라이언트는 오프셋을 계산해 서버 시간을 추정한다.
   - offset = serverTime - ((clientSendTime + clientReceiveTime) / 2)
 - 오프셋 샘플은 RTT가 가장 낮은 값 또는 중앙값을 사용한다.

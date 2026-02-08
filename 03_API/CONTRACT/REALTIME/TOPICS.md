@@ -25,6 +25,7 @@
 | /topic/rooms/{roomId}/typing | ROOM | TYPING_STATUS_CHANGED | 인게임 타이핑 상태 |
 | /topic/games/{gameId} | GAME | GAME_STAGE_CHANGED, GAME_BAN_SUBMITTED, GAME_PICK_SUBMITTED, GAME_ITEM_PURCHASED, GAME_SPELL_PURCHASED, ITEM_EFFECT_APPLIED, SPELL_EFFECT_APPLIED, ITEM_EFFECT_BLOCKED, EFFECT_REMOVED, GAME_FINISHED | 게임 진행 이벤트 |
 | /user/queue/errors | USER | ERROR | 명령 실패 응답 |
+| /user/queue/time | USER | TIME_SYNC | 시간 동기화 |
 | /user/queue/inventory | USER | INVENTORY_SYNC | 인벤토리 동기화(본인) |
 | /user/queue/rooms | USER | ROOM_KICKED | 강퇴 알림(본인) |
 

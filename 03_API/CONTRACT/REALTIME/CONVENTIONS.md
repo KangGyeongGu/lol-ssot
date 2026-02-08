@@ -65,6 +65,7 @@
 
 ### 4.1 클라이언트 시간 동기화
 - 클라이언트는 서버 시간을 권위 시간으로 사용한다.
+- TIME_SYNC 이벤트는 `/user/queue/time`으로 전송된다.
 - 오프셋 계산식(예시):
   - offset = serverTime - ((clientSendTime + clientReceiveTime) / 2)
 - 오프셋 샘플은 RTT가 가장 낮은 값 또는 중앙값을 사용한다.
