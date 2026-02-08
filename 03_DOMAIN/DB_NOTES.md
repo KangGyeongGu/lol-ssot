@@ -6,6 +6,7 @@
 
 ## 관련 문서
 - [[03_DOMAIN/DATA_MODEL.md]]
+- [[03_DOMAIN/REDIS_DB_TIMING.md]]
 
 ---
 ## 1. 인덱스 전략
@@ -101,5 +102,5 @@
 
 ### 4.4 Write Policy
 - 기본값: persistent는 write-through.
-- 예외: ROOM, ROOM_PLAYER, GAME, GAME_PLAYER, GAME_BAN, GAME_PICK은 write-back(종료 시 DB 반영).
+- 예외: ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER, GAME_BAN, GAME_PICK은 write-back(종료 시 DB 반영).
 - 최종 기준은 DATA_MODEL.md의 Write Policy 매핑을 따른다.

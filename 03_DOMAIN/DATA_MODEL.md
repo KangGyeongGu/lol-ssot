@@ -24,6 +24,7 @@
 - [[01_PRODUCT/GAME_RULES.md]]
 - [[01_PRODUCT/ECONOMY.md]]
 - [[01_PRODUCT/CATALOG.md]]
+- [[03_DOMAIN/REDIS_DB_TIMING.md]]
 
 ---
 ## 2. 엔티티 분류 규칙
@@ -56,8 +57,10 @@
 ### 2.4 Write Policy 매핑(예외)
 | 엔티티 | write policy | 기준 |
 |---|---|---|
-| ROOM | write-back | 활성 룸 상태는 Redis에서 관리, 룸 종료 시 DB 스냅샷 저장 |
-| ROOM_PLAYER | write-back | 활성 참가 상태는 Redis에서 관리, 룸 종료 시 DB 스냅샷 저장 |
+| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |
+| ROOM_PLAYER | write-back | 로비 참가 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |
+| ROOM_KICK | write-back | 로비 단계 기록은 Redis에 유지, 게임 시작 시 DB 저장 |
+| ROOM_HOST_HISTORY | write-back | 로비 단계 기록은 Redis에 유지, 게임 시작 시 DB 저장 |
 | GAME | write-back | 진행 상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
 | GAME_PLAYER | write-back | 진행 중 점수/상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
 | GAME_BAN | write-back | 진행 중 밴/픽은 Redis에서 관리, GAME_FINISHED 시 DB 저장 |
