@@ -186,16 +186,21 @@ components:
 
     MatchSummary:
       type: object
-      required: [matchId, gameType, result, scoreDelta, playedAt]
+      required: [matchId, roomName, gameType, result, finalPlayers, playedAt]
       properties:
         matchId:
+          type: string
+        roomName:
           type: string
         gameType:
           $ref: "#/components/schemas/GameType"
         result:
           $ref: "#/components/schemas/MatchResult"
-        scoreDelta:
+        finalPlayers:
           type: integer
+          minimum: 2
+          maximum: 6
+          description: 게임 종료 시점 플레이어 수 (N인)
         playedAt:
           type: string
           format: date-time
@@ -468,12 +473,15 @@ components:
 
     ItemSummary:
       type: object
-      required: [itemId, name, price, durationSec]
+      required: [itemId, name, iconKey, price, durationSec]
       properties:
         itemId:
           type: string
         name:
           type: string
+        iconKey:
+          type: string
+          description: 클라이언트 로컬 아이콘 매핑 키
         description:
           type: string
           nullable: true
@@ -485,12 +493,15 @@ components:
 
     SpellSummary:
       type: object
-      required: [spellId, name, price, durationSec]
+      required: [spellId, name, iconKey, price, durationSec]
       properties:
         spellId:
           type: string
         name:
           type: string
+        iconKey:
+          type: string
+          description: 클라이언트 로컬 아이콘 매핑 키
         description:
           type: string
           nullable: true

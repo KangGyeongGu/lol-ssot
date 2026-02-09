@@ -277,7 +277,9 @@ Data:
   - result: MatchResult (WIN | LOSE | DRAW)
   - rankInGame: integer
   - scoreDelta: integer
+  - coinBefore: integer
   - coinDelta: integer
+  - expBefore: number
   - expDelta: number
   - finalScoreValue: integer
   - solved: boolean

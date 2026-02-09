@@ -174,7 +174,9 @@ erDiagram
     int rank_in_game
     boolean solved
     MatchResult result
+    int coin_before
     int coin_delta
+    double exp_before
     double exp_delta
     datetime joined_at
     datetime left_at
@@ -262,6 +264,7 @@ erDiagram
   ITEM {
     uuid id PK
     varchar name
+    varchar icon_key
     text description
     int duration_sec
     int price
@@ -272,6 +275,7 @@ erDiagram
   SPELL {
     uuid id PK
     varchar name
+    varchar icon_key
     text description
     int duration_sec
     int price
@@ -433,7 +437,9 @@ erDiagram
 | rank_in_game | int | Y | 게임 내 순위 |
 | solved | boolean | Y | 정답 제출 여부 |
 | result | enum(MatchResult) | Y | 결과(종료 후) |
+| coin_before | int | Y | 게임 종료 전 보유 코인 |
 | coin_delta | int | Y | 게임 종료 코인 변화량 |
+| exp_before | double | Y | 게임 종료 전 보유 경험치 |
 | exp_delta | double | Y | 게임 종료 경험치 변화량 |
 | joined_at | datetime | N | 참가 시각 |
 | left_at | datetime | Y | 이탈 시각 |
@@ -538,6 +544,7 @@ erDiagram
 |---|---|---|---|
 | id | uuid | N | PK |
 | name | varchar | N | 아이템 이름 |
+| icon_key | varchar | N | 클라이언트 아이콘 매핑 키 |
 | description | text | Y | 설명 |
 | duration_sec | int | N | 지속 시간(초) |
 | price | int | N | 가격 |
@@ -549,6 +556,7 @@ erDiagram
 |---|---|---|---|
 | id | uuid | N | PK |
 | name | varchar | N | 스펠 이름 |
+| icon_key | varchar | N | 클라이언트 아이콘 매핑 키 |
 | description | text | Y | 설명 |
 | duration_sec | int | N | 지속 시간(초) |
 | price | int | N | 가격 |
@@ -625,6 +633,8 @@ erDiagram
 - SUBMISSION.submitted_elapsed_ms >= 0
 - USER.exp >= 0
 - USER.coin >= 0
+- GAME_PLAYER.coin_before >= 0
+- GAME_PLAYER.exp_before >= 0
 - GAME_PLAYER.coin_delta >= 0
 - GAME_PLAYER.exp_delta >= 0
 - ITEM.duration_sec > 0

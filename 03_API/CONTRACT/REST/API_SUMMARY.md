@@ -43,17 +43,17 @@
 
 ---
 ## 4. Rooms (Lobby)
-| 기능 | 메서드 | 엔드포인트 | 설명 |
-|---|---|---|---|
-| 방 목록 조회 | GET | /rooms | 검색/필터/페이징 + roomStatus/joinable/listVersion |
-| 방 생성 | POST | /rooms | NORMAL / RANKED |
-| 방 상세 조회 | GET | /rooms/{roomId} | 대기실 스냅샷 |
-| 방 참가 | POST | /rooms/{roomId}/join | 인원/가드 검증 |
-| 방 나가기 | POST | /rooms/{roomId}/leave | 명령형 처리 |
-| READY | POST | /rooms/{roomId}/ready | 준비 상태 전환 |
-| UNREADY | POST | /rooms/{roomId}/unready | 준비 상태 전환 |
-| 게임 시작 | POST | /rooms/{roomId}/start | 방장 전용 |
-| 플레이어 강퇴 | POST | /rooms/{roomId}/kick | 방장 전용 |
+| 기능      | 메서드  | 엔드포인트                   | 설명                                          |
+| ------- | ---- | ----------------------- | ------------------------------------------- |
+| 방 목록 조회 | GET  | /rooms                  | 검색/필터/페이징 + roomStatus/joinable/listVersion |
+| 방 생성    | POST | /rooms                  | NORMAL / RANKED                             |
+| 방 상세 조회 | GET  | /rooms/{roomId}         | 대기실 스냅샷                                     |
+| 방 참가    | POST | /rooms/{roomId}/join    | 인원/가드 검증                                    |
+| 방 나가기   | POST | /rooms/{roomId}/leave   | 명령형 처리                                      |
+| READY   | POST | /rooms/{roomId}/ready   | 준비 상태 전환                                    |
+| UNREADY | POST | /rooms/{roomId}/unready | 준비 상태 전환                                    |
+| 게임 시작   | POST | /rooms/{roomId}/start   | 방장 전용                                       |
+| 플레이어 강퇴 | POST | /rooms/{roomId}/kick    | 방장 전용                                       |
 
 ---
 ## 5. Games
