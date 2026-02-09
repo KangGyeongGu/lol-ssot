@@ -47,12 +47,13 @@ git submodule update --remote --merge
 
 **AI Subagents**
 - 서브에이전트는 이 SSOT를 **참조 전용**으로 사용합니다.
-- 실제 실행 에이전트는 각 코드 레포의 `.claude/agents`에 둡니다.
-- 프론트엔드 규칙은 `04_FRONTEND`, 백엔드 규칙은 `05_BACKEND`에 있습니다.
+- 프론트엔드 규칙은 [`04_FRONTEND/`](04_FRONTEND/), 백엔드 규칙은 [`05_BACKEND/`](05_BACKEND/)에 있습니다.
 
 **Claude Code Subagent System**
-- 에이전트 정의는 `AGENTS/`에 있습니다.
-- 상세한 흐름/사용 방식은 `AGENTS/README.md`를 참고합니다.
+- Claude Max 5x 이상 요금제를 권장합니다. 이하 요금제에서는 토큰 소모량이 현저히 부족할 수 있습니다.
+- 실제 실행 에이전트는 각 코드 레포의 `.claude/agents` 에 복사하여 사용합니다.
+- 에이전트 정의는 [`AGENTS/`](AGENTS/)에 있습니다.
+- 상세한 흐름/사용 방식은 [`AGENTS/README.md`](AGENTS/README.md)를 참고합니다.
 
 **Obsidian Rules**
 - 모든 문서 참조는 obsidian 위키링크 형식을 사용합니다: `[[path/to/file.md]]`.
