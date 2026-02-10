@@ -1,5 +1,3 @@
-# PAGE_MAP_WAITING_ROOM
-
 ## 목적
 - WAITING_ROOM(LOBBY 단계) 화면의 REST/실시간 매핑을 정의한다.
 

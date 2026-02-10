@@ -1,5 +1,3 @@
-# AUTH_GUARDS
-
 ## 0. 작업 양식
 가드 규칙 추가/수정 시 아래 양식으로 기록한다.
 
@@ -87,7 +85,7 @@ Active Game: 사용자가 현재 참여 중이며 종료되지 않은 게임.
 명령은 허용된 stage에서만 가능하다.
 - BAN → `/games/{gameId}/ban`
 - PICK → `/games/{gameId}/pick`
-- SHOP → `/games/{gameId}/shop/**`
+- SHOP → `/games/{gameId}/shop/purchase`
 - PLAY → `/games/{gameId}/submissions`
 
 실패 응답:

@@ -1,5 +1,3 @@
-# PAGE_MAP_IN_GAME
-
 ## 목적
 - IN_GAME(PLAY 단계) 화면의 REST/실시간 매핑을 정의한다.
 
@@ -33,7 +31,6 @@
 | /topic/games/{gameId} | EFFECT_REMOVED | 효과 종료/해제 반영 |
 | /topic/games/{gameId} | GAME_FINISHED | 결과 화면 전환 트리거 |
 | /topic/rooms/{roomId}/chat | CHAT_MESSAGE | 룸 채팅 수신 |
-| /topic/rooms/{roomId}/typing | TYPING_STATUS_CHANGED | 타이핑 상태 반영 |
 | /user/queue/inventory | INVENTORY_SYNC | 본인 인벤토리 동기화 |
 | /user/queue/errors | ERROR | 명령 실패 처리 |
 
@@ -41,11 +38,10 @@
 | Destination | Command Type | Data 핵심 필드 |
 |---|---|---|
 | /app/chat.send | CHAT_SEND | channelType=INGAME, roomId, message |
-| /app/rooms/{roomId}/typing | TYPING_UPDATE | isTyping |
 | /app/games/{gameId}/items.use | ITEM_USE | itemId, targetUserId |
 | /app/games/{gameId}/spells.use | SPELL_USE | spellId |
 
 ---
 ## 4. 이탈 시 처리
 - `GAME_FINISHED` 수신 시 RESULT를 표시한다.
-- 게임 컨텍스트 종료 후 `/topic/games/{gameId}`, `/topic/rooms/{roomId}/typing` 구독을 해제한다.
+- 게임 컨텍스트 종료 후 `/topic/games/{gameId}` 구독을 해제한다.

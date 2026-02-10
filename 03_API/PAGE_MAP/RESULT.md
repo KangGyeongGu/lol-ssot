@@ -1,5 +1,3 @@
-# PAGE_MAP_RESULT
-
 ## 목적
 - RESULT 화면의 결과 수신/표시 기준을 REST/실시간 계약에 맞춰 매핑한다.
 
@@ -19,7 +17,7 @@
 ## 2. 데이터 소스
 | 화면 데이터 | 소스 | 필드 |
 |---|---|---|
-| 결과 목록(승/패/무, 순위, 보상) | GAME_FINISHED | result, rankInGame, coinDelta, expDelta, scoreDelta, solved |
+| 결과 목록(승/패/무, 순위, 보상) | GAME_FINISHED | result, rankInGame, scoreDelta(RANKED), coinDelta(RANKED), expDelta(NORMAL/RANKED), solved |
 | 게임 메타 | GAME_FINISHED | gameId, roomId, finishedAt |
 
 ---

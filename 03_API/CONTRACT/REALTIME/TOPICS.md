@@ -1,5 +1,3 @@
-# REALTIME_TOPICS
-
 ## 0. 문서 목적
 - 실시간(WebSocket/STOMP) 구독 대상과 범위를 정의한다.
 - 상세 이벤트/명령 형식은 EVENTS/COMMANDS 문서를 따른다.
@@ -22,8 +20,7 @@
 | /topic/rooms/list | GLOBAL | ROOM_LIST_UPSERT, ROOM_LIST_REMOVED | 방 목록 델타 변경(생성/삭제/상태 갱신) |
 | /topic/rooms/{roomId}/chat | ROOM | CHAT_MESSAGE | 대기실~인게임 채팅(ROOM 스코프) |
 | /topic/rooms/{roomId}/lobby | ROOM | ROOM_PLAYER_JOINED, ROOM_PLAYER_LEFT, ROOM_PLAYER_STATE_CHANGED, ROOM_HOST_CHANGED, ROOM_GAME_STARTED | 대기실 상태 변경/게임 시작 |
-| /topic/rooms/{roomId}/typing | ROOM | TYPING_STATUS_CHANGED | 인게임 타이핑 상태 |
-| /topic/games/{gameId} | GAME | GAME_STAGE_CHANGED, GAME_BAN_SUBMITTED, GAME_PICK_SUBMITTED, GAME_ITEM_PURCHASED, GAME_SPELL_PURCHASED, ITEM_EFFECT_APPLIED, SPELL_EFFECT_APPLIED, ITEM_EFFECT_BLOCKED, EFFECT_REMOVED, GAME_FINISHED | 게임 진행 이벤트 |
+| /topic/games/{gameId} | GAME | GAME_STAGE_CHANGED, GAME_BAN_SUBMITTED, GAME_PICK_SUBMITTED, GAME_SHOP_PURCHASED, ITEM_EFFECT_APPLIED, SPELL_EFFECT_APPLIED, ITEM_EFFECT_BLOCKED, EFFECT_REMOVED, GAME_FINISHED | 게임 진행 이벤트 |
 | /user/queue/errors | USER | ERROR | 명령 실패 응답 |
 | /user/queue/time | USER | TIME_SYNC | 시간 동기화 |
 | /user/queue/inventory | USER | INVENTORY_SYNC | 인벤토리 동기화(본인) |
@@ -35,5 +32,5 @@
 - MAIN(ROOM_LIST 패널): /topic/rooms/list
 - WAITING_ROOM: /topic/rooms/{roomId}/lobby, /topic/rooms/{roomId}/chat
 - BAN_PICK_SHOP: /topic/games/{gameId}, /topic/rooms/{roomId}/chat
-- IN_GAME: /topic/games/{gameId}, /topic/rooms/{roomId}/chat, /topic/rooms/{roomId}/typing
+- IN_GAME: /topic/games/{gameId}, /topic/rooms/{roomId}/chat
 - RESULT: 추가 구독 없음 (GAME_FINISHED 수신 직후 표시)

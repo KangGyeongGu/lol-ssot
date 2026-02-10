@@ -1,5 +1,3 @@
-# REALTIME_EVENTS
-
 ## 0. 문서 목적
 - 실시간 이벤트 타입과 payload를 정의한다.
 - Event Envelope는 REALTIME_CONVENTIONS를 따른다.
@@ -30,10 +28,8 @@
 - ROOM_GAME_STARTED
 - GAME_BAN_SUBMITTED
 - GAME_PICK_SUBMITTED
-- GAME_ITEM_PURCHASED
-- GAME_SPELL_PURCHASED
+- GAME_SHOP_PURCHASED
 - GAME_FINISHED
-- TYPING_STATUS_CHANGED
 - ITEM_EFFECT_APPLIED
 - SPELL_EFFECT_APPLIED
 - ITEM_EFFECT_BLOCKED
@@ -232,37 +228,31 @@ Data:
 - algorithmId: string
 - submittedAt: datetime
 
-### 6.4 GAME_ITEM_PURCHASED
+### 6.4 GAME_SHOP_PURCHASED
 Topic: `/topic/games/{gameId}`
 
-Type: `GAME_ITEM_PURCHASED`
+Type: `GAME_SHOP_PURCHASED`
 
 Data:
 - gameId: string
 - roomId: string
 - userId: string
-- itemId: string
-- quantity: integer
-- unitPrice: integer
+- items: array
+  - itemId: string
+  - quantity: integer
+  - unitPrice: integer
+  - totalPrice: integer
+- spells: array
+  - spellId: string
+  - quantity: integer
+  - unitPrice: integer
+  - totalPrice: integer
 - totalPrice: integer
 - purchasedAt: datetime
+Note:
+- items/spells 중 하나 이상이 포함된다.
 
-### 6.5 GAME_SPELL_PURCHASED
-Topic: `/topic/games/{gameId}`
-
-Type: `GAME_SPELL_PURCHASED`
-
-Data:
-- gameId: string
-- roomId: string
-- userId: string
-- spellId: string
-- quantity: integer
-- unitPrice: integer
-- totalPrice: integer
-- purchasedAt: datetime
-
-### 6.6 GAME_FINISHED
+### 6.5 GAME_FINISHED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_FINISHED`
@@ -283,23 +273,13 @@ Data:
   - expDelta: number
   - finalScoreValue: integer
   - solved: boolean
+Note:
+- expDelta는 NORMAL/RANKED 모두 지급된다.
+- scoreDelta/coinDelta는 RANKED에서만 변동된다.
 
 ---
-## 7. 타이핑 상태
-### 7.1 TYPING_STATUS_CHANGED
-Topic: `/topic/rooms/{roomId}/typing`
-
-Type: `TYPING_STATUS_CHANGED`
-
-Data:
-- roomId: string
-- userId: string
-- isTyping: boolean
-- updatedAt: datetime
-
----
-## 8. 아이템/스펠 효과
-### 8.1 ITEM_EFFECT_APPLIED
+## 7. 아이템/스펠 효과
+### 7.1 ITEM_EFFECT_APPLIED
 Topic: `/topic/games/{gameId}`
 
 Type: `ITEM_EFFECT_APPLIED`

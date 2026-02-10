@@ -1,5 +1,3 @@
-# COPY_TEXT (UI Strings Source)
-
 ## 0. 원칙
 - UI 문구는 이 파일이 단일 진실
 - 프론트엔드는 하드코딩 금지
@@ -21,6 +19,10 @@
 - COMMON.LOADING = "로딩 중..."
 - COMMON.ERROR = "오류가 발생했습니다."
 - COMMON.RETRY = "다시 시도"
+- COMMON.LEVEL = "레벨"
+- COMMON.EXP = "경험치"
+- COMMON.EXP_TO_NEXT = "다음 레벨까지"
+- COMMON.EXP_PROGRESS = "경험치 진행도"
 
 ## 3. Main / Room
 - MAIN.GO_ROOM_LIST = "방 목록"

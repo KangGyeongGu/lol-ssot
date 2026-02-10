@@ -1,5 +1,3 @@
-# PAGE_MAP_ROOM_LIST
-
 ## 목적
 - MAIN 내부 ROOM_LIST 패널 상태의 방 탐색/참가 및 목록 동기화(REST/실시간)를 매핑한다.
 

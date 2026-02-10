@@ -1,5 +1,3 @@
-# PAGE_MAP_BAN_PICK_SHOP
-
 ## 목적
 - BAN/PICK/SHOP 단일 페이지(RANKED 전용)의 REST/실시간 매핑을 정의한다.
 
@@ -24,8 +22,7 @@
 |---|---|---|---|
 | BAN | 알고리즘 밴 제출 | POST | /games/{gameId}/ban |
 | PICK | 알고리즘 픽 제출 | POST | /games/{gameId}/pick |
-| SHOP | 아이템 구매 | POST | /games/{gameId}/shop/items |
-| SHOP | 스펠 구매 | POST | /games/{gameId}/shop/spells |
+| SHOP | 아이템/스펠 일괄 구매 | POST | /games/{gameId}/shop/purchase |
 
 ### 2.1 단계 제한시간
 - BAN/PICK/SHOP는 각 10초로 고정한다.
@@ -38,8 +35,7 @@
 | /topic/games/{gameId} | GAME_STAGE_CHANGED | BAN→PICK→SHOP→PLAY 단계 전환 반영 |
 | /topic/games/{gameId} | GAME_BAN_SUBMITTED | 밴 제출 결과 반영 |
 | /topic/games/{gameId} | GAME_PICK_SUBMITTED | 픽 제출 결과 반영 |
-| /topic/games/{gameId} | GAME_ITEM_PURCHASED | 아이템 구매 결과 반영 |
-| /topic/games/{gameId} | GAME_SPELL_PURCHASED | 스펠 구매 결과 반영 |
+| /topic/games/{gameId} | GAME_SHOP_PURCHASED | SHOP 구매 결과 반영 |
 | /topic/rooms/{roomId}/chat | CHAT_MESSAGE | 룸 채팅 수신 |
 | /user/queue/errors | ERROR | 명령 실패 처리 |
 

@@ -1,5 +1,3 @@
-# REALTIME_COMMANDS
-
 ## 0. 문서 목적
 - 실시간 명령(클라이언트 → 서버)의 타입과 payload를 정의한다.
 - Command Envelope는 REALTIME_CONVENTIONS를 따른다.
@@ -11,13 +9,12 @@
 ---
 ## 1. 공통 규칙
 - REST로 처리하는 명령: 밴/픽/구매/제출.
-- WebSocket 명령: 채팅, 타이핑, 아이템/스펠 사용.
+- WebSocket 명령: 채팅, 아이템/스펠 사용.
 - 성공 응답은 이벤트로 브로드캐스트된다.
 - 실패는 `/user/queue/errors`로 ERROR 이벤트를 반환한다.
 
 ### 1.1 CommandType 목록
 - CHAT_SEND
-- TYPING_UPDATE
 - ITEM_USE
 - SPELL_USE
 
@@ -44,24 +41,7 @@ Error (예시):
 - RATE_LIMITED
 
 ---
-### 2.2 TYPING_UPDATE
-Destination: `/app/rooms/{roomId}/typing`
-
-Type: `TYPING_UPDATE`
-
-Data:
-- isTyping: boolean
-
-Success:
-- TYPING_STATUS_CHANGED 이벤트가 `/topic/rooms/{roomId}/typing`으로 전송된다.
-
-Error (예시):
-- UNAUTHORIZED
-- PLAYER_NOT_IN_ROOM
-- INVALID_STAGE_ACTION
-
----
-### 2.3 ITEM_USE
+### 2.2 ITEM_USE
 Destination: `/app/games/{gameId}/items.use`
 
 Type: `ITEM_USE`
@@ -87,7 +67,7 @@ Error (예시):
 - VALIDATION_FAILED
 
 ---
-### 2.4 SPELL_USE
+### 2.3 SPELL_USE
 Destination: `/app/games/{gameId}/spells.use`
 
 Type: `SPELL_USE`

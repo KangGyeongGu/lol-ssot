@@ -1,5 +1,3 @@
-# PAGE_MAP_SIGNUP
-
 ## 목적
 - WELCOME 위 SIGNUP 오버레이(추가 정보 입력) 상태의 회원가입 REST 매핑을 정의한다.
 

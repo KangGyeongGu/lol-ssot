@@ -1,5 +1,3 @@
-# REST_API_SUMMARY
-
 ## 0. 작업 양식
 새 엔드포인트 추가 시 아래 양식을 유지한다.
 
@@ -36,7 +34,7 @@
 ## 3. Users
 | 기능 | 메서드 | 엔드포인트 | 설명 |
 |---|---|---|---|
-| 내 정보 조회 | GET | /users/me | 프로필(언어/티어/점수/경험치/코인) |
+| 내 정보 조회 | GET | /users/me | 프로필(언어/티어/점수/경험치/레벨/진행도/코인) |
 | active game 조회 | GET | /users/me/active-game | 복귀 판단용 |
 | 내 통계 조회 | GET | /users/me/stats | 마이페이지 통계 |
 | 전적 목록 조회 | GET | /users/me/matches | 커서 기반 페이징 |
@@ -67,8 +65,7 @@
 |---|---|---|---|
 | 밴 제출 | POST | /games/{gameId}/ban | body: algorithmId |
 | 픽 제출 | POST | /games/{gameId}/pick | body: algorithmId |
-| 아이템 구매 | POST | /games/{gameId}/shop/items | body: itemId, quantity |
-| 스펠 구매 | POST | /games/{gameId}/shop/spells | body: spellId, quantity |
+| SHOP 일괄 구매 | POST | /games/{gameId}/shop/purchase | body: items[], spells[] |
 
 ### 5.3 Play
 | 기능 | 메서드 | 엔드포인트 | 설명 |
@@ -92,5 +89,5 @@
 
 ---
 ## 8. 비고
-- 채팅/타이핑/단계 전환 알림은 WebSocket에서 정의한다.
+- 채팅/단계 전환 알림은 WebSocket에서 정의한다.
 - REST는 스냅샷 + 명령만 담당한다.

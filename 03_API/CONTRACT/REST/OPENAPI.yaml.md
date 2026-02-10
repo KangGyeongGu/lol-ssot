@@ -1,5 +1,3 @@
-# OPENAPI (REST)
-
 ## 0. 작업 양식
 엔드포인트/스키마 추가 시 아래 절차를 따른다.
 
@@ -151,7 +149,7 @@ components:
 
     UserProfile:
       type: object
-      required: [userId, nickname, language, tier, score, exp, coin]
+      required: [userId, nickname, language, tier, score, exp, level, expInLevel, expToNext, expProgress, coin]
       properties:
         userId:
           type: string
@@ -164,6 +162,17 @@ components:
         score:
           type: integer
         exp:
+          type: number
+          format: double
+        level:
+          type: integer
+        expInLevel:
+          type: number
+          format: double
+        expToNext:
+          type: number
+          format: double
+        expProgress:
           type: number
           format: double
         coin:
@@ -379,7 +388,7 @@ components:
         algorithmId:
           type: string
 
-    ShopItemRequest:
+    ShopPurchaseItem:
       type: object
       required: [itemId, quantity]
       properties:
@@ -388,7 +397,7 @@ components:
         quantity:
           type: integer
 
-    ShopSpellRequest:
+    ShopPurchaseSpell:
       type: object
       required: [spellId, quantity]
       properties:
@@ -396,6 +405,20 @@ components:
           type: string
         quantity:
           type: integer
+
+    ShopPurchaseRequest:
+      type: object
+      description: items/spells 중 하나 이상 포함해야 한다.
+      required: [items, spells]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShopPurchaseItem"
+        spells:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShopPurchaseSpell"
 
     SubmissionRequest:
       type: object
@@ -1565,10 +1588,10 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorEnvelope"
 
-  /games/{gameId}/shop/items:
+  /games/{gameId}/shop/purchase:
     post:
       tags: [Games]
-      summary: 아이템 구매
+      summary: SHOP 일괄 구매
       parameters:
         - name: gameId
           in: path
@@ -1580,72 +1603,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ShopItemRequest"
-      responses:
-        "200":
-          description: 성공
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/SuccessEnvelope"
-                  - type: object
-                    properties:
-                      data:
-                        $ref: "#/components/schemas/GameState"
-        "400":
-          description: 잘못된 요청
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorEnvelope"
-        "401":
-          description: 인증 실패
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorEnvelope"
-        "404":
-          description: 리소스 없음
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorEnvelope"
-        "409":
-          description: 상태 충돌
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorEnvelope"
-        "429":
-          description: 요청 제한
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorEnvelope"
-        "500":
-          description: 서버 오류
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorEnvelope"
-
-  /games/{gameId}/shop/spells:
-    post:
-      tags: [Games]
-      summary: 스펠 구매
-      parameters:
-        - name: gameId
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ShopSpellRequest"
+              $ref: "#/components/schemas/ShopPurchaseRequest"
       responses:
         "200":
           description: 성공
@@ -1939,4 +1897,4 @@ paths:
 
 ## 고정 원칙
 - 본 문서는 REST API 계약의 단일 진실이다.
-- 실시간 이벤트/채팅/타이핑/아이템 효과는 WebSocket 계약에서 정의한다.
+- 실시간 이벤트/채팅/아이템 효과는 WebSocket 계약에서 정의한다.

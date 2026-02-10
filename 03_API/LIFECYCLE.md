@@ -1,5 +1,3 @@
-# CONTRACT_LIFECYCLE
-
 ## 0. 문서 목적
 - REST/실시간 통신의 연결/구독/해제/호출 타이밍을 페이지 단위로 정의한다.
 - REST는 스냅샷/명령, WebSocket은 상태 변화 이벤트를 담당한다.
@@ -72,7 +70,7 @@
   - `/topic/games/{gameId}`
   - `/topic/rooms/{roomId}/chat`
 - 단계 진행:
-  - REST `/games/{gameId}/ban`, `/pick`, `/shop/*`
+  - REST `/games/{gameId}/ban`, `/pick`, `/shop/purchase`
   - 단계 전환은 `GAME_STAGE_CHANGED`로 동기화
 - BAN/PICK/SHOP 단계 제한시간은 각 10초로 고정한다.
 - 밴/픽/구매 결과는 `/topic/games/{gameId}` 이벤트로 전파한다.
@@ -81,10 +79,8 @@
 - 구독:
   - `/topic/games/{gameId}`
   - `/topic/rooms/{roomId}/chat`
-  - `/topic/rooms/{roomId}/typing`
 - 명령:
   - `CHAT_SEND` (INGAME)
-  - `TYPING_UPDATE`
   - `ITEM_USE`, `SPELL_USE`
 - 아이템/스펠 사용 성공 시:
   - ITEM_EFFECT_APPLIED / SPELL_EFFECT_APPLIED / EFFECT_REMOVED
@@ -124,7 +120,6 @@
 | Room List(`/topic/rooms/list`) | ROOM_LIST 패널 진입 | ROOM_LIST 패널 이탈 | `/rooms` |
 | Room Chat(`/topic/rooms/{roomId}/chat`) | 방 참가 후 WAITING_ROOM 진입 | 게임 종료 후 MAIN/MY_PAGE 이동 또는 방 이탈 | `/rooms/{roomId}` |
 | Lobby(`/topic/rooms/{roomId}/lobby`) | WAITING_ROOM 진입 | WAITING_ROOM 이탈 | `/rooms/{roomId}` |
-| Typing(`/topic/rooms/{roomId}/typing`) | IN_GAME 진입 | IN_GAME 이탈 또는 게임 종료 | `/games/{gameId}/state` |
 | Game(`/topic/games/{gameId}`) | BAN_PICK_SHOP 또는 IN_GAME 진입 | GAME_FINISHED 수신 후 결과 표시 또는 방 이탈 | `/games/{gameId}/state` |
 
 ### 5.3 REST 호출 타이밍(스냅샷/명령)
@@ -137,7 +132,7 @@
 | 방 진입                     | `GET /rooms/{roomId}`              | 대기실 스냅샷                |
 | 게임 진입/재접속                | `GET /games/{gameId}/state`        | 현재 stage/remaining 동기화 |
 | READY/UNREADY/START/KICK | 해당 Room 명령 API                     | 대기실 명령                 |
-| BAN/PICK/SHOP 구매         | 해당 Game 명령 API                     | 밴/픽/구매 처리              |
+| BAN/PICK/SHOP 구매         | `POST /games/{gameId}/shop/purchase` | 밴/픽/구매 처리              |
 | 코드 제출                    | `POST /games/{gameId}/submissions` | 제출 처리                  |
 
 ---
@@ -163,7 +158,7 @@ flowchart TD
   BPS --> BPS1["구독:<br/>/topic/games/{gameId}<br/>/topic/rooms/{roomId}/chat"]
 
   F -- PLAY --> IG[IN_GAME]
-  IG --> IG1["구독:<br/>/topic/games/{gameId}<br/>/topic/rooms/{roomId}/chat<br/>/topic/rooms/{roomId}/typing"]
+  IG --> IG1["구독:<br/>/topic/games/{gameId}<br/>/topic/rooms/{roomId}/chat"]
 
   WR -->|GAME_STAGE_CHANGED| BPS
   WR -->|GAME_STAGE_CHANGED| IG
@@ -194,7 +189,7 @@ sequenceDiagram
       C->>REST: GET /games/{gameId}/state
       REST-->>C: GameState snapshot
     else pageRoute = IN_GAME
-      C->>WS: SUB /topic/games/{gameId}, /topic/rooms/{roomId}/chat, /topic/rooms/{roomId}/typing
+      C->>WS: SUB /topic/games/{gameId}, /topic/rooms/{roomId}/chat
       C->>REST: GET /games/{gameId}/state
       REST-->>C: GameState snapshot
     end

@@ -1,5 +1,3 @@
-# PAGE_MAP_WELCOME
-
 ## 목적
 - WELCOME(로그인) 화면의 인증 진입 REST 매핑을 정의한다.
 
