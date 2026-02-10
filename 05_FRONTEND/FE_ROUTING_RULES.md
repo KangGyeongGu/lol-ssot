@@ -1,5 +1,3 @@
-# FE_ROUTING_RULES
-
 ## 0. 문서 목적
 - 라우팅/가드/전환의 **구현 패턴**을 정의한다.
 - 사용자 흐름은 [[01_PRODUCT/USER_FLOWS.md]]가 단일 진실이다.
@@ -8,8 +6,8 @@
 - [[01_PRODUCT/USER_FLOWS.md]]
 - [[03_API/CONTRACT/REST/CONVENTIONS.md]]
 - `[[03_API/PAGE_MAP/*.md]]`
-- [[04_FRONTEND/FE_DESIGN_MAPPING.md]]
-- [[04_FRONTEND/FE_STATE_RULES.md]]
+- [[05_FRONTEND/FE_DESIGN_MAPPING.md]]
+- [[05_FRONTEND/FE_STATE_RULES.md]]
 
 ---
 ## 1. 라우트 네이밍 규칙
@@ -41,4 +39,4 @@
 
 ---
 ## 6. 디자인 참조 규칙
-- 모든 라우트 구현은 `[[04_FRONTEND/FE_DESIGN_MAPPING.md]]`에 매핑된 디자인 문서를 반드시 참조한다.
+- 모든 라우트 구현은 `[[05_FRONTEND/FE_DESIGN_MAPPING.md]]`에 매핑된 디자인 문서를 반드시 참조한다.

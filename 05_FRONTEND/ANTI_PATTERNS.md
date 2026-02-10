@@ -1,13 +1,12 @@
-# ANTI_PATTERNS
-
 ## 0. 문서 목적
 - 프론트엔드 구현에서 **금지되는 패턴**을 명시한다.
 
 ## 관련 문서
-- [[04_FRONTEND/FE_CONVENTIONS.md]]
-- [[04_FRONTEND/FE_API_CLIENT.md]]
-- [[04_FRONTEND/FE_REALTIME_RULES.md]]
-- [[02_DESIGN/DESIGN_RULES.md]]
+- [[05_FRONTEND/FE_CONVENTIONS.md]]
+- [[05_FRONTEND/FE_API_CLIENT.md]]
+- [[05_FRONTEND/FE_REALTIME_RULES.md]]
+- [[02_DESIGN/COLOR_SYSTEM.md]]
+- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
 
 ---
 ## 1. 데이터/통신
@@ -19,7 +18,9 @@
 ## 2. UI/문구
 - UI 문구 하드코딩
 - 토큰 없는 색상/폰트 사용
-- 디자인 문서와 다른 레이아웃 재배치
+- `--gu` 없이 크기/간격/폰트 지정
+- px/rem/em/vw/vh 직접 사용
+- 16:9 스케일 컨테이너의 aspect-ratio 누락
 
 ---
 ## 3. 상태/구조

@@ -1,15 +1,13 @@
-# FE_ARCHITECTURE
-
 ## 0. 문서 목적
 - 프론트엔드 모듈 경계와 책임 분리를 정의한다.
 - 코드가 “어디에 위치해야 하는지”를 통제한다.
 
 ## 관련 문서
-- [[04_FRONTEND/FE_CONVENTIONS.md]]
-- [[04_FRONTEND/FE_ROUTING_RULES.md]]
-- [[04_FRONTEND/FE_STATE_RULES.md]]
-- [[04_FRONTEND/FE_API_CLIENT.md]]
-- [[04_FRONTEND/FE_REALTIME_RULES.md]]
+- [[05_FRONTEND/FE_CONVENTIONS.md]]
+- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+- [[05_FRONTEND/FE_STATE_RULES.md]]
+- [[05_FRONTEND/FE_API_CLIENT.md]]
+- [[05_FRONTEND/FE_REALTIME_RULES.md]]
 
 ---
 ## 1. 기본 폴더 구조(권장)

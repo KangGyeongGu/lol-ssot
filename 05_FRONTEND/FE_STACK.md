@@ -1,11 +1,9 @@
-# FE_STACK
-
 ## 0. 문서 목적
 - 프론트엔드 런타임/빌드/의존성의 **기본 전제**를 정의한다.
 - 버전의 단일 진실은 실제 코드 레포의 `package.json`이며, 본 문서는 **종류와 사용 원칙**만 정의한다.
 
 ## 관련 문서
-- [[04_FRONTEND/FE_CONVENTIONS.md]]
+- [[05_FRONTEND/FE_CONVENTIONS.md]]
 
 ---
 ## 1. 기본 스택

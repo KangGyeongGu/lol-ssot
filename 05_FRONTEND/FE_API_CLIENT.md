@@ -1,5 +1,3 @@
-# FE_API_CLIENT
-
 ## 0. 문서 목적
 - REST 호출 구조와 에러 분기 **코드 패턴**을 정의한다.
 - API 규약/스키마는 `[[03_API/CONTRACT/REST/*.md]]`가 단일 진실이다.
@@ -9,7 +7,7 @@
 - [[03_API/CONTRACT/REST/CONVENTIONS.md]]
 - [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
 - [[01_PRODUCT/COPY_TEXT.md]]
-- [[04_FRONTEND/FE_STATE_RULES.md]]
+- [[05_FRONTEND/FE_STATE_RULES.md]]
 
 ---
 ## 1. 호출 구조 원칙

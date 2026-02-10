@@ -1,5 +1,3 @@
-# FE_REALTIME_RULES
-
 ## 0. 문서 목적
 - 실시간(WebSocket/STOMP) 연결/구독 **관리 패턴**을 정의한다.
 - 타이밍/토픽/이벤트 규칙은 관련 문서가 단일 진실이다.
@@ -10,7 +8,7 @@
 - [[03_API/CONTRACT/REALTIME/TOPICS.md]]
 - [[03_API/CONTRACT/REALTIME/EVENTS.md]]
 - [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
-- [[04_FRONTEND/FE_STATE_RULES.md]]
+- [[05_FRONTEND/FE_STATE_RULES.md]]
 
 ---
 ## 1. 연결 관리 원칙

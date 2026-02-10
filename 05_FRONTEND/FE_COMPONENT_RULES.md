@@ -1,12 +1,11 @@
-# FE_COMPONENT_RULES
-
 ## 0. 문서 목적
 - UI 컴포넌트 API 설계 규칙을 정의한다.
-- 디자인 정의는 [[02_DESIGN/COMPONENTS.json.md]]가 단일 진실이다.
+- 디자인 토큰은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]를 따른다.
 
 ## 관련 문서
-- [[02_DESIGN/COMPONENTS.json.md]]
-- [[04_FRONTEND/FE_CONVENTIONS.md]]
+- [[02_DESIGN/COLOR_SYSTEM.md]]
+- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+- [[05_FRONTEND/FE_CONVENTIONS.md]]
 
 ---
 ## 1. Props 규칙
@@ -29,5 +28,5 @@
 
 ---
 ## 4. 디자인 토큰 매핑
-- 컴포넌트의 색상/폰트/라운드 값은 토큰 키로만 지정한다.
-- 토큰 매핑은 [[02_DESIGN/COMPONENTS.json.md]] 기준으로만 정의한다.
+- 컴포넌트의 색상/폰트는 토큰 키로만 지정한다.
+- 토큰 매핑은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]] 기준으로만 정의한다.
