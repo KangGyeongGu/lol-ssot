@@ -1,5 +1,3 @@
-# League of Algo Logic SSOT
-
 League of Algo Logic 프로젝트의 **단일 진실(SSOT)** 저장소입니다. 제품/디자인/API/도메인/구현 규칙을 문서로 정의하며, AI 서브에이전트가 참조하는 기준입니다.
 
 **Overview**
@@ -16,14 +14,14 @@ League of Algo Logic 프로젝트의 **단일 진실(SSOT)** 저장소입니다.
 01_PRODUCT/            요구사항, 유저 플로우, 정책
 02_DESIGN/             디자인 규칙/토큰/페이지 레이아웃
 03_API/                REST/실시간 계약 및 페이지 맵
-03_DOMAIN/             데이터 모델 및 DB 규칙
-04_FRONTEND/           프론트엔드 컨벤션/패턴/설계
-05_BACKEND/            백엔드 컨벤션/패턴/설계
-06_QA/                 테스트 및 품질 기준
-99_ARCHIVE/            보관/아카이브
+04_DOMAIN/             데이터 모델 및 DB 규칙
+05_FRONTEND/           프론트엔드 컨벤션/패턴/설계
+06_BACKEND/            백엔드 컨벤션/패턴/설계
+09_ARCHIVE/            보관/아카이브
 AGENTS/                Claude Code 서브에이전트 정의
-CODEX_AGENTS/          검증용 에이전트 정의 및 로그
-lol web mockup (before)/  과거 웹 목업
+AGENTS/CODEX/          검증용 에이전트 정의 및 로그
+AGENTS/CLAUDE/         Claude Code 서브에이전트 정의(신규 파이프라인)
+11_LOL_WEB_MOCKUP_BEFORE/  과거 웹 목업
 ```
 
 **Workflow**
@@ -47,13 +45,13 @@ git submodule update --remote --merge
 
 **AI Subagents**
 - 서브에이전트는 이 SSOT를 **참조 전용**으로 사용합니다.
-- 프론트엔드 규칙은 [`04_FRONTEND/`](04_FRONTEND/), 백엔드 규칙은 [`05_BACKEND/`](05_BACKEND/)에 있습니다.
+- 프론트엔드 규칙은 `04_FRONTEND/`, 백엔드 규칙은 `05_BACKEND/`에 있습니다.
 
 **Claude Code Subagent System**
 - Claude Max 5x 이상 요금제를 권장합니다. 이하 요금제에서는 토큰 소모량이 현저히 부족할 수 있습니다.
 - 실제 실행 에이전트는 각 코드 레포의 `.claude/agents` 에 복사하여 사용합니다.
-- 에이전트 정의는 [`AGENTS/`](AGENTS/)에 있습니다.
-- 상세한 흐름/사용 방식은 [`AGENTS/README.md`](AGENTS/README.md)를 참고합니다.
+- 에이전트 정의는 `AGENTS/`에 있습니다.
+- 상세한 흐름/사용 방식은 `AGENTS/README.md`를 참고합니다.
 
 **Obsidian Rules**
 - 모든 문서 참조는 obsidian 위키링크 형식을 사용합니다: `[[path/to/file.md]]`.

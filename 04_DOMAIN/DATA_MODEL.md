@@ -1,5 +1,3 @@
-# DATA_MODEL
-
 ## 0. 작업 양식
 데이터 모델 변경 시 아래 양식을 유지한다.
 
@@ -24,7 +22,7 @@
 - [[01_PRODUCT/GAME_RULES.md]]
 - [[01_PRODUCT/ECONOMY.md]]
 - [[01_PRODUCT/CATALOG.md]]
-- [[03_DOMAIN/REDIS_DB_TIMING.md]]
+- [[04_DOMAIN/REDIS_DB_TIMING.md]]
 
 ---
 ## 2. 엔티티 분류 규칙
@@ -88,7 +86,6 @@
 | ITEM | persistent | 아이템 카탈로그 |
 | SPELL | persistent | 스펠 카탈로그 |
 | CHAT_MESSAGE | persistent | 채팅 로그 |
-| TYPING_STATUS | ephemeral | 타이핑 상태(WS) |
 | CONNECTION_HEARTBEAT | ephemeral | 연결 상태/하트비트 |
 | STAGE_REMAINING_MS | derived | 남은 시간(계산값) |
 | ITEM_EFFECT_ACTIVE | ephemeral | 효과 적용 중 상태(필요 시 승격 가능) |
@@ -360,44 +357,44 @@ erDiagram
 | nickname       | varchar        | N    | 닉네임                     |
 | language       | enum(Language) | N    | 주 사용 언어                 |
 | tier           | varchar        | N    | 티어( score 기반 파생값, 캐시용 ) |
-| score          | int            | N    | 랭킹 점수                   |
-| exp            | double         | N    | 경험치                     |
+| score          | int            | N    | 랭킹 점수(0 이상)             |
+| exp            | double         | N    | 경험치(누적, 감소 없음)          |
 | coin           | int            | N    | 보유 코인(단일 진실)            |
 | active_game_id | uuid           | Y    | 진행 중 게임(Game.id)        |
 | created_at     | datetime       | N    | 생성 시각                   |
 | updated_at     | datetime       | N    | 수정 시각                   |
 
 ### 5.2 ROOM (storage: persistent)
-| 필드 | 타입 | NULL | 설명 |
-|---|---|---|---|
-| id | uuid | N | 방 PK |
-| room_name | varchar | N | 방 이름 |
-| game_type | enum(GameType) | N | NORMAL/RANKED |
-| language | enum(Language) | N | 주 사용 언어 |
-| max_players | int | N | 최대 인원(2~6) |
-| host_user_id | uuid | N | 방장(User.id) **단일 진실** |
-| created_at | datetime | N | 생성 시각 |
-| updated_at | datetime | N | 수정 시각 |
+| 필드           | 타입             | NULL | 설명                    |
+| ------------ | -------------- | ---- | --------------------- |
+| id           | uuid           | N    | 방 PK                  |
+| room_name    | varchar        | N    | 방 이름                  |
+| game_type    | enum(GameType) | N    | NORMAL/RANKED         |
+| language     | enum(Language) | N    | 주 사용 언어               |
+| max_players  | int            | N    | 최대 인원(2~6)            |
+| host_user_id | uuid           | N    | 방장(User.id) **단일 진실** |
+| created_at   | datetime       | N    | 생성 시각                 |
+| updated_at   | datetime       | N    | 수정 시각                 |
 
 ### 5.3 ROOM_PLAYER (storage: persistent)
-| 필드 | 타입 | NULL | 설명 |
-|---|---|---|---|
-| id | uuid | N | PK |
-| room_id | uuid | N | Room.id |
-| user_id | uuid | N | User.id |
-| state | enum(PlayerState) | N | READY/UNREADY/DISCONNECTED |
-| joined_at | datetime | N | 입장 시각 |
-| left_at | datetime | Y | 퇴장 시각 (NULL=활성) |
-| disconnected_at | datetime | Y | 연결 유실 시각 |
+| 필드              | 타입                | NULL | 설명                         |
+| --------------- | ----------------- | ---- | -------------------------- |
+| id              | uuid              | N    | PK                         |
+| room_id         | uuid              | N    | Room.id                    |
+| user_id         | uuid              | N    | User.id                    |
+| state           | enum(PlayerState) | N    | READY/UNREADY/DISCONNECTED |
+| joined_at       | datetime          | N    | 입장 시각                      |
+| left_at         | datetime          | Y    | 퇴장 시각 (NULL=활성)            |
+| disconnected_at | datetime          | Y    | 연결 유실 시각                   |
 
 ### 5.4 ROOM_KICK (storage: persistent)
-| 필드 | 타입 | NULL | 설명 |
-|---|---|---|---|
-| id | uuid | N | PK |
-| room_id | uuid | N | Room.id |
-| user_id | uuid | N | 강퇴된 User.id |
-| kicked_by_user_id | uuid | N | 강퇴한 방장(User.id) |
-| kicked_at | datetime | N | 강퇴 시각 |
+| 필드                | 타입       | NULL | 설명              |
+| ----------------- | -------- | ---- | --------------- |
+| id                | uuid     | N    | PK              |
+| room_id           | uuid     | N    | Room.id         |
+| user_id           | uuid     | N    | 강퇴된 User.id     |
+| kicked_by_user_id | uuid     | N    | 강퇴한 방장(User.id) |
+| kicked_at         | datetime | N    | 강퇴 시각           |
 
 ### 5.5 ROOM_HOST_HISTORY (storage: persistent)
 | 필드 | 타입 | NULL | 설명 |
@@ -448,6 +445,7 @@ erDiagram
 비고:
 - final_score_value는 게임 내 채택된 제출 점수(가중합 결과)
 - 무승부일 경우 모든 참가자의 result는 DRAW로 기록한다.
+- score_before/after/delta 계산은 ECONOMY의 Elo 규칙을 따른다. (RANKED 전용)
 
 ### 5.8 GAME_BAN (storage: persistent)
 | 필드 | 타입 | NULL | 설명 |
@@ -631,8 +629,11 @@ erDiagram
 - SUBMISSION.exec_time_ms >= 0
 - SUBMISSION.memory_kb >= 0
 - SUBMISSION.submitted_elapsed_ms >= 0
+- USER.score >= 0
 - USER.exp >= 0
 - USER.coin >= 0
+- GAME_PLAYER.score_before >= 0
+- GAME_PLAYER.score_after >= 0 (NULL 허용)
 - GAME_PLAYER.coin_before >= 0
 - GAME_PLAYER.exp_before >= 0
 - GAME_PLAYER.coin_delta >= 0
@@ -649,6 +650,8 @@ erDiagram
 - 밴/픽/구매 타임아웃
 - 아이템/스펠 효과 로직
 - 점수 산정 로직(가중합 수식은 서비스 레벨)
+- score_delta 계산(Elo), 클램프, LEFT 패널티는 ECONOMY를 따른다.
+- SHOP 구매는 사용자당 1회이며, 아이템/스펠을 일괄 요청한다.
 - 채팅 채널별 스코프 제약
   - GLOBAL: room_id NULL
   - INGAME: room_id 필수
@@ -676,17 +679,13 @@ erDiagram
 
 ---
 ## 9. 비저장 상태 모델 (ephemeral/derived)
-### 9.1 TYPING_STATUS (ephemeral)
-- user_id, room_id, is_typing, updated_at
-- WebSocket 이벤트로만 관리
-
-### 9.2 CONNECTION_HEARTBEAT (ephemeral)
+### 9.1 CONNECTION_HEARTBEAT (ephemeral)
 - user_id, last_seen_at, connection_state
 - 재접속 판단/표시는 캐시 기반
 
-### 9.3 STAGE_REMAINING_MS (derived)
+### 9.2 STAGE_REMAINING_MS (derived)
 - remaining_ms = stage_deadline_at - meta.serverTime
 
-### 9.4 ITEM_EFFECT_ACTIVE (ephemeral)
+### 9.3 ITEM_EFFECT_ACTIVE (ephemeral)
 - game_id, user_id, item_id, started_at, expires_at
 - 서버 재시작 복구가 필요하면 persistent 승격

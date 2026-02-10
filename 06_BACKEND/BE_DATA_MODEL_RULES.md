@@ -1,12 +1,10 @@
-# BE_DATA_MODEL_RULES
-
 ## 0. 문서 목적
 - 데이터 모델/DB 구현 규칙을 정의한다.
-- 단일 진실은 `03_DOMAIN` 문서다.
+- 단일 진실은 `04_DOMAIN` 문서다.
 
 ## 관련 문서
-- [[03_DOMAIN/DATA_MODEL.md]]
-- [[03_DOMAIN/DB_NOTES.md]]
+- [[04_DOMAIN/DATA_MODEL.md]]
+- [[04_DOMAIN/DB_NOTES.md]]
 
 ---
 ## 1. 모델 준수 규칙

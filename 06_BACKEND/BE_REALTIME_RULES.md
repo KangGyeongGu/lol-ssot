@@ -1,5 +1,3 @@
-# BE_REALTIME_RULES
-
 ## 0. 문서 목적
 - 실시간(STOMP) 이벤트/커맨드 구현 규칙을 정의한다.
 - 계약의 단일 진실은 `03_API/CONTRACT/REALTIME` 문서다.

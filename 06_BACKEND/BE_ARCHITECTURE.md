@@ -1,17 +1,15 @@
-# BE_ARCHITECTURE
-
 ## 0. 문서 목적
 - 백엔드 모듈 경계와 책임 분리를 정의한다.
 - 병렬 개발 시 충돌을 최소화한다.
 
 ## 관련 문서
-- [[05_BACKEND/BE_CONVENTIONS.md]]
-- [[05_BACKEND/BE_API_RULES.md]]
-- [[05_BACKEND/BE_REALTIME_RULES.md]]
-- [[05_BACKEND/BE_DATA_MODEL_RULES.md]]
+- [[06_BACKEND/BE_CONVENTIONS.md]]
+- [[06_BACKEND/BE_API_RULES.md]]
+- [[06_BACKEND/BE_REALTIME_RULES.md]]
+- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
 
 ---
-## 1. 기본 모듈 구조(권장)
+## 1. 기본 모듈 구조
 - `src/app`: 서버 부트스트랩
 - `src/config`: 환경 설정/상수
 - `src/common`: 공통 유틸/미들웨어/에러 핸들러

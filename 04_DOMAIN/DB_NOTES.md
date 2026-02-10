@@ -1,12 +1,10 @@
-# DB_NOTES
-
 ## 0. 목적
 - DATA_MODEL.md를 보조하는 성능/설계 이유 문서.
 - 단일 진실은 DATA_MODEL.md이다.
 
 ## 관련 문서
-- [[03_DOMAIN/DATA_MODEL.md]]
-- [[03_DOMAIN/REDIS_DB_TIMING.md]]
+- [[04_DOMAIN/DATA_MODEL.md]]
+- [[04_DOMAIN/REDIS_DB_TIMING.md]]
 
 ---
 ## 1. 인덱스 전략
@@ -71,7 +69,7 @@
 - SUBMISSION.source_code는 용량이 커질 수 있으므로 분리 저장/압축 고려.
 - 실시간 랭킹은 USER.score 기반 정렬이므로 캐시/정렬 최적화 필요.
 - 밴/픽률 통계는 GAME_BAN/GAME_PICK 집계로 계산(배치/캐시 가능).
-- SHOP 구매 검증은 GAME_ITEM_PURCHASE/GAME_SPELL_PURCHASE 합산으로 처리.
+- SHOP 구매 검증은 단일 요청 기준으로 GAME_ITEM_PURCHASE/GAME_SPELL_PURCHASE 합산으로 처리(사용자당 1회).
 - CHAT_MESSAGE는 현재 무기한 보관(보관 정책 미적용)으로 가정한다.
 
 ---
@@ -91,7 +89,7 @@
 - 재접속/감사/통계에 필요한 최소 기록
 
 ### 4.2 Redis에 두는 것 (ephemeral/derived)
-- 타이핑 상태, 실시간 화면 스트림, 단계 남은 시간
+- 실시간 화면 스트림, 단계 남은 시간
 - 실시간 연결 상태(heartbeat)
 - UI 이벤트 기반 상태
 

@@ -1,11 +1,9 @@
-# BE_CONVENTIONS
-
 ## 0. 문서 목적
 - 백엔드 코드 작성 시 일관된 컨벤션을 강제한다.
 
 ## 관련 문서
-- [[05_BACKEND/BE_ARCHITECTURE.md]]
-- [[05_BACKEND/BE_STACK.md]]
+- [[06_BACKEND/BE_ARCHITECTURE.md]]
+- [[06_BACKEND/BE_STACK.md]]
 - [[03_API/CONTRACT/REST/CONVENTIONS.md]]
 - [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
 

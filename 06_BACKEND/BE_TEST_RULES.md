@@ -1,15 +1,13 @@
-# BE_TEST_RULES
-
 ## 0. 문서 목적
 - Spring Boot + JPA + PostgreSQL 환경의 테스트 전략/케이스 작성 규칙을 정의한다.
 - 단일 진실(계약/도메인 규칙)은 다른 문서를 따른다.
 
 ## 관련 문서
-- [[05_BACKEND/BE_STACK.md]]
-- [[05_BACKEND/BE_CONVENTIONS.md]]
-- [[05_BACKEND/BE_API_RULES.md]]
-- [[05_BACKEND/BE_REALTIME_RULES.md]]
-- [[05_BACKEND/BE_DATA_MODEL_RULES.md]]
+- [[06_BACKEND/BE_STACK.md]]
+- [[06_BACKEND/BE_CONVENTIONS.md]]
+- [[06_BACKEND/BE_API_RULES.md]]
+- [[06_BACKEND/BE_REALTIME_RULES.md]]
+- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
 - [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
 - [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
 - [[03_API/CONTRACT/REST/AUTH_GUARDS.md]]

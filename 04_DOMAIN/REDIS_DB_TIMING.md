@@ -1,12 +1,10 @@
-# REDIS_DB_TIMING
-
 ## 0. 문서 목적
 - Redis와 DB의 저장 타이밍(Write Policy)을 명확히 정의한다.
 - 로비~게임 종료 사이클에서 저장 시점을 일관되게 적용한다.
 
 ## 관련 문서
-- [[03_DOMAIN/DATA_MODEL.md]]
-- [[03_DOMAIN/DB_NOTES.md]]
+- [[04_DOMAIN/DATA_MODEL.md]]
+- [[04_DOMAIN/DB_NOTES.md]]
 - [[03_API/LIFECYCLE.md]]
 
 ---

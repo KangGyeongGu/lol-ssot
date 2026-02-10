@@ -1,17 +1,15 @@
-# BE_AGENT_SPLIT
-
 ## 0. 문서 목적
 - Claude Code 서브에이전트 병렬 실행을 위한 작업 분할 기준을 정의한다.
 - 에이전트 간 충돌을 최소화한다.
 
 ## 관련 문서
-- [[05_BACKEND/BE_ARCHITECTURE.md]]
-- [[05_BACKEND/BE_CONVENTIONS.md]]
-- [[05_BACKEND/BE_API_RULES.md]]
-- [[05_BACKEND/BE_REALTIME_RULES.md]]
-- [[05_BACKEND/BE_DATA_MODEL_RULES.md]]
+- [[06_BACKEND/BE_ARCHITECTURE.md]]
+- [[06_BACKEND/BE_CONVENTIONS.md]]
+- [[06_BACKEND/BE_API_RULES.md]]
+- [[06_BACKEND/BE_REALTIME_RULES.md]]
+- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
 - [[03_API/README.md]]
-- [[03_DOMAIN/DATA_MODEL.md]]
+- [[04_DOMAIN/DATA_MODEL.md]]
 
 ---
 ## 1. 분할 원칙
