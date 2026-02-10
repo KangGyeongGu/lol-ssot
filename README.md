@@ -45,13 +45,15 @@ git submodule update --remote --merge
 
 **AI Subagents**
 - 서브에이전트는 이 SSOT를 **참조 전용**으로 사용합니다.
-- 프론트엔드 규칙은 `04_FRONTEND/`, 백엔드 규칙은 `05_BACKEND/`에 있습니다.
+- 프론트엔드 규칙은 `05_FRONTEND/`, 백엔드 규칙은 `06_BACKEND/`에 있습니다.
+- Claude Code 파이프라인 정의는 `AGENTS/CLAUDE/`에 있습니다.
+- Codex 검증 에이전트 정의는 `AGENTS/CODEX/`에 있습니다.
 
 **Claude Code Subagent System**
-- Claude Max 5x 이상 요금제를 권장합니다. 이하 요금제에서는 토큰 소모량이 현저히 부족할 수 있습니다.
 - 실제 실행 에이전트는 각 코드 레포의 `.claude/agents` 에 복사하여 사용합니다.
-- 에이전트 정의는 `AGENTS/`에 있습니다.
-- 상세한 흐름/사용 방식은 `AGENTS/README.md`를 참고합니다.
+- Claude Code 파이프라인 정의는 `AGENTS/CLAUDE/`에 있습니다.
+- 상세한 흐름/사용 방식은 `AGENTS/CLAUDE/README.md`를 참고합니다.
+- Codex 검증 에이전트/스크립트는 `AGENTS/CODEX/README.md`를 참고합니다.
 
 **Obsidian Rules**
 - 모든 문서 참조는 obsidian 위키링크 형식을 사용합니다: `[[path/to/file.md]]`.
@@ -61,5 +63,5 @@ git submodule update --remote --merge
 - 제품/정책 변경: `01_PRODUCT`에서 먼저 수정
 - 디자인 변경: `02_DESIGN`에서 먼저 수정
 - API 변경: `03_API`에서 먼저 수정
-- 도메인/DB 변경: `03_DOMAIN`에서 먼저 수정
-- FE/BE 구현 규칙 변경: `04_FRONTEND`, `05_BACKEND`
+- 도메인/DB 변경: `04_DOMAIN`에서 먼저 수정
+- FE/BE 구현 규칙 변경: `05_FRONTEND`, `06_BACKEND`
