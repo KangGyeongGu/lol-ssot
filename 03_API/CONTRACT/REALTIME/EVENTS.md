@@ -27,7 +27,9 @@
 - GAME_STAGE_CHANGED
 - ROOM_GAME_STARTED
 - GAME_BAN_SUBMITTED
+- GAME_BAN_FINALIZED
 - GAME_PICK_SUBMITTED
+- GAME_PICK_FINALIZED
 - GAME_SHOP_PURCHASED
 - GAME_FINISHED
 - ITEM_EFFECT_APPLIED
@@ -216,7 +218,18 @@ Data:
 - algorithmId: string
 - submittedAt: datetime
 
-### 6.3 GAME_PICK_SUBMITTED
+### 6.3 GAME_BAN_FINALIZED
+Topic: `/topic/games/{gameId}`
+
+Type: `GAME_BAN_FINALIZED`
+
+Data:
+- gameId: string
+- roomId: string
+- finalBanAlgorithmId: string
+- finalizedAt: datetime
+
+### 6.4 GAME_PICK_SUBMITTED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_PICK_SUBMITTED`
@@ -228,7 +241,18 @@ Data:
 - algorithmId: string
 - submittedAt: datetime
 
-### 6.4 GAME_SHOP_PURCHASED
+### 6.5 GAME_PICK_FINALIZED
+Topic: `/topic/games/{gameId}`
+
+Type: `GAME_PICK_FINALIZED`
+
+Data:
+- gameId: string
+- roomId: string
+- finalAlgorithmId: string
+- finalizedAt: datetime
+
+### 6.6 GAME_SHOP_PURCHASED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_SHOP_PURCHASED`
@@ -252,7 +276,7 @@ Data:
 Note:
 - items/spells 중 하나 이상이 포함된다.
 
-### 6.5 GAME_FINISHED
+### 6.7 GAME_FINISHED
 Topic: `/topic/games/{gameId}`
 
 Type: `GAME_FINISHED`

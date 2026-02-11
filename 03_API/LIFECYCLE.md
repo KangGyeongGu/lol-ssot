@@ -71,9 +71,11 @@
   - `/topic/rooms/{roomId}/chat`
 - 단계 진행:
   - REST `/games/{gameId}/ban`, `/pick`, `/shop/purchase`
+  - BAN 종료 시 `GAME_BAN_FINALIZED` → `GAME_STAGE_CHANGED(stage=PICK)` 순서로 전파
+  - PICK 종료 시 `GAME_PICK_FINALIZED` → `GAME_STAGE_CHANGED(stage=SHOP)` 순서로 전파
   - 단계 전환은 `GAME_STAGE_CHANGED`로 동기화
 - BAN/PICK/SHOP 단계 제한시간은 각 10초로 고정한다.
-- 밴/픽/구매 결과는 `/topic/games/{gameId}` 이벤트로 전파한다.
+- 밴/픽 제출 및 최종 산출, 구매 결과는 `/topic/games/{gameId}` 이벤트로 전파한다.
 
 ### 3.4 IN_GAME
 - 구독:

@@ -66,22 +66,35 @@ Active Game: 사용자가 현재 참여 중이며 종료되지 않은 게임.
 ### 5.1 방장 전용 기능
 - 게임 시작
 - 플레이어 강퇴
+- 방장 위임
 
 ### 5.2 실패 응답
 - HTTP 403
 - error.code = NOT_HOST
 
 ---
-## 6. 대기실 상태 가드
-### 6.1 READY 규칙
-- 모든 플레이어 READY 상태여야 게임 시작 가능.
+## 6. 방장 위임 대상 가드
+### 6.1 조건
+- targetUserId는 본인이 아니어야 한다.
+- 대상은 동일 방의 플레이어여야 한다.
+- 대상 상태는 READY 또는 UNREADY여야 한다.
 
 ### 6.2 실패 응답
+- HTTP 400 / error.code = VALIDATION_FAILED (본인에게 위임)
+- HTTP 404 / error.code = PLAYER_NOT_IN_ROOM
+- HTTP 409 / error.code = INVALID_PLAYER_STATE (DISCONNECTED 등)
+
+---
+## 7. 대기실 상태 가드
+### 7.1 READY 규칙
+- 모든 플레이어 READY 상태여야 게임 시작 가능.
+
+### 7.2 실패 응답
 - HTTP 409
 - error.code = INVALID_PLAYER_STATE
 
 ---
-## 7. 단계(Stage) 가드
+## 8. 단계(Stage) 가드
 명령은 허용된 stage에서만 가능하다.
 - BAN → `/games/{gameId}/ban`
 - PICK → `/games/{gameId}/pick`
@@ -93,6 +106,6 @@ Active Game: 사용자가 현재 참여 중이며 종료되지 않은 게임.
 - error.code = INVALID_STAGE_ACTION
 
 ---
-## 8. 고정 원칙
+## 9. 고정 원칙
 - 서버가 단일 기준(authoritative)으로 가드를 판단한다.
 - 프론트엔드는 가드를 추론하지 않고 응답에 반응한다.

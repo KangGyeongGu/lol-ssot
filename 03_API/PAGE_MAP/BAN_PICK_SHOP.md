@@ -26,6 +26,11 @@
 
 ### 2.1 단계 제한시간
 - BAN/PICK/SHOP는 각 10초로 고정한다.
+### 2.2 단계 전환 규칙
+- BAN 10초 종료 후 서버가 최종 BAN 알고리즘을 산출하고 `GAME_BAN_FINALIZED`를 전파한다.
+- `GAME_BAN_FINALIZED` 이후 `GAME_STAGE_CHANGED(stage=PICK)`가 전파되며 이 시점부터 PICK 10초가 시작된다.
+- PICK 10초 종료 후 서버가 최종 PICK 알고리즘을 산출하고 `GAME_PICK_FINALIZED`를 전파한다.
+- `GAME_PICK_FINALIZED` 이후 `GAME_STAGE_CHANGED(stage=SHOP)`가 전파되며 이 시점부터 SHOP 10초가 시작된다.
 
 ---
 ## 3. 실시간 구독/발행
@@ -34,7 +39,9 @@
 |---|---|---|
 | /topic/games/{gameId} | GAME_STAGE_CHANGED | BAN→PICK→SHOP→PLAY 단계 전환 반영 |
 | /topic/games/{gameId} | GAME_BAN_SUBMITTED | 밴 제출 결과 반영 |
+| /topic/games/{gameId} | GAME_BAN_FINALIZED | 최종 BAN 알고리즘 반영 |
 | /topic/games/{gameId} | GAME_PICK_SUBMITTED | 픽 제출 결과 반영 |
+| /topic/games/{gameId} | GAME_PICK_FINALIZED | 최종 PICK 알고리즘 반영 |
 | /topic/games/{gameId} | GAME_SHOP_PURCHASED | SHOP 구매 결과 반영 |
 | /topic/rooms/{roomId}/chat | CHAT_MESSAGE | 룸 채팅 수신 |
 | /user/queue/errors | ERROR | 명령 실패 처리 |

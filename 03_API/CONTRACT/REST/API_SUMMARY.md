@@ -51,6 +51,7 @@
 | READY   | POST | /rooms/{roomId}/ready   | 준비 상태 전환                                    |
 | UNREADY | POST | /rooms/{roomId}/unready | 준비 상태 전환                                    |
 | 게임 시작   | POST | /rooms/{roomId}/start   | 방장 전용                                       |
+| 방장 위임   | POST | /rooms/{roomId}/transfer-host | 방장 전용                                   |
 | 플레이어 강퇴 | POST | /rooms/{roomId}/kick    | 방장 전용                                       |
 
 ---

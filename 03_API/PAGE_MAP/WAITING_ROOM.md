@@ -21,6 +21,7 @@
 | UNREADY | POST | /rooms/{roomId}/unready | 본인 상태 UNREADY 전환 |
 | 방 나가기 | POST | /rooms/{roomId}/leave | 성공 시 MAIN 복귀(필요 시 ROOM_LIST 패널 상태 진입) |
 | 게임 시작(방장) | POST | /rooms/{roomId}/start | 성공 시 ActiveGame(pageRoute) 기준 다음 화면 이동 |
+| 방장 위임(방장) | POST | /rooms/{roomId}/transfer-host | body.targetUserId 필수 |
 | 플레이어 강퇴(방장) | POST | /rooms/{roomId}/kick | body.targetUserId 필수 |
 
 ---
@@ -36,6 +37,9 @@
 | /topic/rooms/{roomId}/chat | CHAT_MESSAGE | 인게임(룸 스코프) 채팅 수신 |
 | /user/queue/rooms | ROOM_KICKED | 본인 강퇴 알림 처리 |
 | /user/queue/errors | ERROR | 실시간 명령 실패 처리 |
+
+Note:
+- 방장 위임 성공 시 ROOM_HOST_CHANGED와 ROOM_PLAYER_STATE_CHANGED(대상 READY)가 연속 수신될 수 있다.
 
 ### 3.2 발행 (Command)
 | Destination | Command Type | Data 핵심 필드 |

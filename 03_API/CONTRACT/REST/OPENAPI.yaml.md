@@ -316,6 +316,13 @@ components:
         targetUserId:
           type: string
 
+    TransferHostRequest:
+      type: object
+      required: [targetUserId]
+      properties:
+        targetUserId:
+          type: string
+
     GamePlayer:
       type: object
       required: [userId, nickname, score]
@@ -372,6 +379,12 @@ components:
           $ref: "#/components/schemas/GameStage"
         remainingMs:
           type: integer
+        finalBanAlgorithmId:
+          type: string
+          nullable: true
+        finalAlgorithmId:
+          type: string
+          nullable: true
         players:
           type: array
           items:
@@ -396,6 +409,8 @@ components:
           type: string
         quantity:
           type: integer
+          minimum: 1
+          maximum: 5
 
     ShopPurchaseSpell:
       type: object
@@ -405,6 +420,8 @@ components:
           type: string
         quantity:
           type: integer
+          minimum: 1
+          maximum: 2
 
     ShopPurchaseRequest:
       type: object
@@ -413,10 +430,12 @@ components:
       properties:
         items:
           type: array
+          maxItems: 3
           items:
             $ref: "#/components/schemas/ShopPurchaseItem"
         spells:
           type: array
+          maxItems: 2
           items:
             $ref: "#/components/schemas/ShopPurchaseSpell"
 
@@ -1303,6 +1322,77 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/ActiveGame"
+        "401":
+          description: 인증 실패
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "403":
+          description: 권한 없음
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "404":
+          description: 리소스 없음
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "409":
+          description: 상태 충돌
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "429":
+          description: 요청 제한
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "500":
+          description: 서버 오류
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+
+  /rooms/{roomId}/transfer-host:
+    post:
+      tags: [Rooms]
+      summary: 방장 위임
+      parameters:
+        - name: roomId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransferHostRequest"
+      responses:
+        "200":
+          description: 성공
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/SuccessEnvelope"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/RoomDetail"
+        "400":
+          description: 잘못된 요청
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
         "401":
           description: 인증 실패
           content:
