@@ -43,7 +43,7 @@ git submodule update --init --recursive
 git submodule update --remote --merge
 ```
 ### 2.2. AGENTS & SKILLS 설계 및 구현 원칙
-> AGENTS 및 SKILLS 구조 및 사용 가이드라인 관련 설명은 [README](AGENTS/CLAUDE/README)를 참조합니다.
+> AGENTS 및 SKILLS 구조 및 사용 가이드라인 관련 설명은 [README](AGENTS/CLAUDE/README.md)를 참조합니다.
 1. 에이전트는 역할·제약·언어 규칙·참조 SSOT 문서 링크만 포함해야 합니다.
 	- 에이전트 지침이 지나치게 비대해지지 않도록 주의합니다.
 	- 사용자가 의도하지 않은 (llm 자율 추론) 작업이 발생하지 않도록, 하나의 에이전트의 작업 단위를 명확히 한정합니다.
@@ -54,7 +54,7 @@ git submodule update --remote --merge
 > 메시지 형식은 `영역: 요약`을 사용합니다. 예: `docs: 서브에이전트 가이드 정비`
 
 ### 3.2. SSOT Partial Commit Convention
-> Partial Review Agents & Skills 워크플로우를 위한 Git SSOT 커스텀 컨벤션을 사용합니다. 자세한 설명은 [README Partial Agents&Skills](AGENTS/CLAUDE/README#L323)를 참조합니다.
+> Partial Review Agents & Skills 워크플로우를 위한 Git SSOT 커스텀 컨벤션을 사용합니다. 자세한 설명은 [README Partial Agents&Skills](AGENTS/CLAUDE/README.md#L323)를 참조합니다.
 ```markdown
 ssot(<domain>): <action> <summary>
 ssot: <action> <summary>
