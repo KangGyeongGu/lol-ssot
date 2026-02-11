@@ -6,6 +6,7 @@
 - [[03_API/CONTRACT/REST/CONVENTIONS.md]]
 - [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
 - [[03_API/LIFECYCLE.md]]
+- [[05_FRONTEND/FE_NOTIFICATION_MESSAGES.md]]
 
 ---
 ## 1. 상태 분류 규칙
@@ -37,3 +38,9 @@
 ## 5. 금지
 - 서버 규칙을 클라이언트에서 추론/복제 금지.
 - 컴포넌트에서 스토어 상태를 직접 변형 금지.
+
+---
+## 6. 알림/에러 문구 규칙
+- 서버 응답의 `error.code`에 대한 안내 문구는 프론트엔드에서 관리한다.
+- 동일 `error.code`는 동일 문구로 매핑되며, 서버에서 문구를 전달하지 않는다.
+- 이벤트 기반 알림은 `NOTICE.*` 키를 사용한다.

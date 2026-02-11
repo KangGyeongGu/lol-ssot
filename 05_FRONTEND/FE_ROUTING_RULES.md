@@ -39,4 +39,4 @@
 
 ---
 ## 6. 디자인 참조 규칙
-- 모든 라우트 구현은 `[[05_FRONTEND/FE_DESIGN_MAPPING.md]]`에 매핑된 디자인 문서를 반드시 참조한다.
+- 모든 라우트 구현은 [[05_FRONTEND/FE_DESIGN_MAPPING.md]]에 매핑된 디자인 문서를 반드시 참조한다.
