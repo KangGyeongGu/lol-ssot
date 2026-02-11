@@ -2,14 +2,16 @@
 name: fe-dev
 description: "Runs the frontend dev pipeline based on review task cards."
 user-invocable: true
-disable-model-invocation: true
+disable-model-invocation: false
 context: fork
 agent: fe-dev-master
 allowed-tools: SlashCommand, Read, Write, Glob, Bash
 ---
 Workflow (Required)
-1. Delete and recreate `.claude/reports/dev/fe/`.
-2. Verify `.claude/reports/review/fe/MASTER_PLAN.md` and `.claude/reports/review/fe/TASKS/` exist.
-3. For each task card, select the appropriate dev skill by DOMAIN.
-4. Call the dev skill via SlashCommand, passing one task card at a time.
-5. After all tasks, write `.claude/reports/dev/fe/DEV_SUMMARY.md` in English.
+1. If `.claude/reports/dev/fe/full/active/` exists, move it to `.claude/reports/dev/fe/full/archive/<timestamp>/`.
+2. Ensure `.claude/reports/dev/fe/full/active/` exists (create as needed).
+3. Ensure `.claude/reports/dev/fe/full/active/RESULTS/` exists (create as needed).
+4. Verify `.claude/reports/review/fe/full/active/MASTER_PLAN.md` and `.claude/reports/review/fe/full/active/TASKS/` exist.
+5. For each task card, select the appropriate dev skill by DOMAIN.
+6. Call the dev skill via SlashCommand, passing one task card at a time.
+7. After all tasks, write `.claude/reports/dev/fe/full/active/DEV_SUMMARY.md` in English.

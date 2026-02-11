@@ -8,13 +8,14 @@ agent: fe-review-master
 allowed-tools: SlashCommand, Read, Write, Glob, Bash
 ---
 Workflow (Required)
-1. Delete and recreate `.claude/reports/review/fe/`.
-2. Call all frontend review skills via SlashCommand:
+1. If `.claude/reports/review/fe/full/active/` exists, move it to `.claude/reports/review/fe/full/archive/<timestamp>/`.
+2. Ensure `.claude/reports/review/fe/full/active/` exists (create as needed).
+3. Call all frontend review skills via SlashCommand:
    - /fe-review-api
    - /fe-review-state
    - /fe-review-routing
    - /fe-review-realtime
    - /fe-review-quality
-3. Verify all required report files exist.
-4. If any are missing, rerun the missing skills and stop.
-5. Read only report files and consolidate per the master agent instructions.
+4. Verify all required report files exist in `.claude/reports/review/fe/full/active/`.
+5. If any are missing, rerun the missing skills and stop.
+6. Read only report files and consolidate per the master agent instructions.
