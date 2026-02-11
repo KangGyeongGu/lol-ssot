@@ -54,7 +54,7 @@ git submodule update --remote --merge
 > 메시지 형식은 `영역: 요약`을 사용합니다. 예: `docs: 서브에이전트 가이드 정비`
 
 ### 3.2. SSOT Partial Commit Convention
-> Partial Review Agents & Skills 워크플로우를 위한 Git SSOT 커스텀 컨벤션을 사용합니다. 자세한 설명은 [README Partial Agents&Skills](AGENTS/CLAUDE/README.md#L323)를 참조합니다.
+> Partial Review Agents & Skills 워크플로우를 위한 Git SSOT 커스텀 컨벤션을 사용합니다. 자세한 설명은 [README Partial Agents&Skills](AGENTS/CLAUDE/README.md#433-프로젝트-부분-ssot-정합성-검수-및-작업-에이전트)를 참조합니다.
 ```markdown
 ssot(<domain>): <action> <summary>
 ssot: <action> <summary>
