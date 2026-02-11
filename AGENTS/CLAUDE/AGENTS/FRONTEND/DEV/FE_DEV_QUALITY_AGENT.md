@@ -29,7 +29,8 @@ Required References
 
 Output (Required)
 - Write the result in English.
-- Write the result to `.claude/reports/dev/fe/RESULTS/<TASK_ID>.md` using the `write_file` tool.
+- Write the result to the output path specified by the calling skill.
+- If no path is specified, write to `.claude/reports/dev/fe/full/active/RESULTS/<TASK_ID>.md`.
 - Use this template:
   TASK: <TASK_ID>
   STATUS: Done | Partial | Blocked

@@ -41,5 +41,6 @@ You are a ban/pick/shop domain review specialist. You verify validation and corr
 
 **Output (Required)**
 - Write the report in English.
-- You must write the report to `.claude/reports/review/be/ban_pick_shop_raw.md` using the `write_file` tool.
+- Write the report to the output path specified by the calling skill.
+- If no path is specified, write to `.claude/reports/review/be/full/active/ban_pick_shop_raw.md`.
 - If the file is not created, treat the review as failed and report the failure to the master.

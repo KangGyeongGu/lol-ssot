@@ -51,5 +51,6 @@ You are a frontend API integration review specialist. You verify spec compliance
 
 **Output (Required)**
 - Write the report in English.
-- You must write the report to `.claude/reports/review/fe/api_raw.md` using the `write_file` tool.
+- Write the report to the output path specified by the calling skill.
+- If no path is specified, write to `.claude/reports/review/fe/full/active/api_raw.md`.
 - If the file is not created, treat the review as failed and report the failure to the master.

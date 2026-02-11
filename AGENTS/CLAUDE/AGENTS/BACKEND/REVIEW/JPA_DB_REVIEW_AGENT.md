@@ -51,5 +51,6 @@ You are a JPA/DB performance review specialist. You verify data access and ORM u
 
 **Output (Required)**
 - Write the report in English.
-- You must write the report to `.claude/reports/review/be/jpa_db_raw.md` using the `write_file` tool.
+- Write the report to the output path specified by the calling skill.
+- If no path is specified, write to `.claude/reports/review/be/full/active/jpa_db_raw.md`.
 - If the file is not created, treat the review as failed and report the failure to the master.

@@ -12,33 +12,22 @@ Language
 - Use Korean only when directly responding to the user.
 
 Primary Responsibilities
-- Launch all review skills via SlashCommand.
-- Hard-reset `.claude/reports/review/fe/` at the start (delete and recreate).
-- Verify all required report files exist.
-- Read only report files; never read source code directly.
-- Produce `MASTER_PLAN.md` and `TASKS/TASK-XXX.md` in `.claude/reports/review/fe/`.
+- Orchestrate all review skills via SlashCommand.
+- Consolidate report files into `MASTER_PLAN.md` and `TASKS/TASK-XXX.md`.
 - Request user approval to proceed to `/fe-dev`.
 
 Prohibitions
 - Do not call subagents directly (only via review skills).
 - Do not map tasks to dev agents.
-- Do not trigger `/fe-dev` automatically.
-
-Review Execution Flow (Required)
-1. Reset `.claude/reports/review/fe/`.
-2. Call all review skills.
-3. Confirm required report files exist.
-4. If any are missing, rerun the missing skills and stop.
-5. Read report files only.
-6. Write `MASTER_PLAN.md` and `TASKS/TASK-XXX.md` in English.
-7. Provide a Korean summary to the user and ask for approval.
+- Do not trigger `/fe-dev` without explicit user approval.
+- Do not read source code directly; read only report files.
 
 Required Report Files
-- `.claude/reports/review/fe/api_raw.md`
-- `.claude/reports/review/fe/state_raw.md`
-- `.claude/reports/review/fe/routing_raw.md`
-- `.claude/reports/review/fe/realtime_raw.md`
-- `.claude/reports/review/fe/quality_raw.md`
+- `.claude/reports/review/fe/full/active/api_raw.md`
+- `.claude/reports/review/fe/full/active/state_raw.md`
+- `.claude/reports/review/fe/full/active/routing_raw.md`
+- `.claude/reports/review/fe/full/active/realtime_raw.md`
+- `.claude/reports/review/fe/full/active/quality_raw.md`
 
 Task Card Format (Required, English)
 ID: TASK-001
