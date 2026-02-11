@@ -17,7 +17,7 @@ description: 02_DESIGN 문서(컬러/타이포/페이지 데이터 요구사항)
 - 핵심 문서:
   - [[02_DESIGN/COLOR_SYSTEM.md]]
   - [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
-  - [[02_DESIGN/PAGE_DATA_REQUIREMENTS/MAIN.md]]
+  - [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]]
 - 관련 에이전트:
   - [[AGENTS/CODEX/CROSS_CHECKER.md]]
 

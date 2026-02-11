@@ -23,7 +23,7 @@ description: 01_PRODUCT, 02_DESIGN, 03_API, 04_DOMAIN 간 용어/흐름/링크 �
   - `04_DOMAIN/`
 - 핵심 문서:
   - [[01_PRODUCT/USER_FLOWS.md]]
-  - [[02_DESIGN/PAGE_DATA_REQUIREMENTS/MAIN.md]]
+  - [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]]
   - [[03_API/LIFECYCLE.md]]
   - [[04_DOMAIN/DATA_MODEL.md]]
 - 관련 에이전트:
