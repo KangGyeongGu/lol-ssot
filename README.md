@@ -12,12 +12,11 @@ League of Algo Logic 프로젝트의 **단일 진실(SSOT)** 저장소입니다.
 **Directory Tree**
 ```text
 01_PRODUCT/            요구사항, 유저 플로우, 정책
-02_DESIGN/             디자인 규칙/토큰/페이지 레이아웃
+02_DESIGN/             디자인 규칙/토큰/페이지 요구사항
 03_API/                REST/실시간 계약 및 페이지 맵
 04_DOMAIN/             데이터 모델 및 DB 규칙
 05_FRONTEND/           프론트엔드 컨벤션/패턴/설계
 06_BACKEND/            백엔드 컨벤션/패턴/설계
-09_ARCHIVE/            보관/아카이브
 AGENTS/                Claude Code 서브에이전트 정의
 AGENTS/CODEX/          검증용 에이전트 정의 및 로그
 AGENTS/CLAUDE/         Claude Code 서브에이전트 정의(신규 파이프라인)
