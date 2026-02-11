@@ -13,5 +13,9 @@
 - loading (result wait)
 - error (event missing/invalid)
 
+## Interactions
+- GAME_FINISHED 데이터 누락/불일치 시 에러 상태를 표시한다.
+- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다.
+
 ## Prohibited
 - 결과 없이 보상 영역 표시

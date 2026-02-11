@@ -15,5 +15,9 @@
 - empty match history
 - error (REST)
 
+## Interactions
+- 프로필/통계/전적 조회 실패 시 알림을 표시한다(error.code: UNAUTHORIZED, FORBIDDEN, RATE_LIMITED, INTERNAL_ERROR).
+- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다.
+
 ## Prohibited
 - matchId 없이 전적 항목 표시

@@ -1,6 +1,6 @@
 ## 0. 문서 목적
 - REST 호출 구조와 에러 분기 **코드 패턴**을 정의한다.
-- API 규약/스키마는 `[[03_API/CONTRACT/REST/*.md]]`가 단일 진실이다.
+- API 규약/스키마는 `03_API/CONTRACT/REST/*.md`가 단일 진실이다.
 
 ## 관련 문서
 - [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]

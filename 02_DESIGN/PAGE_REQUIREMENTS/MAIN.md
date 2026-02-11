@@ -18,6 +18,11 @@
 - empty room list
 - error (REST/WS)
 
+## Interactions
+- 방 생성 실패 시 알림을 표시한다(error.code: ACTIVE_GAME_EXISTS, VALIDATION_FAILED, RATE_LIMITED, UNAUTHORIZED, FORBIDDEN).
+- 전역 채팅 전송 실패(ERROR 이벤트) 수신 시 알림을 표시한다.
+- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다.
+
 ## Prohibited
 - 하드코딩된 UI 문구
 - 목록 상태 없이 무한 스크롤 표시

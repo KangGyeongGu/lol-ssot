@@ -18,5 +18,9 @@
 - empty list
 - error (REST/WS)
 
+## Interactions
+- 방 참가 요청 실패 시 알림 컴포넌트로 실패 사유를 표시한다(error.code: ROOM_FULL, ROOM_NOT_FOUND, KICKED_USER, ACTIVE_GAME_EXISTS, INVALID_PLAYER_STATE, UNAUTHORIZED, FORBIDDEN).
+- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다.
+
 ## Prohibited
 - listVersion 없이 실시간 업데이트 반영

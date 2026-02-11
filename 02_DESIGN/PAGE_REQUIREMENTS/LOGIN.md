@@ -17,5 +17,10 @@
 - signup required
 - error (auth)
 
+## Interactions
+- 로그인 실패 시 알림을 표시한다(error.code: VALIDATION_FAILED, RATE_LIMITED, INTERNAL_ERROR).
+- 회원가입 실패 시 알림을 표시한다(error.code: VALIDATION_FAILED, RATE_LIMITED, INTERNAL_ERROR).
+- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다.
+
 ## Prohibited
 - 로그인 결과 없이 다음 화면 이동
