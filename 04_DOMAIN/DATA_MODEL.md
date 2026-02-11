@@ -155,6 +155,7 @@ erDiagram
     datetime stage_deadline_at
     datetime started_at
     datetime finished_at
+    uuid final_ban_algorithm_id FK
     uuid final_algorithm_id FK
     datetime created_at
   }
@@ -324,7 +325,8 @@ erDiagram
 
   ALGORITHM ||--o{ GAME_BAN : banned
   ALGORITHM ||--o{ GAME_PICK : picked
-  ALGORITHM ||--o{ GAME : final
+  ALGORITHM ||--o{ GAME : final_ban
+  ALGORITHM ||--o{ GAME : final_pick
 
   ITEM ||--o{ GAME_ITEM_PURCHASE : purchased
   ITEM ||--o{ ITEM_USAGE : used
@@ -417,6 +419,7 @@ erDiagram
 | stage_deadline_at | datetime | Y | 현재 단계 종료 시각 |
 | started_at | datetime | Y | 게임 시작 시각 |
 | finished_at | datetime | Y | 게임 종료 시각 |
+| final_ban_algorithm_id | uuid | Y | 최종 BAN 알고리즘(ALGORITHM.id) |
 | final_algorithm_id | uuid | Y | 최종 알고리즘(ALGORITHM.id) |
 | created_at | datetime | N | 생성 시각 |
 
@@ -593,6 +596,7 @@ erDiagram
 - GAME 1:N GAME_BAN / GAME_PICK
 - USER 1:N GAME_BAN / GAME_PICK
 - ALGORITHM 1:N GAME_BAN / GAME_PICK
+- ALGORITHM 1:N GAME (final_ban_algorithm_id)
 - ALGORITHM 1:N GAME (final_algorithm_id)
 
 - GAME 1:N GAME_ITEM_PURCHASE / GAME_SPELL_PURCHASE
