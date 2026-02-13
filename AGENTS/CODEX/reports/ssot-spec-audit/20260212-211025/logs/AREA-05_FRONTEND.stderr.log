@@ -1,0 +1,1023 @@
+OpenAI Codex v0.99.0 (research preview)
+--------
+workdir: /Users/kanggyeonggu/Documents/league-of-algologic
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c51c2-7a58-7082-bce8-fd87d6c7bff2
+--------
+user
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: area-auditor
+- Task ID: AREA-05_FRONTEND
+- Target Kind: area
+- Target ID: 05_FRONTEND
+- Objective: Validate frontend architecture and rules against upstream SSOT dependencies.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+- low: minor documentation quality concerns
+
+Output Contract:
+- Return ONLY a JSON object matching the provided output schema.
+- No markdown fences, no commentary, no prose outside JSON.
+
+Worker Request JSON:
+{
+  "run_id": "20260212-211025",
+  "agent_id": "area-auditor",
+  "task_id": "AREA-05_FRONTEND",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "area",
+    "id": "05_FRONTEND",
+    "scope_paths": [
+      "05_FRONTEND"
+    ],
+    "checks": [
+      "required_docs",
+      "broken_links",
+      "routing_state_api_alignment",
+      "anti_pattern_consistency"
+    ],
+    "objective": "Validate frontend architecture and rules against upstream SSOT dependencies."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/AREA-05_FRONTEND.worker.json"
+}
+mcp startup: no servers
+2026-02-12T12:10:25.811618Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d0d7-7c01-9d9a-03891d2c6d05
+2026-02-12T12:10:25.839447Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-9887-76b1-8a51-bcf3d924cc4c
+2026-02-12T12:10:25.871260Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ee-7ba2-a962-612dc878cb48
+2026-02-12T12:10:25.895094Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-72d3-a3b1-d7a5a430ccef
+2026-02-12T12:10:25.920642Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9d-7a62-9a23-c4a89638f2aa
+2026-02-12T12:10:25.942136Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-7eb1-b1ba-acb58528a4c4
+2026-02-12T12:10:25.963636Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-72b0-bdf8-e40ebceaa511
+2026-02-12T12:10:25.987427Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7251-bef6-72ab459d6295
+2026-02-12T12:10:26.010446Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f756-70d0-979e-f3d19e6b4765
+2026-02-12T12:10:26.032736Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f6e8-7312-87a5-1bf02f68e683
+2026-02-12T12:10:26.057753Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4876-72e1-8344-2def65ab0e2e
+2026-02-12T12:10:26.082836Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-48b9-7cf0-bb8f-0727ecae471c
+2026-02-12T12:10:26.107903Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4930-7b12-b5a6-09a3f990fa01
+2026-02-12T12:10:26.131427Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7463-ae40-c7cb687f7c1e
+2026-02-12T12:10:26.154866Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-fa75-7c02-93b7-0ff3016651ff
+2026-02-12T12:10:26.179480Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7160-86f1-edd523e80eda
+2026-02-12T12:10:26.204562Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d227-7931-8880-0db3cd452657
+2026-02-12T12:10:26.229506Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4893-7892-ab52-2b5e47dc4b6a
+2026-02-12T12:10:26.254633Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-77e0-959f-41e255a92e73
+2026-02-12T12:10:26.277474Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f78e-7f63-8b6a-6989a20dbee4
+2026-02-12T12:10:26.301480Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7ae3-b325-a3e92ca31ab8
+2026-02-12T12:10:26.325873Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f858-7832-915b-32b1bbc4a668
+2026-02-12T12:10:26.348942Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4889-7083-a7bb-3036c26e479e
+2026-02-12T12:10:26.374380Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4ad5-7921-bbb9-6d8219c8e00f
+2026-02-12T12:10:26.399757Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ceef-7700-964a-e875524422b3
+2026-02-12T12:10:26.424903Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-70c0-81cc-845a16dc3090
+2026-02-12T12:10:26.449289Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-7a32-a5aa-cc1b16737fd3
+2026-02-12T12:10:26.473201Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d087-7b72-810f-c7f9cae8997e
+2026-02-12T12:10:26.496503Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d12a-7c03-ae0e-de466063265b
+2026-02-12T12:10:26.521014Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cf47-78d1-bfd8-856010e0b88b
+2026-02-12T12:10:26.546421Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f72e-7832-829c-5dc1786d64e1
+2026-02-12T12:10:26.568181Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-73d0-b85f-f37742148125
+2026-02-12T12:10:26.593293Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-3937-76b2-a6cc-f97d68083e72
+2026-02-12T12:10:26.618659Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-7e83-8a93-8be1e16e8d6f
+2026-02-12T12:10:26.644048Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4bef-7ed0-8cba-d1ace7970ba2
+2026-02-12T12:10:26.669421Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97ee-7b60-b23e-e08772246435
+2026-02-12T12:10:26.694356Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cefd-7d71-8e38-596fba5ee0fa
+2026-02-12T12:10:26.720708Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a5a-7433-8dd2-1a6692ba5030
+2026-02-12T12:10:26.745925Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-995e-7492-8c9d-07b4d289699a
+2026-02-12T12:10:26.769162Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4be1-7322-a4ca-af563f4648a1
+2026-02-12T12:10:26.791825Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4b44-7932-b08e-3d01c68ac40d
+2026-02-12T12:10:26.816937Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bd-0e3d-7023-859d-48e6711a7edc
+2026-02-12T12:10:26.840226Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97fe-7fb3-96d8-40e3f7846860
+2026-02-12T12:10:26.865157Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-71c2-ab93-0e7477f1db36
+2026-02-12T12:10:26.888230Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7343-9ed5-7e439c2f4971
+2026-02-12T12:10:26.911537Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d111-7f32-ba2e-7fb437b66b8d
+2026-02-12T12:10:26.934904Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d2a5-77d0-814d-abc1f8cc15cd
+2026-02-12T12:10:26.960134Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d199-7bc1-8e8d-c5388afdccf8
+2026-02-12T12:10:26.984331Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cca6-7652-95a9-9848df23bbf0
+2026-02-12T12:10:27.006819Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-492a-7c30-9fcd-1011dc30505a
+2026-02-12T12:10:27.032107Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-99a4-75f0-9861-0af58a0c2eb0
+2026-02-12T12:10:27.055923Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-7bc1-8c89-68dc759750a4
+2026-02-12T12:10:27.080544Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-96ff-7c81-a003-23d93283cfcb
+2026-02-12T12:10:27.104922Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a44-73b3-8ed5-d69e2b402611
+2026-02-12T12:10:27.130268Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bf-5589-7183-8f76-bb3c1765fbff
+2026-02-12T12:10:27.155004Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a98-7dc1-801f-3d18906a496d
+2026-02-12T12:10:27.180206Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7002-91ff-96e6baf61715
+2026-02-12T12:10:27.205388Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-71d0-b19c-c6ecbac8a9b5
+
+thinking
+**Starting SSOT audit skill**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"warn","summary":"Starting audit for scope `05_FRONTEND`; I will load the SSOT audit skill instructions and then inspect required docs, links, and dependency alignment within the scoped files.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Clarifying command plans**
+exec
+/bin/zsh -lc "sed -n '1,220p' .codex-home/skills/ssot-spec-audit/SKILL.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'pwd && ls -la' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg --files 05_FRONTEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+---
+name: ssot-spec-audit
+description: Run a multi-agent SSOT consistency audit by orchestrating multiple Codex worker contexts in parallel. Use when you need area-level validation, cross-area relation checks, duplication/conflict detection, agent-skill wiring checks, and consolidated severity-gated reports.
+---
+
+# SSOT Spec Audit
+
+## Overview
+
+Run one orchestrator command that fans out into multiple Codex worker executions (`codex exec`) and aggregates results.
+
+Worker groups:
+- Area auditors (`01_PRODUCT` to `06_BACKEND`)
+- Relation auditors (area-to-area required relationships)
+- Duplication auditors (duplicate/conflicting norms and ownership violations)
+- Agent-spec auditors (agent/skill role, mapping, reference completeness)
+- Traceability auditor (end-to-end requirement traceability)
+
+## Run
+
+ succeeded in 52ms:
+/Users/kanggyeonggu/documents/league-of-algologic
+total 40
+drwxr-xr-x@ 16 kanggyeonggu  staff   512 Feb 12 21:04 .
+drwx------@ 14 kanggyeonggu  staff   448 Feb 12 18:08 ..
+-rw-r--r--@  1 kanggyeonggu  staff  6148 Feb 12 20:10 .DS_Store
+drwxr-xr-x@ 14 kanggyeonggu  staff   448 Feb 12 21:09 .codex-home
+drwxr-xr-x@ 12 kanggyeonggu  staff   384 Feb 12 20:57 .git
+-rw-r--r--@  1 kanggyeonggu  staff   215 Feb 10 00:58 .gitignore
+drwxr-xr-x@  9 kanggyeonggu  staff   288 Feb 10 20:15 .obsidian
+drwxr-xr-x@  9 kanggyeonggu  staff   288 Feb 10 21:29 01_PRODUCT
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb 10 23:41 02_DESIGN
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb  3 21:10 03_API
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb 10 21:29 04_DOMAIN
+drwxr-xr-x@ 16 kanggyeonggu  staff   512 Feb 11 14:40 05_FRONTEND
+drwxr-xr-x@ 10 kanggyeonggu  staff   320 Feb 12 00:30 06_BACKEND
+drwxr-xr-x@ 17 kanggyeonggu  staff   544 Feb 10 21:31 11_LOL_WEB_MOCKUP_BEFORE
+drwxr-xr-x@  5 kanggyeonggu  staff   160 Feb 12 20:10 AGENTS
+-rw-r--r--@  1 kanggyeonggu  staff  4386 Feb 12 00:40 README.md
+ succeeded in 51ms:
+05_FRONTEND/FE_COMPONENT_RULES.md
+05_FRONTEND/FE_STATE_RULES.md
+05_FRONTEND/VIBE_SNIPPETS.md
+05_FRONTEND/FE_STACK.md
+05_FRONTEND/FE_DESIGN_MAPPING.md
+05_FRONTEND/FE_REALTIME_RULES.md
+05_FRONTEND/FE_STYLING.md
+05_FRONTEND/README.md
+05_FRONTEND/FE_ROUTING_RULES.md
+05_FRONTEND/FE_ARCHITECTURE.md
+05_FRONTEND/ANTI_PATTERNS.md
+05_FRONTEND/FE_CONVENTIONS.md
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md
+05_FRONTEND/FE_API_CLIENT.md
+
+thinking
+**Inspecting audit rules for references**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"warn","summary":"Using the `ssot-spec-audit` skill for this worker task and loading its audit rules now to apply the correct required-doc and relation checks.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Avoiding JSON in commentary**
+exec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/SKILLS/ssot-spec-audit/schemas/worker_request.schema.json" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/SKILLS/ssot-spec-audit/schemas/worker_result.schema.json" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/SKILLS/ssot-spec-audit/references/audit-rules.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+# Audit Rules
+
+## Multi-Agent Scope
+
+One orchestrator run dispatches multiple worker contexts.
+
+1. `area-auditor`
+- targets: `01_PRODUCT`, `02_DESIGN`, `03_API`, `04_DOMAIN`, `05_FRONTEND`, `06_BACKEND`
+- checks: required docs, link integrity, area boundary ownership, intra-area consistency
+
+2. `relation-auditor`
+- targets: PRODUCT_DESIGN, PRODUCT_API, DESIGN_FRONTEND, API_FRONTEND, API_BACKEND, DOMAIN_API, DOMAIN_BACKEND
+- checks: required relationship presence, reference directionality, relation-level duplication/conflict
+
+3. `duplication-auditor`
+- targets: NORMATIVE_DUPLICATION, TERM_CONFLICT, OWNERSHIP_VIOLATION
+- checks: duplicated/contradictory rules, conflicting glossary terms, SSOT ownership violations
+
+4. `agent-spec-auditor`
+- targets: backend and frontend agent/skill trees
+ succeeded in 52ms:
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkerResult",
+  "type": "object",
+  "required": [
+    "run_id",
+    "agent_id",
+    "task_id",
+    "target",
+    "status",
+    "summary",
+    "findings",
+    "metrics",
+    "started_at",
+    "finished_at"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 8
+ succeeded in 52ms:
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkerRequest",
+  "type": "object",
+  "required": [
+    "run_id",
+    "agent_id",
+    "task_id",
+    "repo_root",
+    "mode",
+    "target",
+    "severity_policy",
+    "output_path"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "agent_id": {
+
+thinking
+**Listing potential doc references**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"warn","summary":"I’m now inspecting the frontend area files directly and cross-checking required links/references to upstream areas (`02_DESIGN`, `03_API`, `04_DOMAIN`) for routing/state/API consistency.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Planning targeted code search**
+exec
+/bin/zsh -lc 'ls -la AGENTS/CODEX/SKILLS/ssot-spec-audit/references && rg -n "05_FRONTEND|FRONTEND|required_docs|required docs|routing|state|api" AGENTS/CODEX/SKILLS/ssot-spec-audit -S' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/SKILLS/ssot-spec-audit/references/multi-agent-system.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+total 16
+drwxr-xr-x@ 4 kanggyeonggu  staff   128 Feb 12 20:55 .
+drwxr-xr-x@ 8 kanggyeonggu  staff   256 Feb 12 20:58 ..
+-rw-r--r--@ 1 kanggyeonggu  staff  2098 Feb 12 20:54 audit-rules.md
+-rw-r--r--@ 1 kanggyeonggu  staff  1353 Feb 12 20:55 multi-agent-system.md
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:57:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:60:                "normative_statement_clarity",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:71:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:85:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:99:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:107:            task_id="AREA-05_FRONTEND",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:110:            target_id="05_FRONTEND",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:111:            scope_paths=["05_FRONTEND"],
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:113:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:115:                "routing_state_api_alignment",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:127:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:130:                "test_rule_coverage_statements",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:164:            task_id="REL-DESIGN-FRONTEND",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:167:            target_id="DESIGN_FRONTEND",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:168:            scope_paths=["02_DESIGN", "05_FRONTEND"],
+ succeeded in 51ms:
+# Multi-Agent System Design
+
+## Agent Inventory
+
+| agent_id | target kind | fan-out |
+|---|---|---:|
+| area-auditor | area | 6 |
+| relation-auditor | relation | 7 |
+| duplication-auditor | duplication | 3 |
+| agent-spec-auditor | agent_spec | 2 |
+| traceability-auditor | traceability | 1 |
+| aggregator (orchestrator internal) | all | 1 |
+| gatekeeper (orchestrator internal) | all | 1 |
+
+## Execution Sequence
+
+```mermaid
+flowchart TD
+  U[User] --> O[orchestrate_multi_agent_audit.py]
+  O --> Q[Build task queue]
+
+thinking
+**Analyzing audit check criteria**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"warn","summary":"I found the orchestrator definitions and will use them as the source for expected frontend checks before validating actual docs and links in `05_FRONTEND`.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Correcting output format**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"warn","summary":"Analyzing orchestrator and audit script definitions for `AREA-05_FRONTEND`, then I’ll run scoped checks across files in `05_FRONTEND` only.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Inspecting audit-related scripts and docs**
+exec
+/bin/zsh -lc "sed -n '80,150p' AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg -n "routing_state_api_alignment|anti_pattern_consistency|broken_links|required_docs" AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts -S' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 05_FRONTEND/README.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+            agent_id="area-auditor",
+            kind="area",
+            target_id="03_API",
+            scope_paths=["03_API"],
+            checks=[
+                "required_docs",
+                "broken_links",
+                "contract_completeness",
+                "page_map_contract_alignment",
+            ],
+            objective="Validate API contract area integrity and page map alignment.",
+        ),
+        TaskSpec(
+            task_id="AREA-04_DOMAIN",
+            agent_id="area-auditor",
+            kind="area",
+            target_id="04_DOMAIN",
+            scope_paths=["04_DOMAIN"],
+            checks=[
+                "required_docs",
+ succeeded in 51ms:
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:57:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:58:                "broken_links",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:71:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:72:                "broken_links",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:85:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:86:                "broken_links",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:99:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:100:                "broken_links",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:113:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:114:                "broken_links",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:115:                "routing_state_api_alignment",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:116:                "anti_pattern_consistency",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:127:                "required_docs",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:128:                "broken_links",
+ succeeded in 51ms:
+**목적**
+- 프론트엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+- UI 레이아웃/시각 디자인 자체는 범위에서 제외한다.
+
+**범위**
+- 포함: 아키텍처, 상태관리, API 클라이언트, 라우팅, 실시간, 스타일 적용 규칙, 안티패턴
+- 제외: 화면 레이아웃/컴포넌트 배치, 디자인 목업
+
+**파일 구조**
+```text
+05_FRONTEND/
+  README.md # 이 문서
+  FE_STACK.md # 프론트 기술 스택 고정값
+  FE_CONVENTIONS.md # 네이밍/구조/유닛 규칙
+  FE_ARCHITECTURE.md # 레이어 경계/모듈 책임 규칙
+  FE_ROUTING_RULES.md # 라우팅/가드/전환 규칙
+  FE_STATE_RULES.md # 상태 분리/스토어 구조 규칙
+  FE_API_CLIENT.md # REST 호출/에러 처리 규칙
+  FE_REALTIME_RULES.md # 실시간 구독/연결 규칙
+  FE_COMPONENT_RULES.md # 컴포넌트 API 설계 규칙
+
+thinking
+**Planning link and reference inspection**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"warn","summary":"Next I’m scanning all frontend markdown files for cross-area references and markdown link targets to validate dependency alignment and broken links.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Clarifying output format adherence**
+exec
+/bin/zsh -lc 'rg -n "02_DESIGN|03_API|04_DOMAIN|01_PRODUCT|ANTI_PATTERNS|FE_ROUTING_RULES|FE_STATE_RULES|FE_API_CLIENT|routing|state|api" 05_FRONTEND/*.md -S' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "wc -l 05_FRONTEND/*.md && rg -n \"\\[["'^'"\\]]+\\]\\((["'^)]+)'"\\)\" 05_FRONTEND/*.md -S" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+05_FRONTEND/FE_COMPONENT_RULES.md:3:- 디자인 토큰은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]를 따른다.
+05_FRONTEND/FE_COMPONENT_RULES.md:6:- [[02_DESIGN/COLOR_SYSTEM.md]]
+05_FRONTEND/FE_COMPONENT_RULES.md:7:- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+05_FRONTEND/FE_COMPONENT_RULES.md:32:- 토큰 매핑은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]] 기준으로만 정의한다.
+05_FRONTEND/README.md:16:  FE_ROUTING_RULES.md # 라우팅/가드/전환 규칙
+05_FRONTEND/README.md:17:  FE_STATE_RULES.md # 상태 분리/스토어 구조 규칙
+05_FRONTEND/README.md:18:  FE_API_CLIENT.md # REST 호출/에러 처리 규칙
+05_FRONTEND/README.md:23:  ANTI_PATTERNS.md # 금지 패턴 목록
+05_FRONTEND/README.md:28:- 디자인 토큰/페이지 데이터 요구사항: `02_DESIGN/`
+05_FRONTEND/README.md:29:- API 계약/페이지 맵: `03_API/`
+05_FRONTEND/README.md:30:- 제품 요구사항/카피: `01_PRODUCT/`
+05_FRONTEND/FE_CONVENTIONS.md:7:- [[01_PRODUCT/COPY_TEXT.md]]
+05_FRONTEND/FE_CONVENTIONS.md:54:- 모든 문구는 [[01_PRODUCT/COPY_TEXT.md]] 키를 사용한다.
+05_FRONTEND/FE_STYLING.md:3:- 디자인의 단일 진실은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]이며, 본 문서는 적용 방식만 기술한다.
+05_FRONTEND/FE_STYLING.md:6:- [[02_DESIGN/COLOR_SYSTEM.md]]
+05_FRONTEND/FE_STYLING.md:7:- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+05_FRONTEND/FE_DESIGN_MAPPING.md:6:- [[01_PRODUCT/USER_FLOWS.md]]
+05_FRONTEND/FE_DESIGN_MAPPING.md:7:- [[02_DESIGN/COLOR_SYSTEM.md]]
+05_FRONTEND/FE_DESIGN_MAPPING.md:8:- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+05_FRONTEND/FE_DESIGN_MAPPING.md:9:- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+ exited 1 in 51ms:
+      44 05_FRONTEND/ANTI_PATTERNS.md
+      40 05_FRONTEND/FE_API_CLIENT.md
+      49 05_FRONTEND/FE_ARCHITECTURE.md
+      32 05_FRONTEND/FE_COMPONENT_RULES.md
+      78 05_FRONTEND/FE_CONVENTIONS.md
+      28 05_FRONTEND/FE_DESIGN_MAPPING.md
+      54 05_FRONTEND/FE_NOTIFICATION_MESSAGES.md
+      46 05_FRONTEND/FE_REALTIME_RULES.md
+      42 05_FRONTEND/FE_ROUTING_RULES.md
+      40 05_FRONTEND/FE_STACK.md
+      46 05_FRONTEND/FE_STATE_RULES.md
+      56 05_FRONTEND/FE_STYLING.md
+      33 05_FRONTEND/README.md
+      27 05_FRONTEND/VIBE_SNIPPETS.md
+     615 total
+
+thinking
+**Planning wiki link inspection**
+exec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_ROUTING_RULES.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_ARCHITECTURE.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_STATE_RULES.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+     1	## 0. 문서 목적
+     2	- 상태 관리 원칙과 스토어 구조 패턴을 정의한다.
+     3	- 서버가 authoritative이며, 프론트는 상태를 추론하지 않는다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+     7	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     8	- [[03_API/LIFECYCLE.md]]
+     9	- [[05_FRONTEND/FE_NOTIFICATION_MESSAGES.md]]
+    10	
+    11	---
+    12	## 1. 상태 분류 규칙
+    13	- Local State: 컴포넌트 내부에서만 사용
+    14	- UI State: 페이지/패널 상태(스토어 관리)
+    15	- Server State: REST/실시간 데이터(스토어 관리)
+    16	
+    17	---
+    18	## 2. 스토어 구조 원칙
+    19	- 스토어는 도메인 단위로 분리한다.
+    20	- 스토어는 **서버 스냅샷 + 실시간 이벤트**를 단일 상태로 통합한다.
+ succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- 프론트엔드 모듈 경계와 책임 분리를 정의한다.
+     3	- 코드가 “어디에 위치해야 하는지”를 통제한다.
+     4	
+     5	## 관련 문서
+     6	- [[05_FRONTEND/FE_CONVENTIONS.md]]
+     7	- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+     8	- [[05_FRONTEND/FE_STATE_RULES.md]]
+     9	- [[05_FRONTEND/FE_API_CLIENT.md]]
+    10	- [[05_FRONTEND/FE_REALTIME_RULES.md]]
+    11	
+    12	---
+    13	## 1. 기본 폴더 구조(권장)
+    14	- `src/app`: 앱 초기화, 라우터/스토어 등록
+    15	- `src/router`: 라우트 정의, 가드
+    16	- `src/pages`: 라우트 단위 페이지
+    17	- `src/pages/<Page>/components`: 해당 페이지 전용 컴포넌트
+    18	- `src/pages/<Page>/composables`: 해당 페이지 전용 composables
+    19	- `src/features`: 사용자 액션 단위 기능
+    20	- `src/features/<Feature>/composables`: 기능 전용 composables
+ succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- 라우팅/가드/전환의 **구현 패턴**을 정의한다.
+     3	- 사용자 흐름은 [[01_PRODUCT/USER_FLOWS.md]]가 단일 진실이다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+     8	- `[[03_API/PAGE_MAP/*.md]]`
+     9	- [[05_FRONTEND/FE_DESIGN_MAPPING.md]]
+    10	- [[05_FRONTEND/FE_STATE_RULES.md]]
+    11	
+    12	---
+    13	## 1. 라우트 네이밍 규칙
+    14	- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다.
+    15	- PageRoute 목록은 [[03_API/CONTRACT/REST/CONVENTIONS.md]]를 따른다.
+    16	- 예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`
+    17	
+    18	---
+    19	## 2. 가드 배치 규칙
+    20	- 전역 라우팅 가드는 `router` 초기화 시 1회만 등록한다.
+
+thinking
+**Planning batch code exploration**
+exec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_REALTIME_RULES.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_API_CLIENT.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/ANTI_PATTERNS.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- 실시간(WebSocket/STOMP) 연결/구독 **관리 패턴**을 정의한다.
+     3	- 타이밍/토픽/이벤트 규칙은 관련 문서가 단일 진실이다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/LIFECYCLE.md]]
+     7	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     8	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+     9	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+    10	- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+    11	- [[05_FRONTEND/FE_STATE_RULES.md]]
+    12	
+    13	---
+    14	## 1. 연결 관리 원칙
+    15	- WebSocket 연결은 단일 인스턴스로 유지한다.
+    16	- 연결/재연결/해제는 `realtime/` 모듈만 담당한다.
+    17	- 컴포넌트에서 직접 연결 생성 금지.
+    18	
+    19	---
+    20	## 2. 구독 관리 원칙
+ succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- REST 호출 구조와 에러 분기 **코드 패턴**을 정의한다.
+     3	- API 규약/스키마는 `03_API/CONTRACT/REST/*.md`가 단일 진실이다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     7	- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+     8	- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+     9	- [[01_PRODUCT/COPY_TEXT.md]]
+    10	- [[05_FRONTEND/FE_STATE_RULES.md]]
+    11	
+    12	---
+    13	## 1. 호출 구조 원칙
+    14	- 모든 REST 호출은 `api/` 모듈에서만 수행한다.
+    15	- 컴포넌트/페이지에서 직접 `fetch/axios` 사용 금지.
+    16	- 스토어는 `api/` 모듈을 통해서만 서버와 통신한다.
+    17	
+    18	---
+    19	## 2. 응답 처리 규칙
+    20	- 성공 응답은 `data`만 사용한다.
+ succeeded in 50ms:
+     1	## 0. 문서 목적
+     2	- 프론트엔드 구현에서 **금지되는 패턴**을 명시한다.
+     3	
+     4	## 관련 문서
+     5	- [[05_FRONTEND/FE_CONVENTIONS.md]]
+     6	- [[05_FRONTEND/FE_API_CLIENT.md]]
+     7	- [[05_FRONTEND/FE_REALTIME_RULES.md]]
+     8	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     9	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+    10	
+    11	---
+    12	## 1. 데이터/통신
+    13	- 컴포넌트에서 직접 REST 호출
+    14	- 컴포넌트에서 직접 WebSocket 연결/구독
+    15	- HTTP status 기반 분기(반드시 `error.code` 사용)
+    16	
+    17	---
+    18	## 2. UI/문구
+    19	- UI 문구 하드코딩
+    20	- 토큰 없는 색상/폰트 사용
+
+thinking
+**Planning comprehensive config review**
+exec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_DESIGN_MAPPING.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_CONVENTIONS.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_COMPONENT_RULES.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+     1	## 0. 문서 목적
+     2	- 라우트/상태별로 반드시 참조해야 할 **페이지 데이터 요구사항** 문서를 매핑한다.
+     3	- 프론트 구현은 아래 매핑 문서를 **필수로 참조**해야 한다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     8	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     9	- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+    10	
+    11	---
+    12	## 1. 페이지 매핑 (Route → Data Requirements)
+    13	| Route | Data Requirements | 비고 |
+    14	|---|---|---|
+    15	| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입
+    16	| MAIN | [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]] | 메인 대시보드
+    17	| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태
+    18	| WAITING_ROOM | [[02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md]] | 대기실
+    19	| BAN_PICK_SHOP | [[02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md]] | 랭크 전용 단계
+    20	| IN_GAME | [[02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md]] | 인게임
+ succeeded in 51ms:
+     1	## 0. 문서 목적
+     2	- 프론트엔드 코드 작성 시 **일관된 컨벤션**을 강제한다.
+     3	- 팀/에이전트 간 코드 형태 불일치를 방지한다.
+     4	
+     5	## 관련 문서
+     6	- [[05_FRONTEND/FE_STACK.md]]
+     7	- [[01_PRODUCT/COPY_TEXT.md]]
+     8	
+     9	---
+    10	## 1. 네이밍 규칙
+    11	- Vue 컴포넌트 파일: `PascalCase.vue`
+    12	- 컴포저블: `useXxx.ts`
+    13	- Pinia 스토어: `useXxxStore.ts`
+    14	- 유틸/헬퍼: `xxx.util.ts`
+    15	- 타입/인터페이스: `xxx.types.ts`
+    16	- 상수: `xxx.constants.ts`
+    17	- DTO: `xxx.dto.ts`
+    18	- ViewModel: `xxx.vm.ts`
+    19	
+    20	---
+ succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- UI 컴포넌트 API 설계 규칙을 정의한다.
+     3	- 디자인 토큰은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]를 따른다.
+     4	
+     5	## 관련 문서
+     6	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     7	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     8	- [[05_FRONTEND/FE_CONVENTIONS.md]]
+     9	
+    10	---
+    11	## 1. Props 규칙
+    12	- props는 최소 단위로 분리한다(예: `size`, `variant`, `disabled`).
+    13	- boolean props는 `isXxx` 또는 `hasXxx` 네이밍을 사용한다.
+    14	- props 타입은 `defineProps<T>()` 제네릭으로 명시한다.
+    15	- 기본값은 컴포넌트 내부에서 정의한다.
+    16	
+    17	---
+    18	## 2. Events 규칙
+    19	- 이벤트 이름은 `kebab-case`로 노출한다.
+    20	- `v-model` 사용 시 `modelValue` + `update:modelValue` 규칙을 따른다.
+
+thinking
+**Listing remaining files to add**
+exec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_STACK.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_STYLING.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/FE_NOTIFICATION_MESSAGES.md' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'nl -ba 05_FRONTEND/VIBE_SNIPPETS.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- 프론트엔드 런타임/빌드/의존성의 **기본 전제**를 정의한다.
+     3	- 버전의 단일 진실은 실제 코드 레포의 `package.json`이며, 본 문서는 **종류와 사용 원칙**만 정의한다.
+     4	
+     5	## 관련 문서
+     6	- [[05_FRONTEND/FE_CONVENTIONS.md]]
+     7	
+     8	---
+     9	## 1. 기본 스택
+    10	- Build: Vite
+    11	- Framework: Vue 3
+    12	- Component: Single File Component (.vue)
+    13	- API Style: REST + WebSocket(STOMP)
+    14	- Styling: SCSS/Sass
+    15	- Language: TypeScript
+    16	
+    17	---
+    18	## 2. 언어/구문 규칙
+    19	- Vue는 Composition API를 기본으로 사용한다.
+    20	- `<script setup>` 스타일을 기본으로 사용한다.
+ succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- `--gu` 기반 스케일링과 토큰 적용 규칙을 정의한다.
+     3	- 디자인의 단일 진실은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]이며, 본 문서는 적용 방식만 기술한다.
+     4	
+     5	## 관련 문서
+     6	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     7	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     8	
+     9	---
+    10	## 1. --gu 정의
+    11	- `--gu`는 **16:9 컨테이너 너비의 1%**다.
+    12	- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다.
+    13	- 기준 환산: 1920 기준 `1gu = 19.2px`
+    14	- 환산 공식: `gu = px / 19.2`, `px = gu * 19.2`
+    15	
+    16	---
+    17	## 2. --gu 계산 규칙
+    18	- 기본값: `--gu = 1vw`
+    19	- 화면이 16:9보다 넓을 때(height가 병목)에는 `--gu = calc(100vh * 16 / 900)`를 사용한다.
+    20	- 화면이 16:9보다 좁을 때(width가 병목)에는 `--gu = 1vw`를 유지한다.
+ succeeded in 51ms:
+     1	## 0. 문서 목적
+     2	- 디자인 규칙을 적용하는 **짧은 스니펫 예시**를 모아둔다.
+     3	- 규칙의 단일 진실은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]이며, 본 문서는 예시 전용이다.
+     4	
+     5	## 관련 문서
+     6	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     7	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     8	
+     9	---
+    10	## 1. Glass Panel (예시)
+    11	```css
+    12	.panel {
+    13	  background: var(--color-bg-panel);
+    14	  border: 1px solid var(--color-border-cyan);
+    15	  box-shadow: var(--shadow-panel);
+    16	  backdrop-filter: blur(12px);
+    17	}
+    18	```
+    19	
+    20	---
+ succeeded in 51ms:
+     1	## 목적
+     2	- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다.
+     3	- 에러 알림은 `ERROR.<CODE>` 키를 사용한다.
+     4	- 이벤트/시스템 알림은 `NOTICE.*` 키를 사용한다.
+     5	
+     6	## 관련 문서
+     7	- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+     8	
+     9	---
+    10	## 1. 기본 규칙
+    11	- 모든 알림은 `messageKey`로 렌더링한다.
+    12	- `messageKey`는 문서에 정의된 값만 사용한다.
+    13	- 미정의 키 수신 시 `ERROR.UNKNOWN`을 사용한다.
+    14	
+    15	---
+    16	## 2. ERROR 매핑 (error.code → messageKey → ko)
+    17	| error.code                      | messageKey                            | ko                          |
+    18	| ------------------------------- | ------------------------------------- | --------------------------- |
+    19	| UNAUTHORIZED                    | ERROR.UNAUTHORIZED                    | 로그인이 필요합니다.                 |
+    20	| FORBIDDEN                       | ERROR.FORBIDDEN                       | 권한이 없습니다.                   |
+
+thinking
+**Planning broken wiki link checks**
+exec
+/bin/zsh -lc 'targets=$(rg -o '"'\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/*.md | sed -E 's/.*\\[\\[(["'^'"\\]]+)\\]\\].*/\\1/' | sed 's/|.*"'$//'"' | sort -u); for t in "'$targets; do if [[ "$t" == *"*"* ]]; then matches=$(ls $t 2>/dev/null | wc -l | tr -d '"' '); if [[ \""'$matches" == "0" ]]; then echo "MISSING_GLOB $t"; else echo "OK_GLOB $t ($matches matches)"; fi; else if [[ -e "$t" ]]; then echo "OK $t"; else echo "MISSING $t"; fi; fi; done' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+MISSING_GLOB 05_FRONTEND/ANTI_PATTERNS.md:[[02_DESIGN/COLOR_SYSTEM.md]]
+05_FRONTEND/ANTI_PATTERNS.md:[[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+05_FRONTEND/ANTI_PATTERNS.md:[[05_FRONTEND/FE_API_CLIENT.md]]
+05_FRONTEND/ANTI_PATTERNS.md:[[05_FRONTEND/FE_CONVENTIONS.md]]
+05_FRONTEND/ANTI_PATTERNS.md:[[05_FRONTEND/FE_REALTIME_RULES.md]]
+05_FRONTEND/FE_API_CLIENT.md:[[01_PRODUCT/COPY_TEXT.md]]
+05_FRONTEND/FE_API_CLIENT.md:[[03_API/CONTRACT/REST/CONVENTIONS.md]]
+05_FRONTEND/FE_API_CLIENT.md:[[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+05_FRONTEND/FE_API_CLIENT.md:[[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+05_FRONTEND/FE_API_CLIENT.md:[[05_FRONTEND/FE_STATE_RULES.md]]
+05_FRONTEND/FE_ARCHITECTURE.md:[[05_FRONTEND/FE_API_CLIENT.md]]
+05_FRONTEND/FE_ARCHITECTURE.md:[[05_FRONTEND/FE_CONVENTIONS.md]]
+05_FRONTEND/FE_ARCHITECTURE.md:[[05_FRONTEND/FE_REALTIME_RULES.md]]
+05_FRONTEND/FE_ARCHITECTURE.md:[[05_FRONTEND/FE_ROUTING_RULES.md]]
+05_FRONTEND/FE_ARCHITECTURE.md:[[05_FRONTEND/FE_STATE_RULES.md]]
+05_FRONTEND/FE_COMPONENT_RULES.md:[[02_DESIGN/COLOR_SYSTEM.md]]
+05_FRONTEND/FE_COMPONENT_RULES.md:[[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+05_FRONTEND/FE_COMPONENT_RULES.md:[[05_FRONTEND/FE_CONVENTIONS.md]]
+05_FRONTEND/FE_CONVENTIONS.md:[[01_PRODUCT/COPY_TEXT.md]]
+05_FRONTEND/FE_CONVENTIONS.md:[[05_FRONTEND/FE_STACK.md]]
+
+thinking
+**Correcting ripgrep output handling**
+exec
+/bin/zsh -lc 'targets=$(rg --no-filename -o '"'\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/*.md | sed -E 's/"'^'"\\[\\[(["'^'"\\]]+)\\]\\]"'$/'"\\1/' | sed 's/|.*"'$//'"' | sort -u); while IFS= read -r t; do [[ -z \""'$t" ]] && continue; if [[ "$t" == *"*"* ]]; then matches=$(ls $t 2>/dev/null | wc -l | tr -d '"' '); if [[ \""'$matches" == "0" ]]; then echo "MISSING_GLOB $t"; else echo "OK_GLOB $t ($matches matches)"; fi; else if [[ -e "$t" ]]; then echo "OK $t"; else echo "MISSING $t"; fi; fi; done <<< "$targets"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+MISSING [[01_PRODUCT/COPY_TEXT.md]]
+MISSING [[01_PRODUCT/USER_FLOWS.md]]
+MISSING [[02_DESIGN/COLOR_SYSTEM.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/MY_PAGE.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/RESULT.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]]
+MISSING [[02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md]]
+MISSING [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+MISSING [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+MISSING [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+MISSING [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+MISSING [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+MISSING [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+MISSING [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+MISSING [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+MISSING [[03_API/LIFECYCLE.md]]
+
+thinking
+**Testing bracket stripping methods**
+exec
+/bin/zsh -lc "rg --no-filename -o '\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/*.md | head" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+[[02_DESIGN/COLOR_SYSTEM.md]]
+[[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+[[02_DESIGN/COLOR_SYSTEM.md]]
+[[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+[[05_FRONTEND/FE_CONVENTIONS.md]]
+[[05_FRONTEND/FE_API_CLIENT.md]]
+[[05_FRONTEND/FE_REALTIME_RULES.md]]
+[[02_DESIGN/COLOR_SYSTEM.md]]
+[[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+[[02_DESIGN/COLOR_SYSTEM.md]]
+
+thinking
+**Planning text cleanup with sed**
+exec
+/bin/zsh -lc 'targets=$(rg --no-filename -o '"'\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/*.md | sed 's/"'^'"\\[\\[//;s/\\]\\]"'$//'"' | sed 's/|.*"'$//'"' | sort -u); while IFS= read -r t; do [[ -z \""'$t" ]] && continue; if [[ "$t" == *"*"* ]]; then matches=$(ls $t 2>/dev/null | wc -l | tr -d '"' '); if [[ \""'$matches" == "0" ]]; then echo "MISSING_GLOB $t"; else echo "OK_GLOB $t ($matches matches)"; fi; else if [[ -e "$t" ]]; then echo "OK $t"; else echo "MISSING $t"; fi; fi; done <<< "$targets"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+OK 01_PRODUCT/COPY_TEXT.md
+OK 01_PRODUCT/USER_FLOWS.md
+OK 02_DESIGN/COLOR_SYSTEM.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/MAIN.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/MY_PAGE.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/RESULT.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md
+OK 02_DESIGN/TYPOGRAPHY_SYSTEM.md
+OK 03_API/CONTRACT/REALTIME/COMMANDS.md
+OK 03_API/CONTRACT/REALTIME/CONVENTIONS.md
+OK 03_API/CONTRACT/REALTIME/EVENTS.md
+OK 03_API/CONTRACT/REALTIME/TOPICS.md
+OK 03_API/CONTRACT/REST/CONVENTIONS.md
+OK 03_API/CONTRACT/REST/ERROR_MODEL.md
+OK 03_API/CONTRACT/REST/OPENAPI.yaml.md
+OK 03_API/LIFECYCLE.md
+
+thinking
+**Inspecting directory contents**
+exec
+/bin/zsh -lc "ls -la 03_API && find 03_API -maxdepth 3 -type d -name 'PAGE_MAP' -print && find 03_API -maxdepth 3 -type f | rg 'PAGE_MAP|page_map|PAGE' -n -S" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+total 32
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb  3 21:10 .
+drwxr-xr-x@ 16 kanggyeonggu  staff   512 Feb 12 21:04 ..
+drwxr-xr-x@  4 kanggyeonggu  staff   128 Feb  3 21:10 CONTRACT
+-rw-r--r--@  1 kanggyeonggu  staff  8493 Feb 10 23:08 LIFECYCLE.md
+drwxr-xr-x@ 11 kanggyeonggu  staff   352 Feb  4 15:24 PAGE_MAP
+-rw-r--r--@  1 kanggyeonggu  staff  1488 Feb 10 21:33 README.md
+03_API/PAGE_MAP
+12:03_API/PAGE_MAP/RESULT.md
+13:03_API/PAGE_MAP/WAITING_ROOM.md
+14:03_API/PAGE_MAP/WELCOME.md
+15:03_API/PAGE_MAP/ROOM_LIST.md
+16:03_API/PAGE_MAP/MAIN.md
+17:03_API/PAGE_MAP/BAN_PICK_SHOP.md
+18:03_API/PAGE_MAP/IN_GAME.md
+19:03_API/PAGE_MAP/SIGNUP.md
+20:03_API/PAGE_MAP/MY_PAGE.md
+
+thinking
+**Debugging glob path expansion**
+exec
+/bin/zsh -lc 'ls 03_API/PAGE_MAP/*.md | wc -l && echo 03_API/PAGE_MAP/*.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+       9
+03_API/PAGE_MAP/BAN_PICK_SHOP.md 03_API/PAGE_MAP/IN_GAME.md 03_API/PAGE_MAP/MAIN.md 03_API/PAGE_MAP/MY_PAGE.md 03_API/PAGE_MAP/RESULT.md 03_API/PAGE_MAP/ROOM_LIST.md 03_API/PAGE_MAP/SIGNUP.md 03_API/PAGE_MAP/WAITING_ROOM.md 03_API/PAGE_MAP/WELCOME.md
+
+thinking
+**Inspecting variable quoting impact**
+exec
+/bin/zsh -lc "rg --no-filename -o '\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/FE_ROUTING_RULES.md | sed 's/"'^'"\\[\\[//;s/\\]\\]"'$//'"' | nl -ba" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	01_PRODUCT/USER_FLOWS.md
+     2	01_PRODUCT/USER_FLOWS.md
+     3	03_API/CONTRACT/REST/CONVENTIONS.md
+     4	03_API/PAGE_MAP/*.md
+     5	05_FRONTEND/FE_DESIGN_MAPPING.md
+     6	05_FRONTEND/FE_STATE_RULES.md
+     7	03_API/CONTRACT/REST/CONVENTIONS.md
+     8	01_PRODUCT/USER_FLOWS.md
+     9	05_FRONTEND/FE_DESIGN_MAPPING.md
+
+thinking
+**Diagnosing glob expansion issues**
+exec
+/bin/zsh -lc 'targets=$(rg --no-filename -o '"'\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/*.md | sed 's/"'^'"\\[\\[//;s/\\]\\]"'$//'"' | sed 's/|.*"'$//'"' | sort -u); while IFS= read -r t; do [[ -z \""'$t" ]] && continue; if [[ "$t" == *"*"* ]]; then d=$(dirname "$t"); b=$(basename "$t"); count=$(find "$d" -maxdepth 1 -type f -name "$b" 2>/dev/null | wc -l | tr -d '"' '); if [[ \""'$count" == "0" ]]; then echo "MISSING_GLOB $t"; else echo "OK_GLOB $t ($count matches)"; fi; else if [[ -e "$t" ]]; then echo "OK $t"; else echo "MISSING $t"; fi; fi; done <<< "$targets"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+OK 01_PRODUCT/COPY_TEXT.md
+OK 01_PRODUCT/USER_FLOWS.md
+OK 02_DESIGN/COLOR_SYSTEM.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/MAIN.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/MY_PAGE.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/RESULT.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md
+OK 02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md
+OK 02_DESIGN/TYPOGRAPHY_SYSTEM.md
+OK 03_API/CONTRACT/REALTIME/COMMANDS.md
+OK 03_API/CONTRACT/REALTIME/CONVENTIONS.md
+OK 03_API/CONTRACT/REALTIME/EVENTS.md
+OK 03_API/CONTRACT/REALTIME/TOPICS.md
+OK 03_API/CONTRACT/REST/CONVENTIONS.md
+OK 03_API/CONTRACT/REST/ERROR_MODEL.md
+OK 03_API/CONTRACT/REST/OPENAPI.yaml.md
+OK 03_API/LIFECYCLE.md
+
+thinking
+**Inspecting required docs in audit script**
+exec
+/bin/zsh -lc 'rg -n "required_docs|AREA-05_FRONTEND|05_FRONTEND|routing_state_api_alignment|anti_pattern_consistency|broken_links" AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/run_audit.py -S' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+21:    "05_FRONTEND",
+
+thinking
+**Inspecting prompt files for audit scope**
+exec
+/bin/zsh -lc "ls -la AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts 2>/dev/null && nl -ba AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/AREA-05_FRONTEND.prompt.md 2>/dev/null | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+total 152
+drwxr-xr-x@ 21 kanggyeonggu  staff   672 Feb 12 21:10 .
+drwxr-xr-x@  7 kanggyeonggu  staff   224 Feb 12 21:10 ..
+-rw-r--r--@  1 kanggyeonggu  staff  1946 Feb 12 21:10 AGENTSPEC-BACKEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1955 Feb 12 21:10 AGENTSPEC-FRONTEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1791 Feb 12 21:10 AREA-01_PRODUCT.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1713 Feb 12 21:10 AREA-02_DESIGN.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1695 Feb 12 21:10 AREA-03_API.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1740 Feb 12 21:10 AREA-04_DOMAIN.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1760 Feb 12 21:10 AREA-05_FRONTEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1721 Feb 12 21:10 AREA-06_BACKEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1837 Feb 12 21:10 DUP-NORMATIVE.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1841 Feb 12 21:10 DUP-OWNERSHIP.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1794 Feb 12 21:10 DUP-TERMINOLOGY.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1765 Feb 12 21:10 REL-API-BACKEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1746 Feb 12 21:10 REL-API-FRONTEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1791 Feb 12 21:10 REL-DESIGN-FRONTEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1739 Feb 12 21:10 REL-DOMAIN-API.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1757 Feb 12 21:10 REL-DOMAIN-BACKEND.prompt.md
+-rw-r--r--@  1 kanggyeonggu  staff  1755 Feb 12 21:10 REL-PRODUCT-API.prompt.md
+
+thinking
+**Assessing cross-doc copy inconsistencies**
+exec
+/bin/zsh -lc "nl -ba 01_PRODUCT/COPY_TEXT.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+     1	## 0. 원칙
+     2	- UI 문구는 이 파일이 단일 진실
+     3	- 프론트엔드는 하드코딩 금지
+     4	- 키 기반 사용 권장 (i18n 확장 대비)
+     5	
+     6	## 관련 문서
+     7	- [[01_PRODUCT/USER_FLOWS.md]]
+     8	
+     9	## 1. Auth
+    10	- AUTH.WELCOME_TITLE = "League Of Algo Logic"
+    11	- AUTH.WELCOME_DESC = "실시간 알고리즘 배틀 플랫폼"
+    12	- AUTH.LOGIN_WITH_KAKAO = "카카오로 시작하기"
+    13	- AUTH.LOGIN_REQUIRED = "로그인이 필요합니다."
+    14	
+    15	## 2. Common
+    16	- COMMON.CONFIRM = "확인"
+    17	- COMMON.CANCEL = "취소"
+    18	- COMMON.CLOSE = "닫기"
+    19	- COMMON.LOADING = "로딩 중..."
+    20	- COMMON.ERROR = "오류가 발생했습니다."
+
+thinking
+**Assessing error message alignment**
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/ERROR_MODEL.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	## 0. 작업 양식
+     2	신규 에러 코드를 추가할 때는 아래 항목을 반드시 기입한다.
+     3	
+     4	```
+     5	[코드]
+     6	- CODE_NAME
+     7	
+     8	[의미]
+     9	- 언제 발생하는가
+    10	
+    11	[HTTP 상태 코드]
+    12	- 4xx/5xx
+    13	
+    14	[details.context]
+    15	- 포함해야 하는 필드
+    16	
+    17	[영향 범위]
+    18	- 관련 엔드포인트
+    19	```
+    20	
+
+thinking
+**Investigating notification code mapping**
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/CONVENTIONS.md | sed -n '1,280p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	## 0. 작업 양식
+     2	아래 양식으로 변경 내용을 기록하고, 연관 문서를 함께 갱신한다.
+     3	
+     4	```
+     5	[변경 목적]
+     6	- 무엇을 왜 바꾸는가
+     7	
+     8	[변경 내용]
+     9	- 규칙/정책/포맷 변경 요약
+    10	
+    11	[연관 문서 업데이트]
+    12	- OPENAPI.yaml.md
+    13	- ERROR_MODEL.md
+    14	- AUTH_GUARDS.md
+    15	- API_SUMMARY.md
+    16	
+    17	[검토 체크리스트]
+    18	- 규칙 충돌 없음
+    19	- 예시 최신화
+    20	- OpenAPI/요약 동기화
+
+thinking
+**Identifying frontend API pageRoute mismatch**
+exec
+/bin/zsh -lc 'rg --files 05_FRONTEND | wc -l' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "rg -n \"\\[(["'^'"\\]]+)\\]\\((["'^)]+)'"\\)\" 05_FRONTEND/*.md | wc -l" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "rg --no-filename -o '\\[\\[["'^'"\\]]+\\]\\]' 05_FRONTEND/*.md | sort -u | wc -l" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+      14
+ succeeded in 52ms:
+       0
+ succeeded in 51ms:
+      29
+
+thinking
+**Estimating relation check metrics**
+exec
+/bin/zsh -lc 'date -u +"%Y-%m-%dT%H:%M:%SZ"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+2026-02-12T12:14:36Z
+
+thinking
+**Composing final JSON report**
+codex
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-05_FRONTEND","target":{"kind":"area","id":"05_FRONTEND"},"status":"fail","summary":"Found 2 issues (1 high, 1 medium): a PageRoute contract mismatch between frontend routing specs and upstream API conventions, and UI copy ownership drift inside frontend notification rules. Required frontend docs are present and scoped wiki-links resolve.","findings":[{"severity":"high","code":"ROUTING_PAGE_ROUTE_CONTRACT_MISMATCH","message":"Frontend routing rules treat multiple app routes as API `PageRoute` values, but upstream REST conventions restrict `PageRoute` to three values (`WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`), creating a routing/API contract mismatch.","dedupe_key":"routing-page-route-contract-mismatch","evidence":[{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":14,"snippet":"Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다."},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":16,"snippet":"예: `WELCOME`, `MAIN`, `ROOM_LIST`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":27,"snippet":"API 응답의 `pageRoute`가 유일한 전환 기준이다."},{"path":"05_FRONTEND/FE_DESIGN_MAPPING.md","line":15,"snippet":"| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입"},{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":137,"snippet":"PageRoute 값은 다음 3개만 사용한다."},{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":138,"snippet":"- `WAITING_ROOM`"},{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":139,"snippet":"- `BAN_PICK_SHOP`"},{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":140,"snippet":"- `IN_GAME`"}],"proposed_fix":"Separate frontend app routes from API `PageRoute` (e.g., `AppRoute` vs `ApiPageRoute`) or align FE route lists to the API contract, then update `05_FRONTEND/FE_ROUTING_RULES.md` and `05_FRONTEND/FE_DESIGN_MAPPING.md` accordingly."},{"severity":"medium","code":"COPY_SSOT_OWNERSHIP_DRIFT","message":"Frontend docs conflict on copy ownership: conventions/API client require UI copy keys from `01_PRODUCT/COPY_TEXT.md`, while notification rules define Korean copy text directly in `05_FRONTEND`, weakening SSOT ownership clarity.","dedupe_key":"copy-ssot-ownership-drift","evidence":[{"path":"05_FRONTEND/FE_CONVENTIONS.md","line":54,"snippet":"모든 문구는 [[01_PRODUCT/COPY_TEXT.md]] 키를 사용한다."},{"path":"05_FRONTEND/FE_API_CLIENT.md","line":34,"snippet":"UI 메시지는 [[01_PRODUCT/COPY_TEXT.md]] 키로만 표시한다."},{"path":"05_FRONTEND/README.md","line":30,"snippet":"제품 요구사항/카피: `01_PRODUCT/`"},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":2,"snippet":"알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":17,"snippet":"| error.code | messageKey | ko |"}],"proposed_fix":"Keep `05_FRONTEND/FE_NOTIFICATION_MESSAGES.md` focused on error-code/key mapping and move canonical Korean copy ownership to `01_PRODUCT/COPY_TEXT.md` (or explicitly document delegated ownership to remove ambiguity)."}],"metrics":{"files_scanned":14,"links_checked":29,"relations_checked":2},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:14:36Z"}
+tokens used
+69,227

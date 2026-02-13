@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FinalReport",
+  "type": "object",
+  "required": [
+    "run_id",
+    "status",
+    "fail_on",
+    "severity_totals",
+    "area_matrix",
+    "relation_matrix",
+    "duplication_matrix",
+    "traceability_matrix",
+    "agent_spec_matrix",
+    "top_findings"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "warn",
+        "fail"
+      ]
+    },
+    "fail_on": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "severity_totals": {
+      "type": "object",
+      "required": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ],
+      "properties": {
+        "critical": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "high": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "medium": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "low": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "area_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relation_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "duplication_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "traceability_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "agent_spec_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "top_findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "open_actions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

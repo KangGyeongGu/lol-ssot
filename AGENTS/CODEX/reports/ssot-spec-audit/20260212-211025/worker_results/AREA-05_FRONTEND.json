@@ -1,0 +1,103 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "area-auditor",
+  "task_id": "AREA-05_FRONTEND",
+  "target": {
+    "kind": "area",
+    "id": "05_FRONTEND"
+  },
+  "status": "fail",
+  "summary": "Found 2 issues (1 high, 1 medium): a PageRoute contract mismatch between frontend routing specs and upstream API conventions, and UI copy ownership drift inside frontend notification rules. Required frontend docs are present and scoped wiki-links resolve.",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "ROUTING_PAGE_ROUTE_CONTRACT_MISMATCH",
+      "message": "Frontend routing rules treat multiple app routes as API `PageRoute` values, but upstream REST conventions restrict `PageRoute` to three values (`WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`), creating a routing/API contract mismatch.",
+      "dedupe_key": "routing-page-route-contract-mismatch",
+      "evidence": [
+        {
+          "path": "05_FRONTEND/FE_ROUTING_RULES.md",
+          "line": 14,
+          "snippet": "Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_ROUTING_RULES.md",
+          "line": 16,
+          "snippet": "예: `WELCOME`, `MAIN`, `ROOM_LIST`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`"
+        },
+        {
+          "path": "05_FRONTEND/FE_ROUTING_RULES.md",
+          "line": 27,
+          "snippet": "API 응답의 `pageRoute`가 유일한 전환 기준이다."
+        },
+        {
+          "path": "05_FRONTEND/FE_DESIGN_MAPPING.md",
+          "line": 15,
+          "snippet": "| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입"
+        },
+        {
+          "path": "03_API/CONTRACT/REST/CONVENTIONS.md",
+          "line": 137,
+          "snippet": "PageRoute 값은 다음 3개만 사용한다."
+        },
+        {
+          "path": "03_API/CONTRACT/REST/CONVENTIONS.md",
+          "line": 138,
+          "snippet": "- `WAITING_ROOM`"
+        },
+        {
+          "path": "03_API/CONTRACT/REST/CONVENTIONS.md",
+          "line": 139,
+          "snippet": "- `BAN_PICK_SHOP`"
+        },
+        {
+          "path": "03_API/CONTRACT/REST/CONVENTIONS.md",
+          "line": 140,
+          "snippet": "- `IN_GAME`"
+        }
+      ],
+      "proposed_fix": "Separate frontend app routes from API `PageRoute` (e.g., `AppRoute` vs `ApiPageRoute`) or align FE route lists to the API contract, then update `05_FRONTEND/FE_ROUTING_RULES.md` and `05_FRONTEND/FE_DESIGN_MAPPING.md` accordingly."
+    },
+    {
+      "severity": "medium",
+      "code": "COPY_SSOT_OWNERSHIP_DRIFT",
+      "message": "Frontend docs conflict on copy ownership: conventions/API client require UI copy keys from `01_PRODUCT/COPY_TEXT.md`, while notification rules define Korean copy text directly in `05_FRONTEND`, weakening SSOT ownership clarity.",
+      "dedupe_key": "copy-ssot-ownership-drift",
+      "evidence": [
+        {
+          "path": "05_FRONTEND/FE_CONVENTIONS.md",
+          "line": 54,
+          "snippet": "모든 문구는 [[01_PRODUCT/COPY_TEXT.md]] 키를 사용한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_API_CLIENT.md",
+          "line": 34,
+          "snippet": "UI 메시지는 [[01_PRODUCT/COPY_TEXT.md]] 키로만 표시한다."
+        },
+        {
+          "path": "05_FRONTEND/README.md",
+          "line": 30,
+          "snippet": "제품 요구사항/카피: `01_PRODUCT/`"
+        },
+        {
+          "path": "05_FRONTEND/FE_NOTIFICATION_MESSAGES.md",
+          "line": 2,
+          "snippet": "알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_NOTIFICATION_MESSAGES.md",
+          "line": 17,
+          "snippet": "| error.code | messageKey | ko |"
+        }
+      ],
+      "proposed_fix": "Keep `05_FRONTEND/FE_NOTIFICATION_MESSAGES.md` focused on error-code/key mapping and move canonical Korean copy ownership to `01_PRODUCT/COPY_TEXT.md` (or explicitly document delegated ownership to remove ambiguity)."
+    }
+  ],
+  "metrics": {
+    "files_scanned": 14,
+    "links_checked": 29,
+    "relations_checked": 2
+  },
+  "started_at": "2026-02-12T12:10:25Z",
+  "finished_at": "2026-02-12T12:14:36Z"
+}

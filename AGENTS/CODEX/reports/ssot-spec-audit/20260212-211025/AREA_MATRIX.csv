@@ -1,0 +1,7 @@
+task_id,target_id,agent_id,status,max_severity,finding_count,summary
+AREA-01_PRODUCT,01_PRODUCT,area-auditor,pass,low,0,"01_PRODUCT required documents are present, internal references resolve, scope boundaries are explicitly declared, and normative statements are clear without redefining other area ownership."
+AREA-02_DESIGN,02_DESIGN,area-auditor,warn,medium,2,"Validated 11 markdown files in 02_DESIGN. All 22 in-scope links resolved and token definitions are internally consistent, but 2 medium issues were found in scope-boundary clarity and required-doc ownership clarity."
+AREA-03_API,03_API,area-auditor,warn,medium,2,Found 2 medium integrity issues in 03_API lifecycle/page-map alignment; required documents exist and checked in-scope links resolve.
+AREA-04_DOMAIN,04_DOMAIN,area-auditor,warn,medium,1,"04_DOMAIN documents are present and linked, but persistence timing semantics are ambiguous for several persistent entities during Phase 2."
+AREA-05_FRONTEND,05_FRONTEND,area-auditor,fail,high,2,"Found 2 issues (1 high, 1 medium): a PageRoute contract mismatch between frontend routing specs and upstream API conventions, and UI copy ownership drift inside frontend notification rules. Required frontend docs are present and scoped wiki-links resolve."
+AREA-06_BACKEND,06_BACKEND,area-auditor,warn,medium,2,Scoped backend SSOT audit found 2 issues: one required-doc manifest drift in README and one medium test-rule traceability gap for data write-policy rules. No broken markdown/wiki links were found in `06_BACKEND` documents.

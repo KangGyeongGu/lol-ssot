@@ -1,0 +1,26 @@
+{
+  "run_id": "20260212-210456",
+  "agent_id": "area-auditor",
+  "task_id": "AREA-02_DESIGN",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "area",
+    "id": "02_DESIGN",
+    "scope_paths": [
+      "02_DESIGN"
+    ],
+    "checks": [
+      "required_docs",
+      "broken_links",
+      "token_consistency",
+      "ssot_scope_boundary"
+    ],
+    "objective": "Validate design specs and token definitions with clear boundaries."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/worker_results/AREA-02_DESIGN.worker.json"
+}

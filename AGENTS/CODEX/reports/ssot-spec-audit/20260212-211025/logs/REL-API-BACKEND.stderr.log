@@ -1,0 +1,981 @@
+OpenAI Codex v0.99.0 (research preview)
+--------
+workdir: /Users/kanggyeonggu/Documents/league-of-algologic
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c51c6-c7d0-7983-a4d7-732cf9ac4887
+--------
+user
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: relation-auditor
+- Task ID: REL-API-BACKEND
+- Target Kind: relation
+- Target ID: API_BACKEND
+- Objective: Ensure backend API implementation rules align with API contract SSOT.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+- low: minor documentation quality concerns
+
+Output Contract:
+- Return ONLY a JSON object matching the provided output schema.
+- No markdown fences, no commentary, no prose outside JSON.
+
+Worker Request JSON:
+{
+  "run_id": "20260212-211025",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-API-BACKEND",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "relation",
+    "id": "API_BACKEND",
+    "scope_paths": [
+      "03_API",
+      "06_BACKEND"
+    ],
+    "checks": [
+      "required_link_presence",
+      "implementation_contract_mapping",
+      "duplication_and_conflict"
+    ],
+    "objective": "Ensure backend API implementation rules align with API contract SSOT."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-API-BACKEND.worker.json"
+}
+mcp startup: no servers
+2026-02-12T12:15:07.758937Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d0d7-7c01-9d9a-03891d2c6d05
+2026-02-12T12:15:07.784218Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-9887-76b1-8a51-bcf3d924cc4c
+2026-02-12T12:15:07.807104Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ee-7ba2-a962-612dc878cb48
+2026-02-12T12:15:07.832089Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-72d3-a3b1-d7a5a430ccef
+2026-02-12T12:15:07.856095Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9d-7a62-9a23-c4a89638f2aa
+2026-02-12T12:15:07.881433Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-7eb1-b1ba-acb58528a4c4
+2026-02-12T12:15:07.906093Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-72b0-bdf8-e40ebceaa511
+2026-02-12T12:15:07.931256Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7251-bef6-72ab459d6295
+2026-02-12T12:15:07.956345Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f756-70d0-979e-f3d19e6b4765
+2026-02-12T12:15:07.981446Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f6e8-7312-87a5-1bf02f68e683
+2026-02-12T12:15:08.006585Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4876-72e1-8344-2def65ab0e2e
+2026-02-12T12:15:08.031699Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-48b9-7cf0-bb8f-0727ecae471c
+2026-02-12T12:15:08.056877Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4930-7b12-b5a6-09a3f990fa01
+2026-02-12T12:15:08.082098Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7463-ae40-c7cb687f7c1e
+2026-02-12T12:15:08.106035Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-fa75-7c02-93b7-0ff3016651ff
+2026-02-12T12:15:08.131378Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-6a71-7561-8370-8177aef5b7a2
+2026-02-12T12:15:08.155378Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7160-86f1-edd523e80eda
+2026-02-12T12:15:08.181459Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d227-7931-8880-0db3cd452657
+2026-02-12T12:15:08.205463Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4893-7892-ab52-2b5e47dc4b6a
+2026-02-12T12:15:08.231683Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-77e0-959f-41e255a92e73
+2026-02-12T12:15:08.257220Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f78e-7f63-8b6a-6989a20dbee4
+2026-02-12T12:15:08.282771Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7ae3-b325-a3e92ca31ab8
+2026-02-12T12:15:08.308815Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f858-7832-915b-32b1bbc4a668
+2026-02-12T12:15:08.339915Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4889-7083-a7bb-3036c26e479e
+2026-02-12T12:15:08.365631Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4ad5-7921-bbb9-6d8219c8e00f
+2026-02-12T12:15:08.389436Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ceef-7700-964a-e875524422b3
+2026-02-12T12:15:08.415170Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-70c0-81cc-845a16dc3090
+2026-02-12T12:15:08.437281Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-7a32-a5aa-cc1b16737fd3
+2026-02-12T12:15:08.463543Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d087-7b72-810f-c7f9cae8997e
+2026-02-12T12:15:08.490788Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d12a-7c03-ae0e-de466063265b
+2026-02-12T12:15:08.516841Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cf47-78d1-bfd8-856010e0b88b
+2026-02-12T12:15:08.542468Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f72e-7832-829c-5dc1786d64e1
+2026-02-12T12:15:08.566153Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-73d0-b85f-f37742148125
+2026-02-12T12:15:08.592285Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-3937-76b2-a6cc-f97d68083e72
+2026-02-12T12:15:08.618007Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-7e83-8a93-8be1e16e8d6f
+2026-02-12T12:15:08.643250Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4bef-7ed0-8cba-d1ace7970ba2
+2026-02-12T12:15:08.669188Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97ee-7b60-b23e-e08772246435
+2026-02-12T12:15:08.684572Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cefd-7d71-8e38-596fba5ee0fa
+2026-02-12T12:15:08.709213Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a5a-7433-8dd2-1a6692ba5030
+2026-02-12T12:15:08.734972Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-b800-79c0-ac34-e82f05164e2a
+2026-02-12T12:15:08.761725Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-995e-7492-8c9d-07b4d289699a
+2026-02-12T12:15:08.787179Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4be1-7322-a4ca-af563f4648a1
+2026-02-12T12:15:08.812350Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4b44-7932-b08e-3d01c68ac40d
+2026-02-12T12:15:08.838836Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bd-0e3d-7023-859d-48e6711a7edc
+2026-02-12T12:15:08.861795Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-db3b-75a1-bc22-880a2374c69a
+2026-02-12T12:15:08.887362Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97fe-7fb3-96d8-40e3f7846860
+2026-02-12T12:15:08.913106Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c2-7a43-7b10-bfea-26897ce9be8c
+2026-02-12T12:15:08.937927Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-71c2-ab93-0e7477f1db36
+2026-02-12T12:15:08.962432Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7343-9ed5-7e439c2f4971
+2026-02-12T12:15:08.988277Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d111-7f32-ba2e-7fb437b66b8d
+2026-02-12T12:15:09.014765Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d2a5-77d0-814d-abc1f8cc15cd
+2026-02-12T12:15:09.041164Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d199-7bc1-8e8d-c5388afdccf8
+2026-02-12T12:15:09.065132Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cca6-7652-95a9-9848df23bbf0
+2026-02-12T12:15:09.090364Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-492a-7c30-9fcd-1011dc30505a
+2026-02-12T12:15:09.115535Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-99a4-75f0-9861-0af58a0c2eb0
+2026-02-12T12:15:09.140192Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-7bc1-8c89-68dc759750a4
+2026-02-12T12:15:09.165466Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-96ff-7c81-a003-23d93283cfcb
+2026-02-12T12:15:09.190966Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c4-e4ff-7bc3-9dc8-06b537aab8bf
+2026-02-12T12:15:09.216789Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a44-73b3-8ed5-d69e2b402611
+2026-02-12T12:15:09.242237Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bf-5589-7183-8f76-bb3c1765fbff
+2026-02-12T12:15:09.267471Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a98-7dc1-801f-3d18906a496d
+2026-02-12T12:15:09.291824Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7002-91ff-96e6baf61715
+2026-02-12T12:15:09.318752Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-71d0-b19c-c6ecbac8a9b5
+
+thinking
+**Announcing skill use and auditing scope**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"warn","summary":"Starting scoped SSOT relation audit for `03_API` and `06_BACKEND`; I’ll read the `ssot-spec-audit` skill instructions first, then inspect contract/backend docs for link presence, mapping consistency, and conflicts.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Clarifying commentary format**
+exec
+/bin/zsh -lc "sed -n '1,220p' .codex-home/skills/ssot-spec-audit/SKILL.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+---
+name: ssot-spec-audit
+description: Run a multi-agent SSOT consistency audit by orchestrating multiple Codex worker contexts in parallel. Use when you need area-level validation, cross-area relation checks, duplication/conflict detection, agent-skill wiring checks, and consolidated severity-gated reports.
+---
+
+# SSOT Spec Audit
+
+## Overview
+
+Run one orchestrator command that fans out into multiple Codex worker executions (`codex exec`) and aggregates results.
+
+Worker groups:
+- Area auditors (`01_PRODUCT` to `06_BACKEND`)
+- Relation auditors (area-to-area required relationships)
+- Duplication auditors (duplicate/conflicting norms and ownership violations)
+- Agent-spec auditors (agent/skill role, mapping, reference completeness)
+- Traceability auditor (end-to-end requirement traceability)
+
+## Run
+
+
+thinking
+**Announcing skill usage**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"warn","summary":"Using `ssot-spec-audit` skill workflow for this relation worker; next I’m scanning only `03_API` and `06_BACKEND` for required links and contract-to-implementation mapping consistency.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Parallel listing files**
+exec
+/bin/zsh -lc 'rg --files 03_API 06_BACKEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+06_BACKEND/BE_CONVENTIONS.md
+06_BACKEND/BE_API_RULES.md
+06_BACKEND/README.md
+06_BACKEND/BE_TEST_RULES.md
+06_BACKEND/BE_ARCHITECTURE.md
+06_BACKEND/BE_DATA_MODEL_RULES.md
+06_BACKEND/BE_STACK.md
+06_BACKEND/BE_REALTIME_RULES.md
+03_API/PAGE_MAP/MY_PAGE.md
+03_API/PAGE_MAP/SIGNUP.md
+03_API/PAGE_MAP/IN_GAME.md
+03_API/PAGE_MAP/BAN_PICK_SHOP.md
+03_API/PAGE_MAP/MAIN.md
+03_API/PAGE_MAP/ROOM_LIST.md
+03_API/PAGE_MAP/WELCOME.md
+03_API/PAGE_MAP/WAITING_ROOM.md
+03_API/PAGE_MAP/RESULT.md
+03_API/README.md
+03_API/LIFECYCLE.md
+03_API/CONTRACT/REST/AUTH_GUARDS.md
+
+thinking
+**Analyzing cross-references in docs**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"warn","summary":"I’ve enumerated scope files and will now extract explicit cross-links and normative statements between API contract docs and backend implementation-rule docs.","findings":[],"metrics":{"files_scanned":18,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Parallelizing initial file reads**
+exec
+/bin/zsh -lc "sed -n '1,240p' 03_API/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 03_API/CONTRACT/REST/API_SUMMARY.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 03_API/CONTRACT/REALTIME/CONVENTIONS.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 03_API/CONTRACT/REST/CONVENTIONS.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 50ms:
+**목적**
+- REST/실시간 계약과 페이지 맵의 단일 진실(SSOT)을 정의한다.
+- 프론트/백엔드 구현은 반드시 이 계약을 기준으로 한다.
+
+**범위**
+- 포함: OpenAPI, REST 규약, 실시간 규약, 페이지별 계약 매핑, 라이프사이클
+- 제외: 구현 코드, DB 모델 세부 설계
+
+**파일 구조**
+```text
+03_API/
+  README.md # 이 문서
+  LIFECYCLE.md # 로그인/복귀/게임 진행 흐름 기준
+  CONTRACT/
+    REST/
+      API_SUMMARY.md # REST API 요약
+      AUTH_GUARDS.md # 인증/인가 가드 규칙
+      CONVENTIONS.md # REST 공통 규약
+      ERROR_MODEL.md # 에러 모델 규칙
+      OPENAPI.yaml.md # REST API 스키마(OpenAPI)
+ succeeded in 50ms:
+## 0. 작업 양식
+새 엔드포인트 추가 시 아래 양식을 유지한다.
+
+```
+[기능]
+- 한 줄 요약
+
+[메서드 / 엔드포인트]
+- METHOD /path
+
+[설명]
+- 스냅샷인지 명령인지
+- 주요 입력 파라미터
+- 주요 에러 코드
+```
+
+---
+## 1. 문서 목적
+- REST 엔드포인트를 사람이 빠르게 이해/검토하기 위한 요약 문서.
+- 정확한 계약과 스키마는 OPENAPI.yaml.md가 단일 진실이다.
+ succeeded in 51ms:
+## 0. 작업 양식
+아래 양식으로 변경 내용을 기록하고, 연관 문서를 함께 갱신한다.
+
+```
+[변경 목적]
+- 무엇을 왜 바꾸는가
+
+[변경 내용]
+- 규칙/정책/포맷 변경 요약
+
+[연관 문서 업데이트]
+- OPENAPI.yaml.md
+- ERROR_MODEL.md
+- AUTH_GUARDS.md
+- API_SUMMARY.md
+
+[검토 체크리스트]
+- 규칙 충돌 없음
+- 예시 최신화
+- OpenAPI/요약 동기화
+ succeeded in 51ms:
+## 0. 문서 목적
+- 이 문서는 실시간(WebSocket/STOMP) 통신 규칙을 정의한다.
+- 채팅/단계 전환 알림/아이템 효과는 본 문서와 EVENT/COMMAND/ TOPIC 문서를 따른다.
+- REST는 스냅샷 + 명령만 담당한다.
+
+## 관련 문서
+- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+
+---
+## 1. 전송 방식
+- WebSocket 기반 실시간 통신을 사용한다.
+- STOMP 사용을 전제로 하며, 아래 destination 규칙을 따른다.
+
+### 1.1 Prefix
+- Publish(서버 → 클라이언트): `/topic/**`
+- User Queue(서버 → 특정 사용자): `/user/queue/**`
+- Command(클라이언트 → 서버): `/app/**`
+
+
+thinking
+**Planning backend doc review**
+exec
+/bin/zsh -lc "sed -n '1,260p' 06_BACKEND/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_API_RULES.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_REALTIME_RULES.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+**목적**
+- 백엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+
+**범위**
+- 포함: 아키텍처, API 규칙, 실시간 규칙, 데이터 모델 규칙, 테스트 규칙
+- 제외: 구현 코드, 인프라 프로비저닝
+
+**파일 구조**
+```text
+06_BACKEND/
+  README.md # 이 문서
+  BE_STACK.md # 백엔드 기술 스택 고정값
+  BE_ARCHITECTURE.md # 모듈 경계/레이어 책임 규칙
+  BE_CONVENTIONS.md # 네이밍/구조/코딩 컨벤션
+  BE_API_RULES.md # REST 구현 규칙
+  BE_REALTIME_RULES.md # 실시간(STOMP) 구현 규칙
+  BE_DATA_MODEL_RULES.md # 데이터 모델/DB 규칙
+  BE_TEST_RULES.md # 테스트 전략/규칙
+  BE_AGENT_SPLIT.md # 병렬 에이전트 분할 기준
+```
+ succeeded in 51ms:
+## 0. 문서 목적
+- REST API 계약을 백엔드 코드로 구현하는 규칙을 정의한다.
+- 계약의 단일 진실은 `03_API` 문서다.
+
+## 관련 문서
+- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+- [[03_API/CONTRACT/REST/AUTH_GUARDS.md]]
+
+---
+## 1. 계약 준수 규칙
+- OPENAPI에 없는 엔드포인트 추가 금지.
+- 요청/응답 스키마는 OPENAPI와 1:1로 일치해야 한다.
+- 모든 응답은 공통 Envelope를 사용한다.
+
+---
+## 2. 인증/가드 규칙
+- 인증/가드 실패 코드는 AUTH_GUARDS.md와 일치해야 한다.
+- 가드는 프론트에서 추론하지 않으며, 서버가 authoritative하다.
+ succeeded in 51ms:
+## 0. 문서 목적
+- 실시간(STOMP) 이벤트/커맨드 구현 규칙을 정의한다.
+- 계약의 단일 진실은 `03_API/CONTRACT/REALTIME` 문서다.
+
+## 관련 문서
+- [[03_API/LIFECYCLE.md]]
+- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+
+---
+## 1. 연결 규칙
+- WebSocket endpoint는 `/ws`로 고정한다.
+- 인증 헤더 규칙은 `REALTIME_CONVENTIONS`를 따른다.
+
+---
+## 2. 이벤트/커맨드 규칙
+- 모든 메시지는 Envelope 포맷을 사용한다.
+- `type` 값은 EVENTS/COMMANDS 목록과 일치해야 한다.
+exec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_ARCHITECTURE.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+## 0. 문서 목적
+- 백엔드 모듈 경계와 책임 분리를 정의한다.
+- 병렬 개발 시 충돌을 최소화한다.
+
+## 관련 문서
+- [[06_BACKEND/BE_CONVENTIONS.md]]
+- [[06_BACKEND/BE_API_RULES.md]]
+- [[06_BACKEND/BE_REALTIME_RULES.md]]
+- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
+
+---
+## 1. 기본 모듈 구조
+- `src/app`: 서버 부트스트랩
+- `src/config`: 환경 설정/상수
+- `src/common`: 공통 유틸/미들웨어/에러 핸들러
+- `src/modules/<domain>`: 도메인 모듈 단위
+- `src/modules/<domain>/controller`: HTTP 엔드포인트
+- `src/modules/<domain>/service`: 비즈니스 로직
+- `src/modules/<domain>/repo`: DB 접근
+- `src/modules/<domain>/dto`: 요청/응답 DTO
+
+thinking
+**Planning backend API doc review**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"warn","summary":"I’m now checking the remaining backend SSOT files for hidden API-contract references and any contradictory implementation rules.","findings":[],"metrics":{"files_scanned":8,"links_checked":10,"relations_checked":1},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+exec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_CONVENTIONS.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_TEST_RULES.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_DATA_MODEL_RULES.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+## 0. 문서 목적
+- 백엔드 코드 작성 시 일관된 컨벤션을 강제한다.
+
+## 관련 문서
+- [[06_BACKEND/BE_ARCHITECTURE.md]]
+- [[06_BACKEND/BE_STACK.md]]
+- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+
+---
+## 1. 네이밍 규칙
+- 모듈명: `room`, `game`, `auth` 등 도메인 소문자.
+- Controller: `<Domain>Controller`.
+- Service: `<Domain>Service`.
+- Repo: `<Domain>Repository`.
+- DTO: `<Domain><Action>Request`, `<Domain><Action>Response`.
+
+---
+## 2. 파일/폴더 규칙
+- 폴더명은 `kebab-case`를 사용한다.
+exec
+/bin/zsh -lc "sed -n '1,320p' 06_BACKEND/BE_STACK.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+## 0. 문서 목적
+- 데이터 모델/DB 구현 규칙을 정의한다.
+- 단일 진실은 `04_DOMAIN` 문서다.
+
+## 관련 문서
+- [[04_DOMAIN/DATA_MODEL.md]]
+- [[04_DOMAIN/DB_NOTES.md]]
+
+---
+## 1. 모델 준수 규칙
+- 엔티티/필드/관계는 DATA_MODEL.md와 1:1로 일치해야 한다.
+- storage 타입(persistent/ephemeral/derived)은 변경 금지.
+- storage 의미는 다음을 따른다.
+  - persistent: DB 영속 저장(JPA Entity/Repository 대상)
+  - ephemeral/derived: Redis 실시간 상태(DB 테이블/마이그레이션 금지)
+- write policy는 DATA_MODEL.md의 매핑을 따른다.
+- write-through: 상태 변경 즉시 DB에 기록한다.
+- write-back: Redis가 실시간 단일 진실이다. 종료 시점에 DB 스냅샷을 반영한다.
+- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다.
+
+ succeeded in 51ms:
+## 0. 문서 목적
+- Spring Boot + JPA + PostgreSQL 환경의 테스트 전략/케이스 작성 규칙을 정의한다.
+- 단일 진실(계약/도메인 규칙)은 다른 문서를 따른다.
+
+## 관련 문서
+- [[06_BACKEND/BE_STACK.md]]
+- [[06_BACKEND/BE_CONVENTIONS.md]]
+- [[06_BACKEND/BE_API_RULES.md]]
+- [[06_BACKEND/BE_REALTIME_RULES.md]]
+- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
+- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+- [[03_API/CONTRACT/REST/AUTH_GUARDS.md]]
+- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+
+---
+## 1. 테스트 분류 및 사용 기준
+- Web 계층: Controller 검증은 @WebMvcTest 기반으로 작성한다.
+- Repository 계층: JPA 검증은 @DataJpaTest 기반으로 작성한다.
+ succeeded in 51ms:
+## 0. 문서 목적
+- 백엔드 기술 스택의 **고정값**을 정의한다.
+- 임의 변경/혼용을 금지한다.
+
+---
+## 1. 고정 스택
+- Framework: Spring Boot
+- ORM: Spring Data JPA
+- Database: PostgreSQL
+- Realtime State: Redis
+
+---
+## 2. 금지
+- 다른 ORM/쿼리 도구(MyBatis, jOOQ 등) 도입 금지.
+- 다른 DB로의 임의 변경 금지.
+- Redis 외 임의 캐시/상태 저장소 도입 금지.
+
+thinking
+**Inspecting API contract for prefix conflicts**
+exec
+/bin/zsh -lc "sed -n '1,320p' 03_API/CONTRACT/REST/OPENAPI.yaml.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+## 0. 작업 양식
+엔드포인트/스키마 추가 시 아래 절차를 따른다.
+
+```
+[변경 목적]
+- 왜 필요한가
+
+[스키마 변경]
+- 추가/수정 스키마 명
+
+[엔드포인트 변경]
+- METHOD /path
+- 요청/응답 스키마
+- 가능한 에러 코드
+
+[동기화 체크]
+- CONVENTIONS.md
+- AUTH_GUARDS.md
+- ERROR_MODEL.md
+- API_SUMMARY.md
+
+thinking
+**Planning targeted code search**
+exec
+/bin/zsh -lc 'rg -n "''^paths:|''^  /|servers:|url: /api/v1|/auth|/rooms|/games|/catalog|/stats" 03_API/CONTRACT/REST/OPENAPI.yaml.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+41:servers:
+42:  - url: /api/v1
+655:paths:
+656:  /auth/kakao/login:
+698:  /auth/signup:
+740:  /auth/logout:
+770:  /users/me:
+805:  /users/me/active-game:
+842:  /users/me/stats:
+877:  /users/me/matches:
+928:  /rooms:
+1043:  /rooms/{roomId}:
+1090:  /rooms/{roomId}/join:
+1149:  /rooms/{roomId}/leave:
+1197:  /rooms/{roomId}/ready:
+1250:  /rooms/{roomId}/unready:
+1303:  /rooms/{roomId}/start:
+1362:  /rooms/{roomId}/transfer-host:
+1433:  /rooms/{roomId}/kick:
+1504:  /games/{gameId}/state:
+
+thinking
+**Assessing backend and API doc alignment**
+exec
+/bin/zsh -lc "sed -n '1,320p' 03_API/CONTRACT/REST/ERROR_MODEL.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,320p' 03_API/CONTRACT/REST/AUTH_GUARDS.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,240p' 03_API/LIFECYCLE.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+## 0. 작업 양식
+신규 에러 코드를 추가할 때는 아래 항목을 반드시 기입한다.
+
+```
+[코드]
+- CODE_NAME
+
+[의미]
+- 언제 발생하는가
+
+[HTTP 상태 코드]
+- 4xx/5xx
+
+[details.context]
+- 포함해야 하는 필드
+
+[영향 범위]
+- 관련 엔드포인트
+```
+
+ succeeded in 52ms:
+## 0. 작업 양식
+가드 규칙 추가/수정 시 아래 양식으로 기록한다.
+
+```
+[가드 목적]
+- 왜 필요한가
+
+[적용 대상]
+- 엔드포인트 / 조건 / 단계
+
+[실패 응답]
+- HTTP Status
+- error.code
+- details.context
+
+[연관 문서 업데이트]
+- OPENAPI.yaml.md
+- ERROR_MODEL.md
+- API_SUMMARY.md
+```
+ succeeded in 52ms:
+## 0. 문서 목적
+- REST/실시간 통신의 연결/구독/해제/호출 타이밍을 페이지 단위로 정의한다.
+- REST는 스냅샷/명령, WebSocket은 상태 변화 이벤트를 담당한다.
+
+## 관련 문서
+- [[01_PRODUCT/USER_FLOWS.md]]
+- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+
+---
+## 1. 전제
+- WebSocket endpoint: `/ws`
+- 인증: `Authorization: Bearer <JWT>`
+- 공통 Envelope/type 규칙은 REALTIME_CONVENTIONS를 따른다.
+- active game은 FINISHED 시점에 즉시 해제된다.
+  - RESULT 화면은 이벤트 기반으로 표시하되, 재접속 시 강제 복귀되지 않는다.
+
+---
+## 2. 연결 및 기본 구독
+
+thinking
+**Verifying API-backend alignment**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"warn","summary":"I have the core docs loaded; next I’m validating against the relation-audit policy definitions to avoid false positives on required cross-links.","findings":[],"metrics":{"files_scanned":11,"links_checked":18,"relations_checked":2},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Preparing to read audit rules**
+exec
+/bin/zsh -lc "sed -n '1,320p' AGENTS/CODEX/SKILLS/ssot-spec-audit/references/audit-rules.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+# Audit Rules
+
+## Multi-Agent Scope
+
+One orchestrator run dispatches multiple worker contexts.
+
+1. `area-auditor`
+- targets: `01_PRODUCT`, `02_DESIGN`, `03_API`, `04_DOMAIN`, `05_FRONTEND`, `06_BACKEND`
+- checks: required docs, link integrity, area boundary ownership, intra-area consistency
+
+2. `relation-auditor`
+- targets: PRODUCT_DESIGN, PRODUCT_API, DESIGN_FRONTEND, API_FRONTEND, API_BACKEND, DOMAIN_API, DOMAIN_BACKEND
+- checks: required relationship presence, reference directionality, relation-level duplication/conflict
+
+3. `duplication-auditor`
+- targets: NORMATIVE_DUPLICATION, TERM_CONFLICT, OWNERSHIP_VIOLATION
+- checks: duplicated/contradictory rules, conflicting glossary terms, SSOT ownership violations
+
+4. `agent-spec-auditor`
+- targets: backend and frontend agent/skill trees
+
+thinking
+**Checking relation directionality definitions**
+exec
+/bin/zsh -lc "sed -n '1,340p' AGENTS/CODEX/SKILLS/ssot-spec-audit/references/multi-agent-system.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+# Multi-Agent System Design
+
+## Agent Inventory
+
+| agent_id | target kind | fan-out |
+|---|---|---:|
+| area-auditor | area | 6 |
+| relation-auditor | relation | 7 |
+| duplication-auditor | duplication | 3 |
+| agent-spec-auditor | agent_spec | 2 |
+| traceability-auditor | traceability | 1 |
+| aggregator (orchestrator internal) | all | 1 |
+| gatekeeper (orchestrator internal) | all | 1 |
+
+## Execution Sequence
+
+```mermaid
+flowchart TD
+  U[User] --> O[orchestrate_multi_agent_audit.py]
+  O --> Q[Build task queue]
+
+thinking
+**Searching relation references**
+exec
+/bin/zsh -lc 'rg -n "API_BACKEND|PRODUCT_API|DOMAIN_BACKEND|required relationship|reference directionality|RELATION_MATRIX" AGENTS/CODEX -g "*.md" -g "*.json"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-API-BACKEND.prompt.md:7:- Target ID: API_BACKEND
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-API-BACKEND.prompt.md:37:    "id": "API_BACKEND",
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-PRODUCT-API.prompt.md:7:- Target ID: PRODUCT_API
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-PRODUCT-API.prompt.md:37:    "id": "PRODUCT_API",
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-DOMAIN-BACKEND.prompt.md:7:- Target ID: DOMAIN_BACKEND
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-DOMAIN-BACKEND.prompt.md:37:    "id": "DOMAIN_BACKEND",
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/requests/REL-PRODUCT-API.request.json:10:    "id": "PRODUCT_API",
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/RELATION_MATRIX.md:5:| REL-API-BACKEND | API_BACKEND | relation-auditor | ERROR | high | 1 | Worker execution failed with code 1 |
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/RELATION_MATRIX.md:9:| REL-DOMAIN-BACKEND | DOMAIN_BACKEND | relation-auditor | ERROR | high | 1 | Worker execution failed with code 1 |
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/RELATION_MATRIX.md:10:| REL-PRODUCT-API | PRODUCT_API | relation-auditor | ERROR | high | 1 | Worker execution failed with code 1 |
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/TOP_FINDINGS.md:15:7. [HIGH] `REL-API-BACKEND` `relation/API_BACKEND` WORKER_EXECUTION_FAILED - codex exec returned non-zero exit code
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/TOP_FINDINGS.md:23:11. [HIGH] `REL-DOMAIN-BACKEND` `relation/DOMAIN_BACKEND` WORKER_EXECUTION_FAILED - codex exec returned non-zero exit code
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/TOP_FINDINGS.md:25:12. [HIGH] `REL-PRODUCT-API` `relation/PRODUCT_API` WORKER_EXECUTION_FAILED - codex exec returned non-zero exit code
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/SUMMARY.md:27:- `RELATION_MATRIX.md`
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/requests/REL-DOMAIN-BACKEND.request.json:10:    "id": "DOMAIN_BACKEND",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:14:- Relation auditors (area-to-area required relationships)
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:61:- `AREA_MATRIX.md`, `RELATION_MATRIX.md`, `DUPLICATION_MATRIX.md`, `AGENT_SPEC_MATRIX.md`, `TRACEABILITY_MATRIX.md`
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/worker_results/REL-PRODUCT-API.json:7:    "id": "PRODUCT_API"
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/prompts/REL-API-BACKEND.prompt.md:7:- Target ID: API_BACKEND
+AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/prompts/REL-API-BACKEND.prompt.md:37:    "id": "API_BACKEND",
+
+thinking
+**Inspecting previous worker output**
+exec
+/bin/zsh -lc 'cat AGENTS/CODEX/reports/ssot-spec-audit/20260212-210802/worker_results/REL-API-BACKEND.json' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+{
+  "run_id": "20260212-210802",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-API-BACKEND",
+  "target": {
+    "kind": "relation",
+    "id": "API_BACKEND"
+  },
+  "status": "pass",
+  "summary": "Dry-run mode: no Codex worker executed.",
+  "findings": [],
+  "metrics": {
+    "files_scanned": 0,
+    "links_checked": 0,
+    "relations_checked": 0
+  },
+  "started_at": "2026-02-12T12:08:02+00:00",
+  "finished_at": "2026-02-12T12:08:02+00:00"
+}
+
+thinking
+**Checking prompt content**
+exec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/prompts/REL-API-BACKEND.prompt.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: relation-auditor
+- Task ID: REL-API-BACKEND
+- Target Kind: relation
+- Target ID: API_BACKEND
+- Objective: Ensure backend API implementation rules align with API contract SSOT.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+
+thinking
+**Inspecting relation mapping expectations**
+exec
+/bin/zsh -lc 'rg -n "API_BACKEND|relation" AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts AGENTS/CODEX/SKILLS/ssot-spec-audit -g "*.py"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:25:    "relation": 1,
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:136:    relation_tasks = [
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:139:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:140:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:148:            objective="Ensure product requirements and design requirements maintain explicit and non-duplicated relationships.",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:152:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:153:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:165:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:166:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:178:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:179:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:191:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:192:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:193:            target_id="API_BACKEND",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:204:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:205:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:217:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:218:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:355:    return area_tasks + relation_tasks + duplication_tasks + agent_spec_tasks + traceability_tasks
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:361:        "relation": set(),
+
+thinking
+**Inspecting orchestrator task scope**
+exec
+/bin/zsh -lc "sed -n '120,240p' AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 50ms:
+        TaskSpec(
+            task_id="AREA-06_BACKEND",
+            agent_id="area-auditor",
+            kind="area",
+            target_id="06_BACKEND",
+            scope_paths=["06_BACKEND"],
+            checks=[
+                "required_docs",
+                "broken_links",
+                "architecture_rule_consistency",
+                "test_rule_coverage_statements",
+            ],
+            objective="Validate backend spec rules and architecture boundaries.",
+        ),
+    ]
+
+    relation_tasks = [
+        TaskSpec(
+            task_id="REL-PRODUCT-DESIGN",
+            agent_id="relation-auditor",
+
+thinking
+**Planning link validation scripting**
+exec
+/bin/zsh -lc "rg -n \"\\[\\[["'^'"\\]]+\\]\\]\" 03_API 06_BACKEND" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+03_API/PAGE_MAP/MY_PAGE.md:5:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_CONVENTIONS.md:5:- [[06_BACKEND/BE_ARCHITECTURE.md]]
+06_BACKEND/BE_CONVENTIONS.md:6:- [[06_BACKEND/BE_STACK.md]]
+06_BACKEND/BE_CONVENTIONS.md:7:- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+06_BACKEND/BE_CONVENTIONS.md:8:- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+06_BACKEND/BE_CONVENTIONS.md:33:- 에러 코드는 [[03_API/CONTRACT/REST/ERROR_MODEL.md]]만 사용한다.
+06_BACKEND/BE_CONVENTIONS.md:34:- HTTP 상태 코드는 [[03_API/CONTRACT/REST/CONVENTIONS.md]] 규칙을 따른다.
+03_API/PAGE_MAP/SIGNUP.md:5:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_API_RULES.md:6:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_API_RULES.md:7:- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+06_BACKEND/BE_API_RULES.md:8:- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+06_BACKEND/BE_API_RULES.md:9:- [[03_API/CONTRACT/REST/AUTH_GUARDS.md]]
+03_API/PAGE_MAP/IN_GAME.md:5:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+03_API/PAGE_MAP/IN_GAME.md:6:- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+03_API/PAGE_MAP/IN_GAME.md:7:- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+03_API/PAGE_MAP/IN_GAME.md:8:- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+06_BACKEND/BE_TEST_RULES.md:6:- [[06_BACKEND/BE_STACK.md]]
+06_BACKEND/BE_TEST_RULES.md:7:- [[06_BACKEND/BE_CONVENTIONS.md]]
+06_BACKEND/BE_TEST_RULES.md:8:- [[06_BACKEND/BE_API_RULES.md]]
+06_BACKEND/BE_TEST_RULES.md:9:- [[06_BACKEND/BE_REALTIME_RULES.md]]
+
+thinking
+**Assessing API-backend linkage and traceability**
+exec
+/bin/zsh -lc "nl -ba 06_BACKEND/BE_API_RULES.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	## 0. 문서 목적
+     2	- REST API 계약을 백엔드 코드로 구현하는 규칙을 정의한다.
+     3	- 계약의 단일 진실은 `03_API` 문서다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     7	- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+     8	- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+     9	- [[03_API/CONTRACT/REST/AUTH_GUARDS.md]]
+    10	
+    11	---
+    12	## 1. 계약 준수 규칙
+    13	- OPENAPI에 없는 엔드포인트 추가 금지.
+    14	- 요청/응답 스키마는 OPENAPI와 1:1로 일치해야 한다.
+    15	- 모든 응답은 공통 Envelope를 사용한다.
+    16	
+    17	---
+    18	## 2. 인증/가드 규칙
+    19	- 인증/가드 실패 코드는 AUTH_GUARDS.md와 일치해야 한다.
+    20	- 가드는 프론트에서 추론하지 않으며, 서버가 authoritative하다.
+
+thinking
+**Inspecting API conventions file**
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/CONVENTIONS.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	## 0. 작업 양식
+     2	아래 양식으로 변경 내용을 기록하고, 연관 문서를 함께 갱신한다.
+     3	
+     4	```
+     5	[변경 목적]
+     6	- 무엇을 왜 바꾸는가
+     7	
+     8	[변경 내용]
+     9	- 규칙/정책/포맷 변경 요약
+    10	
+    11	[연관 문서 업데이트]
+    12	- OPENAPI.yaml.md
+    13	- ERROR_MODEL.md
+    14	- AUTH_GUARDS.md
+    15	- API_SUMMARY.md
+    16	
+    17	[검토 체크리스트]
+    18	- 규칙 충돌 없음
+    19	- 예시 최신화
+    20	- OpenAPI/요약 동기화
+
+thinking
+**Checking line number conventions**
+exec
+/bin/zsh -lc "nl -ba 06_BACKEND/BE_REALTIME_RULES.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+     1	## 0. 문서 목적
+     2	- 실시간(STOMP) 이벤트/커맨드 구현 규칙을 정의한다.
+     3	- 계약의 단일 진실은 `03_API/CONTRACT/REALTIME` 문서다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/LIFECYCLE.md]]
+     7	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     8	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+     9	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+    10	- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+    11	
+    12	---
+    13	## 1. 연결 규칙
+    14	- WebSocket endpoint는 `/ws`로 고정한다.
+    15	- 인증 헤더 규칙은 `REALTIME_CONVENTIONS`를 따른다.
+    16	
+    17	---
+    18	## 2. 이벤트/커맨드 규칙
+    19	- 모든 메시지는 Envelope 포맷을 사용한다.
+    20	- `type` 값은 EVENTS/COMMANDS 목록과 일치해야 한다.
+
+thinking
+**Clarifying API doc references**
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REALTIME/CONVENTIONS.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	## 0. 문서 목적
+     2	- 이 문서는 실시간(WebSocket/STOMP) 통신 규칙을 정의한다.
+     3	- 채팅/단계 전환 알림/아이템 효과는 본 문서와 EVENT/COMMAND/ TOPIC 문서를 따른다.
+     4	- REST는 스냅샷 + 명령만 담당한다.
+     5	
+     6	## 관련 문서
+     7	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+     8	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+     9	- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+    10	
+    11	---
+    12	## 1. 전송 방식
+    13	- WebSocket 기반 실시간 통신을 사용한다.
+    14	- STOMP 사용을 전제로 하며, 아래 destination 규칙을 따른다.
+    15	
+    16	### 1.1 Prefix
+    17	- Publish(서버 → 클라이언트): `/topic/**`
+    18	- User Queue(서버 → 특정 사용자): `/user/queue/**`
+    19	- Command(클라이언트 → 서버): `/app/**`
+    20	
+
+thinking
+**Assessing backend realtime mapping**
+exec
+/bin/zsh -lc "nl -ba 03_API/README.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+     1	**목적**
+     2	- REST/실시간 계약과 페이지 맵의 단일 진실(SSOT)을 정의한다.
+     3	- 프론트/백엔드 구현은 반드시 이 계약을 기준으로 한다.
+     4	
+     5	**범위**
+     6	- 포함: OpenAPI, REST 규약, 실시간 규약, 페이지별 계약 매핑, 라이프사이클
+     7	- 제외: 구현 코드, DB 모델 세부 설계
+     8	
+     9	**파일 구조**
+    10	```text
+    11	03_API/
+    12	  README.md # 이 문서
+    13	  LIFECYCLE.md # 로그인/복귀/게임 진행 흐름 기준
+    14	  CONTRACT/
+    15	    REST/
+    16	      API_SUMMARY.md # REST API 요약
+    17	      AUTH_GUARDS.md # 인증/인가 가드 규칙
+    18	      CONVENTIONS.md # REST 공통 규약
+    19	      ERROR_MODEL.md # 에러 모델 규칙
+    20	      OPENAPI.yaml.md # REST API 스키마(OpenAPI)
+
+thinking
+**Checking backend README**
+exec
+/bin/zsh -lc "nl -ba 06_BACKEND/README.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	**목적**
+     2	- 백엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+     3	
+     4	**범위**
+     5	- 포함: 아키텍처, API 규칙, 실시간 규칙, 데이터 모델 규칙, 테스트 규칙
+     6	- 제외: 구현 코드, 인프라 프로비저닝
+     7	
+     8	**파일 구조**
+     9	```text
+    10	06_BACKEND/
+    11	  README.md # 이 문서
+    12	  BE_STACK.md # 백엔드 기술 스택 고정값
+    13	  BE_ARCHITECTURE.md # 모듈 경계/레이어 책임 규칙
+    14	  BE_CONVENTIONS.md # 네이밍/구조/코딩 컨벤션
+    15	  BE_API_RULES.md # REST 구현 규칙
+    16	  BE_REALTIME_RULES.md # 실시간(STOMP) 구현 규칙
+    17	  BE_DATA_MODEL_RULES.md # 데이터 모델/DB 규칙
+    18	  BE_TEST_RULES.md # 테스트 전략/규칙
+    19	  BE_AGENT_SPLIT.md # 병렬 에이전트 분할 기준
+    20	```
+
+thinking
+**Assessing backend and API doc consistency**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"warn","summary":"I’m running one last consistency sweep for endpoint/version/error-rule alignment before finalizing the worker JSON.","findings":[],"metrics":{"files_scanned":12,"links_checked":22,"relations_checked":2},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Running scoped search for API and norms**
+exec
+/bin/zsh -lc 'rg -n "PUT / DELETE|/api/v1|Envelope|ERROR_MODEL|AUTH_GUARDS|OPENAPI|단일 진실|authoritative|REST는" 03_API 06_BACKEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+03_API/PAGE_MAP/MY_PAGE.md:5:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_CONVENTIONS.md:8:- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+06_BACKEND/BE_CONVENTIONS.md:33:- 에러 코드는 [[03_API/CONTRACT/REST/ERROR_MODEL.md]]만 사용한다.
+03_API/PAGE_MAP/SIGNUP.md:5:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_API_RULES.md:3:- 계약의 단일 진실은 `03_API` 문서다.
+06_BACKEND/BE_API_RULES.md:6:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_API_RULES.md:8:- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+06_BACKEND/BE_API_RULES.md:9:- [[03_API/CONTRACT/REST/AUTH_GUARDS.md]]
+06_BACKEND/BE_API_RULES.md:13:- OPENAPI에 없는 엔드포인트 추가 금지.
+06_BACKEND/BE_API_RULES.md:14:- 요청/응답 스키마는 OPENAPI와 1:1로 일치해야 한다.
+06_BACKEND/BE_API_RULES.md:15:- 모든 응답은 공통 Envelope를 사용한다.
+06_BACKEND/BE_API_RULES.md:19:- 인증/가드 실패 코드는 AUTH_GUARDS.md와 일치해야 한다.
+06_BACKEND/BE_API_RULES.md:20:- 가드는 프론트에서 추론하지 않으며, 서버가 authoritative하다.
+06_BACKEND/BE_API_RULES.md:24:- 모든 실패는 ERROR_MODEL.md의 code만 사용한다.
+06_BACKEND/BE_API_RULES.md:25:- 신규 에러 추가 시 ERROR_MODEL.md를 먼저 갱신한다.
+06_BACKEND/BE_API_RULES.md:29:- REST prefix는 `/api/v1`로 고정한다.
+03_API/PAGE_MAP/IN_GAME.md:5:- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+06_BACKEND/BE_REALTIME_RULES.md:3:- 계약의 단일 진실은 `03_API/CONTRACT/REALTIME` 문서다.
+06_BACKEND/BE_REALTIME_RULES.md:19:- 모든 메시지는 Envelope 포맷을 사용한다.
+06_BACKEND/BE_DATA_MODEL_RULES.md:3:- 단일 진실은 `04_DOMAIN` 문서다.
+
+thinking
+**Validating cross-document consistency**
+exec
+/bin/zsh -lc 'date -u +"%Y-%m-%dT%H:%M:%SZ"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+2026-02-12T12:18:31Z
+
+thinking
+**Preparing final JSON output**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-BACKEND","target":{"kind":"relation","id":"API_BACKEND"},"status":"pass","summary":"Backend API/realtime implementation-rule documents consistently reference `03_API` as contract SSOT, and no API↔backend rule conflicts or relation-level duplication were found within the scoped paths.","findings":[],"metrics":{"files_scanned":16,"links_checked":26,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:18:31Z"}
+tokens used
+58,001

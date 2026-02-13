@@ -1,0 +1,2 @@
+task_id,target_id,agent_id,status,max_severity,finding_count,summary
+TRACE-E2E,E2E_TRACEABILITY,traceability-auditor,fail,critical,5,"End-to-end traceability is broken by missing Product→Design source links, API lifecycle mapping conflict, Domain→Backend write-policy timing mismatch, API→Frontend PageRoute mismatch, and one orphaned/mislocated spec declaration."

@@ -1,0 +1,81 @@
+OpenAI Codex v0.99.0 (research preview)
+--------
+workdir: /Users/kanggyeonggu/Documents/league-of-algologic
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c51be-9887-76b1-8a51-bcf3d924cc4c
+--------
+user
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: relation-auditor
+- Task ID: REL-API-FRONTEND
+- Target Kind: relation
+- Target ID: API_FRONTEND
+- Objective: Ensure frontend API usage rules align with API contract SSOT.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+- low: minor documentation quality concerns
+
+Output Contract:
+- Return ONLY a JSON object matching the provided output schema.
+- No markdown fences, no commentary, no prose outside JSON.
+
+Worker Request JSON:
+{
+  "run_id": "20260212-210546",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-API-FRONTEND",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "relation",
+    "id": "API_FRONTEND",
+    "scope_paths": [
+      "03_API",
+      "05_FRONTEND"
+    ],
+    "checks": [
+      "required_link_presence",
+      "contract_usage_mapping",
+      "duplication_and_conflict"
+    ],
+    "objective": "Ensure frontend API usage rules align with API contract SSOT."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210546/worker_results/REL-API-FRONTEND.worker.json"
+}
+mcp startup: no servers
+2026-02-12T12:06:11.361549Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ee-7ba2-a962-612dc878cb48
+2026-02-12T12:06:11.385572Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-72b0-bdf8-e40ebceaa511
+2026-02-12T12:06:11.409584Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7463-ae40-c7cb687f7c1e
+2026-02-12T12:06:11.434699Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-77e0-959f-41e255a92e73
+2026-02-12T12:06:11.458300Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-3937-76b2-a6cc-f97d68083e72
+2026-02-12T12:06:11.481350Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bd-0e3d-7023-859d-48e6711a7edc
+2026-02-12T12:06:11.506225Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7343-9ed5-7e439c2f4971
+2026-02-12T12:06:11.531285Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-96ff-7c81-a003-23d93283cfcb
+Reconnecting... 1/5 (stream disconnected before completion: error sending request for url (https://chatgpt.com/backend-api/codex/responses))
+Reconnecting... 2/5 (stream disconnected before completion: error sending request for url (https://chatgpt.com/backend-api/codex/responses))
+Reconnecting... 3/5 (stream disconnected before completion: error sending request for url (https://chatgpt.com/backend-api/codex/responses))
+Reconnecting... 4/5 (stream disconnected before completion: error sending request for url (https://chatgpt.com/backend-api/codex/responses))
+Reconnecting... 5/5 (stream disconnected before completion: error sending request for url (https://chatgpt.com/backend-api/codex/responses))
+ERROR: stream disconnected before completion: error sending request for url (https://chatgpt.com/backend-api/codex/responses)
+Warning: no last agent message; wrote empty content to /Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210546/worker_results/REL-API-FRONTEND.worker.json

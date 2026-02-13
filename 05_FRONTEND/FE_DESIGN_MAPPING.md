@@ -6,7 +6,7 @@
 - [[01_PRODUCT/USER_FLOWS.md]]
 - [[02_DESIGN/COLOR_SYSTEM.md]]
 - [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
-- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+- [[05_FRONTEND/SPEC/FE_ROUTING_RULES.md]]
 
 ---
 ## 1. 페이지 매핑 (Route → Data Requirements)

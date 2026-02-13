@@ -1,0 +1,455 @@
+OpenAI Codex v0.99.0 (research preview)
+--------
+workdir: /Users/kanggyeonggu/Documents/league-of-algologic
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c51c7-bffd-7e91-9006-22e637fd445b
+--------
+user
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: relation-auditor
+- Task ID: REL-DOMAIN-BACKEND
+- Target Kind: relation
+- Target ID: DOMAIN_BACKEND
+- Objective: Ensure backend rules correctly reference domain model SSOT.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+- low: minor documentation quality concerns
+
+Output Contract:
+- Return ONLY a JSON object matching the provided output schema.
+- No markdown fences, no commentary, no prose outside JSON.
+
+Worker Request JSON:
+{
+  "run_id": "20260212-211025",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-DOMAIN-BACKEND",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "relation",
+    "id": "DOMAIN_BACKEND",
+    "scope_paths": [
+      "04_DOMAIN",
+      "06_BACKEND"
+    ],
+    "checks": [
+      "required_link_presence",
+      "domain_rule_usage_mapping",
+      "duplication_and_conflict"
+    ],
+    "objective": "Ensure backend rules correctly reference domain model SSOT."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DOMAIN-BACKEND.worker.json"
+}
+mcp startup: no servers
+2026-02-12T12:16:11.288647Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d0d7-7c01-9d9a-03891d2c6d05
+2026-02-12T12:16:11.311737Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-9887-76b1-8a51-bcf3d924cc4c
+2026-02-12T12:16:11.337021Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ee-7ba2-a962-612dc878cb48
+2026-02-12T12:16:11.362217Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-72d3-a3b1-d7a5a430ccef
+2026-02-12T12:16:11.385133Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9d-7a62-9a23-c4a89638f2aa
+2026-02-12T12:16:11.410315Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-7eb1-b1ba-acb58528a4c4
+2026-02-12T12:16:11.435539Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-72b0-bdf8-e40ebceaa511
+2026-02-12T12:16:11.460661Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7251-bef6-72ab459d6295
+2026-02-12T12:16:11.485829Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f756-70d0-979e-f3d19e6b4765
+2026-02-12T12:16:11.511010Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f6e8-7312-87a5-1bf02f68e683
+2026-02-12T12:16:11.535076Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4876-72e1-8344-2def65ab0e2e
+2026-02-12T12:16:11.560240Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-48b9-7cf0-bb8f-0727ecae471c
+2026-02-12T12:16:11.584638Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4930-7b12-b5a6-09a3f990fa01
+2026-02-12T12:16:11.609944Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7463-ae40-c7cb687f7c1e
+2026-02-12T12:16:11.632799Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-fa75-7c02-93b7-0ff3016651ff
+2026-02-12T12:16:11.656142Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-6a71-7561-8370-8177aef5b7a2
+2026-02-12T12:16:11.681523Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7160-86f1-edd523e80eda
+2026-02-12T12:16:11.707077Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d227-7931-8880-0db3cd452657
+2026-02-12T12:16:11.731540Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c6-c7d0-7983-a4d7-732cf9ac4887
+2026-02-12T12:16:11.756332Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4893-7892-ab52-2b5e47dc4b6a
+2026-02-12T12:16:11.780809Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-77e0-959f-41e255a92e73
+2026-02-12T12:16:11.806485Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f78e-7f63-8b6a-6989a20dbee4
+2026-02-12T12:16:11.831785Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7ae3-b325-a3e92ca31ab8
+2026-02-12T12:16:11.856791Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f858-7832-915b-32b1bbc4a668
+2026-02-12T12:16:11.881527Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4889-7083-a7bb-3036c26e479e
+2026-02-12T12:16:11.906815Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4ad5-7921-bbb9-6d8219c8e00f
+2026-02-12T12:16:11.931963Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ceef-7700-964a-e875524422b3
+2026-02-12T12:16:11.957264Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-70c0-81cc-845a16dc3090
+2026-02-12T12:16:11.981463Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-7a32-a5aa-cc1b16737fd3
+2026-02-12T12:16:12.006551Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d087-7b72-810f-c7f9cae8997e
+2026-02-12T12:16:12.031929Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d12a-7c03-ae0e-de466063265b
+2026-02-12T12:16:12.056973Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cf47-78d1-bfd8-856010e0b88b
+2026-02-12T12:16:12.083456Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f72e-7832-829c-5dc1786d64e1
+2026-02-12T12:16:12.110166Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-73d0-b85f-f37742148125
+2026-02-12T12:16:12.135667Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-3937-76b2-a6cc-f97d68083e72
+2026-02-12T12:16:12.162220Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-7e83-8a93-8be1e16e8d6f
+2026-02-12T12:16:12.189142Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4bef-7ed0-8cba-d1ace7970ba2
+2026-02-12T12:16:12.215052Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97ee-7b60-b23e-e08772246435
+2026-02-12T12:16:12.240779Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cefd-7d71-8e38-596fba5ee0fa
+2026-02-12T12:16:12.263551Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a5a-7433-8dd2-1a6692ba5030
+2026-02-12T12:16:12.285662Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-b800-79c0-ac34-e82f05164e2a
+2026-02-12T12:16:12.309411Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-995e-7492-8c9d-07b4d289699a
+2026-02-12T12:16:12.334978Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4be1-7322-a4ca-af563f4648a1
+2026-02-12T12:16:12.361082Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4b44-7932-b08e-3d01c68ac40d
+2026-02-12T12:16:12.385377Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bd-0e3d-7023-859d-48e6711a7edc
+2026-02-12T12:16:12.411132Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-db3b-75a1-bc22-880a2374c69a
+2026-02-12T12:16:12.436269Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97fe-7fb3-96d8-40e3f7846860
+2026-02-12T12:16:12.459988Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-71c2-ab93-0e7477f1db36
+2026-02-12T12:16:12.485311Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7343-9ed5-7e439c2f4971
+2026-02-12T12:16:12.509932Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d111-7f32-ba2e-7fb437b66b8d
+2026-02-12T12:16:12.536408Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d2a5-77d0-814d-abc1f8cc15cd
+2026-02-12T12:16:12.562879Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d199-7bc1-8e8d-c5388afdccf8
+2026-02-12T12:16:12.590641Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cca6-7652-95a9-9848df23bbf0
+2026-02-12T12:16:12.617482Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-492a-7c30-9fcd-1011dc30505a
+2026-02-12T12:16:12.643814Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c7-bea2-7832-a4a2-7dd8098fd672
+2026-02-12T12:16:12.669937Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-99a4-75f0-9861-0af58a0c2eb0
+2026-02-12T12:16:12.695191Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-7bc1-8c89-68dc759750a4
+2026-02-12T12:16:12.719292Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-96ff-7c81-a003-23d93283cfcb
+2026-02-12T12:16:12.743858Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a44-73b3-8ed5-d69e2b402611
+2026-02-12T12:16:12.770758Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bf-5589-7183-8f76-bb3c1765fbff
+2026-02-12T12:16:12.798021Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a98-7dc1-801f-3d18906a496d
+2026-02-12T12:16:12.823400Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7002-91ff-96e6baf61715
+2026-02-12T12:16:12.849965Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-71d0-b19c-c6ecbac8a9b5
+
+thinking
+**Preparing audit strategy and tooling**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"warn","summary":"Starting REL-DOMAIN-BACKEND audit in scope `04_DOMAIN` and `06_BACKEND`; first step is to load the SSOT audit skill instructions and then inspect relation links and rule mappings in those paths.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Correcting commentary format and reading skill file**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"warn","summary":"Using `ssot-spec-audit` skill because this task is an SSOT relation audit; reading its `SKILL.md` now to follow workflow requirements.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Evaluating response format requirements**
+exec
+/bin/zsh -lc "sed -n '1,220p' .codex-home/skills/ssot-spec-audit/SKILL.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+---
+name: ssot-spec-audit
+description: Run a multi-agent SSOT consistency audit by orchestrating multiple Codex worker contexts in parallel. Use when you need area-level validation, cross-area relation checks, duplication/conflict detection, agent-skill wiring checks, and consolidated severity-gated reports.
+---
+
+# SSOT Spec Audit
+
+## Overview
+
+Run one orchestrator command that fans out into multiple Codex worker executions (`codex exec`) and aggregates results.
+
+Worker groups:
+- Area auditors (`01_PRODUCT` to `06_BACKEND`)
+- Relation auditors (area-to-area required relationships)
+- Duplication auditors (duplicate/conflicting norms and ownership violations)
+- Agent-spec auditors (agent/skill role, mapping, reference completeness)
+- Traceability auditor (end-to-end requirement traceability)
+
+## Run
+
+
+thinking
+**Inspecting audit rule references**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"warn","summary":"Loaded the skill overview. Next I’m reading relation audit rules/schemas to apply the exact required checks (`required_link_presence`, `domain_rule_usage_mapping`, `duplication_and_conflict`) against `04_DOMAIN` and `06_BACKEND`.","findings":[],"metrics":{"files_scanned":1,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Adopting structured response format**
+exec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/SKILLS/ssot-spec-audit/references/audit-rules.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' AGENTS/CODEX/SKILLS/ssot-spec-audit/schemas/worker_result.schema.json" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkerResult",
+  "type": "object",
+  "required": [
+    "run_id",
+    "agent_id",
+    "task_id",
+    "target",
+    "status",
+    "summary",
+    "findings",
+    "metrics",
+    "started_at",
+    "finished_at"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 8
+ succeeded in 52ms:
+# Audit Rules
+
+## Multi-Agent Scope
+
+One orchestrator run dispatches multiple worker contexts.
+
+1. `area-auditor`
+- targets: `01_PRODUCT`, `02_DESIGN`, `03_API`, `04_DOMAIN`, `05_FRONTEND`, `06_BACKEND`
+- checks: required docs, link integrity, area boundary ownership, intra-area consistency
+
+2. `relation-auditor`
+- targets: PRODUCT_DESIGN, PRODUCT_API, DESIGN_FRONTEND, API_FRONTEND, API_BACKEND, DOMAIN_API, DOMAIN_BACKEND
+- checks: required relationship presence, reference directionality, relation-level duplication/conflict
+
+3. `duplication-auditor`
+- targets: NORMATIVE_DUPLICATION, TERM_CONFLICT, OWNERSHIP_VIOLATION
+- checks: duplicated/contradictory rules, conflicting glossary terms, SSOT ownership violations
+
+4. `agent-spec-auditor`
+- targets: backend and frontend agent/skill trees
+
+thinking
+**Planning scoped file inspection**
+exec
+/bin/zsh -lc 'find 04_DOMAIN 06_BACKEND -maxdepth 2 -type d | sort' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg --files 04_DOMAIN 06_BACKEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+04_DOMAIN
+06_BACKEND
+ succeeded in 51ms:
+04_DOMAIN/DB_NOTES.md
+04_DOMAIN/README.md
+04_DOMAIN/REDIS_DB_TIMING.md
+04_DOMAIN/DATA_MODEL.md
+06_BACKEND/BE_CONVENTIONS.md
+06_BACKEND/BE_ARCHITECTURE.md
+06_BACKEND/BE_API_RULES.md
+06_BACKEND/BE_DATA_MODEL_RULES.md
+06_BACKEND/README.md
+06_BACKEND/BE_STACK.md
+06_BACKEND/BE_TEST_RULES.md
+06_BACKEND/BE_REALTIME_RULES.md
+
+thinking
+**Planning comprehensive file inspection**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"warn","summary":"I identified 12 files in scope and will now inspect all domain/backend docs with line numbers to verify required cross-links and detect any rule drift or conflicts.","findings":[],"metrics":{"files_scanned":12,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Planning parallel file reading**
+exec
+/bin/zsh -lc 'for f in 04_DOMAIN/README.md 04_DOMAIN/DATA_MODEL.md 04_DOMAIN/DB_NOTES.md; do echo "===== $f ====="; nl -ba "$f"; echo; done' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 04_DOMAIN/REDIS_DB_TIMING.md 06_BACKEND/README.md 06_BACKEND/BE_DATA_MODEL_RULES.md; do echo "===== $f ====="; nl -ba "$f"; echo; done' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 06_BACKEND/BE_STACK.md 06_BACKEND/BE_TEST_RULES.md 06_BACKEND/BE_CONVENTIONS.md; do echo "===== $f ====="; nl -ba "$f"; echo; done' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 06_BACKEND/BE_ARCHITECTURE.md 06_BACKEND/BE_API_RULES.md 06_BACKEND/BE_REALTIME_RULES.md; do echo "===== $f ====="; nl -ba "$f"; echo; done' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+===== 04_DOMAIN/README.md =====
+     1	**목적**
+     2	- 도메인 모델 및 DB 규칙의 단일 진실(SSOT)을 정의한다.
+     3	
+     4	**범위**
+     5	- 포함: 데이터 모델, DB 설계 노트, Redis 타이밍 규칙
+     6	- 제외: 구현 코드, API 계약 세부
+     7	
+     8	**파일 구조**
+     9	```text
+    10	04_DOMAIN/
+    11	  README.md # 이 문서
+    12	  DATA_MODEL.md # 엔티티/관계/도메인 모델 기준
+    13	  DB_NOTES.md # DB 설계/정합성 메모
+    14	  REDIS_DB_TIMING.md # Redis/DB 동기화 타이밍 규칙
+    15	```
+    16	
+    17	**변경 원칙**
+    18	- 데이터 모델 변경은 `04_DOMAIN/`에서 먼저 수정한다.
+
+ succeeded in 52ms:
+===== 04_DOMAIN/REDIS_DB_TIMING.md =====
+     1	## 0. 문서 목적
+     2	- Redis와 DB의 저장 타이밍(Write Policy)을 명확히 정의한다.
+     3	- 로비~게임 종료 사이클에서 저장 시점을 일관되게 적용한다.
+     4	
+     5	## 관련 문서
+     6	- [[04_DOMAIN/DATA_MODEL.md]]
+     7	- [[04_DOMAIN/DB_NOTES.md]]
+     8	- [[03_API/LIFECYCLE.md]]
+     9	
+    10	---
+    11	## 1. 기본 원칙
+    12	- 실시간 상태(=ephemeral/derived)는 Redis가 단일 진실이다.
+    13	- DB는 결과/이력/정산에 필요한 persistent의 최종 저장소다.
+    14	- 로비 단계는 Redis-only로 운영한다.
+    15	
+    16	---
+    17	## 2. Write Policy 정의
+    18	- write-through: 상태 변경 즉시 DB에 기록한다. Redis는 캐시/미러로만 사용한다.
+    19	- write-back: Redis가 실시간 단일 진실이다. 종료 시점에 DB로 스냅샷을 반영한다.
+ succeeded in 52ms:
+===== 06_BACKEND/BE_ARCHITECTURE.md =====
+     1	## 0. 문서 목적
+     2	- 백엔드 모듈 경계와 책임 분리를 정의한다.
+     3	- 병렬 개발 시 충돌을 최소화한다.
+     4	
+     5	## 관련 문서
+     6	- [[06_BACKEND/BE_CONVENTIONS.md]]
+     7	- [[06_BACKEND/BE_API_RULES.md]]
+     8	- [[06_BACKEND/BE_REALTIME_RULES.md]]
+     9	- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
+    10	
+    11	---
+    12	## 1. 기본 모듈 구조
+    13	- `src/app`: 서버 부트스트랩
+    14	- `src/config`: 환경 설정/상수
+    15	- `src/common`: 공통 유틸/미들웨어/에러 핸들러
+    16	- `src/modules/<domain>`: 도메인 모듈 단위
+    17	- `src/modules/<domain>/controller`: HTTP 엔드포인트
+    18	- `src/modules/<domain>/service`: 비즈니스 로직
+    19	- `src/modules/<domain>/repo`: DB 접근
+ succeeded in 52ms:
+===== 06_BACKEND/BE_STACK.md =====
+     1	## 0. 문서 목적
+     2	- 백엔드 기술 스택의 **고정값**을 정의한다.
+     3	- 임의 변경/혼용을 금지한다.
+     4	
+     5	---
+     6	## 1. 고정 스택
+     7	- Framework: Spring Boot
+     8	- ORM: Spring Data JPA
+     9	- Database: PostgreSQL
+    10	- Realtime State: Redis
+    11	
+    12	---
+    13	## 2. 금지
+    14	- 다른 ORM/쿼리 도구(MyBatis, jOOQ 등) 도입 금지.
+    15	- 다른 DB로의 임의 변경 금지.
+    16	- Redis 외 임의 캐시/상태 저장소 도입 금지.
+
+===== 06_BACKEND/BE_TEST_RULES.md =====
+     1	## 0. 문서 목적
+
+thinking
+**Analyzing domain-backend write policy alignment**
+exec
+/bin/zsh -lc 'rg -n "write-back|write-through|startGame|flush|ROOM|GAME_FINISHED|DATA_MODEL|04_DOMAIN" 06_BACKEND 04_DOMAIN' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+04_DOMAIN/DB_NOTES.md:2:- DATA_MODEL.md를 보조하는 성능/설계 이유 문서.
+04_DOMAIN/DB_NOTES.md:3:- 단일 진실은 DATA_MODEL.md이다.
+04_DOMAIN/DB_NOTES.md:6:- [[04_DOMAIN/DATA_MODEL.md]]
+04_DOMAIN/DB_NOTES.md:7:- [[04_DOMAIN/REDIS_DB_TIMING.md]]
+04_DOMAIN/DB_NOTES.md:17:### 1.2 ROOM
+04_DOMAIN/DB_NOTES.md:22:### 1.3 ROOM_PLAYER
+04_DOMAIN/DB_NOTES.md:28:### 1.4 ROOM_KICK
+04_DOMAIN/DB_NOTES.md:32:### 1.5 ROOM_HOST_HISTORY
+04_DOMAIN/DB_NOTES.md:39:  - ROOM은 단일 게임 세션 단위(ROOM당 GAME 최대 1건)로 운영한다.
+04_DOMAIN/DB_NOTES.md:79:- ROOM.host_user_id를 단일 진실로 두어 중복/불일치 제거.
+04_DOMAIN/DB_NOTES.md:80:- ROOM_PLAYER는 left_at NULL을 활성 상태로 정의해 재입장/이력 보존.
+04_DOMAIN/DB_NOTES.md:87:- 강퇴(ROOM_KICK), 밴/픽/구매/제출/사용 로그
+04_DOMAIN/DB_NOTES.md:104:- 기본값: persistent는 write-through.
+04_DOMAIN/DB_NOTES.md:105:- 예외: ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER, GAME_BAN, GAME_PICK은 write-back(종료 시 DB 반영).
+04_DOMAIN/DB_NOTES.md:106:- 최종 기준은 DATA_MODEL.md의 Write Policy 매핑을 따른다.
+06_BACKEND/README.md:17:  BE_DATA_MODEL_RULES.md # 데이터 모델/DB 규칙
+06_BACKEND/README.md:25:- 도메인/DB: `04_DOMAIN/`
+04_DOMAIN/README.md:10:04_DOMAIN/
+04_DOMAIN/README.md:12:  DATA_MODEL.md # 엔티티/관계/도메인 모델 기준
+04_DOMAIN/README.md:18:- 데이터 모델 변경은 `04_DOMAIN/`에서 먼저 수정한다.
+
+thinking
+**Planning audit link presence**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"warn","summary":"I’ve finished a full pass over both scope directories and identified a potential write-policy drift. I’ll now confirm relation-specific mandatory link requirements from the SSOT audit reference files before finalizing findings.","findings":[],"metrics":{"files_scanned":12,"links_checked":9,"relations_checked":1},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Inspecting reference files for relations**
+exec
+/bin/zsh -lc 'ls -la AGENTS/CODEX/SKILLS/ssot-spec-audit/references' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "rg -n \"DOMAIN_BACKEND|required_link_presence|domain_rule_usage_mapping|relation\" AGENTS/CODEX/SKILLS/ssot-spec-audit/references AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts AGENTS/CODEX/SKILLS/ssot-spec-audit -g '*.md' -g '*.json' -g '*.py'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+total 16
+drwxr-xr-x@ 4 kanggyeonggu  staff   128 Feb 12 20:55 .
+drwxr-xr-x@ 8 kanggyeonggu  staff   256 Feb 12 20:58 ..
+-rw-r--r--@ 1 kanggyeonggu  staff  2098 Feb 12 20:54 audit-rules.md
+-rw-r--r--@ 1 kanggyeonggu  staff  1353 Feb 12 20:55 multi-agent-system.md
+ succeeded in 51ms:
+AGENTS/CODEX/SKILLS/ssot-spec-audit/references/multi-agent-system.md:8:| relation-auditor | relation | 7 |
+AGENTS/CODEX/SKILLS/ssot-spec-audit/references/multi-agent-system.md:22:  Q --> A2[relation-auditor workers x7]
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:3:description: Run a multi-agent SSOT consistency audit by orchestrating multiple Codex worker contexts in parallel. Use when you need area-level validation, cross-area relation checks, duplication/conflict detection, agent-skill wiring checks, and consolidated severity-gated reports.
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:14:- Relation auditors (area-to-area required relationships)
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:67:- `critical`: mandatory SSOT relation/reference failure
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:69:- `medium`: relation drift, traceability gap, ambiguous ownership
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:25:    "relation": 1,
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:136:    relation_tasks = [
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:139:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:140:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:144:                "required_link_presence",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:148:            objective="Ensure product requirements and design requirements maintain explicit and non-duplicated relationships.",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:152:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:153:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:157:                "required_link_presence",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:165:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:166:            kind="relation",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:170:                "required_link_presence",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:178:            agent_id="relation-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:179:            kind="relation",
+
+thinking
+**Inspecting orchestration script**
+exec
+/bin/zsh -lc "nl -ba AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py | sed -n '120,280p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py | sed -n '500,700p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+   120	        TaskSpec(
+   121	            task_id="AREA-06_BACKEND",
+   122	            agent_id="area-auditor",
+   123	            kind="area",
+   124	            target_id="06_BACKEND",
+   125	            scope_paths=["06_BACKEND"],
+   126	            checks=[
+   127	                "required_docs",
+   128	                "broken_links",
+   129	                "architecture_rule_consistency",
+   130	                "test_rule_coverage_statements",
+   131	            ],
+   132	            objective="Validate backend spec rules and architecture boundaries.",
+   133	        ),
+   134	    ]
+   135	
+   136	    relation_tasks = [
+   137	        TaskSpec(
+   138	            task_id="REL-PRODUCT-DESIGN",
+   139	            agent_id="relation-auditor",
+ succeeded in 52ms:
+   500	    status = payload.get("status", "")
+   501	    if status not in VALID_STATUSES:
+   502	        status = compute_status_from_findings(findings)
+   503	    payload["status"] = status
+   504	
+   505	    return payload
+   506	
+   507	
+   508	def build_worker_prompt(request_payload: Dict[str, Any]) -> str:
+   509	    target = request_payload["target"]
+   510	    pretty_request = json.dumps(request_payload, indent=2, ensure_ascii=False)
+   511	
+   512	    lines = [
+   513	        "You are a specialized SSOT audit worker.",
+   514	        "",
+   515	        "Mission:",
+   516	        f"- Agent ID: {request_payload['agent_id']}",
+   517	        f"- Task ID: {request_payload['task_id']}",
+   518	        f"- Target Kind: {target['kind']}",
+   519	        f"- Target ID: {target['id']}",
+
+thinking
+**Analyzing backend-domain timing mismatch**
+exec
+/bin/zsh -lc 'date -u +"%Y-%m-%dT%H:%M:%SZ"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+2026-02-12T12:18:05Z
+
+thinking
+**Finalizing detailed JSON report**
+codex
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"fail","summary":"Found a high-severity domain-to-backend mapping mismatch: backend write-back timing rule does not preserve the domain SSOT’s per-entity timing requirements.","findings":[{"severity":"high","code":"DOMAIN_BACKEND_WRITE_POLICY_TIMING_MISMATCH","message":"`06_BACKEND/BE_DATA_MODEL_RULES.md` defines write-back persistence timing as a single rule (`GAME_FINISHED` or room/game end), but domain SSOT requires different timing by entity group (ROOM* at `startGame`, GAME* at `GAME_FINISHED`). This can cause backend orchestration/persistence behavior to diverge from domain SSOT.","dedupe_key":"domain_backend_write_policy_timing_mismatch","evidence":[{"path":"06_BACKEND/BE_DATA_MODEL_RULES.md","line":19,"snippet":"- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다."},{"path":"04_DOMAIN/DATA_MODEL.md","line":58,"snippet":"| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |"},{"path":"04_DOMAIN/DATA_MODEL.md","line":62,"snippet":"| GAME | write-back | 진행 상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":26,"snippet":"| Phase 1: 게임 시작 | startGame | 스냅샷 고정 | 1차 DB flush | ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":28,"snippet":"| Phase 3: 게임 종료 | GAME_FINISHED | 최종 스냅샷 | 2차 DB flush | GAME, GAME_PLAYER, GAME_BAN, GAME_PICK, USER(coin/exp/score) |"}],"proposed_fix":"Update `06_BACKEND/BE_DATA_MODEL_RULES.md` to mirror domain SSOT timing by entity group: `ROOM/ROOM_PLAYER/ROOM_KICK/ROOM_HOST_HISTORY` flush at `startGame`, and `GAME/GAME_PLAYER/GAME_BAN/GAME_PICK` flush at `GAME_FINISHED`; keep wording aligned with `04_DOMAIN/DATA_MODEL.md` and `04_DOMAIN/REDIS_DB_TIMING.md`."}],"metrics":{"files_scanned":12,"links_checked":3,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:18:05Z"}
+tokens used
+55,433

@@ -1,0 +1,78 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-PRODUCT-API",
+  "target": {
+    "kind": "relation",
+    "id": "PRODUCT_API"
+  },
+  "status": "fail",
+  "summary": "Found 2 PRODUCT_API relation issues: 1 high mapping conflict in lifecycle REST routing and 1 medium requirement-to-contract traceability gap.",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "LIFECYCLE_BAN_PICK_ENDPOINT_CONFLICT",
+      "message": "`03_API/LIFECYCLE.md` has conflicting REST mappings for BAN/PICK/SHOP. Section 3.3 lists distinct endpoints (`/ban`, `/pick`, `/shop/purchase`), but section 5.3 maps BAN/PICK/SHOP to only `/shop/purchase`, which can miswire client orchestration against product flow and page-map contracts.",
+      "dedupe_key": "PRODUCT_API:LIFECYCLE_BAN_PICK_ENDPOINT_CONFLICT",
+      "evidence": [
+        {
+          "path": "03_API/LIFECYCLE.md",
+          "line": 73,
+          "snippet": "- REST `/games/{gameId}/ban`, `/pick`, `/shop/purchase`"
+        },
+        {
+          "path": "03_API/LIFECYCLE.md",
+          "line": 137,
+          "snippet": "| BAN/PICK/SHOP 구매         | `POST /games/{gameId}/shop/purchase` | 밴/픽/구매 처리              |"
+        },
+        {
+          "path": "03_API/PAGE_MAP/BAN_PICK_SHOP.md",
+          "line": 23,
+          "snippet": "| BAN | 알고리즘 밴 제출 | POST | /games/{gameId}/ban |"
+        },
+        {
+          "path": "03_API/PAGE_MAP/BAN_PICK_SHOP.md",
+          "line": 24,
+          "snippet": "| PICK | 알고리즘 픽 제출 | POST | /games/{gameId}/pick |"
+        }
+      ],
+      "proposed_fix": "In `03_API/LIFECYCLE.md` section 5.3, split BAN/PICK/SHOP into separate rows and map each to the correct endpoint (`/ban`, `/pick`, `/shop/purchase`) to match PAGE_MAP and OPENAPI contracts."
+    },
+    {
+      "severity": "medium",
+      "code": "PRODUCT_REQUIREMENT_TO_API_LINK_GAP",
+      "message": "Product requirement documents reference API conceptually but do not provide explicit links to concrete API contracts, leaving requirement-to-contract traceability weak and audit mapping ambiguous.",
+      "dedupe_key": "PRODUCT_API:REQUIREMENT_TO_API_LINK_GAP",
+      "evidence": [
+        {
+          "path": "01_PRODUCT/USER_FLOWS.md",
+          "line": 4,
+          "snippet": "- 정책/권한/검증의 기준은 REQUIREMENTS / GAME_RULES / API 문서를 따른다."
+        },
+        {
+          "path": "01_PRODUCT/USER_FLOWS.md",
+          "line": 8,
+          "snippet": "- [[01_PRODUCT/REQUIREMENTS.md]]"
+        },
+        {
+          "path": "01_PRODUCT/REQUIREMENTS.md",
+          "line": 6,
+          "snippet": "- [[01_PRODUCT/GAME_RULES.md]]"
+        },
+        {
+          "path": "03_API/LIFECYCLE.md",
+          "line": 6,
+          "snippet": "- [[01_PRODUCT/USER_FLOWS.md]]"
+        }
+      ],
+      "proposed_fix": "Add explicit cross-links from `01_PRODUCT/REQUIREMENTS.md` and `01_PRODUCT/USER_FLOWS.md` to concrete API artifacts (at minimum `03_API/PAGE_MAP/*.md` and `03_API/CONTRACT/REST/OPENAPI.yaml.md`), and optionally introduce requirement IDs for deterministic requirement-to-contract mapping."
+    }
+  ],
+  "metrics": {
+    "files_scanned": 22,
+    "links_checked": 29,
+    "relations_checked": 3
+  },
+  "started_at": "2026-02-12T12:10:25Z",
+  "finished_at": "2026-02-12T12:16:40Z"
+}

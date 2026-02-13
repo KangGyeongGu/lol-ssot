@@ -1,0 +1,1232 @@
+OpenAI Codex v0.99.0 (research preview)
+--------
+workdir: /Users/kanggyeonggu/Documents/league-of-algologic
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c51cc-185d-7390-a88f-d69018c5672f
+--------
+user
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: traceability-auditor
+- Task ID: TRACE-E2E
+- Target Kind: traceability
+- Target ID: E2E_TRACEABILITY
+- Objective: Validate end-to-end traceability chain across all SSOT layers.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+- low: minor documentation quality concerns
+
+Output Contract:
+- Return ONLY a JSON object matching the provided output schema.
+- No markdown fences, no commentary, no prose outside JSON.
+
+Worker Request JSON:
+{
+  "run_id": "20260212-211025",
+  "agent_id": "traceability-auditor",
+  "task_id": "TRACE-E2E",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "traceability",
+    "id": "E2E_TRACEABILITY",
+    "scope_paths": [
+      "01_PRODUCT",
+      "02_DESIGN",
+      "03_API",
+      "04_DOMAIN",
+      "05_FRONTEND",
+      "06_BACKEND"
+    ],
+    "checks": [
+      "requirement_to_design_to_api",
+      "requirement_to_domain_to_backend",
+      "requirement_to_api_to_frontend",
+      "orphan_spec_detection"
+    ],
+    "objective": "Validate end-to-end traceability chain across all SSOT layers."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/TRACE-E2E.worker.json"
+}
+mcp startup: no servers
+2026-02-12T12:20:56.058090Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d0d7-7c01-9d9a-03891d2c6d05
+2026-02-12T12:20:56.083921Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c9-b4bb-7230-95c8-afcb595ea1e1
+2026-02-12T12:20:56.111870Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-9887-76b1-8a51-bcf3d924cc4c
+2026-02-12T12:20:56.137447Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ee-7ba2-a962-612dc878cb48
+2026-02-12T12:20:56.167174Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-72d3-a3b1-d7a5a430ccef
+2026-02-12T12:20:56.194296Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9d-7a62-9a23-c4a89638f2aa
+2026-02-12T12:20:56.224120Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-7eb1-b1ba-acb58528a4c4
+2026-02-12T12:20:56.253738Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-72b0-bdf8-e40ebceaa511
+2026-02-12T12:20:56.283399Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7251-bef6-72ab459d6295
+2026-02-12T12:20:56.313080Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f756-70d0-979e-f3d19e6b4765
+2026-02-12T12:20:56.342720Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f6e8-7312-87a5-1bf02f68e683
+2026-02-12T12:20:56.372490Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4876-72e1-8344-2def65ab0e2e
+2026-02-12T12:20:56.402368Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-48b9-7cf0-bb8f-0727ecae471c
+2026-02-12T12:20:56.430274Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4930-7b12-b5a6-09a3f990fa01
+2026-02-12T12:20:56.458807Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7463-ae40-c7cb687f7c1e
+2026-02-12T12:20:56.482706Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-fa75-7c02-93b7-0ff3016651ff
+2026-02-12T12:20:56.514532Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7160-86f1-edd523e80eda
+2026-02-12T12:20:56.540602Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d227-7931-8880-0db3cd452657
+2026-02-12T12:20:56.565700Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4893-7892-ab52-2b5e47dc4b6a
+2026-02-12T12:20:56.590895Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-77e0-959f-41e255a92e73
+2026-02-12T12:20:56.616550Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f78e-7f63-8b6a-6989a20dbee4
+2026-02-12T12:20:56.645567Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7ae3-b325-a3e92ca31ab8
+2026-02-12T12:20:56.673818Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c8-85cc-74b0-a733-48f612a4de64
+2026-02-12T12:20:56.701485Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f858-7832-915b-32b1bbc4a668
+2026-02-12T12:20:56.729487Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4889-7083-a7bb-3036c26e479e
+2026-02-12T12:20:56.758609Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4ad5-7921-bbb9-6d8219c8e00f
+2026-02-12T12:20:56.787791Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ceef-7700-964a-e875524422b3
+2026-02-12T12:20:56.819241Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-70c0-81cc-845a16dc3090
+2026-02-12T12:20:56.847886Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-7a32-a5aa-cc1b16737fd3
+2026-02-12T12:20:56.874533Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d087-7b72-810f-c7f9cae8997e
+2026-02-12T12:20:56.900940Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d12a-7c03-ae0e-de466063265b
+2026-02-12T12:20:56.926358Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cf47-78d1-bfd8-856010e0b88b
+2026-02-12T12:20:56.955038Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f72e-7832-829c-5dc1786d64e1
+2026-02-12T12:20:56.980677Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-73d0-b85f-f37742148125
+2026-02-12T12:20:57.005408Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-3937-76b2-a6cc-f97d68083e72
+2026-02-12T12:20:57.035181Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-7e83-8a93-8be1e16e8d6f
+2026-02-12T12:20:57.065676Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4bef-7ed0-8cba-d1ace7970ba2
+2026-02-12T12:20:57.093381Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97ee-7b60-b23e-e08772246435
+2026-02-12T12:20:57.121619Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cefd-7d71-8e38-596fba5ee0fa
+2026-02-12T12:20:57.149057Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a5a-7433-8dd2-1a6692ba5030
+2026-02-12T12:20:57.173930Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c9-e04b-7843-887b-ecf83f63d61c
+2026-02-12T12:20:57.201799Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-995e-7492-8c9d-07b4d289699a
+2026-02-12T12:20:57.230280Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4be1-7322-a4ca-af563f4648a1
+2026-02-12T12:20:57.254307Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4b44-7932-b08e-3d01c68ac40d
+2026-02-12T12:20:57.284138Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bd-0e3d-7023-859d-48e6711a7edc
+2026-02-12T12:20:57.312793Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97fe-7fb3-96d8-40e3f7846860
+2026-02-12T12:20:57.340855Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-71c2-ab93-0e7477f1db36
+2026-02-12T12:20:57.370695Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7343-9ed5-7e439c2f4971
+2026-02-12T12:20:57.399937Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d111-7f32-ba2e-7fb437b66b8d
+2026-02-12T12:20:57.427790Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d2a5-77d0-814d-abc1f8cc15cd
+2026-02-12T12:20:57.455078Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d199-7bc1-8e8d-c5388afdccf8
+2026-02-12T12:20:57.483223Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cca6-7652-95a9-9848df23bbf0
+2026-02-12T12:20:57.509669Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c9-7334-7a50-9e8b-78b1839b65a8
+2026-02-12T12:20:57.534301Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-492a-7c30-9fcd-1011dc30505a
+2026-02-12T12:20:57.558099Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51ca-0623-7dd2-b6c4-2c5c62de2422
+2026-02-12T12:20:57.586645Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-99a4-75f0-9861-0af58a0c2eb0
+2026-02-12T12:20:57.613692Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-7bc1-8c89-68dc759750a4
+2026-02-12T12:20:57.638710Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-96ff-7c81-a003-23d93283cfcb
+2026-02-12T12:20:57.669037Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a44-73b3-8ed5-d69e2b402611
+2026-02-12T12:20:57.699973Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bf-5589-7183-8f76-bb3c1765fbff
+2026-02-12T12:20:57.730330Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a98-7dc1-801f-3d18906a496d
+2026-02-12T12:20:57.756398Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7002-91ff-96e6baf61715
+2026-02-12T12:20:57.786536Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-71d0-b19c-c6ecbac8a9b5
+
+thinking
+**Selecting audit skill ssot-spec-audit**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"Starting scope scan for SSOT traceability across 01_PRODUCT–06_BACKEND, then I’ll extract requirement/design/API/domain/frontend/backend links and identify gaps.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Clarifying commentary format and preparing root inspection**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"Using `ssot-spec-audit` workflow for this traceability task; next I’m inventorying scope files and collecting trace links.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Clarifying response format usage**
+exec
+/bin/zsh -lc 'pwd; ls -la; rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND | wc -l; rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND | head -n 200' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+/Users/kanggyeonggu/documents/league-of-algologic
+total 40
+drwxr-xr-x@ 16 kanggyeonggu  staff   512 Feb 12 21:04 .
+drwx------@ 14 kanggyeonggu  staff   448 Feb 12 18:08 ..
+-rw-r--r--@  1 kanggyeonggu  staff  6148 Feb 12 20:10 .DS_Store
+drwxr-xr-x@ 14 kanggyeonggu  staff   448 Feb 12 21:09 .codex-home
+drwxr-xr-x@ 12 kanggyeonggu  staff   384 Feb 12 20:57 .git
+-rw-r--r--@  1 kanggyeonggu  staff   215 Feb 10 00:58 .gitignore
+drwxr-xr-x@  9 kanggyeonggu  staff   288 Feb 10 20:15 .obsidian
+drwxr-xr-x@  9 kanggyeonggu  staff   288 Feb 10 21:29 01_PRODUCT
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb 10 23:41 02_DESIGN
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb  3 21:10 03_API
+drwxr-xr-x@  6 kanggyeonggu  staff   192 Feb 10 21:29 04_DOMAIN
+drwxr-xr-x@ 16 kanggyeonggu  staff   512 Feb 11 14:40 05_FRONTEND
+drwxr-xr-x@ 10 kanggyeonggu  staff   320 Feb 12 00:30 06_BACKEND
+drwxr-xr-x@ 17 kanggyeonggu  staff   544 Feb 10 21:31 11_LOL_WEB_MOCKUP_BEFORE
+drwxr-xr-x@  5 kanggyeonggu  staff   160 Feb 12 20:10 AGENTS
+-rw-r--r--@  1 kanggyeonggu  staff  4386 Feb 12 00:40 README.md
+      64
+01_PRODUCT/CATALOG.md
+
+thinking
+**Planning trace ID extraction**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"File inventory is complete (64 files). I’m extracting requirement IDs and cross-layer references next to validate chain completeness.","findings":[],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+exec
+/bin/zsh -lc "rg -n --hidden --glob '*.md' '("'^#|REQ-|FR-|NFR-|Trace|trace|mapping|Map|references|source|derived|owner|orphan|API|Domain|Frontend|Backend)'"' 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND | head -n 400" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+05_FRONTEND/FE_COMPONENT_RULES.md:1:## 0. 문서 목적
+05_FRONTEND/FE_COMPONENT_RULES.md:2:- UI 컴포넌트 API 설계 규칙을 정의한다.
+05_FRONTEND/FE_COMPONENT_RULES.md:5:## 관련 문서
+05_FRONTEND/FE_COMPONENT_RULES.md:11:## 1. Props 규칙
+05_FRONTEND/FE_COMPONENT_RULES.md:18:## 2. Events 규칙
+05_FRONTEND/FE_COMPONENT_RULES.md:25:## 3. Slots 규칙
+05_FRONTEND/FE_COMPONENT_RULES.md:30:## 4. 디자인 토큰 매핑
+01_PRODUCT/CATALOG.md:1:## 0. 문서 목적
+01_PRODUCT/CATALOG.md:5:## 관련 문서
+01_PRODUCT/CATALOG.md:10:## 1. 아이템
+01_PRODUCT/CATALOG.md:11:### 1.1 아이템 가격 산정
+01_PRODUCT/CATALOG.md:26:## 2. 스펠
+01_PRODUCT/CATALOG.md:27:### 2.1 스펠 가격 산정
+02_DESIGN/README.md:28:- 페이지 요구사항(데이터/상태/상호작용)은 `03_API/PAGE_MAP/`과 일치해야 한다.
+04_DOMAIN/DB_NOTES.md:1:## 0. 목적
+04_DOMAIN/DB_NOTES.md:5:## 관련 문서
+04_DOMAIN/DB_NOTES.md:10:## 1. 인덱스 전략
+04_DOMAIN/DB_NOTES.md:11:### 1.1 USER
+04_DOMAIN/DB_NOTES.md:17:### 1.2 ROOM
+04_DOMAIN/DB_NOTES.md:22:### 1.3 ROOM_PLAYER
+
+thinking
+**Planning detailed SSOT inspection**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"I’ve identified the primary trace docs; now I’m validating actual link coverage and detecting missing requirement-to-layer mappings.","findings":[],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Planning parallel file inspections**
+exec
+/bin/zsh -lc "nl -ba 01_PRODUCT/REQUIREMENTS.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/README.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 01_PRODUCT/README.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 04_DOMAIN/README.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 02_DESIGN/README.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 05_FRONTEND/README.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 06_BACKEND/README.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	**목적**
+     2	- REST/실시간 계약과 페이지 맵의 단일 진실(SSOT)을 정의한다.
+     3	- 프론트/백엔드 구현은 반드시 이 계약을 기준으로 한다.
+     4	
+     5	**범위**
+     6	- 포함: OpenAPI, REST 규약, 실시간 규약, 페이지별 계약 매핑, 라이프사이클
+     7	- 제외: 구현 코드, DB 모델 세부 설계
+     8	
+     9	**파일 구조**
+    10	```text
+    11	03_API/
+    12	  README.md # 이 문서
+    13	  LIFECYCLE.md # 로그인/복귀/게임 진행 흐름 기준
+    14	  CONTRACT/
+    15	    REST/
+    16	      API_SUMMARY.md # REST API 요약
+    17	      AUTH_GUARDS.md # 인증/인가 가드 규칙
+    18	      CONVENTIONS.md # REST 공통 규약
+    19	      ERROR_MODEL.md # 에러 모델 규칙
+    20	      OPENAPI.yaml.md # REST API 스키마(OpenAPI)
+ succeeded in 51ms:
+     1	**목적**
+     2	- 도메인 모델 및 DB 규칙의 단일 진실(SSOT)을 정의한다.
+     3	
+     4	**범위**
+     5	- 포함: 데이터 모델, DB 설계 노트, Redis 타이밍 규칙
+     6	- 제외: 구현 코드, API 계약 세부
+     7	
+     8	**파일 구조**
+     9	```text
+    10	04_DOMAIN/
+    11	  README.md # 이 문서
+    12	  DATA_MODEL.md # 엔티티/관계/도메인 모델 기준
+    13	  DB_NOTES.md # DB 설계/정합성 메모
+    14	  REDIS_DB_TIMING.md # Redis/DB 동기화 타이밍 규칙
+    15	```
+    16	
+    17	**변경 원칙**
+    18	- 데이터 모델 변경은 `04_DOMAIN/`에서 먼저 수정한다.
+ succeeded in 53ms:
+     1	- 이 문서는 League Of Algo Logic 서비스의 **기능 요구사항과 범위**를 정의한다.
+     2	- “무엇을 제공해야 하는가”를 명확히 하며, 구현 방식은 다루지 않는다.
+     3	- 프론트엔드(Antigravity)와 백엔드(Claude Code)는 이 문서를 기준으로 기능 누락이나 임의 확장을 해서는 안 된다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/GAME_RULES.md]]
+     7	- [[01_PRODUCT/USER_FLOWS.md]]
+     8	- [[01_PRODUCT/ECONOMY.md]]
+     9	- [[01_PRODUCT/CATALOG.md]]
+    10	
+    11	---
+    12	## 1. 서비스 접근 및 인증 요구사항
+    13	### 1.1 로그인 및 회원가입 정책
+    14	- 서비스 최초 진입 시 로그인 페이지로 진입한다.
+    15	- 미로그인 상태에서는 어떠한 서비스 기능도 이용할 수 없다.
+    16	- 로그인 방식은 카카오 OAuth 기반 소셜 로그인만 지원한다.
+    17	- 카카오 로그인 성공 시 서버는 내부 회원 존재 여부를 판단한다.
+    18	  - 기존 회원인 경우 즉시 로그인 처리한다.
+    19	  - 미회원인 경우 SIGNUP_REQUIRED 상태를 반환한다.
+    20	- SIGNUP_REQUIRED 상태인 사용자는 서비스 이용 전에 다음 정보를 입력해야 한다.
+ succeeded in 53ms:
+     1	**목적**
+     2	- 제품 요구사항/정책/카피의 단일 진실(SSOT)을 정의한다.
+     3	- 기능/플로우/룰 변경은 반드시 이 디렉토리에서 먼저 갱신한다.
+     4	
+     5	**범위**
+     6	- 포함: 요구사항, 유저 플로우, 게임 규칙, 경제/카탈로그, UI 카피
+     7	- 제외: API 계약, 데이터 모델, 구현 규칙
+     8	
+     9	**파일 구조**
+    10	```text
+    11	01_PRODUCT/
+    12	  README.md # 이 문서
+    13	  CATALOG.md # 아이템/스펠/알고리즘 카탈로그 기준
+    14	  COPY_TEXT.md # UI 문구/메시지 키 기준
+    15	  ECONOMY.md # 재화/보상/가격 정책
+    16	  GAME_RULES.md # 게임 규칙/승패/라운드 규정
+    17	  REQUIREMENTS.md # 핵심 기능 요구사항
+    18	  USER_FLOWS.md # 주요 사용자 플로우
+    19	```
+    20	
+ succeeded in 50ms:
+     1	**목적**
+     2	- 프론트엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+     3	- UI 레이아웃/시각 디자인 자체는 범위에서 제외한다.
+     4	
+     5	**범위**
+     6	- 포함: 아키텍처, 상태관리, API 클라이언트, 라우팅, 실시간, 스타일 적용 규칙, 안티패턴
+     7	- 제외: 화면 레이아웃/컴포넌트 배치, 디자인 목업
+     8	
+     9	**파일 구조**
+    10	```text
+    11	05_FRONTEND/
+    12	  README.md # 이 문서
+    13	  FE_STACK.md # 프론트 기술 스택 고정값
+    14	  FE_CONVENTIONS.md # 네이밍/구조/유닛 규칙
+    15	  FE_ARCHITECTURE.md # 레이어 경계/모듈 책임 규칙
+    16	  FE_ROUTING_RULES.md # 라우팅/가드/전환 규칙
+    17	  FE_STATE_RULES.md # 상태 분리/스토어 구조 규칙
+    18	  FE_API_CLIENT.md # REST 호출/에러 처리 규칙
+    19	  FE_REALTIME_RULES.md # 실시간 구독/연결 규칙
+    20	  FE_COMPONENT_RULES.md # 컴포넌트 API 설계 규칙
+ succeeded in 50ms:
+     1	**목적**
+     2	- 백엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+     3	
+     4	**범위**
+     5	- 포함: 아키텍처, API 규칙, 실시간 규칙, 데이터 모델 규칙, 테스트 규칙
+     6	- 제외: 구현 코드, 인프라 프로비저닝
+     7	
+     8	**파일 구조**
+     9	```text
+    10	06_BACKEND/
+    11	  README.md # 이 문서
+    12	  BE_STACK.md # 백엔드 기술 스택 고정값
+    13	  BE_ARCHITECTURE.md # 모듈 경계/레이어 책임 규칙
+    14	  BE_CONVENTIONS.md # 네이밍/구조/코딩 컨벤션
+    15	  BE_API_RULES.md # REST 구현 규칙
+    16	  BE_REALTIME_RULES.md # 실시간(STOMP) 구현 규칙
+    17	  BE_DATA_MODEL_RULES.md # 데이터 모델/DB 규칙
+    18	  BE_TEST_RULES.md # 테스트 전략/규칙
+    19	  BE_AGENT_SPLIT.md # 병렬 에이전트 분할 기준
+    20	```
+ succeeded in 51ms:
+     1	**목적**
+     2	- 컬러/타이포 토큰과 페이지 요구사항(데이터/상태/상호작용)의 단일 진실(SSOT)을 정의한다.
+     3	- 레이아웃/컴포넌트 위치/사이즈/화면 구성은 범위에서 제외한다.
+     4	
+     5	**범위**
+     6	- 포함: 컬러 시스템, 타이포 시스템, 페이지별 필수 데이터/상태/상호작용
+     7	- 제외: 화면 레이아웃, UI 배치, 컴포넌트 위치/크기, 픽셀 기반 목업
+     8	
+     9	**파일 구조**
+    10	```text
+    11	02_DESIGN/
+    12	  README.md # 이 문서
+    13	  COLOR_SYSTEM.md # 컬러 토큰 정의
+    14	  TYPOGRAPHY_SYSTEM.md # 폰트/웨이트/라인하이트 토큰 정의
+    15	  PAGE_REQUIREMENTS/
+    16	    BAN_PICK_SHOP.md # BAN/PICK/SHOP 페이지 필수 데이터/상태
+    17	    IN_GAME.md # IN_GAME 페이지 필수 데이터/상태
+    18	    LOGIN.md # LOGIN/WELCOME 페이지 필수 데이터/상태
+    19	    MAIN.md # MAIN 페이지 필수 데이터/상태
+    20	    MY_PAGE.md # MY_PAGE 페이지 필수 데이터/상태
+
+thinking
+**Auditing page coverage across layers**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"I’m now checking page-level chains (Product → Design → API and API → Frontend) to find concrete missing links with line evidence.","findings":[],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Confirming schema usage**
+exec
+/bin/zsh -lc 'for f in 02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md 02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md 02_DESIGN/PAGE_REQUIREMENTS/RESULT.md 02_DESIGN/PAGE_REQUIREMENTS/MY_PAGE.md; do echo "===== $f ====="; nl -ba "$f" | sed -n '"'1,220p'; done" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md 02_DESIGN/PAGE_REQUIREMENTS/MAIN.md 02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md 02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md; do echo "===== $f ====="; nl -ba "$f" | sed -n '"'1,220p'; done" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+===== 02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md =====
+     1	## 목적
+     2	- BAN/PICK/SHOP 화면에 필요한 데이터/상태를 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/PAGE_MAP/BAN_PICK_SHOP.md]]
+     6	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     7	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+     8	
+     9	## Required Data
+    10	- game state: stage, remainingMs, coin, inventory
+    11	- finalBanAlgorithmId (PICK 단계 선택 불가 처리용)
+    12	- finalAlgorithmId (최종 PICK 결과, SHOP 이후 참고)
+    13	- algorithms catalog (ban/pick 대상)
+    14	- items catalog: itemId, name, price, duration, iconKey
+    15	- spells catalog: spellId, name, price, duration, iconKey
+    16	- room chat messages (channel=INGAME, roomId)
+    17	
+    18	## Required States
+    19	- loading (initial)
+ succeeded in 53ms:
+===== 02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md =====
+     1	## 목적
+     2	- WELCOME(로그인) 화면에 필요한 데이터/상태를 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/PAGE_MAP/WELCOME.md]]
+     6	- [[03_API/PAGE_MAP/SIGNUP.md]]
+     7	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     8	
+     9	## Required Data
+    10	- auth result: result code (OK/SIGNUP_REQUIRED)
+    11	- active game snapshot (pageRoute, stage) when available
+    12	- error code (auth failure)
+    13	
+    14	## Required States
+    15	- idle
+    16	- loading (oauth/login)
+    17	- signup required
+    18	- error (auth)
+    19	
+
+thinking
+**Inspecting PAGE_MAP files**
+exec
+/bin/zsh -lc 'for f in 03_API/PAGE_MAP/WELCOME.md 03_API/PAGE_MAP/SIGNUP.md 03_API/PAGE_MAP/MAIN.md 03_API/PAGE_MAP/ROOM_LIST.md 03_API/PAGE_MAP/WAITING_ROOM.md; do echo "===== $f ====="; nl -ba "$f" | sed -n '"'1,260p'; done" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 03_API/PAGE_MAP/BAN_PICK_SHOP.md 03_API/PAGE_MAP/IN_GAME.md 03_API/PAGE_MAP/RESULT.md 03_API/PAGE_MAP/MY_PAGE.md; do echo "===== $f ====="; nl -ba "$f" | sed -n '"'1,280p'; done" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+===== 03_API/PAGE_MAP/BAN_PICK_SHOP.md =====
+     1	## 목적
+     2	- BAN/PICK/SHOP 단일 페이지(RANKED 전용)의 REST/실시간 매핑을 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     6	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+     7	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+     8	- [[03_API/CONTRACT/REALTIME/COMMANDS.md]]
+     9	
+    10	---
+    11	## 1. 진입 시 REST
+    12	| 메서드 | 엔드포인트 | 목적 |
+    13	|---|---|---|
+    14	| GET | /games/{gameId}/state | 현재 stage/remainingMs/coin/inventory 조회 |
+    15	| GET | /catalog/algorithms | 밴/픽 선택 목록 조회 |
+    16	| GET | /catalog/items | 상점 아이템 목록(가격/지속시간) 조회 |
+    17	| GET | /catalog/spells | 상점 스펠 목록(가격/지속시간) 조회 |
+    18	
+    19	---
+ succeeded in 53ms:
+===== 03_API/PAGE_MAP/WELCOME.md =====
+     1	## 목적
+     2	- WELCOME(로그인) 화면의 인증 진입 REST 매핑을 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     6	
+     7	---
+     8	## 1. 진입 시 REST
+     9	| 메서드 | 엔드포인트 | 목적 |
+    10	|---|---|---|
+    11	| GET | /users/me/active-game | 이미 로그인된 세션의 복귀 여부 확인 (필요 시) |
+    12	
+    13	---
+    14	## 2. 사용자 액션 → REST
+    15	| 사용자 액션 | 메서드 | 엔드포인트 | 비고 |
+    16	|---|---|---|---|
+    17	| 카카오 로그인 제출 | POST | /auth/kakao/login | authorizationCode 전달 |
+    18	| 로그인 성공(기존 회원) 후 복귀 판단 | GET | /users/me/active-game | null이면 MAIN, 값이 있으면 stage/pageRoute로 자동 이동 |
+    19	
+
+thinking
+**Inspecting frontend route mappings**
+exec
+/bin/zsh -lc 'for f in 05_FRONTEND/FE_DESIGN_MAPPING.md 05_FRONTEND/FE_ROUTING_RULES.md 05_FRONTEND/FE_API_CLIENT.md 05_FRONTEND/FE_REALTIME_RULES.md 05_FRONTEND/FE_ARCHITECTURE.md; do echo "===== $f ====="; nl -ba "$f" | sed -n '"'1,260p'; done" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 04_DOMAIN/DATA_MODEL.md 04_DOMAIN/DB_NOTES.md 04_DOMAIN/REDIS_DB_TIMING.md; do echo "===== $f (head) ====="; nl -ba "$f" | sed -n '"'1,220p'; done" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in 06_BACKEND/BE_ARCHITECTURE.md 06_BACKEND/BE_API_RULES.md 06_BACKEND/BE_REALTIME_RULES.md 06_BACKEND/BE_DATA_MODEL_RULES.md 06_BACKEND/BE_TEST_RULES.md; do echo "===== $f ====="; nl -ba "$f" | sed -n '"'1,280p'; done" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+===== 05_FRONTEND/FE_DESIGN_MAPPING.md =====
+     1	## 0. 문서 목적
+     2	- 라우트/상태별로 반드시 참조해야 할 **페이지 데이터 요구사항** 문서를 매핑한다.
+     3	- 프론트 구현은 아래 매핑 문서를 **필수로 참조**해야 한다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     8	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     9	- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+    10	
+    11	---
+    12	## 1. 페이지 매핑 (Route → Data Requirements)
+    13	| Route | Data Requirements | 비고 |
+    14	|---|---|---|
+    15	| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입
+    16	| MAIN | [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]] | 메인 대시보드
+    17	| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태
+    18	| WAITING_ROOM | [[02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md]] | 대기실
+    19	| BAN_PICK_SHOP | [[02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md]] | 랭크 전용 단계
+ succeeded in 52ms:
+===== 04_DOMAIN/DATA_MODEL.md (head) =====
+     1	## 0. 작업 양식
+     2	데이터 모델 변경 시 아래 양식을 유지한다.
+     3	
+     4	```
+     5	[변경 목적]
+     6	- 무엇을 왜 바꾸는가
+     7	
+     8	[변경 내용]
+     9	- 엔티티/필드/관계/제약 변경 요약
+    10	
+    11	[연관 문서 업데이트]
+    12	- 03_API/CONTRACT/REST/OPENAPI.yaml.md
+    13	- 03_API/CONTRACT/REST/ERROR_MODEL.md
+    14	```
+    15	
+    16	---
+    17	## 1. 문서 목적
+    18	- LoL 프로젝트의 데이터베이스 설계를 단일 문서로 정의한다.
+    19	- AI 에이전트가 이 문서만 읽고 스키마를 구현할 수 있어야 한다.
+ succeeded in 51ms:
+===== 06_BACKEND/BE_ARCHITECTURE.md =====
+     1	## 0. 문서 목적
+     2	- 백엔드 모듈 경계와 책임 분리를 정의한다.
+     3	- 병렬 개발 시 충돌을 최소화한다.
+     4	
+     5	## 관련 문서
+     6	- [[06_BACKEND/BE_CONVENTIONS.md]]
+     7	- [[06_BACKEND/BE_API_RULES.md]]
+     8	- [[06_BACKEND/BE_REALTIME_RULES.md]]
+     9	- [[06_BACKEND/BE_DATA_MODEL_RULES.md]]
+    10	
+    11	---
+    12	## 1. 기본 모듈 구조
+    13	- `src/app`: 서버 부트스트랩
+    14	- `src/config`: 환경 설정/상수
+    15	- `src/common`: 공통 유틸/미들웨어/에러 핸들러
+    16	- `src/modules/<domain>`: 도메인 모듈 단위
+    17	- `src/modules/<domain>/controller`: HTTP 엔드포인트
+    18	- `src/modules/<domain>/service`: 비즈니스 로직
+    19	- `src/modules/<domain>/repo`: DB 접근
+
+thinking
+**Auditing file reference mismatches**
+exec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_NOTIFICATION_MESSAGES.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	## 목적
+     2	- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다.
+     3	- 에러 알림은 `ERROR.<CODE>` 키를 사용한다.
+     4	- 이벤트/시스템 알림은 `NOTICE.*` 키를 사용한다.
+     5	
+     6	## 관련 문서
+     7	- [[03_API/CONTRACT/REST/ERROR_MODEL.md]]
+     8	
+     9	---
+    10	## 1. 기본 규칙
+    11	- 모든 알림은 `messageKey`로 렌더링한다.
+    12	- `messageKey`는 문서에 정의된 값만 사용한다.
+    13	- 미정의 키 수신 시 `ERROR.UNKNOWN`을 사용한다.
+    14	
+    15	---
+    16	## 2. ERROR 매핑 (error.code → messageKey → ko)
+    17	| error.code                      | messageKey                            | ko                          |
+    18	| ------------------------------- | ------------------------------------- | --------------------------- |
+    19	| UNAUTHORIZED                    | ERROR.UNAUTHORIZED                    | 로그인이 필요합니다.                 |
+    20	| FORBIDDEN                       | ERROR.FORBIDDEN                       | 권한이 없습니다.                   |
+
+thinking
+**Inspecting API contracts and routes**
+exec
+/bin/zsh -lc "nl -ba 01_PRODUCT/USER_FLOWS.md | sed -n '1,280p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	- 이 문서는 프론트엔드 구현을 위한 사용자 흐름 정의서다.
+     2	- 페이지 단위 이동과 페이지 내부 상태 전환을 구분한다.
+     3	- 정책을 새로 정의하지 않으며, 흐름에 필요한 분기 결과만 기술한다.
+     4	  - 정책/권한/검증의 기준은 REQUIREMENTS / GAME_RULES / API 문서를 따른다.
+     5	- Antigravity가 이 문서를 기반으로 페이지 구성과 라우팅 흐름을 구현할 수 있어야 한다.
+     6	
+     7	## 관련 문서
+     8	- [[01_PRODUCT/REQUIREMENTS.md]]
+     9	- [[01_PRODUCT/GAME_RULES.md]]
+    10	- [[01_PRODUCT/COPY_TEXT.md]]
+    11	
+    12	---
+    13	## 1. 전체 페이지 구성
+    14	### 1.1 게임 관련 페이지
+    15	게임과 직접적으로 연관된 페이지는 아래 4개로 고정된다.
+    16	1. WAITING_ROOM
+    17	2. BAN_PICK_SHOP (RANKED 전용)
+    18	3. IN_GAME
+    19	4. RESULT
+    20	
+
+thinking
+**Flagging API lifecycle check**
+exec
+/bin/zsh -lc "nl -ba 03_API/LIFECYCLE.md | sed -n '1,320p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	## 0. 문서 목적
+     2	- REST/실시간 통신의 연결/구독/해제/호출 타이밍을 페이지 단위로 정의한다.
+     3	- REST는 스냅샷/명령, WebSocket은 상태 변화 이벤트를 담당한다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     8	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     9	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+    10	
+    11	---
+    12	## 1. 전제
+    13	- WebSocket endpoint: `/ws`
+    14	- 인증: `Authorization: Bearer <JWT>`
+    15	- 공통 Envelope/type 규칙은 REALTIME_CONVENTIONS를 따른다.
+    16	- active game은 FINISHED 시점에 즉시 해제된다.
+    17	  - RESULT 화면은 이벤트 기반으로 표시하되, 재접속 시 강제 복귀되지 않는다.
+    18	
+    19	---
+    20	## 2. 연결 및 기본 구독
+
+thinking
+**Inspecting API summary structure**
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/CONVENTIONS.md | sed -n '1,320p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/API_SUMMARY.md | sed -n '1,320p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/ERROR_MODEL.md | sed -n '1,340p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REALTIME/EVENTS.md | sed -n '1,380p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REALTIME/TOPICS.md | sed -n '1,320p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	## 0. 작업 양식
+     2	아래 양식으로 변경 내용을 기록하고, 연관 문서를 함께 갱신한다.
+     3	
+     4	```
+     5	[변경 목적]
+     6	- 무엇을 왜 바꾸는가
+     7	
+     8	[변경 내용]
+     9	- 규칙/정책/포맷 변경 요약
+    10	
+    11	[연관 문서 업데이트]
+    12	- OPENAPI.yaml.md
+    13	- ERROR_MODEL.md
+    14	- AUTH_GUARDS.md
+    15	- API_SUMMARY.md
+    16	
+    17	[검토 체크리스트]
+    18	- 규칙 충돌 없음
+    19	- 예시 최신화
+    20	- OpenAPI/요약 동기화
+ succeeded in 52ms:
+     1	## 0. 작업 양식
+     2	새 엔드포인트 추가 시 아래 양식을 유지한다.
+     3	
+     4	```
+     5	[기능]
+     6	- 한 줄 요약
+     7	
+     8	[메서드 / 엔드포인트]
+     9	- METHOD /path
+    10	
+    11	[설명]
+    12	- 스냅샷인지 명령인지
+    13	- 주요 입력 파라미터
+    14	- 주요 에러 코드
+    15	```
+    16	
+    17	---
+    18	## 1. 문서 목적
+    19	- REST 엔드포인트를 사람이 빠르게 이해/검토하기 위한 요약 문서.
+    20	- 정확한 계약과 스키마는 OPENAPI.yaml.md가 단일 진실이다.
+ succeeded in 51ms:
+     1	## 0. 작업 양식
+     2	신규 에러 코드를 추가할 때는 아래 항목을 반드시 기입한다.
+     3	
+     4	```
+     5	[코드]
+     6	- CODE_NAME
+     7	
+     8	[의미]
+     9	- 언제 발생하는가
+    10	
+    11	[HTTP 상태 코드]
+    12	- 4xx/5xx
+    13	
+    14	[details.context]
+    15	- 포함해야 하는 필드
+    16	
+    17	[영향 범위]
+    18	- 관련 엔드포인트
+    19	```
+    20	
+ succeeded in 50ms:
+     1	## 0. 문서 목적
+     2	- 실시간(WebSocket/STOMP) 구독 대상과 범위를 정의한다.
+     3	- 상세 이벤트/명령 형식은 EVENTS/COMMANDS 문서를 따른다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+     7	
+     8	---
+     9	## 1. 기본 규칙
+    10	- Prefix 규칙은 REALTIME_CONVENTIONS를 따른다.
+    11	- 초기 스냅샷은 REST로 조회하고, 이후 변경분은 이벤트로 동기화한다.
+    12	- room/game 구독은 해당 리소스에 참여한 사용자만 허용된다.
+    13	- 예외: `/topic/rooms/list`는 로그인 사용자 전역 구독을 허용한다.
+    14	
+    15	---
+    16	## 2. Topic 목록
+    17	| Topic | 범위 | 주요 이벤트 | 설명 |
+    18	|---|---|---|---|
+    19	| /topic/chat/global | GLOBAL | CHAT_MESSAGE | 메인 전역 채팅 |
+    20	| /topic/rooms/list | GLOBAL | ROOM_LIST_UPSERT, ROOM_LIST_REMOVED | 방 목록 델타 변경(생성/삭제/상태 갱신) |
+ succeeded in 50ms:
+     1	## 0. 문서 목적
+     2	- 실시간 이벤트 타입과 payload를 정의한다.
+     3	- Event Envelope는 REALTIME_CONVENTIONS를 따른다.
+     4	
+     5	## 관련 문서
+     6	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     7	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+     8	
+     9	---
+    10	## 1. 공통 규칙
+    11	- 모든 ID는 문자열(userId, roomId, gameId 등).
+    12	- Enum 값은 UPPER_SNAKE_CASE.
+    13	- 시간은 ISO-8601 UTC 문자열.
+    14	- remainingMs는 `stage_deadline_at - meta.serverTime` 기반 파생값이다.
+    15	
+    16	### 1.1 EventType 목록
+    17	- ERROR
+    18	- CHAT_MESSAGE
+    19	- TIME_SYNC
+    20	- ROOM_LIST_UPSERT
+
+thinking
+**Planning endpoint cross-check**
+exec
+/bin/zsh -lc "rg -n '"'^'"\\s{0,6}/|"'^'"\\s{2,4}[a-z]+:' 03_API/CONTRACT/REST/OPENAPI.yaml.md | head -n 260" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+39:  title: League Of Algo Logic REST API
+40:  version: "1.0.0"
+62:  schemas:
+656:  /auth/kakao/login:
+657:    post:
+698:  /auth/signup:
+699:    post:
+740:  /auth/logout:
+741:    post:
+770:  /users/me:
+771:    get:
+805:  /users/me/active-game:
+806:    get:
+842:  /users/me/stats:
+843:    get:
+877:  /users/me/matches:
+878:    get:
+928:  /rooms:
+929:    get:
+991:    post:
+
+thinking
+**Scoping requirements linkage checks**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"I’m generating a link graph from wiki-links now to verify chain continuity and detect orphans objectively.","findings":[],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Extracting wiki links**
+exec
+/bin/zsh -lc 'tmp=$(mktemp); for f in $(rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND -g '"'*.md'); do awk -v f=\""'$f" '"'{line="'$0; while (match(line,/'"\\[\\[(["'^'"\\]]+)\\]\\]/,m)) {print f \"\\t\" NR \"\\t\" m[1]; line=substr(line,RSTART+RLENGTH)} }' \""'$f"; done > "$tmp"; echo "links:"; wc -l "$tmp"; echo "sample:"; head -n 200 "$tmp"; echo "orphans candidates (files with no inbound links):"; files=$(rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND -g '"'*.md'); python3 - <<'PY'
+import os,re,sys,subprocess
+from pathlib import Path
+root=Path('.')
+files=subprocess.check_output(\"rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND -g '*.md'\",shell=True,text=True).splitlines()
+links=[]
+for f in files:
+    txt=Path(f).read_text()
+    for m in re.finditer(r'\\[\\[(["'^'"\\]]+)\\]\\]',txt):
+        tgt=m.group(1).strip()
+        if tgt.endswith('.md'):
+            links.append((f,tgt))
+inbound={f:0 for f in files}
+for s,t in links:
+    if t in inbound:
+        inbound[t]+=1
+orph=[f for f,c in inbound.items() if c==0]
+print('\\n'.join(sorted(orph)))
+PY" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 119ms:
+awk: syntax error at source line 1
+ context is
+	{line=$0; while >>>  (match(line,/\[\[([^\]]+)\]\]/, <<< 
+awk: illegal statement at source line 1
+awk: illegal statement at source line 1
+awk: syntax error at source line 1
+ context is
+	{line=$0; while >>>  (match(line,/\[\[([^\]]+)\]\]/, <<< 
+awk: illegal statement at source line 1
+awk: illegal statement at source line 1
+awk: syntax error at source line 1
+ context is
+	{line=$0; while >>>  (match(line,/\[\[([^\]]+)\]\]/, <<< 
+awk: illegal statement at source line 1
+awk: illegal statement at source line 1
+awk: syntax error at source line 1
+ context is
+	{line=$0; while >>>  (match(line,/\[\[([^\]]+)\]\]/, <<< 
+awk: illegal statement at source line 1
+awk: illegal statement at source line 1
+
+thinking
+**Inspecting skill for audit criteria**
+exec
+/bin/zsh -lc "nl -ba .codex-home/skills/ssot-spec-audit/SKILL.md | sed -n '1,340p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	---
+     2	name: ssot-spec-audit
+     3	description: Run a multi-agent SSOT consistency audit by orchestrating multiple Codex worker contexts in parallel. Use when you need area-level validation, cross-area relation checks, duplication/conflict detection, agent-skill wiring checks, and consolidated severity-gated reports.
+     4	---
+     5	
+     6	# SSOT Spec Audit
+     7	
+     8	## Overview
+     9	
+    10	Run one orchestrator command that fans out into multiple Codex worker executions (`codex exec`) and aggregates results.
+    11	
+    12	Worker groups:
+    13	- Area auditors (`01_PRODUCT` to `06_BACKEND`)
+    14	- Relation auditors (area-to-area required relationships)
+    15	- Duplication auditors (duplicate/conflicting norms and ownership violations)
+    16	- Agent-spec auditors (agent/skill role, mapping, reference completeness)
+    17	- Traceability auditor (end-to-end requirement traceability)
+    18	
+    19	## Run
+    20	
+
+thinking
+**Inspecting audit-rules for severity**
+exec
+/bin/zsh -lc "nl -ba AGENTS/CODEX/SKILLS/ssot-spec-audit/references/audit-rules.md | sed -n '1,420p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	# Audit Rules
+     2	
+     3	## Multi-Agent Scope
+     4	
+     5	One orchestrator run dispatches multiple worker contexts.
+     6	
+     7	1. `area-auditor`
+     8	- targets: `01_PRODUCT`, `02_DESIGN`, `03_API`, `04_DOMAIN`, `05_FRONTEND`, `06_BACKEND`
+     9	- checks: required docs, link integrity, area boundary ownership, intra-area consistency
+    10	
+    11	2. `relation-auditor`
+    12	- targets: PRODUCT_DESIGN, PRODUCT_API, DESIGN_FRONTEND, API_FRONTEND, API_BACKEND, DOMAIN_API, DOMAIN_BACKEND
+    13	- checks: required relationship presence, reference directionality, relation-level duplication/conflict
+    14	
+    15	3. `duplication-auditor`
+    16	- targets: NORMATIVE_DUPLICATION, TERM_CONFLICT, OWNERSHIP_VIOLATION
+    17	- checks: duplicated/contradictory rules, conflicting glossary terms, SSOT ownership violations
+    18	
+    19	4. `agent-spec-auditor`
+    20	- targets: backend and frontend agent/skill trees
+
+thinking
+**Inspecting traceability scripts**
+exec
+/bin/zsh -lc "rg -n 'traceability|E2E_TRACEABILITY|requirement_to_design_to_api|orphan_spec_detection|TRACE-E2E' AGENTS/CODEX/SKILLS/ssot-spec-audit -S" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:17:- Traceability auditor (end-to-end requirement traceability)
+AGENTS/CODEX/SKILLS/ssot-spec-audit/SKILL.md:69:- `medium`: relation drift, traceability gap, ambiguous ownership
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:28:    "traceability": 4,
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:331:    traceability_tasks = [
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:333:            task_id="TRACE-E2E",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:334:            agent_id="traceability-auditor",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:335:            kind="traceability",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:336:            target_id="E2E_TRACEABILITY",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:346:                "requirement_to_design_to_api",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:349:                "orphan_spec_detection",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:351:            objective="Validate end-to-end traceability chain across all SSOT layers.",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:355:    return area_tasks + relation_tasks + duplication_tasks + agent_spec_tasks + traceability_tasks
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:364:        "traceability": {"E2E_TRACEABILITY"},
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:406:        if task.kind in {"duplication", "traceability"}:
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:415:        selected = [task for task in all_tasks if task.kind in {"traceability", "duplication"}]
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:532:        "- medium: relationship drift, weak traceability, or ambiguous ownership",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:860:        "traceability": matrix_rows(results, "traceability"),
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:885:        f"- traceability tasks: {len(by_kind['traceability'])}",
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:1182:    traceability_matrix = matrix_rows(results, "traceability")
+AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py:1213:        "traceability_matrix": traceability_matrix,
+
+thinking
+**Inspecting prompt rendering logic**
+exec
+/bin/zsh -lc "nl -ba AGENTS/CODEX/SKILLS/ssot-spec-audit/scripts/orchestrate_multi_agent_audit.py | sed -n '470,620p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+   470	    findings: List[Dict[str, Any]] = []
+   471	    for raw_finding in payload.get("findings", []):
+   472	        finding = dict(raw_finding)
+   473	        severity = finding.get("severity", "low")
+   474	        if severity not in VALID_SEVERITIES:
+   475	            severity = "low"
+   476	        finding["severity"] = severity
+   477	
+   478	        finding.setdefault("code", "UNSPECIFIED")
+   479	        finding.setdefault("message", "No message provided")
+   480	        evidence = finding.get("evidence", [])
+   481	        if not isinstance(evidence, list):
+   482	            evidence = []
+   483	        cleaned_evidence = []
+   484	        for item in evidence:
+   485	            if not isinstance(item, dict):
+   486	                continue
+   487	            if not item.get("path"):
+   488	                continue
+   489	            cleaned_item = {"path": str(item["path"])}
+
+thinking
+**Inspecting relation requirements**
+exec
+/bin/zsh -lc "nl -ba AGENTS/CODEX/SKILLS/ssot-spec-audit/references/multi-agent-system.md | sed -n '1,260p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	# Multi-Agent System Design
+     2	
+     3	## Agent Inventory
+     4	
+     5	| agent_id | target kind | fan-out |
+     6	|---|---|---:|
+     7	| area-auditor | area | 6 |
+     8	| relation-auditor | relation | 7 |
+     9	| duplication-auditor | duplication | 3 |
+    10	| agent-spec-auditor | agent_spec | 2 |
+    11	| traceability-auditor | traceability | 1 |
+    12	| aggregator (orchestrator internal) | all | 1 |
+    13	| gatekeeper (orchestrator internal) | all | 1 |
+    14	
+    15	## Execution Sequence
+    16	
+    17	```mermaid
+    18	flowchart TD
+    19	  U[User] --> O[orchestrate_multi_agent_audit.py]
+    20	  O --> Q[Build task queue]
+
+thinking
+**Inspecting existing reports**
+exec
+/bin/zsh -lc 'ls -la AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025 || true; ls -la AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results || true; rg --files AGENTS/CODEX/reports/ssot-spec-audit | head -n 80' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+total 8
+drwxr-xr-x@  7 kanggyeonggu  staff   224 Feb 12 21:10 .
+drwxr-xr-x@  8 kanggyeonggu  staff   256 Feb 12 21:10 ..
+-rw-r--r--@  1 kanggyeonggu  staff   271 Feb 12 21:10 RUN_CONTEXT.json
+drwxr-xr-x@ 38 kanggyeonggu  staff  1216 Feb 12 21:23 logs
+drwxr-xr-x@ 21 kanggyeonggu  staff   672 Feb 12 21:10 prompts
+drwxr-xr-x@ 21 kanggyeonggu  staff   672 Feb 12 21:10 requests
+drwxr-xr-x@ 38 kanggyeonggu  staff  1216 Feb 12 21:23 worker_results
+total 328
+drwxr-xr-x@ 38 kanggyeonggu  staff  1216 Feb 12 21:23 .
+drwxr-xr-x@  7 kanggyeonggu  staff   224 Feb 12 21:10 ..
+-rw-r--r--@  1 kanggyeonggu  staff  3288 Feb 12 21:23 AGENTSPEC-BACKEND.json
+-rw-r--r--@  1 kanggyeonggu  staff  2723 Feb 12 21:23 AGENTSPEC-BACKEND.worker.json
+-rw-r--r--@  1 kanggyeonggu  staff   628 Feb 12 21:23 AGENTSPEC-FRONTEND.json
+-rw-r--r--@  1 kanggyeonggu  staff   550 Feb 12 21:23 AGENTSPEC-FRONTEND.worker.json
+-rw-r--r--@  1 kanggyeonggu  staff   579 Feb 12 21:13 AREA-01_PRODUCT.json
+-rw-r--r--@  1 kanggyeonggu  staff   501 Feb 12 21:13 AREA-01_PRODUCT.worker.json
+-rw-r--r--@  1 kanggyeonggu  staff  2697 Feb 12 21:13 AREA-02_DESIGN.json
+-rw-r--r--@  1 kanggyeonggu  staff  2240 Feb 12 21:13 AREA-02_DESIGN.worker.json
+-rw-r--r--@  1 kanggyeonggu  staff  3262 Feb 12 21:16 AREA-03_API.json
+
+thinking
+**Integrating other worker outputs**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"warn","summary":"I found existing sibling worker outputs for this same run and am cross-checking them to keep traceability findings consistent and non-duplicative.","findings":[],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+exec
+/bin/zsh -lc 'for f in AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-PRODUCT-DESIGN.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-PRODUCT-API.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DOMAIN-BACKEND.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-API-FRONTEND.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DESIGN-FRONTEND.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DOMAIN-API.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/AREA-*.worker.json; do echo "===== $f ====="; cat "$f"; echo; done' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'for f in AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-NORMATIVE.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-OWNERSHIP.worker.json AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-TERMINOLOGY.worker.json; do echo "===== $f ====="; cat "$f"; echo; done' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 50ms:
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-NORMATIVE.worker.json =====
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-NORMATIVE","target":{"kind":"duplication","id":"NORMATIVE_DUPLICATION"},"status":"fail","summary":"Detected duplicated/conflicting normative rules across SSOT areas, including one high-severity conflict on UI message SSOT ownership/keyspace that creates mutually incompatible implementation guidance.","findings":[{"severity":"high","code":"NORMATIVE_CONFLICT_UI_MESSAGE_SSOT","message":"UI message source-of-truth rules conflict across PRODUCT and FRONTEND: one rule requires all UI text to come from COPY_TEXT keys, while another defines a separate notification-message SSOT with ERROR/NOTICE keyspace and localized text in FRONTEND docs.","dedupe_key":"ui-message-ssot-conflict","evidence":[{"path":"01_PRODUCT/COPY_TEXT.md","line":2,"snippet":"- UI 문구는 이 파일이 단일 진실"},{"path":"05_FRONTEND/FE_CONVENTIONS.md","line":54,"snippet":"- 모든 문구는 [[01_PRODUCT/COPY_TEXT.md]] 키를 사용한다."},{"path":"05_FRONTEND/FE_API_CLIENT.md","line":34,"snippet":"- UI 메시지는 [[01_PRODUCT/COPY_TEXT.md]] 키로만 표시한다."},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":2,"snippet":"- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":3,"snippet":"- 에러 알림은 `ERROR.<CODE>` 키를 사용한다."},{"path":"05_FRONTEND/FE_STATE_RULES.md","line":46,"snippet":"- 이벤트 기반 알림은 `NOTICE.*` 키를 사용한다."}],"proposed_fix":"Define one canonical ownership model: either (a) move ERROR/NOTICE message keys and localized strings into 01_PRODUCT/COPY_TEXT.md and make FE docs reference-only, or (b) carve out explicit notification exceptions in FE_CONVENTIONS/FE_API_CLIENT and update 01_PRODUCT/COPY_TEXT.md scope text accordingly."},{"severity":"medium","code":"NORMATIVE_CONFLICT_WRITEBACK_TIMING","message":"Write-back timing guidance is internally conflicting for ROOM* entities: some docs require game-start DB flush, while DB_NOTES states write-back as end-of-game reflection.","dedupe_key":"writeback-timing-conflict-room-entities","evidence":[{"path":"04_DOMAIN/DATA_MODEL.md","line":58,"snippet":"| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |"},{"path":"04_DOMAIN/DATA_MODEL.md","line":60,"snippet":"| ROOM_KICK | write-back | 로비 단계 기록은 Redis에 유지, 게임 시작 시 DB 저장 |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":26,"snippet":"| Phase 1: 게임 시작 | startGame | 스냅샷 고정 | 1차 DB flush | ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER |"},{"path":"04_DOMAIN/DB_NOTES.md","line":105,"snippet":"- 예외: ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER, GAME_BAN, GAME_PICK은 write-back(종료 시 DB 반영)."},{"path":"04_DOMAIN/DB_NOTES.md","line":106,"snippet":"- 최종 기준은 DATA_MODEL.md의 Write Policy 매핑을 따른다."}],"proposed_fix":"Normalize DB_NOTES.md to the same phase-specific timing as DATA_MODEL.md/REDIS_DB_TIMING.md (game-start flush for ROOM* lobby artifacts, GAME_FINISHED flush for game-progress artifacts), or replace the conflicting sentence with a direct reference to DATA_MODEL.md mapping only."},{"severity":"low","code":"NORMATIVE_DUPLICATION_SCALING_BASELINE","message":"The same normative scaling statement ('1920x1080 is conversion baseline, not fixed resolution rule') is duplicated across DESIGN and FRONTEND docs despite FRONTEND already declaring DESIGN as source-of-truth, increasing drift risk.","dedupe_key":"dup-scaling-baseline-1920","evidence":[{"path":"02_DESIGN/TYPOGRAPHY_SYSTEM.md","line":5,"snippet":"- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다."},{"path":"05_FRONTEND/FE_STYLING.md","line":3,"snippet":"- 디자인의 단일 진실은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]이며, 본 문서는 적용 방식만 기술한다."},{"path":"05_FRONTEND/FE_STYLING.md","line":12,"snippet":"- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다."},{"path":"05_FRONTEND/FE_CONVENTIONS.md","line":47,"snippet":"- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다."}],"proposed_fix":"Keep the normative baseline in DESIGN docs only, and in FRONTEND docs replace duplicated normative text with a short reference pointer to the DESIGN source."}],"metrics":{"files_scanned":67,"links_checked":0,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:21:44Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-OWNERSHIP.worker.json =====
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-OWNERSHIP","target":{"kind":"duplication","id":"OWNERSHIP_VIOLATION"},"status":"fail","summary":"Found 2 ownership violations in scope. A critical SSOT breach exists where Frontend docs redefine Product-owned UI copy SSOT, and additional cross-area ownership drift statements assign copy ownership to Frontend from Design/Frontend docs.","findings":[{"severity":"critical","code":"source_of_truth_violation.copy_ssot_redefined","message":"`05_FRONTEND/FE_NOTIFICATION_MESSAGES.md` redefines Product-owned UI copy by declaring itself the single document for message keys/Korean text and providing canonical copy mappings, while Product explicitly owns UI copy SSOT in `01_PRODUCT/COPY_TEXT.md`.","dedupe_key":"ownership_violation:copy:ssot_redefined_in_frontend","evidence":[{"path":"01_PRODUCT/README.md","line":6,"snippet":"- 포함: 요구사항, 유저 플로우, 게임 규칙, 경제/카탈로그, UI 카피"},{"path":"01_PRODUCT/COPY_TEXT.md","line":2,"snippet":"- UI 문구는 이 파일이 단일 진실"},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":2,"snippet":"- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":17,"snippet":"| error.code ... | messageKey ... | ko ... |"}],"proposed_fix":"Move canonical alert/message keys and Korean copy definitions into `01_PRODUCT/COPY_TEXT.md` (or a Product-owned copy SSOT file), and convert `05_FRONTEND/FE_NOTIFICATION_MESSAGES.md` into implementation guidance that only references Product-owned keys."},{"severity":"medium","code":"cross_area_redefinition.copy_ownership_drift","message":"Design page requirement docs and Frontend state rules repeatedly state that alert copy is managed by Frontend, which conflicts with Product’s declared ownership of UI copy SSOT and creates ambiguous cross-area ownership.","dedupe_key":"ownership_violation:copy:ownership_drift_frontend_claim","evidence":[{"path":"02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md","line":23,"snippet":"- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md","line":33,"snippet":"- 알림 문구는 서버 `error.code` 기준으로 프론트엔드에서 관리한다."},{"path":"05_FRONTEND/FE_STATE_RULES.md","line":44,"snippet":"- 서버 응답의 `error.code`에 대한 안내 문구는 프론트엔드에서 관리한다."},{"path":"01_PRODUCT/COPY_TEXT.md","line":2,"snippet":"- UI 문구는 이 파일이 단일 진실"}],"proposed_fix":"Replace ownership statements in Design/Frontend docs with reference-only wording: Frontend renders Product-owned copy keys, and copy source-of-truth changes are made only under `01_PRODUCT/`."}],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":2},"started_at":"2026-02-12T12:13:40Z","finished_at":"2026-02-12T12:22:14Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-TERMINOLOGY.worker.json =====
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"fail","summary":"Detected 2 terminology issues in scope: 1 high-severity `PageRoute` definition conflict and 1 medium-severity route/state alias ambiguity (`ROOM_LIST`).","findings":[{"severity":"high","code":"TERM_DEFINITION_CONFLICT_PAGEROUTE","message":"`PageRoute` has conflicting definitions across SSOT areas. API contracts define it as a 3-value active-game routing enum, while frontend routing rules redefine/expand it as general app routes (`WELCOME`, `MAIN`, `RESULT`, `MY_PAGE`, etc.) and require route naming to match `PageRoute`.","dedupe_key":"term_conflict:pageroute:api_vs_frontend","evidence":[{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":137,"snippet":"PageRoute 값은 다음 3개만 사용한다."},{"path":"03_API/CONTRACT/REST/OPENAPI.yaml.md","line":131,"snippet":"enum: [WAITING_ROOM, BAN_PICK_SHOP, IN_GAME]"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":14,"snippet":"Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다."},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":16,"snippet":"예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":27,"snippet":"API 응답의 `pageRoute`가 유일한 전환 기준이다."}],"proposed_fix":"Reserve `PageRoute` for API active-game values only (`WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`). Introduce a separate term (e.g., `AppRoute`) for full frontend navigation routes and document explicit mapping between `pageRoute` -> `AppRoute` where needed."},{"severity":"medium","code":"ALIAS_WITHOUT_MAPPING_ROOM_LIST_ROUTE_STATE","message":"`ROOM_LIST` is defined upstream as a MAIN-internal panel state, but frontend design mapping labels it as `Route` without an explicit canonical mapping (route vs panel-state key). This creates alias ambiguity and weak traceability.","dedupe_key":"alias_without_mapping:room_list:route_vs_state","evidence":[{"path":"01_PRODUCT/USER_FLOWS.md","line":26,"snippet":"ROOM_LIST 패널 상태 (MAIN 헤더 하단 교체 상태)"},{"path":"03_API/PAGE_MAP/ROOM_LIST.md","line":2,"snippet":"MAIN 내부 ROOM_LIST 패널 상태의 방 탐색/참가 및 목록 동기화..."},{"path":"05_FRONTEND/FE_DESIGN_MAPPING.md","line":12,"snippet":"## 1. 페이지 매핑 (Route → Data Requirements)"},{"path":"05_FRONTEND/FE_DESIGN_MAPPING.md","line":17,"snippet":"| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태"}],"proposed_fix":"Make the mapping term explicit as `Route/State` (or split columns), and encode ROOM_LIST as a MAIN substate key (e.g., `MAIN.ROOM_LIST_PANEL`) rather than a standalone route identifier."}],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":2},"started_at":"2026-02-12T12:16:30Z","finished_at":"2026-02-12T12:20:40Z"}
+ succeeded in 50ms:
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-PRODUCT-DESIGN.worker.json =====
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-PRODUCT-DESIGN","target":{"kind":"relation","id":"PRODUCT_DESIGN"},"status":"fail","summary":"Detected PRODUCT_DESIGN SSOT relation failures: direct cross-area references are missing, intent-to-design mapping is implicit, and behavioral rules are duplicated across Product and Design without explicit ownership links.","findings":[{"severity":"critical","code":"REL_MISSING_MANDATORY_CROSS_REF","message":"Mandatory PRODUCT_DESIGN relationship is not explicitly documented: Product core requirements only reference Product docs, while Design requirements reference API docs only and omit Product sources.","dedupe_key":"relation:product_design:missing_cross_refs","evidence":[{"path":"01_PRODUCT/REQUIREMENTS.md","line":5,"snippet":"## 관련 문서"},{"path":"01_PRODUCT/REQUIREMENTS.md","line":6,"snippet":"- [[01_PRODUCT/GAME_RULES.md]]"},{"path":"02_DESIGN/README.md","line":28,"snippet":"- 페이지 요구사항(데이터/상태/상호작용)은 `03_API/PAGE_MAP/`과 일치해야 한다."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/MAIN.md","line":4,"snippet":"## 관련 문서"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/MAIN.md","line":5,"snippet":"- [[03_API/PAGE_MAP/MAIN.md]]"}],"proposed_fix":"Add explicit PRODUCT_DESIGN links in both directions: each `02_DESIGN/PAGE_REQUIREMENTS/*.md` should cite source clauses in `01_PRODUCT/REQUIREMENTS.md` and/or `01_PRODUCT/USER_FLOWS.md`, and Product should reference corresponding Design requirement docs for downstream realization."},{"severity":"medium","code":"REL_INTENT_TO_DESIGN_MAPPING_IMPLICIT","message":"Design page requirements are organized by page but do not map each requirement block to specific Product intent clauses, reducing traceability and making drift detection difficult.","dedupe_key":"relation:product_design:implicit_intent_mapping","evidence":[{"path":"01_PRODUCT/REQUIREMENTS.md","line":100,"snippet":"게임과 직접 관련된 페이지는 다음 네 개로 고정한다."},{"path":"01_PRODUCT/USER_FLOWS.md","line":15,"snippet":"게임과 직접적으로 연관된 페이지는 아래 4개로 고정된다."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":4,"snippet":"## 관련 문서"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":5,"snippet":"- [[03_API/PAGE_MAP/WAITING_ROOM.md]]"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md","line":4,"snippet":"## 관련 문서"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md","line":5,"snippet":"- [[03_API/PAGE_MAP/WELCOME.md]]"}],"proposed_fix":"For each Design page spec, add a `Source Intent` section that links to exact Product sections (anchor-level) for `Required Data`, `Required States`, and `Interactions`."},{"severity":"medium","code":"REL_DUPLICATED_BEHAVIORAL_RULES","message":"Behavioral norms are duplicated between Product and Design documents without explicit derivation links, creating non-SSOT duplication and future conflict risk.","dedupe_key":"relation:product_design:duplicated_behavior_rules","evidence":[{"path":"01_PRODUCT/REQUIREMENTS.md","line":95,"snippet":"- PICK 단계에서는 최종 BAN 알고리즘이 선택 불가 처리되어야 한다(별도 알림 UI 없음)."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md","line":29,"snippet":"- GAME_BAN_FINALIZED 수신 이후 PICK 단계에서 최종 BAN 알고리즘을 선택 불가 처리한다(별도 알림 없음)."},{"path":"01_PRODUCT/REQUIREMENTS.md","line":73,"snippet":"- 방장 위임 성공 시 대상은 READY 상태로 전환되며, 대기실 UI에서 방장 표시가 갱신되어야 한다."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":24,"snippet":"- 방장 위임 성공 이벤트(ROOM_HOST_CHANGED, reason=MANUAL)에서 대상이 본인이면 알림 컴포넌트로 `NOTICE.HOST_TRANSFERRED`를 표시한다."}],"proposed_fix":"Keep policy rules authoritative in `01_PRODUCT/*`; in `02_DESIGN/*` replace repeated policy text with explicit `derived-from` references and retain only UI state/rendering requirements."}],"metrics":{"files_scanned":17,"links_checked":37,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:15:09Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-PRODUCT-API.worker.json =====
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-PRODUCT-API","target":{"kind":"relation","id":"PRODUCT_API"},"status":"fail","summary":"Found 2 PRODUCT_API relation issues: 1 high mapping conflict in lifecycle REST routing and 1 medium requirement-to-contract traceability gap.","findings":[{"severity":"high","code":"LIFECYCLE_BAN_PICK_ENDPOINT_CONFLICT","message":"`03_API/LIFECYCLE.md` has conflicting REST mappings for BAN/PICK/SHOP. Section 3.3 lists distinct endpoints (`/ban`, `/pick`, `/shop/purchase`), but section 5.3 maps BAN/PICK/SHOP to only `/shop/purchase`, which can miswire client orchestration against product flow and page-map contracts.","dedupe_key":"PRODUCT_API:LIFECYCLE_BAN_PICK_ENDPOINT_CONFLICT","evidence":[{"path":"03_API/LIFECYCLE.md","line":73,"snippet":"- REST `/games/{gameId}/ban`, `/pick`, `/shop/purchase`"},{"path":"03_API/LIFECYCLE.md","line":137,"snippet":"| BAN/PICK/SHOP 구매         | `POST /games/{gameId}/shop/purchase` | 밴/픽/구매 처리              |"},{"path":"03_API/PAGE_MAP/BAN_PICK_SHOP.md","line":23,"snippet":"| BAN | 알고리즘 밴 제출 | POST | /games/{gameId}/ban |"},{"path":"03_API/PAGE_MAP/BAN_PICK_SHOP.md","line":24,"snippet":"| PICK | 알고리즘 픽 제출 | POST | /games/{gameId}/pick |"}],"proposed_fix":"In `03_API/LIFECYCLE.md` section 5.3, split BAN/PICK/SHOP into separate rows and map each to the correct endpoint (`/ban`, `/pick`, `/shop/purchase`) to match PAGE_MAP and OPENAPI contracts."},{"severity":"medium","code":"PRODUCT_REQUIREMENT_TO_API_LINK_GAP","message":"Product requirement documents reference API conceptually but do not provide explicit links to concrete API contracts, leaving requirement-to-contract traceability weak and audit mapping ambiguous.","dedupe_key":"PRODUCT_API:REQUIREMENT_TO_API_LINK_GAP","evidence":[{"path":"01_PRODUCT/USER_FLOWS.md","line":4,"snippet":"- 정책/권한/검증의 기준은 REQUIREMENTS / GAME_RULES / API 문서를 따른다."},{"path":"01_PRODUCT/USER_FLOWS.md","line":8,"snippet":"- [[01_PRODUCT/REQUIREMENTS.md]]"},{"path":"01_PRODUCT/REQUIREMENTS.md","line":6,"snippet":"- [[01_PRODUCT/GAME_RULES.md]]"},{"path":"03_API/LIFECYCLE.md","line":6,"snippet":"- [[01_PRODUCT/USER_FLOWS.md]]"}],"proposed_fix":"Add explicit cross-links from `01_PRODUCT/REQUIREMENTS.md` and `01_PRODUCT/USER_FLOWS.md` to concrete API artifacts (at minimum `03_API/PAGE_MAP/*.md` and `03_API/CONTRACT/REST/OPENAPI.yaml.md`), and optionally introduce requirement IDs for deterministic requirement-to-contract mapping."}],"metrics":{"files_scanned":22,"links_checked":29,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:16:40Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DOMAIN-BACKEND.worker.json =====
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-BACKEND","target":{"kind":"relation","id":"DOMAIN_BACKEND"},"status":"fail","summary":"Found a high-severity domain-to-backend mapping mismatch: backend write-back timing rule does not preserve the domain SSOT’s per-entity timing requirements.","findings":[{"severity":"high","code":"DOMAIN_BACKEND_WRITE_POLICY_TIMING_MISMATCH","message":"`06_BACKEND/BE_DATA_MODEL_RULES.md` defines write-back persistence timing as a single rule (`GAME_FINISHED` or room/game end), but domain SSOT requires different timing by entity group (ROOM* at `startGame`, GAME* at `GAME_FINISHED`). This can cause backend orchestration/persistence behavior to diverge from domain SSOT.","dedupe_key":"domain_backend_write_policy_timing_mismatch","evidence":[{"path":"06_BACKEND/BE_DATA_MODEL_RULES.md","line":19,"snippet":"- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다."},{"path":"04_DOMAIN/DATA_MODEL.md","line":58,"snippet":"| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |"},{"path":"04_DOMAIN/DATA_MODEL.md","line":62,"snippet":"| GAME | write-back | 진행 상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":26,"snippet":"| Phase 1: 게임 시작 | startGame | 스냅샷 고정 | 1차 DB flush | ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":28,"snippet":"| Phase 3: 게임 종료 | GAME_FINISHED | 최종 스냅샷 | 2차 DB flush | GAME, GAME_PLAYER, GAME_BAN, GAME_PICK, USER(coin/exp/score) |"}],"proposed_fix":"Update `06_BACKEND/BE_DATA_MODEL_RULES.md` to mirror domain SSOT timing by entity group: `ROOM/ROOM_PLAYER/ROOM_KICK/ROOM_HOST_HISTORY` flush at `startGame`, and `GAME/GAME_PLAYER/GAME_BAN/GAME_PICK` flush at `GAME_FINISHED`; keep wording aligned with `04_DOMAIN/DATA_MODEL.md` and `04_DOMAIN/REDIS_DB_TIMING.md`."}],"metrics":{"files_scanned":12,"links_checked":3,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:18:05Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-API-FRONTEND.worker.json =====
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-API-FRONTEND","target":{"kind":"relation","id":"API_FRONTEND"},"status":"fail","summary":"Frontend routing SSOT drifts from API contract SSOT on PageRoute usage: FE rules currently include non-contract route values as PageRoute and overgeneralize pageRoute-driven transitions.","findings":[{"severity":"high","code":"PAGE_ROUTE_ENUM_MISMATCH","message":"`05_FRONTEND` routing rules redefine `PageRoute` with values outside the API contract (`WELCOME`, `MAIN`, `RESULT`, `MY_PAGE`), conflicting with API SSOT enum constraints.","dedupe_key":"API_FRONTEND:PAGEROUTE_ENUM_MISMATCH","evidence":[{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":14,"snippet":"Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다."},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":16,"snippet":"예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`"},{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":137,"snippet":"PageRoute 값은 다음 3개만 사용한다."},{"path":"03_API/CONTRACT/REST/OPENAPI.yaml.md","line":129,"snippet":"PageRoute enum: [WAITING_ROOM, BAN_PICK_SHOP, IN_GAME]"}],"proposed_fix":"`05_FRONTEND/FE_ROUTING_RULES.md`에서 `PageRoute`를 active-game 복귀용 3개 값으로 한정하고, 일반 화면 라우트 식별자는 별도 타입(예: `AppRoute`)으로 분리해 정의한다."},{"severity":"medium","code":"PAGE_ROUTE_SCOPE_OVERGENERALIZATION","message":"Frontend routing rule states transitions are only PageRoute-based/API `pageRoute`-based, but API SSOT defines non-pageRoute transition branches (e.g., login result and signup overlay), creating ambiguous contract usage boundaries.","dedupe_key":"API_FRONTEND:PAGEROUTE_SCOPE_OVERGENERALIZATION","evidence":[{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":26,"snippet":"페이지 전환은 `PageRoute` 기준으로만 수행한다."},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":27,"snippet":"API 응답의 `pageRoute`가 유일한 전환 기준이다."},{"path":"03_API/PAGE_MAP/WELCOME.md","line":24,"snippet":"data.result=OK -> active-game 조회 후 MAIN 또는 게임 페이지"},{"path":"03_API/PAGE_MAP/WELCOME.md","line":25,"snippet":"data.result=SIGNUP_REQUIRED -> WELCOME + SIGNUP 오버레이"}],"proposed_fix":"전환 규칙을 active-game 복귀/게임 컨텍스트 전환에 한정해 `pageRoute`를 사용한다고 명시하고, 인증/가입/일반 내비게이션 전환은 PAGE_MAP 기준 별도 규칙으로 분리한다."}],"metrics":{"files_scanned":28,"links_checked":37,"relations_checked":3},"started_at":"2026-02-12T12:14:31Z","finished_at":"2026-02-12T12:17:55Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DESIGN-FRONTEND.worker.json =====
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DESIGN-FRONTEND","target":{"kind":"relation","id":"DESIGN_FRONTEND"},"status":"warn","summary":"Frontend documents correctly reference design token and page-requirement sources, but two medium relation-drift issues remain around ownership and scope clarity between design requirements and frontend consumption rules.","findings":[{"severity":"medium","code":"SCOPE_OWNERSHIP_DRIFT_WAITING_ROOM_LAYOUT","message":"`WAITING_ROOM` page requirements include fixed player-grid placement rules, but both design and frontend area scopes exclude layout/component positioning. This creates ambiguous ownership for rules frontend is expected to consume.","dedupe_key":"design_frontend_waiting_room_layout_scope_drift","evidence":[{"path":"02_DESIGN/README.md","line":3,"snippet":"- 레이아웃/컴포넌트 위치/사이즈/화면 구성은 범위에서 제외한다."},{"path":"02_DESIGN/README.md","line":7,"snippet":"- 제외: 화면 레이아웃, UI 배치, 컴포넌트 위치/크기, 픽셀 기반 목업"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":25,"snippet":"- 플레이어 그리드에서 방장은 항상 1행 1열에 위치한다."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":28,"snippet":"- 방장 변경 시 신규 방장은 1행 1열로 이동한다."},{"path":"05_FRONTEND/README.md","line":7,"snippet":"- 제외: 화면 레이아웃/컴포넌트 배치, 디자인 목업"}],"proposed_fix":"Move fixed slot/grid placement rules to the owning area (or explicitly assign ownership), and keep 02_DESIGN page requirements as non-positional data/state/interaction constraints that frontend can unambiguously consume."},{"severity":"medium","code":"NOTIFICATION_DOC_OWNERSHIP_DRIFT","message":"Design declares `FE_NOTIFICATION_MESSAGES.md` inside `02_DESIGN/PAGE_REQUIREMENTS`, but the actual notification SSOT lives in `05_FRONTEND`. This creates cross-area ownership drift for page-level notification requirements.","dedupe_key":"design_frontend_notification_doc_ownership_drift","evidence":[{"path":"02_DESIGN/README.md","line":24,"snippet":"FE_NOTIFICATION_MESSAGES.md # 알림 및 오류 메시지 정의"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/FE_NOTIFICATION_MESSAGES.md","line":null,"snippet":"Declared in 02_DESIGN file structure but file is not present in scoped path."},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":2,"snippet":"- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."}],"proposed_fix":"Choose a single owner (recommended: `05_FRONTEND/FE_NOTIFICATION_MESSAGES.md`) and update `02_DESIGN/README.md` to reference that location explicitly instead of declaring it under `02_DESIGN/PAGE_REQUIREMENTS`."}],"metrics":{"files_scanned":25,"links_checked":90,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:17:37Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/REL-DOMAIN-API.worker.json =====
+{"run_id":"20260212-211025","agent_id":"relation-auditor","task_id":"REL-DOMAIN-API","target":{"kind":"relation","id":"DOMAIN_API"},"status":"warn","summary":"Found 2 medium DOMAIN_API consistency issues: one-way cross-area references (DOMAIN->API only) and a stage mapping drift in ROOM_GAME_STARTED.","findings":[{"severity":"medium","code":"REL_REQUIRED_LINK_PRESENCE_GAP","message":"DOMAIN documents reference API contracts, but API contract docs do not reference DOMAIN SSOT docs, leaving DOMAIN_API traceability one-directional.","dedupe_key":"domain_api_link_directionality","evidence":[{"path":"04_DOMAIN/DATA_MODEL.md","line":12,"snippet":"- 03_API/CONTRACT/REST/OPENAPI.yaml.md"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":8,"snippet":"- [[03_API/LIFECYCLE.md]]"},{"path":"03_API/CONTRACT/REST/OPENAPI.yaml.md","line":30,"snippet":"- [[03_API/CONTRACT/REST/API_SUMMARY.md]]"},{"path":"03_API/CONTRACT/REALTIME/CONVENTIONS.md","line":7,"snippet":"- [[03_API/CONTRACT/REALTIME/TOPICS.md]]"}],"proposed_fix":"Add explicit related-doc links from core API contract docs (e.g., `03_API/README.md`, `03_API/CONTRACT/REST/OPENAPI.yaml.md`, `03_API/CONTRACT/REALTIME/CONVENTIONS.md`) to `04_DOMAIN/DATA_MODEL.md` and, where relevant, `04_DOMAIN/REDIS_DB_TIMING.md`."},{"severity":"medium","code":"ENTITY_CONTRACT_STAGE_MAPPING_DRIFT","message":"`ROOM_GAME_STARTED` event allows `PICK`/`SHOP` stages, but the domain transition model defines game start as `BAN` (RANKED) or `PLAY` (NORMAL), creating ambiguous Domain<->API stage semantics.","dedupe_key":"domain_api_room_game_started_stage","evidence":[{"path":"04_DOMAIN/DATA_MODEL.md","line":674,"snippet":"- NORMAL: LOBBY → PLAY → FINISHED"},{"path":"04_DOMAIN/DATA_MODEL.md","line":675,"snippet":"- RANKED: LOBBY → BAN → PICK → SHOP → PLAY → FINISHED"},{"path":"03_API/CONTRACT/REALTIME/EVENTS.md","line":187,"snippet":"- stage: GameStage (BAN | PICK | SHOP | PLAY)"}],"proposed_fix":"Constrain `ROOM_GAME_STARTED.data.stage` to `BAN | PLAY`, or clarify in the event spec that this event may represent post-start re-entry snapshots (and align domain text accordingly)."}],"metrics":{"files_scanned":24,"links_checked":7,"relations_checked":3},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:20:31Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/AREA-01_PRODUCT.worker.json =====
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-01_PRODUCT","target":{"kind":"area","id":"01_PRODUCT"},"status":"pass","summary":"01_PRODUCT required documents are present, internal references resolve, scope boundaries are explicitly declared, and normative statements are clear without redefining other area ownership.","findings":[],"metrics":{"files_scanned":7,"links_checked":15,"relations_checked":4},"started_at":"2026-02-12T12:10:40Z","finished_at":"2026-02-12T12:13:28Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/AREA-02_DESIGN.worker.json =====
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-02_DESIGN","target":{"kind":"area","id":"02_DESIGN"},"status":"warn","summary":"Validated 11 markdown files in 02_DESIGN. All 22 in-scope links resolved and token definitions are internally consistent, but 2 medium issues were found in scope-boundary clarity and required-doc ownership clarity.","findings":[{"severity":"medium","code":"SSOT_SCOPE_BOUNDARY_LAYOUT_RULE","message":"WAITING_ROOM page requirements define fixed grid placement rules, which conflicts with 02_DESIGN README scope that explicitly excludes layout/component positioning.","dedupe_key":"area:02_design:ssot_scope_boundary:waiting_room_layout_position","evidence":[{"path":"02_DESIGN/README.md","line":7,"snippet":"- 제외: 화면 레이아웃, UI 배치, 컴포넌트 위치/크기, 픽셀 기반 목업"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":25,"snippet":"- 플레이어 그리드에서 방장은 항상 1행 1열에 위치한다."},{"path":"02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md","line":28,"snippet":"- 방장 변경 시 신규 방장은 1행 1열로 이동한다."}],"proposed_fix":"Move fixed slot/grid placement rules to the frontend ownership area, or restate them as non-positional behavioral constraints so 02_DESIGN remains within token/data/state/interaction scope."},{"severity":"medium","code":"REQUIRED_DOC_OWNERSHIP_AMBIGUITY","message":"02_DESIGN README lists FE_NOTIFICATION_MESSAGES.md inside the 02_DESIGN file structure, but the document is missing in this area, creating required-doc and ownership ambiguity.","dedupe_key":"area:02_design:required_docs:fe_notification_messages_missing","evidence":[{"path":"02_DESIGN/README.md","line":24,"snippet":"FE_NOTIFICATION_MESSAGES.md # 알림 및 오류 메시지 정의"},{"path":"02_DESIGN/FE_NOTIFICATION_MESSAGES.md","line":null,"snippet":"File not found in 02_DESIGN scope"}],"proposed_fix":"Either add 02_DESIGN/FE_NOTIFICATION_MESSAGES.md as design-owned SSOT, or remove it from 02_DESIGN README and explicitly point to the owning area document."}],"metrics":{"files_scanned":11,"links_checked":22,"relations_checked":2},"started_at":"2026-02-12T12:10:45Z","finished_at":"2026-02-12T12:12:47Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/AREA-03_API.worker.json =====
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-03_API","target":{"kind":"area","id":"03_API"},"status":"warn","summary":"Found 2 medium integrity issues in 03_API lifecycle/page-map alignment; required documents exist and checked in-scope links resolve.","findings":[{"severity":"medium","code":"API_LIFECYCLE_ENDPOINT_DRIFT","message":"`LIFECYCLE.md` collapses BAN/PICK/SHOP actions into only `/games/{gameId}/shop/purchase`, which drifts from the canonical REST contracts that define separate `/ban` and `/pick` endpoints.","dedupe_key":"03_API:lifecycle:ban-pick-shop-endpoint-drift","evidence":[{"path":"03_API/LIFECYCLE.md","line":137,"snippet":"| BAN/PICK/SHOP 구매         | `POST /games/{gameId}/shop/purchase` | 밴/픽/구매 처리              |"},{"path":"03_API/CONTRACT/REST/API_SUMMARY.md","line":67,"snippet":"| 밴 제출 | POST | /games/{gameId}/ban | body: algorithmId |"},{"path":"03_API/CONTRACT/REST/API_SUMMARY.md","line":68,"snippet":"| 픽 제출 | POST | /games/{gameId}/pick | body: algorithmId |"}],"proposed_fix":"Update the lifecycle REST timing table to list BAN, PICK, and SHOP as separate calls (`/games/{gameId}/ban`, `/games/{gameId}/pick`, `/games/{gameId}/shop/purchase`) to match SSOT contracts."},{"severity":"medium","code":"API_TIME_SYNC_TRACEABILITY_GAP","message":"`TIME_SYNC` on `/user/queue/time` is defined as a basic subscription in realtime contracts, but lifecycle diagrams and page-level subscription maps omit it, creating traceability drift for timing synchronization behavior.","dedupe_key":"03_API:realtime:time-sync-page-map-gap","evidence":[{"path":"03_API/LIFECYCLE.md","line":25,"snippet":"   - `/user/queue/time`"},{"path":"03_API/LIFECYCLE.md","line":145,"snippet":"  B --> C[\"기본 구독:<br/>/user/queue/errors<br/>/user/queue/rooms<br/>/user/queue/inventory\"]"},{"path":"03_API/LIFECYCLE.md","line":180,"snippet":"  C->>WS: SUB /user/queue/errors, /user/queue/rooms, /user/queue/inventory"},{"path":"03_API/CONTRACT/REALTIME/TOPICS.md","line":25,"snippet":"| /user/queue/time | USER | TIME_SYNC | 시간 동기화 |"},{"path":"03_API/PAGE_MAP/MAIN.md","line":33,"snippet":"| /user/queue/errors | ERROR | 실시간 명령 실패 수신 |"}],"proposed_fix":"Make treatment of `/user/queue/time` explicit and consistent: either add it to lifecycle diagrams and relevant PAGE_MAP subscription sections, or document it as a global non-page subscription with a clear cross-reference."}],"metrics":{"files_scanned":20,"links_checked":10,"relations_checked":5},"started_at":"2026-02-12T12:05:00Z","finished_at":"2026-02-12T12:15:49Z"}
+===== AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/AREA-04_DOMAIN.worker.json =====
+{"run_id":"20260212-211025","agent_id":"area-auditor","task_id":"AREA-04_DOMAIN","target":{"kind":"area","id":"04_DOMAIN"},"status":"warn","summary":"04_DOMAIN documents are present and linked, but persistence timing semantics are ambiguous for several persistent entities during Phase 2.","findings":[{"severity":"medium","code":"DOMAIN_WRITE_POLICY_DRIFT","message":"Persistent entities are defined with default write-through policy, but the Phase 2 timing table marks DB writes as \"필요 시 write-through\", creating ambiguous persistence semantics for runtime logs.","dedupe_key":"04_domain_write_policy_phase2_ambiguity","evidence":[{"path":"04_DOMAIN/DATA_MODEL.md","line":53,"snippet":"- 기본값: persistent = write-through. 예외는 아래 표에 명시한다."},{"path":"04_DOMAIN/DB_NOTES.md","line":104,"snippet":"- 기본값: persistent는 write-through."},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":27,"snippet":"| Phase 2: 게임 진행 | 인게임 이벤트 | 즉시 반영 | 필요 시 write-through | ITEM_USAGE, SPELL_USAGE, SUBMISSION, GAME_ITEM_PURCHASE, GAME_SPELL_PURCHASE |"}],"proposed_fix":"Align Phase 2 wording with SSOT policy by defining these entities as always write-through, or explicitly add them as write-back exceptions in DATA_MODEL.md and DB_NOTES.md."}],"metrics":{"files_scanned":4,"links_checked":9,"relations_checked":3},"started_at":"2026-02-12T12:10:56Z","finished_at":"2026-02-12T12:12:32Z"}
+
+thinking
+**Planning comprehensive traceability checks**
+exec
+/bin/zsh -lc "rg -n 'FE_NOTIFICATION_MESSAGES\\.md|NOTICE\\.|ERROR\\.' 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+02_DESIGN/README.md:24:    FE_NOTIFICATION_MESSAGES.md # 알림 및 오류 메시지 정의
+05_FRONTEND/FE_STATE_RULES.md:9:- [[05_FRONTEND/FE_NOTIFICATION_MESSAGES.md]]
+05_FRONTEND/FE_STATE_RULES.md:46:- 이벤트 기반 알림은 `NOTICE.*` 키를 사용한다.
+02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md:24:- 방장 위임 성공 이벤트(ROOM_HOST_CHANGED, reason=MANUAL)에서 대상이 본인이면 알림 컴포넌트로 `NOTICE.HOST_TRANSFERRED`를 표시한다.
+02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md:30:- ROOM_KICKED 수신 시 알림 컴포넌트로 `NOTICE.KICKED`를 표시한 뒤 MAIN으로 이동한다.
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:3:- 에러 알림은 `ERROR.<CODE>` 키를 사용한다.
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:4:- 이벤트/시스템 알림은 `NOTICE.*` 키를 사용한다.
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:13:- 미정의 키 수신 시 `ERROR.UNKNOWN`을 사용한다.
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:19:| UNAUTHORIZED                    | ERROR.UNAUTHORIZED                    | 로그인이 필요합니다.                 |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:20:| FORBIDDEN                       | ERROR.FORBIDDEN                       | 권한이 없습니다.                   |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:21:| NOT_HOST                        | ERROR.NOT_HOST                        | 방장만 사용할 수 있습니다.             |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:22:| KICKED_USER                     | ERROR.KICKED_USER                     | 강퇴되어 해당 방에 입장할 수 없습니다.      |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:23:| ACTIVE_GAME_EXISTS              | ERROR.ACTIVE_GAME_EXISTS              | 이미 진행 중인 게임이 있습니다.          |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:24:| INVALID_STAGE_ACTION            | ERROR.INVALID_STAGE_ACTION            | 현재 단계에서는 사용할 수 없습니다.        |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:25:| GAME_ALREADY_FINISHED           | ERROR.GAME_ALREADY_FINISHED           | 이미 종료된 게임입니다.               |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:26:| ROOM_NOT_FOUND                  | ERROR.ROOM_NOT_FOUND                  | 방을 찾을 수 없습니다.               |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:27:| ROOM_FULL                       | ERROR.ROOM_FULL                       | 방이 가득 찼습니다.                 |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:28:| PLAYER_NOT_IN_ROOM              | ERROR.PLAYER_NOT_IN_ROOM              | 해당 방의 플레이어가 아닙니다.           |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:29:| INVALID_PLAYER_STATE            | ERROR.INVALID_PLAYER_STATE            | 현재 상태에서는 사용할 수 없습니다.        |
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md:30:| GAME_NOT_FOUND                  | ERROR.GAME_NOT_FOUND                  | 게임을 찾을 수 없습니다.              |
+
+thinking
+**Assessing orphan and traceability checks**
+exec
+/bin/zsh -lc "ls -la AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results | rg 'TRACE-E2E' -n || true" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+
+
+thinking
+**Planning detailed traceability findings**
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/OPENAPI.yaml.md | sed -n '100,170p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+   100	      type: object
+   101	      required: [limit, nextCursor]
+   102	      properties:
+   103	        limit:
+   104	          type: integer
+   105	        nextCursor:
+   106	          type: string
+   107	          nullable: true
+   108	
+   109	    GameType:
+   110	      type: string
+   111	      enum: [NORMAL, RANKED]
+   112	
+   113	    Language:
+   114	      type: string
+   115	      enum: [JAVA, PYTHON, CPP, JAVASCRIPT]
+   116	
+   117	    PlayerState:
+   118	      type: string
+   119	      enum: [READY, UNREADY, DISCONNECTED]
+
+thinking
+**Planning orphan spec detection**
+exec
+/bin/zsh -lc 'date -u +"%Y-%m-%dT%H:%M:%SZ"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+2026-02-12T12:24:29Z
+
+thinking
+**Refining output schema and findings details**
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import re,subprocess
+from pathlib import Path
+files=subprocess.check_output(\"rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND -g '*.md'\",shell=True,text=True).splitlines()
+links=0
+for f in files:
+    txt=Path(f).read_text(encoding='utf-8')
+    links+=len(re.findall(r'\\[\\[["'^'"\\]]+\\]\\]',txt))
+print('files',len(files))
+print('links',links)
+PY" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+files 64
+links 194
+
+thinking
+**Confirming routing rules lines**
+exec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_ROUTING_RULES.md | sed -n '13,32p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+    13	## 1. 라우트 네이밍 규칙
+    14	- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다.
+    15	- PageRoute 목록은 [[03_API/CONTRACT/REST/CONVENTIONS.md]]를 따른다.
+    16	- 예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`
+    17	
+    18	---
+    19	## 2. 가드 배치 규칙
+    20	- 전역 라우팅 가드는 `router` 초기화 시 1회만 등록한다.
+    21	- 인증/active game 체크는 **가드에서 수행**하며, 세부 규칙은 [[01_PRODUCT/USER_FLOWS.md]]를 따른다.
+    22	- 가드 로직에서 직접 REST 호출 금지(스토어/서비스를 통해 호출).
+    23	
+    24	---
+    25	## 3. 전환 규칙
+    26	- 페이지 전환은 `PageRoute` 기준으로만 수행한다.
+    27	- API 응답의 `pageRoute`가 유일한 전환 기준이다.
+    28	- 게임 FINISHED는 active game 대상이 아니며, RESULT는 이벤트 기반으로만 노출한다.
+    29	
+    30	---
+    31	## 4. 코드 스플리팅 규칙
+    32	- 라우트 컴포넌트는 `dynamic import`로 지연 로드한다.
+exec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/CONVENTIONS.md | sed -n '132,143p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+   132	- `FINISHED`
+   133	
+   134	### 7.4 PageRoute (Frontend 매핑)
+   135	PageRoute는 프론트 라우팅 식별자이며, 상세 매핑은 PAGE_MAP에서 정의한다.
+   136	Active game 응답에는 `stage`와 `pageRoute`를 함께 제공한다.
+   137	PageRoute 값은 다음 3개만 사용한다.
+   138	- `WAITING_ROOM`
+   139	- `BAN_PICK_SHOP`
+   140	- `IN_GAME`
+   141	게임이 FINISHED로 종료되면 active game 응답은 null이며 결과 페이지로 강제 복귀하지 않는다.
+   142	
+   143	---
+exec
+/bin/zsh -lc "nl -ba 03_API/LIFECYCLE.md | sed -n '68,80p'; echo '---'; nl -ba 03_API/LIFECYCLE.md | sed -n '127,139p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+    68	### 3.3 BAN_PICK_SHOP (RANKED)
+    69	- 구독:
+    70	  - `/topic/games/{gameId}`
+    71	  - `/topic/rooms/{roomId}/chat`
+    72	- 단계 진행:
+    73	  - REST `/games/{gameId}/ban`, `/pick`, `/shop/purchase`
+    74	  - BAN 종료 시 `GAME_BAN_FINALIZED` → `GAME_STAGE_CHANGED(stage=PICK)` 순서로 전파
+    75	  - PICK 종료 시 `GAME_PICK_FINALIZED` → `GAME_STAGE_CHANGED(stage=SHOP)` 순서로 전파
+    76	  - 단계 전환은 `GAME_STAGE_CHANGED`로 동기화
+    77	- BAN/PICK/SHOP 단계 제한시간은 각 10초로 고정한다.
+    78	- 밴/픽 제출 및 최종 산출, 구매 결과는 `/topic/games/{gameId}` 이벤트로 전파한다.
+    79	
+    80	### 3.4 IN_GAME
+---
+   127	### 5.3 REST 호출 타이밍(스냅샷/명령)
+   128	| 시점                       | REST 호출                            | 목적                     |
+   129	| ------------------------ | ---------------------------------- | ---------------------- |
+   130	| 로그인 직후                   | `GET /users/me/active-game`        | 복귀 여부 판단               |
+   131	| ROOM_LIST 패널 진입            | `GET /rooms`                       | 목록 스냅샷 + listVersion 동기화 |
+   132	| ROOM_LIST 업데이트 적용         | `GET /rooms`                       | 누적 변경분 최신화             |
+
+thinking
+**Identifying page map lines**
+exec
+/bin/zsh -lc "nl -ba 03_API/PAGE_MAP/BAN_PICK_SHOP.md | sed -n '20,27p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+    20	## 2. 사용자 액션 → REST
+    21	| 내부 단계 | 사용자 액션 | 메서드 | 엔드포인트 |
+    22	|---|---|---|---|
+    23	| BAN | 알고리즘 밴 제출 | POST | /games/{gameId}/ban |
+    24	| PICK | 알고리즘 픽 제출 | POST | /games/{gameId}/pick |
+    25	| SHOP | 아이템/스펠 일괄 구매 | POST | /games/{gameId}/shop/purchase |
+    26	
+    27	### 2.1 단계 제한시간
+
+thinking
+**Identifying need for domain/back rules**
+exec
+/bin/zsh -lc "nl -ba 06_BACKEND/BE_DATA_MODEL_RULES.md | sed -n '10,21p'; echo '---'; nl -ba 04_DOMAIN/DATA_MODEL.md | sed -n '55,66p'; echo '---'; nl -ba 04_DOMAIN/REDIS_DB_TIMING.md | sed -n '23,29p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+    10	## 1. 모델 준수 규칙
+    11	- 엔티티/필드/관계는 DATA_MODEL.md와 1:1로 일치해야 한다.
+    12	- storage 타입(persistent/ephemeral/derived)은 변경 금지.
+    13	- storage 의미는 다음을 따른다.
+    14	  - persistent: DB 영속 저장(JPA Entity/Repository 대상)
+    15	  - ephemeral/derived: Redis 실시간 상태(DB 테이블/마이그레이션 금지)
+    16	- write policy는 DATA_MODEL.md의 매핑을 따른다.
+    17	- write-through: 상태 변경 즉시 DB에 기록한다.
+    18	- write-back: Redis가 실시간 단일 진실이다. 종료 시점에 DB 스냅샷을 반영한다.
+    19	- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다.
+    20	
+    21	---
+---
+    55	### 2.4 Write Policy 매핑(예외)
+    56	| 엔티티 | write policy | 기준 |
+    57	|---|---|---|
+    58	| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |
+    59	| ROOM_PLAYER | write-back | 로비 참가 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |
+    60	| ROOM_KICK | write-back | 로비 단계 기록은 Redis에 유지, 게임 시작 시 DB 저장 |
+    61	| ROOM_HOST_HISTORY | write-back | 로비 단계 기록은 Redis에 유지, 게임 시작 시 DB 저장 |
+
+thinking
+**Extracting relevant sections**
+exec
+/bin/zsh -lc "nl -ba 01_PRODUCT/REQUIREMENTS.md | sed -n '1,12p'; echo '---'; nl -ba 01_PRODUCT/USER_FLOWS.md | sed -n '7,12p'; echo '---'; nl -ba 02_DESIGN/PAGE_REQUIREMENTS/MAIN.md | sed -n '1,8p'; echo '---'; nl -ba 02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md | sed -n '1,8p'; echo '---'; nl -ba 02_DESIGN/README.md | sed -n '27,29p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	- 이 문서는 League Of Algo Logic 서비스의 **기능 요구사항과 범위**를 정의한다.
+     2	- “무엇을 제공해야 하는가”를 명확히 하며, 구현 방식은 다루지 않는다.
+     3	- 프론트엔드(Antigravity)와 백엔드(Claude Code)는 이 문서를 기준으로 기능 누락이나 임의 확장을 해서는 안 된다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/GAME_RULES.md]]
+     7	- [[01_PRODUCT/USER_FLOWS.md]]
+     8	- [[01_PRODUCT/ECONOMY.md]]
+     9	- [[01_PRODUCT/CATALOG.md]]
+    10	
+    11	---
+    12	## 1. 서비스 접근 및 인증 요구사항
+---
+     7	## 관련 문서
+     8	- [[01_PRODUCT/REQUIREMENTS.md]]
+     9	- [[01_PRODUCT/GAME_RULES.md]]
+    10	- [[01_PRODUCT/COPY_TEXT.md]]
+    11	
+    12	---
+---
+
+thinking
+**Confirming missing orphan file and frontend presence**
+exec
+/bin/zsh -lc "nl -ba 02_DESIGN/README.md | sed -n '20,25p'; echo '---'; ls 02_DESIGN/PAGE_REQUIREMENTS | sort; echo '---'; nl -ba 05_FRONTEND/FE_NOTIFICATION_MESSAGES.md | sed -n '1,8p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+    20	    MY_PAGE.md # MY_PAGE 페이지 필수 데이터/상태
+    21	    RESULT.md # RESULT 페이지 필수 데이터/상태
+    22	    ROOM_LIST.md # ROOM_LIST 상태 필수 데이터/상태
+    23	    WAITING_ROOM.md # WAITING_ROOM 페이지 필수 데이터/상태
+    24	    FE_NOTIFICATION_MESSAGES.md # 알림 및 오류 메시지 정의
+    25	```
+---
+BAN_PICK_SHOP.md
+IN_GAME.md
+LOGIN.md
+MAIN.md
+MY_PAGE.md
+RESULT.md
+ROOM_LIST.md
+WAITING_ROOM.md
+---
+     1	## 목적
+     2	- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다.
+     3	- 에러 알림은 `ERROR.<CODE>` 키를 사용한다.
+     4	- 이벤트/시스템 알림은 `NOTICE.*` 키를 사용한다.
+
+thinking
+**Checking frontend linkage evidence**
+exec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_STATE_RULES.md | sed -n '5,12p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     5	## 관련 문서
+     6	- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+     7	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     8	- [[03_API/LIFECYCLE.md]]
+     9	- [[05_FRONTEND/FE_NOTIFICATION_MESSAGES.md]]
+    10	
+    11	---
+    12	## 1. 상태 분류 규칙
+
+thinking
+**Gathering product requirement evidence**
+exec
+/bin/zsh -lc "nl -ba 01_PRODUCT/USER_FLOWS.md | sed -n '34,42p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+    34	   - 로그인 상태: 서버에 active game 존재 여부를 조회한다.
+    35	3. active game 조회 결과에 따라 이동한다.
+    36	   - active game 없음: MAIN으로 이동한다.
+    37	   - active game 있음: 해당 게임의 현재 stage에 맞는 게임 페이지로 이동한다.
+    38	     - LOBBY -> WAITING_ROOM
+    39	     - BAN/PICK/SHOP -> BAN_PICK_SHOP
+    40	     - PLAY -> IN_GAME
+    41	4. FINISHED는 active game 복귀 대상이 아니며, RESULT는 연결 중 GAME_FINISHED 이벤트로만 표시된다.
+    42	
+
+thinking
+**Crafting final JSON audit**
+codex
+{"run_id":"20260212-211025","agent_id":"traceability-auditor","task_id":"TRACE-E2E","target":{"kind":"traceability","id":"E2E_TRACEABILITY"},"status":"fail","summary":"End-to-end traceability is broken by missing Product→Design source links, API lifecycle mapping conflict, Domain→Backend write-policy timing mismatch, API→Frontend PageRoute mismatch, and one orphaned/mislocated spec declaration.","findings":[{"severity":"critical","code":"TRACE_REQ_DESIGN_MANDATORY_LINK_MISSING","message":"The requirement-to-design segment is missing explicit mandatory references: Product requirement sources link only within `01_PRODUCT`, while Design page requirements link directly to API docs, leaving the `requirement -> design -> api` chain non-deterministic.","dedupe_key":"trace:req-design:missing-mandatory-links","evidence":[{"path":"01_PRODUCT/REQUIREMENTS.md","line":5,"snippet":"## 관련 문서"},{"path":"01_PRODUCT/REQUIREMENTS.md","line":6,"snippet":"- [[01_PRODUCT/GAME_RULES.md]]"},{"path":"01_PRODUCT/USER_FLOWS.md","line":7,"snippet":"## 관련 문서"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/MAIN.md","line":5,"snippet":"- [[03_API/PAGE_MAP/MAIN.md]]"},{"path":"02_DESIGN/README.md","line":28,"snippet":"- 페이지 요구사항(데이터/상태/상호작용)은 `03_API/PAGE_MAP/`과 일치해야 한다."}],"proposed_fix":"Add explicit `Source Requirement` links (section-level anchors) from each `02_DESIGN/PAGE_REQUIREMENTS/*.md` to `01_PRODUCT/REQUIREMENTS.md` and/or `01_PRODUCT/USER_FLOWS.md`, and add reverse links from Product pages to corresponding Design specs."},{"severity":"high","code":"TRACE_API_BAN_PICK_SHOP_MAPPING_CONFLICT","message":"API lifecycle documentation contains conflicting BAN/PICK/SHOP REST mappings, which can miswire requirement/design-driven orchestration.","dedupe_key":"trace:api:lifecycle-ban-pick-shop-conflict","evidence":[{"path":"03_API/LIFECYCLE.md","line":73,"snippet":"- REST `/games/{gameId}/ban`, `/pick`, `/shop/purchase`"},{"path":"03_API/LIFECYCLE.md","line":137,"snippet":"| BAN/PICK/SHOP 구매         | `POST /games/{gameId}/shop/purchase` | 밴/픽/구매 처리              |"},{"path":"03_API/PAGE_MAP/BAN_PICK_SHOP.md","line":23,"snippet":"| BAN | 알고리즘 밴 제출 | POST | /games/{gameId}/ban |"},{"path":"03_API/PAGE_MAP/BAN_PICK_SHOP.md","line":24,"snippet":"| PICK | 알고리즘 픽 제출 | POST | /games/{gameId}/pick |"},{"path":"03_API/PAGE_MAP/BAN_PICK_SHOP.md","line":25,"snippet":"| SHOP | 아이템/스펠 일괄 구매 | POST | /games/{gameId}/shop/purchase |"}],"proposed_fix":"In `03_API/LIFECYCLE.md` section 5.3, split BAN, PICK, and SHOP into separate rows with the correct endpoints (`/ban`, `/pick`, `/shop/purchase`) so lifecycle, page-map, and downstream implementation traces stay consistent."},{"severity":"high","code":"TRACE_DOMAIN_BACKEND_WRITE_POLICY_TIMING_MISMATCH","message":"The requirement-to-domain-to-backend chain is inconsistent for write-back timing: backend rule text allows a broad end-of-room/game flush, while domain SSOT requires phase-specific timing by entity group.","dedupe_key":"trace:domain-backend:write-policy-timing-mismatch","evidence":[{"path":"06_BACKEND/BE_DATA_MODEL_RULES.md","line":19,"snippet":"- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다."},{"path":"04_DOMAIN/DATA_MODEL.md","line":58,"snippet":"| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |"},{"path":"04_DOMAIN/DATA_MODEL.md","line":62,"snippet":"| GAME | write-back | 진행 상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":26,"snippet":"| Phase 1: 게임 시작 | startGame | 스냅샷 고정 | 1차 DB flush | ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER |"},{"path":"04_DOMAIN/REDIS_DB_TIMING.md","line":28,"snippet":"| Phase 3: 게임 종료 | GAME_FINISHED | 최종 스냅샷 | 2차 DB flush | GAME, GAME_PLAYER, GAME_BAN, GAME_PICK, USER(coin/exp/score) |"}],"proposed_fix":"Align `06_BACKEND/BE_DATA_MODEL_RULES.md` with domain timing semantics: ROOM* flush at `startGame`, GAME* flush at `GAME_FINISHED`, using the same entity-group mapping as `04_DOMAIN`."},{"severity":"high","code":"TRACE_API_FRONTEND_PAGEROUTE_ENUM_MISMATCH","message":"Frontend routing rules redefine API `PageRoute` scope, breaking API-to-frontend traceability for active-game routing decisions required by product flow.","dedupe_key":"trace:api-frontend:pageroute-enum-mismatch","evidence":[{"path":"01_PRODUCT/USER_FLOWS.md","line":37,"snippet":"- active game 있음: 해당 게임의 현재 stage에 맞는 게임 페이지로 이동한다."},{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":137,"snippet":"PageRoute 값은 다음 3개만 사용한다."},{"path":"03_API/CONTRACT/REST/OPENAPI.yaml.md","line":131,"snippet":"enum: [WAITING_ROOM, BAN_PICK_SHOP, IN_GAME]"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":14,"snippet":"- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다."},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":16,"snippet":"- 예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":27,"snippet":"- API 응답의 `pageRoute`가 유일한 전환 기준이다."}],"proposed_fix":"Use API `PageRoute` only for active-game transitions (`WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`) and define a separate frontend route type (e.g., `AppRoute`) for general navigation."},{"severity":"medium","code":"TRACE_ORPHAN_SPEC_DECLARATION_FE_NOTIFICATION","message":"An orphan/misaligned spec declaration exists: Design README declares `FE_NOTIFICATION_MESSAGES.md` under `02_DESIGN/PAGE_REQUIREMENTS`, but the actual document lives in Frontend docs and is consumed there.","dedupe_key":"trace:orphan:design-fe-notification-path-drift","evidence":[{"path":"02_DESIGN/README.md","line":24,"snippet":"FE_NOTIFICATION_MESSAGES.md # 알림 및 오류 메시지 정의"},{"path":"02_DESIGN/PAGE_REQUIREMENTS/FE_NOTIFICATION_MESSAGES.md","line":null,"snippet":"Declared in README path, but file is absent in `02_DESIGN/PAGE_REQUIREMENTS`."},{"path":"05_FRONTEND/FE_STATE_RULES.md","line":9,"snippet":"- [[05_FRONTEND/FE_NOTIFICATION_MESSAGES.md]]"},{"path":"05_FRONTEND/FE_NOTIFICATION_MESSAGES.md","line":2,"snippet":"- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."}],"proposed_fix":"Choose a single owner and canonical path for notification-message SSOT; either add the declared Design file or update `02_DESIGN/README.md` to reference `05_FRONTEND/FE_NOTIFICATION_MESSAGES.md` explicitly."}],"metrics":{"files_scanned":64,"links_checked":194,"relations_checked":4},"started_at":"2026-02-12T12:10:25Z","finished_at":"2026-02-12T12:24:29Z"}
+tokens used
+216,472

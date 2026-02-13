@@ -1,0 +1,4 @@
+interface:
+  display_name: "SSOT Spec Audit"
+  short_description: "Parallel multi-agent SSOT audit"
+  default_prompt: "Use $ssot-spec-audit to orchestrate parallel Codex workers and generate relation + traceability matrices."

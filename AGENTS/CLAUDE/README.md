@@ -9,65 +9,41 @@
 ```text
 AGENTS/CLAUDE/
   README.md # 이 문서
+  PROTOCOLS/
+    REVIEW_FINDING_SCHEMA.md # 리뷰 finding 스키마
+    REVIEW_TASK_SCHEMA.md # 리뷰 task 스키마
+    REVIEW_DEDUP_POLICY.md # 중복 제거 정책
+    REVIEW_SUMMARY_FORMAT.md # 마스터 요약 형식
   AGENTS/
     COMMON/
       COMMIT_AGENT.md # 커밋 에이전트 지침
-    BACKEND/REVIEW/
-      BE_REVIEW_MASTER_AGENT.md # BE Review Master 지침
-      BE_REVIEW_PARTIAL_MASTER_AGENT.md # BE Partial Review Master 지침
-      AUTH_USER_REVIEW_AGENT.md # 인증/유저 리뷰 지침
-      ROOM_LOBBY_REVIEW_AGENT.md # 방/로비 리뷰 지침
-      GAME_LIFECYCLE_REVIEW_AGENT.md # 게임 라이프사이클 리뷰 지침
-      BAN_PICK_SHOP_REVIEW_AGENT.md # 밴/픽/상점 리뷰 지침
-      REALTIME_CHAT_REVIEW_AGENT.md # 실시간/채팅 리뷰 지침
-      CORE_INFRA_REVIEW_AGENT.md # 코어 인프라 리뷰 지침
-      REDIS_REVIEW_AGENT.md # Redis/캐시 리뷰 지침
-      JPA_DB_REVIEW_AGENT.md # JPA/DB 성능 리뷰 지침
-    BACKEND/DEV/
-      BE_DEV_MASTER_AGENT.md # BE Dev Master 지침
-      BE_DEV_PARTIAL_MASTER_AGENT.md # BE Dev Partial Master 지침
-      BE_DEV_ADHOC_AGENT.md # BE Ad-hoc Dev Master 지침
-      BE_QNA_AGENT.md # BE QnA 지침
-      BE_DEV_AUTH_USER_AGENT.md # 인증/유저 Dev 지침
-      BE_DEV_ROOM_LOBBY_AGENT.md # 방/로비 Dev 지침
-      BE_DEV_GAME_LIFECYCLE_AGENT.md # 게임 라이프사이클 Dev 지침
-      BE_DEV_BAN_PICK_SHOP_AGENT.md # 밴/픽/상점 Dev 지침
-      BE_DEV_REALTIME_CHAT_AGENT.md # 실시간/채팅 Dev 지침
-      BE_DEV_REDIS_AGENT.md # Redis Dev 지침
-      BE_DEV_JPA_DB_AGENT.md # JPA/DB Dev 지침
-      BE_DEV_CORE_INFRA_AGENT.md # 코어 인프라 Dev 지침
-    FRONTEND/REVIEW/
-      FE_REVIEW_MASTER_AGENT.md # FE Review Master 지침
-      FE_REVIEW_PARTIAL_MASTER_AGENT.md # FE Partial Review Master 지침
-      API_REVIEW_AGENT.md # API 연동 리뷰 지침
-      STATE_REVIEW_AGENT.md # 상태 관리 리뷰 지침
-      ROUTING_REVIEW_AGENT.md # 라우팅 리뷰 지침
-      REALTIME_REVIEW_AGENT.md # 실시간 리뷰 지침
-      QUALITY_REVIEW_AGENT.md # 품질/성능 리뷰 지침
-    FRONTEND/DEV/
-      FE_DEV_MASTER_AGENT.md # FE Dev Master 지침
-      FE_DEV_PARTIAL_MASTER_AGENT.md # FE Dev Partial Master 지침
-      FE_DEV_ADHOC_AGENT.md # FE Ad-hoc Dev Master 지침
-      FE_QNA_AGENT.md # FE QnA 지침
-      FE_DEV_API_AGENT.md # API Dev 지침
-      FE_DEV_STATE_AGENT.md # 상태 Dev 지침
-      FE_DEV_ROUTING_AGENT.md # 라우팅 Dev 지침
-      FE_DEV_REALTIME_AGENT.md # 실시간 Dev 지침
-      FE_DEV_QUALITY_AGENT.md # 품질/성능 Dev 지침
+    BACKEND/
+      README.md # BE 에이전트 분할 기준
+      REVIEW/
+        README.md # REVIEW 디렉토리 운영 원칙
+        MASTER/ # 리뷰 마스터 에이전트
+        SSOT/ # 도메인별 SSOT 리뷰 에이전트
+        QUALITY/ # 도메인별 코드 품질 리뷰 에이전트
+        LEGACY/ # 기존 단일 리뷰 에이전트(호환/참조)
+      DEV/ # 개발/부분개발/adhoc/qna + 도메인 dev 에이전트
+    FRONTEND/
+      README.md # FE 에이전트 분할 기준
+      REVIEW/
+        README.md # REVIEW 디렉토리 운영 원칙
+        MASTER/ # 리뷰 마스터 에이전트
+        SSOT/ # 도메인별 SSOT 리뷰 에이전트
+        QUALITY/ # 도메인별 코드 품질 리뷰 에이전트
+        LEGACY/ # 기존 단일 리뷰 에이전트(호환/참조)
+      DEV/ # 개발/부분개발/adhoc/qna + 도메인 dev 에이전트
   SKILLS/
     COMMON/
       commit-plan/ # 커밋 계획/실행 스킬
     BACKEND/REVIEW/
       be-review/ # BE 리뷰 파이프라인 진입점
       be-review-partial/ # BE 부분 리뷰 파이프라인 진입점
-      be-review-auth-user/ # 인증/유저 리뷰 스킬
-      be-review-room-lobby/ # 방/로비 리뷰 스킬
-      be-review-game-lifecycle/ # 게임 라이프사이클 리뷰 스킬
-      be-review-ban-pick-shop/ # 밴/픽/상점 리뷰 스킬
-      be-review-realtime/ # 실시간 리뷰 스킬
-      be-review-redis/ # Redis 리뷰 스킬
-      be-review-jpa-db/ # JPA/DB 성능 리뷰 스킬
-      be-review-core-infra/ # 코어 인프라 리뷰 스킬
+      be-review-*-ssot/ # BE 도메인별 SSOT 리뷰 스킬
+      be-review-*-quality/ # BE 도메인별 QUALITY 리뷰 스킬
+      be-review-*/ # 기존 단일 리뷰 스킬(호환/참조)
     BACKEND/DEV/
       be-dev/ # BE Dev 파이프라인 진입점
       be-dev-partial/ # BE Dev 부분 파이프라인 진입점
@@ -84,11 +60,9 @@ AGENTS/CLAUDE/
     FRONTEND/REVIEW/
       fe-review/ # FE 리뷰 파이프라인 진입점
       fe-review-partial/ # FE 부분 리뷰 파이프라인 진입점
-      fe-review-api/ # API 리뷰 스킬
-      fe-review-state/ # 상태 관리 리뷰 스킬
-      fe-review-routing/ # 라우팅 리뷰 스킬
-      fe-review-realtime/ # 실시간 리뷰 스킬
-      fe-review-quality/ # 품질/성능 리뷰 스킬
+      fe-review-*-ssot/ # FE 도메인별 SSOT 리뷰 스킬
+      fe-review-*-quality/ # FE 도메인별 QUALITY 리뷰 스킬
+      fe-review-*/ # 기존 단일 리뷰 스킬(호환/참조)
     FRONTEND/DEV/
       fe-dev/ # FE Dev 파이프라인 진입점
       fe-dev-partial/ # FE Dev 부분 파이프라인 진입점
@@ -117,9 +91,9 @@ rm -rf .claude/agents .claude/skills
 mkdir -p .claude/agents .claude/skills
 rsync -a --delete docs/AGENTS/CLAUDE/AGENTS/BACKEND/ .claude/agents/BACKEND/
 rsync -a --delete docs/AGENTS/CLAUDE/AGENTS/COMMON/ .claude/agents/COMMON/
-rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/BACKEND/REVIEW/ .claude/skills/
-rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/BACKEND/DEV/ .claude/skills/
-rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
+rsync -a docs/AGENTS/CLAUDE/SKILLS/BACKEND/REVIEW/ .claude/skills/
+rsync -a docs/AGENTS/CLAUDE/SKILLS/BACKEND/DEV/ .claude/skills/
+rsync -a docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
 ```
 
 ```shell
@@ -128,9 +102,9 @@ rm -rf .claude/agents .claude/skills
 mkdir -p .claude/agents .claude/skills
 rsync -a --delete docs/AGENTS/CLAUDE/AGENTS/FRONTEND/ .claude/agents/FRONTEND/
 rsync -a --delete docs/AGENTS/CLAUDE/AGENTS/COMMON/ .claude/agents/COMMON/
-rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/FRONTEND/REVIEW/ .claude/skills/
-rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/FRONTEND/DEV/ .claude/skills/
-rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
+rsync -a docs/AGENTS/CLAUDE/SKILLS/FRONTEND/REVIEW/ .claude/skills/
+rsync -a docs/AGENTS/CLAUDE/SKILLS/FRONTEND/DEV/ .claude/skills/
+rsync -a docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
 ```
 
 ### 4.2.2. 수동 복사
@@ -148,14 +122,22 @@ rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
 "Skill(be-review)",
 "Skill(commit-plan)",
 "Skill(be-review-partial)",
-"Skill(be-review-auth-user)",  
-"Skill(be-review-room-lobby)",  
-"Skill(be-review-game-lifecycle)",  
-"Skill(be-review-ban-pick-shop)",  
-"Skill(be-review-realtime)",  
-"Skill(be-review-redis)",  
-"Skill(be-review-jpa-db)",  
-"Skill(be-review-core-infra)",  
+"Skill(be-review-auth-user-ssot)",
+"Skill(be-review-auth-user-quality)",
+"Skill(be-review-room-lobby-ssot)",
+"Skill(be-review-room-lobby-quality)",
+"Skill(be-review-game-lifecycle-ssot)",
+"Skill(be-review-game-lifecycle-quality)",
+"Skill(be-review-ban-pick-shop-ssot)",
+"Skill(be-review-ban-pick-shop-quality)",
+"Skill(be-review-realtime-ssot)",
+"Skill(be-review-realtime-quality)",
+"Skill(be-review-redis-ssot)",
+"Skill(be-review-redis-quality)",
+"Skill(be-review-jpa-db-ssot)",
+"Skill(be-review-jpa-db-quality)",
+"Skill(be-review-core-infra-ssot)",
+"Skill(be-review-core-infra-quality)",
 "Skill(be-dev)",  
 "Skill(be-dev-partial)",
 "Skill(be-adhoc)",
@@ -173,11 +155,16 @@ rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
 "Skill(fe-review)",
 "Skill(commit-plan)",
 "Skill(fe-review-partial)",
-"Skill(fe-review-api)",
-"Skill(fe-review-state)",
-"Skill(fe-review-routing)",
-"Skill(fe-review-realtime)",
-"Skill(fe-review-quality)",
+"Skill(fe-review-api-ssot)",
+"Skill(fe-review-api-quality)",
+"Skill(fe-review-state-ssot)",
+"Skill(fe-review-state-quality)",
+"Skill(fe-review-routing-ssot)",
+"Skill(fe-review-routing-quality)",
+"Skill(fe-review-realtime-ssot)",
+"Skill(fe-review-realtime-quality)",
+"Skill(fe-review-quality-ssot)",
+"Skill(fe-review-quality-quality)",
 "Skill(fe-dev)",
 "Skill(fe-dev-partial)",
 "Skill(fe-adhoc)",
@@ -203,11 +190,17 @@ rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
 │       │   ├── ...
 │       │   └── BE_DEV_BAN_PICK_SHOP_AGENT.md
 │       └── REVIEW
-│           ├── BE_REVIEW_MASTER_AGENT.md
-│           ├── BE_REVIEW_PARTIAL_MASTER_AGENT.md
-│           ├── AUTH_USER_REVIEW_AGENT.md
-│           ├── ...
-│           └── ROOM_LOBBY_REVIEW_AGENT.md
+│           ├── MASTER
+│           │   ├── BE_REVIEW_MASTER_AGENT.md
+│           │   └── BE_REVIEW_PARTIAL_MASTER_AGENT.md
+│           ├── SSOT
+│           │   ├── AUTH_USER_SSOT_REVIEW_AGENT.md
+│           │   └── ...
+│           ├── QUALITY
+│           │   ├── AUTH_USER_QUALITY_REVIEW_AGENT.md
+│           │   └── ...
+│           └── LEGACY
+│               └── AUTH_USER_REVIEW_AGENT.md
 ├── skills
 │   ├── commit-plan
 │   │   └── SKILL.md
@@ -223,7 +216,9 @@ rsync -a --delete docs/AGENTS/CLAUDE/SKILLS/COMMON/ .claude/skills/
 │   │   └── SKILL.md
 │   ├── be-qna
 │   │   └── SKILL.md
-│   ├── be-review-auth-user
+│   ├── be-review-auth-user-ssot
+│   │   └── SKILL.md
+│   ├── be-review-auth-user-quality
 │   │   └── SKILL.md
 │   ├── ...
 │   └── be-dev-auth-user
@@ -451,3 +446,47 @@ end
 2. 질문을 전달합니다.
 3. QnA 에이전트가 코드 기반 답변을 제공합니다.
 4. QnA는 별도 결과 파일을 생성하지 않습니다.
+
+---
+# 5. V2 리뷰 구조 (SSOT/QUALITY 분리)
+
+## 5.1. 개요
+- Full/Partial Review 모두에서 도메인별 SSOT 리뷰와 QUALITY 리뷰를 각각 수행합니다.
+- QUALITY 리뷰는 SSOT raw 결과를 입력으로 사용하지 않고 독립 수행합니다.
+- 중복 제거 및 우선순위 정리는 Review Master가 수행합니다.
+
+## 5.2. 신규 네이밍 규칙
+- Backend: `/be-review-<domain>-ssot`, `/be-review-<domain>-quality`
+- Frontend: `/fe-review-<domain>-ssot`, `/fe-review-<domain>-quality`
+
+## 5.3. Full Review 실행 규칙
+1. `/be-review` 또는 `/fe-review` 호출
+2. 각 도메인의 SSOT/QUALITY 스킬을 모두 실행
+3. `*_ssot_raw.md`, `*_quality_raw.md` 생성 확인
+4. Master가 중복 제거 후 `MASTER_PLAN.md`, `TASKS/TASK-XXX.md` 생성
+
+## 5.4. Partial Review 실행 규칙
+1. `/be-review-partial` 또는 `/fe-review-partial` 호출
+2. SSOT 커밋 컨벤션으로 도메인 확정
+3. 확정된 각 도메인에 대해 SSOT/QUALITY 스킬 모두 실행
+4. Partial Master가 결과 통합 및 승인 요청
+
+## 5.5. 리포트 파일 규칙
+- Backend full: `.claude/reports/review/be/full/active/<domain>_ssot_raw.md`, `.claude/reports/review/be/full/active/<domain>_quality_raw.md`
+- Frontend full: `.claude/reports/review/fe/full/active/<domain>_ssot_raw.md`, `.claude/reports/review/fe/full/active/<domain>_quality_raw.md`
+- Partial도 동일하게 `.../{be|fe}/partial/active/` 경로를 사용합니다.
+
+## 5.6. 공통 프로토콜
+- 리뷰 결과 스키마/태스크 스키마/중복 제거 정책은 다음 문서를 따릅니다.
+  - `AGENTS/CLAUDE/PROTOCOLS/REVIEW_FINDING_SCHEMA.md`
+  - `AGENTS/CLAUDE/PROTOCOLS/REVIEW_TASK_SCHEMA.md`
+  - `AGENTS/CLAUDE/PROTOCOLS/REVIEW_DEDUP_POLICY.md`
+  - `AGENTS/CLAUDE/PROTOCOLS/REVIEW_SUMMARY_FORMAT.md`
+
+## 5.7. permissions 추가 주의
+- 기존 `be-review-<domain>`/`fe-review-<domain>` 단일 스킬 대신, `-ssot`, `-quality` 스킬을 모두 permissions에 등록해야 합니다.
+- 예시:
+  - `Skill(be-review-auth-user-ssot)`
+  - `Skill(be-review-auth-user-quality)`
+  - `Skill(fe-review-api-ssot)`
+  - `Skill(fe-review-api-quality)`

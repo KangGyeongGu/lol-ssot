@@ -1,0 +1,122 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-PRODUCT-DESIGN",
+  "target": {
+    "kind": "relation",
+    "id": "PRODUCT_DESIGN"
+  },
+  "status": "fail",
+  "summary": "Detected PRODUCT_DESIGN SSOT relation failures: direct cross-area references are missing, intent-to-design mapping is implicit, and behavioral rules are duplicated across Product and Design without explicit ownership links.",
+  "findings": [
+    {
+      "severity": "critical",
+      "code": "REL_MISSING_MANDATORY_CROSS_REF",
+      "message": "Mandatory PRODUCT_DESIGN relationship is not explicitly documented: Product core requirements only reference Product docs, while Design requirements reference API docs only and omit Product sources.",
+      "dedupe_key": "relation:product_design:missing_cross_refs",
+      "evidence": [
+        {
+          "path": "01_PRODUCT/REQUIREMENTS.md",
+          "line": 5,
+          "snippet": "## 관련 문서"
+        },
+        {
+          "path": "01_PRODUCT/REQUIREMENTS.md",
+          "line": 6,
+          "snippet": "- [[01_PRODUCT/GAME_RULES.md]]"
+        },
+        {
+          "path": "02_DESIGN/README.md",
+          "line": 28,
+          "snippet": "- 페이지 요구사항(데이터/상태/상호작용)은 `03_API/PAGE_MAP/`과 일치해야 한다."
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/MAIN.md",
+          "line": 4,
+          "snippet": "## 관련 문서"
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/MAIN.md",
+          "line": 5,
+          "snippet": "- [[03_API/PAGE_MAP/MAIN.md]]"
+        }
+      ],
+      "proposed_fix": "Add explicit PRODUCT_DESIGN links in both directions: each `02_DESIGN/PAGE_REQUIREMENTS/*.md` should cite source clauses in `01_PRODUCT/REQUIREMENTS.md` and/or `01_PRODUCT/USER_FLOWS.md`, and Product should reference corresponding Design requirement docs for downstream realization."
+    },
+    {
+      "severity": "medium",
+      "code": "REL_INTENT_TO_DESIGN_MAPPING_IMPLICIT",
+      "message": "Design page requirements are organized by page but do not map each requirement block to specific Product intent clauses, reducing traceability and making drift detection difficult.",
+      "dedupe_key": "relation:product_design:implicit_intent_mapping",
+      "evidence": [
+        {
+          "path": "01_PRODUCT/REQUIREMENTS.md",
+          "line": 100,
+          "snippet": "게임과 직접 관련된 페이지는 다음 네 개로 고정한다."
+        },
+        {
+          "path": "01_PRODUCT/USER_FLOWS.md",
+          "line": 15,
+          "snippet": "게임과 직접적으로 연관된 페이지는 아래 4개로 고정된다."
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md",
+          "line": 4,
+          "snippet": "## 관련 문서"
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md",
+          "line": 5,
+          "snippet": "- [[03_API/PAGE_MAP/WAITING_ROOM.md]]"
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md",
+          "line": 4,
+          "snippet": "## 관련 문서"
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md",
+          "line": 5,
+          "snippet": "- [[03_API/PAGE_MAP/WELCOME.md]]"
+        }
+      ],
+      "proposed_fix": "For each Design page spec, add a `Source Intent` section that links to exact Product sections (anchor-level) for `Required Data`, `Required States`, and `Interactions`."
+    },
+    {
+      "severity": "medium",
+      "code": "REL_DUPLICATED_BEHAVIORAL_RULES",
+      "message": "Behavioral norms are duplicated between Product and Design documents without explicit derivation links, creating non-SSOT duplication and future conflict risk.",
+      "dedupe_key": "relation:product_design:duplicated_behavior_rules",
+      "evidence": [
+        {
+          "path": "01_PRODUCT/REQUIREMENTS.md",
+          "line": 95,
+          "snippet": "- PICK 단계에서는 최종 BAN 알고리즘이 선택 불가 처리되어야 한다(별도 알림 UI 없음)."
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md",
+          "line": 29,
+          "snippet": "- GAME_BAN_FINALIZED 수신 이후 PICK 단계에서 최종 BAN 알고리즘을 선택 불가 처리한다(별도 알림 없음)."
+        },
+        {
+          "path": "01_PRODUCT/REQUIREMENTS.md",
+          "line": 73,
+          "snippet": "- 방장 위임 성공 시 대상은 READY 상태로 전환되며, 대기실 UI에서 방장 표시가 갱신되어야 한다."
+        },
+        {
+          "path": "02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md",
+          "line": 24,
+          "snippet": "- 방장 위임 성공 이벤트(ROOM_HOST_CHANGED, reason=MANUAL)에서 대상이 본인이면 알림 컴포넌트로 `NOTICE.HOST_TRANSFERRED`를 표시한다."
+        }
+      ],
+      "proposed_fix": "Keep policy rules authoritative in `01_PRODUCT/*`; in `02_DESIGN/*` replace repeated policy text with explicit `derived-from` references and retain only UI state/rendering requirements."
+    }
+  ],
+  "metrics": {
+    "files_scanned": 17,
+    "links_checked": 37,
+    "relations_checked": 3
+  },
+  "started_at": "2026-02-12T12:10:25Z",
+  "finished_at": "2026-02-12T12:15:09Z"
+}

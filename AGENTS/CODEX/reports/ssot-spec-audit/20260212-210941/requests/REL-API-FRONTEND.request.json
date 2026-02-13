@@ -1,0 +1,26 @@
+{
+  "run_id": "20260212-210941",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-API-FRONTEND",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "relation",
+    "id": "API_FRONTEND",
+    "scope_paths": [
+      "03_API",
+      "05_FRONTEND"
+    ],
+    "checks": [
+      "required_link_presence",
+      "contract_usage_mapping",
+      "duplication_and_conflict"
+    ],
+    "objective": "Ensure frontend API usage rules align with API contract SSOT."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210941/worker_results/REL-API-FRONTEND.worker.json"
+}

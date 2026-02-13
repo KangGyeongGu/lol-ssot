@@ -1,0 +1,54 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-DOMAIN-BACKEND",
+  "target": {
+    "kind": "relation",
+    "id": "DOMAIN_BACKEND"
+  },
+  "status": "fail",
+  "summary": "Found a high-severity domain-to-backend mapping mismatch: backend write-back timing rule does not preserve the domain SSOT’s per-entity timing requirements.",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "DOMAIN_BACKEND_WRITE_POLICY_TIMING_MISMATCH",
+      "message": "`06_BACKEND/BE_DATA_MODEL_RULES.md` defines write-back persistence timing as a single rule (`GAME_FINISHED` or room/game end), but domain SSOT requires different timing by entity group (ROOM* at `startGame`, GAME* at `GAME_FINISHED`). This can cause backend orchestration/persistence behavior to diverge from domain SSOT.",
+      "dedupe_key": "domain_backend_write_policy_timing_mismatch",
+      "evidence": [
+        {
+          "path": "06_BACKEND/BE_DATA_MODEL_RULES.md",
+          "line": 19,
+          "snippet": "- write-back 대상은 GAME_FINISHED 또는 룸/게임 종료 시 DB 반영이 필수다."
+        },
+        {
+          "path": "04_DOMAIN/DATA_MODEL.md",
+          "line": 58,
+          "snippet": "| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |"
+        },
+        {
+          "path": "04_DOMAIN/DATA_MODEL.md",
+          "line": 62,
+          "snippet": "| GAME | write-back | 진행 상태는 Redis에서 관리, GAME_FINISHED 시 DB 저장 |"
+        },
+        {
+          "path": "04_DOMAIN/REDIS_DB_TIMING.md",
+          "line": 26,
+          "snippet": "| Phase 1: 게임 시작 | startGame | 스냅샷 고정 | 1차 DB flush | ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER |"
+        },
+        {
+          "path": "04_DOMAIN/REDIS_DB_TIMING.md",
+          "line": 28,
+          "snippet": "| Phase 3: 게임 종료 | GAME_FINISHED | 최종 스냅샷 | 2차 DB flush | GAME, GAME_PLAYER, GAME_BAN, GAME_PICK, USER(coin/exp/score) |"
+        }
+      ],
+      "proposed_fix": "Update `06_BACKEND/BE_DATA_MODEL_RULES.md` to mirror domain SSOT timing by entity group: `ROOM/ROOM_PLAYER/ROOM_KICK/ROOM_HOST_HISTORY` flush at `startGame`, and `GAME/GAME_PLAYER/GAME_BAN/GAME_PICK` flush at `GAME_FINISHED`; keep wording aligned with `04_DOMAIN/DATA_MODEL.md` and `04_DOMAIN/REDIS_DB_TIMING.md`."
+    }
+  ],
+  "metrics": {
+    "files_scanned": 12,
+    "links_checked": 3,
+    "relations_checked": 3
+  },
+  "started_at": "2026-02-12T12:10:25Z",
+  "finished_at": "2026-02-12T12:18:05Z"
+}

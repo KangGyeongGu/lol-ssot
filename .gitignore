@@ -10,3 +10,6 @@
 .obsidian/cache/
 .obsidian/plugins/*/data.json
 .obsidian/plugins/*/cache/
+
+# Codex local runtime data
+.codex-home/

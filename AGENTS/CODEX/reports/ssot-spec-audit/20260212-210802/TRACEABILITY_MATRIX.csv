@@ -1,0 +1,2 @@
+task_id,target_id,agent_id,status,max_severity,finding_count,summary
+TRACE-E2E,E2E_TRACEABILITY,traceability-auditor,pass,low,0,Dry-run mode: no Codex worker executed.

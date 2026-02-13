@@ -1,0 +1,19 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-API-BACKEND",
+  "target": {
+    "kind": "relation",
+    "id": "API_BACKEND"
+  },
+  "status": "pass",
+  "summary": "Backend API/realtime implementation-rule documents consistently reference `03_API` as contract SSOT, and no API↔backend rule conflicts or relation-level duplication were found within the scoped paths.",
+  "findings": [],
+  "metrics": {
+    "files_scanned": 16,
+    "links_checked": 26,
+    "relations_checked": 3
+  },
+  "started_at": "2026-02-12T12:10:25Z",
+  "finished_at": "2026-02-12T12:18:31Z"
+}

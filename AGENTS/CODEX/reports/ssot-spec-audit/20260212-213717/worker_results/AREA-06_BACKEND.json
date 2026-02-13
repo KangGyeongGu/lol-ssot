@@ -1,0 +1,19 @@
+{
+  "run_id": "20260212-213717",
+  "agent_id": "area-auditor",
+  "task_id": "AREA-06_BACKEND",
+  "target": {
+    "kind": "area",
+    "id": "06_BACKEND"
+  },
+  "status": "pass",
+  "summary": "Dry-run mode: no Codex worker executed.",
+  "findings": [],
+  "metrics": {
+    "files_scanned": 0,
+    "links_checked": 0,
+    "relations_checked": 0
+  },
+  "started_at": "2026-02-12T12:37:17+00:00",
+  "finished_at": "2026-02-12T12:37:17+00:00"
+}

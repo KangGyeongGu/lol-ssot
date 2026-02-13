@@ -1,0 +1,26 @@
+{
+  "run_id": "20260212-210906",
+  "agent_id": "traceability-auditor",
+  "task_id": "TRACE-E2E",
+  "target": {
+    "kind": "traceability",
+    "id": "E2E_TRACEABILITY"
+  },
+  "status": "error",
+  "summary": "Worker execution failed with code 1",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210906/logs/TRACE-E2E.stderr.log"
+        }
+      ]
+    }
+  ],
+  "metrics": {},
+  "started_at": "2026-02-12T12:09:08+00:00",
+  "finished_at": "2026-02-12T12:09:08+00:00"
+}

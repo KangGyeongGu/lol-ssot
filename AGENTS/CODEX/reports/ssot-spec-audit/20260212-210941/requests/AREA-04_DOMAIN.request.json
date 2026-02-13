@@ -1,0 +1,26 @@
+{
+  "run_id": "20260212-210941",
+  "agent_id": "area-auditor",
+  "task_id": "AREA-04_DOMAIN",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "area",
+    "id": "04_DOMAIN",
+    "scope_paths": [
+      "04_DOMAIN"
+    ],
+    "checks": [
+      "required_docs",
+      "broken_links",
+      "domain_model_ownership",
+      "cross_area_redefinition"
+    ],
+    "objective": "Validate domain model specs as SSOT for entities and persistence semantics."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210941/worker_results/AREA-04_DOMAIN.worker.json"
+}

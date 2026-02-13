@@ -1,0 +1,618 @@
+{
+  "run_id": "20260212-210456",
+  "status": "fail",
+  "fail_on": "high",
+  "generated_at": "2026-02-12T12:04:56+00:00",
+  "mode": "full",
+  "dry_run": false,
+  "task_count": 19,
+  "severity_totals": {
+    "critical": 0,
+    "high": 19,
+    "medium": 0,
+    "low": 0
+  },
+  "area_matrix": [
+    {
+      "task_id": "AREA-01_PRODUCT",
+      "target_id": "01_PRODUCT",
+      "agent_id": "area-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "AREA-02_DESIGN",
+      "target_id": "02_DESIGN",
+      "agent_id": "area-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "AREA-03_API",
+      "target_id": "03_API",
+      "agent_id": "area-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "AREA-04_DOMAIN",
+      "target_id": "04_DOMAIN",
+      "agent_id": "area-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "AREA-05_FRONTEND",
+      "target_id": "05_FRONTEND",
+      "agent_id": "area-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "AREA-06_BACKEND",
+      "target_id": "06_BACKEND",
+      "agent_id": "area-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    }
+  ],
+  "relation_matrix": [
+    {
+      "task_id": "REL-API-BACKEND",
+      "target_id": "API_BACKEND",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "REL-API-FRONTEND",
+      "target_id": "API_FRONTEND",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "REL-DESIGN-FRONTEND",
+      "target_id": "DESIGN_FRONTEND",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "REL-DOMAIN-API",
+      "target_id": "DOMAIN_API",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "REL-DOMAIN-BACKEND",
+      "target_id": "DOMAIN_BACKEND",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "REL-PRODUCT-API",
+      "target_id": "PRODUCT_API",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "REL-PRODUCT-DESIGN",
+      "target_id": "PRODUCT_DESIGN",
+      "agent_id": "relation-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    }
+  ],
+  "duplication_matrix": [
+    {
+      "task_id": "DUP-NORMATIVE",
+      "target_id": "NORMATIVE_DUPLICATION",
+      "agent_id": "duplication-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "DUP-OWNERSHIP",
+      "target_id": "OWNERSHIP_VIOLATION",
+      "agent_id": "duplication-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "DUP-TERMINOLOGY",
+      "target_id": "TERM_CONFLICT",
+      "agent_id": "duplication-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    }
+  ],
+  "agent_spec_matrix": [
+    {
+      "task_id": "AGENTSPEC-BACKEND",
+      "target_id": "BACKEND_AGENT_SKILL",
+      "agent_id": "agent-spec-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    },
+    {
+      "task_id": "AGENTSPEC-FRONTEND",
+      "target_id": "FRONTEND_AGENT_SKILL",
+      "agent_id": "agent-spec-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    }
+  ],
+  "traceability_matrix": [
+    {
+      "task_id": "TRACE-E2E",
+      "target_id": "E2E_TRACEABILITY",
+      "agent_id": "traceability-auditor",
+      "status": "error",
+      "max_severity": "high",
+      "finding_count": 1,
+      "summary": "Worker execution failed with code 2"
+    }
+  ],
+  "top_findings": [
+    {
+      "task_id": "AREA-01_PRODUCT",
+      "agent_id": "area-auditor",
+      "target_kind": "area",
+      "target_id": "01_PRODUCT",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AREA-01_PRODUCT.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AREA-02_DESIGN",
+      "agent_id": "area-auditor",
+      "target_kind": "area",
+      "target_id": "02_DESIGN",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AREA-02_DESIGN.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AREA-03_API",
+      "agent_id": "area-auditor",
+      "target_kind": "area",
+      "target_id": "03_API",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AREA-03_API.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AREA-04_DOMAIN",
+      "agent_id": "area-auditor",
+      "target_kind": "area",
+      "target_id": "04_DOMAIN",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AREA-04_DOMAIN.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AREA-05_FRONTEND",
+      "agent_id": "area-auditor",
+      "target_kind": "area",
+      "target_id": "05_FRONTEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AREA-05_FRONTEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AREA-06_BACKEND",
+      "agent_id": "area-auditor",
+      "target_kind": "area",
+      "target_id": "06_BACKEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AREA-06_BACKEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-API-BACKEND",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "API_BACKEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-API-BACKEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-API-FRONTEND",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "API_FRONTEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-API-FRONTEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-DESIGN-FRONTEND",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "DESIGN_FRONTEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-DESIGN-FRONTEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-DOMAIN-API",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "DOMAIN_API",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-DOMAIN-API.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-DOMAIN-BACKEND",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "DOMAIN_BACKEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-DOMAIN-BACKEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-PRODUCT-API",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "PRODUCT_API",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-PRODUCT-API.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "REL-PRODUCT-DESIGN",
+      "agent_id": "relation-auditor",
+      "target_kind": "relation",
+      "target_id": "PRODUCT_DESIGN",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-PRODUCT-DESIGN.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "DUP-NORMATIVE",
+      "agent_id": "duplication-auditor",
+      "target_kind": "duplication",
+      "target_id": "NORMATIVE_DUPLICATION",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/DUP-NORMATIVE.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "DUP-OWNERSHIP",
+      "agent_id": "duplication-auditor",
+      "target_kind": "duplication",
+      "target_id": "OWNERSHIP_VIOLATION",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/DUP-OWNERSHIP.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "DUP-TERMINOLOGY",
+      "agent_id": "duplication-auditor",
+      "target_kind": "duplication",
+      "target_id": "TERM_CONFLICT",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/DUP-TERMINOLOGY.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AGENTSPEC-BACKEND",
+      "agent_id": "agent-spec-auditor",
+      "target_kind": "agent_spec",
+      "target_id": "BACKEND_AGENT_SKILL",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AGENTSPEC-BACKEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "AGENTSPEC-FRONTEND",
+      "agent_id": "agent-spec-auditor",
+      "target_kind": "agent_spec",
+      "target_id": "FRONTEND_AGENT_SKILL",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/AGENTSPEC-FRONTEND.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    },
+    {
+      "task_id": "TRACE-E2E",
+      "agent_id": "traceability-auditor",
+      "target_kind": "traceability",
+      "target_id": "E2E_TRACEABILITY",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/TRACE-E2E.stderr.log"
+        }
+      ],
+      "proposed_fix": ""
+    }
+  ],
+  "open_actions": [
+    {
+      "task_id": "AREA-01_PRODUCT",
+      "target": "area/01_PRODUCT",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AREA-02_DESIGN",
+      "target": "area/02_DESIGN",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AREA-03_API",
+      "target": "area/03_API",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AREA-04_DOMAIN",
+      "target": "area/04_DOMAIN",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AREA-05_FRONTEND",
+      "target": "area/05_FRONTEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AREA-06_BACKEND",
+      "target": "area/06_BACKEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-API-BACKEND",
+      "target": "relation/API_BACKEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-API-FRONTEND",
+      "target": "relation/API_FRONTEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-DESIGN-FRONTEND",
+      "target": "relation/DESIGN_FRONTEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-DOMAIN-API",
+      "target": "relation/DOMAIN_API",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-DOMAIN-BACKEND",
+      "target": "relation/DOMAIN_BACKEND",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-PRODUCT-API",
+      "target": "relation/PRODUCT_API",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "REL-PRODUCT-DESIGN",
+      "target": "relation/PRODUCT_DESIGN",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "DUP-NORMATIVE",
+      "target": "duplication/NORMATIVE_DUPLICATION",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "DUP-OWNERSHIP",
+      "target": "duplication/OWNERSHIP_VIOLATION",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "DUP-TERMINOLOGY",
+      "target": "duplication/TERM_CONFLICT",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AGENTSPEC-BACKEND",
+      "target": "agent_spec/BACKEND_AGENT_SKILL",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "AGENTSPEC-FRONTEND",
+      "target": "agent_spec/FRONTEND_AGENT_SKILL",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    },
+    {
+      "task_id": "TRACE-E2E",
+      "target": "traceability/E2E_TRACEABILITY",
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "action": "codex exec returned non-zero exit code"
+    }
+  ]
+}

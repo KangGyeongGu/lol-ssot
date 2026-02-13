@@ -1,0 +1,31 @@
+{
+  "run_id": "20260212-213717",
+  "agent_id": "traceability-auditor",
+  "task_id": "TRACE-E2E",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "traceability",
+    "id": "E2E_TRACEABILITY",
+    "scope_paths": [
+      "01_PRODUCT",
+      "02_DESIGN",
+      "03_API",
+      "04_DOMAIN",
+      "05_FRONTEND",
+      "06_BACKEND"
+    ],
+    "checks": [
+      "requirement_to_design_to_api",
+      "requirement_to_domain_to_backend",
+      "requirement_to_api_to_frontend",
+      "orphan_spec_detection"
+    ],
+    "objective": "Validate end-to-end traceability chain across all SSOT layers."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-213717/worker_results/TRACE-E2E.worker.json"
+}

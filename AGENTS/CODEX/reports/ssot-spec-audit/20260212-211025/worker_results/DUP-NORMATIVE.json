@@ -1,0 +1,122 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "duplication-auditor",
+  "task_id": "DUP-NORMATIVE",
+  "target": {
+    "kind": "duplication",
+    "id": "NORMATIVE_DUPLICATION"
+  },
+  "status": "fail",
+  "summary": "Detected duplicated/conflicting normative rules across SSOT areas, including one high-severity conflict on UI message SSOT ownership/keyspace that creates mutually incompatible implementation guidance.",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "NORMATIVE_CONFLICT_UI_MESSAGE_SSOT",
+      "message": "UI message source-of-truth rules conflict across PRODUCT and FRONTEND: one rule requires all UI text to come from COPY_TEXT keys, while another defines a separate notification-message SSOT with ERROR/NOTICE keyspace and localized text in FRONTEND docs.",
+      "dedupe_key": "ui-message-ssot-conflict",
+      "evidence": [
+        {
+          "path": "01_PRODUCT/COPY_TEXT.md",
+          "line": 2,
+          "snippet": "- UI 문구는 이 파일이 단일 진실"
+        },
+        {
+          "path": "05_FRONTEND/FE_CONVENTIONS.md",
+          "line": 54,
+          "snippet": "- 모든 문구는 [[01_PRODUCT/COPY_TEXT.md]] 키를 사용한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_API_CLIENT.md",
+          "line": 34,
+          "snippet": "- UI 메시지는 [[01_PRODUCT/COPY_TEXT.md]] 키로만 표시한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_NOTIFICATION_MESSAGES.md",
+          "line": 2,
+          "snippet": "- 알림 컴포넌트에서 사용하는 메시지 키와 한국어 문구를 단일 문서로 정의한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_NOTIFICATION_MESSAGES.md",
+          "line": 3,
+          "snippet": "- 에러 알림은 `ERROR.<CODE>` 키를 사용한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_STATE_RULES.md",
+          "line": 46,
+          "snippet": "- 이벤트 기반 알림은 `NOTICE.*` 키를 사용한다."
+        }
+      ],
+      "proposed_fix": "Define one canonical ownership model: either (a) move ERROR/NOTICE message keys and localized strings into 01_PRODUCT/COPY_TEXT.md and make FE docs reference-only, or (b) carve out explicit notification exceptions in FE_CONVENTIONS/FE_API_CLIENT and update 01_PRODUCT/COPY_TEXT.md scope text accordingly."
+    },
+    {
+      "severity": "medium",
+      "code": "NORMATIVE_CONFLICT_WRITEBACK_TIMING",
+      "message": "Write-back timing guidance is internally conflicting for ROOM* entities: some docs require game-start DB flush, while DB_NOTES states write-back as end-of-game reflection.",
+      "dedupe_key": "writeback-timing-conflict-room-entities",
+      "evidence": [
+        {
+          "path": "04_DOMAIN/DATA_MODEL.md",
+          "line": 58,
+          "snippet": "| ROOM | write-back | 로비 상태는 Redis에서 관리, 게임 시작 시 DB 스냅샷 저장 |"
+        },
+        {
+          "path": "04_DOMAIN/DATA_MODEL.md",
+          "line": 60,
+          "snippet": "| ROOM_KICK | write-back | 로비 단계 기록은 Redis에 유지, 게임 시작 시 DB 저장 |"
+        },
+        {
+          "path": "04_DOMAIN/REDIS_DB_TIMING.md",
+          "line": 26,
+          "snippet": "| Phase 1: 게임 시작 | startGame | 스냅샷 고정 | 1차 DB flush | ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER |"
+        },
+        {
+          "path": "04_DOMAIN/DB_NOTES.md",
+          "line": 105,
+          "snippet": "- 예외: ROOM, ROOM_PLAYER, ROOM_KICK, ROOM_HOST_HISTORY, GAME, GAME_PLAYER, GAME_BAN, GAME_PICK은 write-back(종료 시 DB 반영)."
+        },
+        {
+          "path": "04_DOMAIN/DB_NOTES.md",
+          "line": 106,
+          "snippet": "- 최종 기준은 DATA_MODEL.md의 Write Policy 매핑을 따른다."
+        }
+      ],
+      "proposed_fix": "Normalize DB_NOTES.md to the same phase-specific timing as DATA_MODEL.md/REDIS_DB_TIMING.md (game-start flush for ROOM* lobby artifacts, GAME_FINISHED flush for game-progress artifacts), or replace the conflicting sentence with a direct reference to DATA_MODEL.md mapping only."
+    },
+    {
+      "severity": "low",
+      "code": "NORMATIVE_DUPLICATION_SCALING_BASELINE",
+      "message": "The same normative scaling statement ('1920x1080 is conversion baseline, not fixed resolution rule') is duplicated across DESIGN and FRONTEND docs despite FRONTEND already declaring DESIGN as source-of-truth, increasing drift risk.",
+      "dedupe_key": "dup-scaling-baseline-1920",
+      "evidence": [
+        {
+          "path": "02_DESIGN/TYPOGRAPHY_SYSTEM.md",
+          "line": 5,
+          "snippet": "- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다."
+        },
+        {
+          "path": "05_FRONTEND/FE_STYLING.md",
+          "line": 3,
+          "snippet": "- 디자인의 단일 진실은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]이며, 본 문서는 적용 방식만 기술한다."
+        },
+        {
+          "path": "05_FRONTEND/FE_STYLING.md",
+          "line": 12,
+          "snippet": "- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다."
+        },
+        {
+          "path": "05_FRONTEND/FE_CONVENTIONS.md",
+          "line": 47,
+          "snippet": "- 1920x1080은 **환산 기준**이며 고정 해상도 규칙이 아니다."
+        }
+      ],
+      "proposed_fix": "Keep the normative baseline in DESIGN docs only, and in FRONTEND docs replace duplicated normative text with a short reference pointer to the DESIGN source."
+    }
+  ],
+  "metrics": {
+    "files_scanned": 67,
+    "links_checked": 0,
+    "relations_checked": 3
+  },
+  "started_at": "2026-02-12T12:10:25Z",
+  "finished_at": "2026-02-12T12:21:44Z"
+}

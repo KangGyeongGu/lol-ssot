@@ -1,0 +1,72 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "agent-spec-auditor",
+  "task_id": "AGENTSPEC-BACKEND",
+  "target": {
+    "kind": "agent_spec",
+    "id": "BACKEND_AGENT_SKILL"
+  },
+  "status": "fail",
+  "summary": "Backend agent/skill wiring is mostly consistent, but one high-severity mandatory reference path issue and one medium traceability reference issue were found within the scoped specs.",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "required_reference_existence.partial_review_docs_path_missing",
+      "message": "Partial review orchestration requires reading the latest SSOT commit from `../docs`, but that path is absent in this repository environment, creating a blocking wiring dependency for `/be-review-partial`.",
+      "dedupe_key": "partial-review-docs-path-missing",
+      "evidence": [
+        {
+          "path": "AGENTS/CLAUDE/AGENTS/BACKEND/REVIEW/BE_REVIEW_PARTIAL_MASTER_AGENT.md",
+          "line": 15,
+          "snippet": "Detect the latest SSOT submodule commit (expected at `../docs`)."
+        },
+        {
+          "path": "AGENTS/CLAUDE/SKILLS/BACKEND/REVIEW/be-review-partial/SKILL.md",
+          "line": 14,
+          "snippet": "Use Bash to read the latest SSOT submodule commit from `../docs` and validate the partial commit convention."
+        },
+        {
+          "path": "../docs",
+          "snippet": "Directory does not exist relative to `/Users/kanggyeonggu/Documents/league-of-algologic`."
+        }
+      ],
+      "proposed_fix": "Make the docs location configurable (e.g., env var or skill input), validate existence before execution, and add a fallback prompt when unavailable. If `../docs` is truly mandatory, document/bootstrap that dependency so the path is always present."
+    },
+    {
+      "severity": "medium",
+      "code": "required_reference_existence.backend_readme_unqualified_agent_paths",
+      "message": "`AGENTS/CLAUDE/AGENTS/BACKEND/README.md` lists many agent files as bare filenames that do not exist relative to that directory, reducing SSOT traceability and causing ambiguous ownership navigation.",
+      "dedupe_key": "backend-readme-bare-agent-filenames",
+      "evidence": [
+        {
+          "path": "AGENTS/CLAUDE/AGENTS/BACKEND/README.md",
+          "line": 22,
+          "snippet": "Review Master: `BE_REVIEW_MASTER_AGENT.md`"
+        },
+        {
+          "path": "AGENTS/CLAUDE/AGENTS/BACKEND/README.md",
+          "line": 24,
+          "snippet": "Dev Master: `BE_DEV_MASTER_AGENT.md`"
+        },
+        {
+          "path": "AGENTS/CLAUDE/AGENTS/BACKEND/README.md",
+          "line": 33,
+          "snippet": "`CORE_INFRA_REVIEW_AGENT.md` | `BE_DEV_CORE_INFRA_AGENT.md`"
+        },
+        {
+          "path": "AGENTS/CLAUDE/AGENTS/BACKEND/README.md",
+          "line": 40,
+          "snippet": "`JPA_DB_REVIEW_AGENT.md` | `BE_DEV_JPA_DB_AGENT.md`"
+        }
+      ],
+      "proposed_fix": "Replace bare filenames with explicit relative paths (e.g., `REVIEW/BE_REVIEW_MASTER_AGENT.md`, `DEV/BE_DEV_MASTER_AGENT.md`) and keep naming/path conventions consistent across all table entries."
+    }
+  ],
+  "metrics": {
+    "files_scanned": 48,
+    "links_checked": 47,
+    "relations_checked": 23
+  },
+  "started_at": "2026-02-12T21:10:25Z",
+  "finished_at": "2026-02-12T21:24:10Z"
+}

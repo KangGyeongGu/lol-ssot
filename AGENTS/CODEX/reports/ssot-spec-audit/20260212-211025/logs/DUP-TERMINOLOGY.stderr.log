@@ -1,0 +1,878 @@
+OpenAI Codex v0.99.0 (research preview)
+--------
+workdir: /Users/kanggyeonggu/Documents/league-of-algologic
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: auto
+session id: 019c51c9-7334-7a50-9e8b-78b1839b65a8
+--------
+user
+You are a specialized SSOT audit worker.
+
+Mission:
+- Agent ID: duplication-auditor
+- Task ID: DUP-TERMINOLOGY
+- Target Kind: duplication
+- Target ID: TERM_CONFLICT
+- Objective: Find conflicting terms and definitions across SSOT areas.
+
+Execution Rules:
+- Audit only the provided scope paths.
+- Do not modify or create repository files.
+- Use shell read commands as needed to inspect markdown and agent files.
+- When evidence exists, provide precise file paths and optional line numbers.
+- If no issue is found, return an empty findings array and status pass.
+
+Severity Policy:
+- critical: missing mandatory references or hard SSOT violations
+- high: mapping/wiring mismatch causing incorrect orchestration
+- medium: relationship drift, weak traceability, or ambiguous ownership
+- low: minor documentation quality concerns
+
+Output Contract:
+- Return ONLY a JSON object matching the provided output schema.
+- No markdown fences, no commentary, no prose outside JSON.
+
+Worker Request JSON:
+{
+  "run_id": "20260212-211025",
+  "agent_id": "duplication-auditor",
+  "task_id": "DUP-TERMINOLOGY",
+  "repo_root": "/Users/kanggyeonggu/Documents/league-of-algologic",
+  "mode": "full",
+  "changed_files": [],
+  "target": {
+    "kind": "duplication",
+    "id": "TERM_CONFLICT",
+    "scope_paths": [
+      "01_PRODUCT",
+      "02_DESIGN",
+      "03_API",
+      "04_DOMAIN",
+      "05_FRONTEND",
+      "06_BACKEND"
+    ],
+    "checks": [
+      "term_definition_conflict",
+      "alias_without_mapping"
+    ],
+    "objective": "Find conflicting terms and definitions across SSOT areas."
+  },
+  "severity_policy": {
+    "fail_on": "high"
+  },
+  "output_path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-211025/worker_results/DUP-TERMINOLOGY.worker.json"
+}
+mcp startup: no servers
+2026-02-12T12:18:02.707195Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d0d7-7c01-9d9a-03891d2c6d05
+2026-02-12T12:18:02.735606Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-9887-76b1-8a51-bcf3d924cc4c
+2026-02-12T12:18:02.765266Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ee-7ba2-a962-612dc878cb48
+2026-02-12T12:18:02.790383Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-72d3-a3b1-d7a5a430ccef
+2026-02-12T12:18:02.818423Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9d-7a62-9a23-c4a89638f2aa
+2026-02-12T12:18:02.846404Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-7eb1-b1ba-acb58528a4c4
+2026-02-12T12:18:02.867640Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-72b0-bdf8-e40ebceaa511
+2026-02-12T12:18:02.896275Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7251-bef6-72ab459d6295
+2026-02-12T12:18:02.922732Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f756-70d0-979e-f3d19e6b4765
+2026-02-12T12:18:02.952424Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f6e8-7312-87a5-1bf02f68e683
+2026-02-12T12:18:02.981771Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4876-72e1-8344-2def65ab0e2e
+2026-02-12T12:18:03.007620Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-48b9-7cf0-bb8f-0727ecae471c
+2026-02-12T12:18:03.030917Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4930-7b12-b5a6-09a3f990fa01
+2026-02-12T12:18:03.056147Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7463-ae40-c7cb687f7c1e
+2026-02-12T12:18:03.081207Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-fa75-7c02-93b7-0ff3016651ff
+2026-02-12T12:18:03.110596Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9e-7160-86f1-edd523e80eda
+2026-02-12T12:18:03.139528Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d227-7931-8880-0db3cd452657
+2026-02-12T12:18:03.164771Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c6-c7d0-7983-a4d7-732cf9ac4887
+2026-02-12T12:18:03.192490Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4893-7892-ab52-2b5e47dc4b6a
+2026-02-12T12:18:03.220383Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-77e0-959f-41e255a92e73
+2026-02-12T12:18:03.250658Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f78e-7f63-8b6a-6989a20dbee4
+2026-02-12T12:18:03.281624Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7ae3-b325-a3e92ca31ab8
+2026-02-12T12:18:03.310317Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c8-85cc-74b0-a733-48f612a4de64
+2026-02-12T12:18:03.337950Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f858-7832-915b-32b1bbc4a668
+2026-02-12T12:18:03.366994Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4889-7083-a7bb-3036c26e479e
+2026-02-12T12:18:03.394862Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4ad5-7921-bbb9-6d8219c8e00f
+2026-02-12T12:18:03.424838Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ceef-7700-964a-e875524422b3
+2026-02-12T12:18:03.452750Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-70c0-81cc-845a16dc3090
+2026-02-12T12:18:03.479427Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-7a32-a5aa-cc1b16737fd3
+2026-02-12T12:18:03.508888Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d087-7b72-810f-c7f9cae8997e
+2026-02-12T12:18:03.536126Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d12a-7c03-ae0e-de466063265b
+2026-02-12T12:18:03.562628Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cf47-78d1-bfd8-856010e0b88b
+2026-02-12T12:18:03.593697Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-f72e-7832-829c-5dc1786d64e1
+2026-02-12T12:18:03.622169Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-73d0-b85f-f37742148125
+2026-02-12T12:18:03.654098Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-3937-76b2-a6cc-f97d68083e72
+2026-02-12T12:18:03.681415Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467c-7e83-8a93-8be1e16e8d6f
+2026-02-12T12:18:03.706230Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4bef-7ed0-8cba-d1ace7970ba2
+2026-02-12T12:18:03.732940Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c7-bffd-7e91-9006-22e637fd445b
+2026-02-12T12:18:03.764712Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97ee-7b60-b23e-e08772246435
+2026-02-12T12:18:03.793620Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cefd-7d71-8e38-596fba5ee0fa
+2026-02-12T12:18:03.821978Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a5a-7433-8dd2-1a6692ba5030
+2026-02-12T12:18:03.848365Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-995e-7492-8c9d-07b4d289699a
+2026-02-12T12:18:03.871738Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4be1-7322-a4ca-af563f4648a1
+2026-02-12T12:18:03.896990Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4b44-7932-b08e-3d01c68ac40d
+2026-02-12T12:18:03.925189Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bd-0e3d-7023-859d-48e6711a7edc
+2026-02-12T12:18:03.952969Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c5-db3b-75a1-bc22-880a2374c69a
+2026-02-12T12:18:03.981434Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-97fe-7fb3-96d8-40e3f7846860
+2026-02-12T12:18:04.007769Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-ce91-71c2-ab93-0e7477f1db36
+2026-02-12T12:18:04.036128Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-38ea-7343-9ed5-7e439c2f4971
+2026-02-12T12:18:04.067316Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d111-7f32-ba2e-7fb437b66b8d
+2026-02-12T12:18:04.095243Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d2a5-77d0-814d-abc1f8cc15cd
+2026-02-12T12:18:04.121516Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-d199-7bc1-8e8d-c5388afdccf8
+2026-02-12T12:18:04.148461Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cca6-7652-95a9-9848df23bbf0
+2026-02-12T12:18:04.179787Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-492a-7c30-9fcd-1011dc30505a
+2026-02-12T12:18:04.211924Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c7-bea2-7832-a4a2-7dd8098fd672
+2026-02-12T12:18:04.229092Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-99a4-75f0-9861-0af58a0c2eb0
+2026-02-12T12:18:04.259442Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467e-7bc1-8c89-68dc759750a4
+2026-02-12T12:18:04.286124Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51be-96ff-7c81-a003-23d93283cfcb
+2026-02-12T12:18:04.315535Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a44-73b3-8ed5-d69e2b402611
+2026-02-12T12:18:04.345028Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51bf-5589-7183-8f76-bb3c1765fbff
+2026-02-12T12:18:04.373068Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-4a98-7dc1-801f-3d18906a496d
+2026-02-12T12:18:04.398590Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-cc9c-7002-91ff-96e6baf61715
+2026-02-12T12:18:04.425805Z ERROR codex_core::rollout::list: state db missing rollout path for thread 019c51c1-467b-71d0-b19c-c6ecbac8a9b5
+
+thinking
+**Using SSOT audit skill**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"error","summary":"Preparing audit scan; initializing scope and loading SSOT skill instructions before collecting evidence.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Refining tool execution and output handling**
+exec
+/bin/zsh -lc 'pwd && ls -1' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,220p' .codex-home/skills/ssot-spec-audit/SKILL.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+/Users/kanggyeonggu/documents/league-of-algologic
+01_PRODUCT
+02_DESIGN
+03_API
+04_DOMAIN
+05_FRONTEND
+06_BACKEND
+11_LOL_WEB_MOCKUP_BEFORE
+AGENTS
+README.md
+ succeeded in 53ms:
+---
+name: ssot-spec-audit
+description: Run a multi-agent SSOT consistency audit by orchestrating multiple Codex worker contexts in parallel. Use when you need area-level validation, cross-area relation checks, duplication/conflict detection, agent-skill wiring checks, and consolidated severity-gated reports.
+---
+
+# SSOT Spec Audit
+
+## Overview
+
+Run one orchestrator command that fans out into multiple Codex worker executions (`codex exec`) and aggregates results.
+
+Worker groups:
+- Area auditors (`01_PRODUCT` to `06_BACKEND`)
+- Relation auditors (area-to-area required relationships)
+- Duplication auditors (duplicate/conflicting norms and ownership violations)
+- Agent-spec auditors (agent/skill role, mapping, reference completeness)
+- Traceability auditor (end-to-end requirement traceability)
+
+## Run
+
+
+thinking
+**Planning comprehensive glossary scan**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"error","summary":"Using `ssot-spec-audit` skill context and now enumerating files in the six scoped SSOT areas to extract term definitions and aliases.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+exec
+/bin/zsh -lc 'rg --files 01_PRODUCT' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+01_PRODUCT/CATALOG.md
+01_PRODUCT/COPY_TEXT.md
+01_PRODUCT/USER_FLOWS.md
+01_PRODUCT/ECONOMY.md
+01_PRODUCT/README.md
+01_PRODUCT/GAME_RULES.md
+01_PRODUCT/REQUIREMENTS.md
+exec
+/bin/zsh -lc 'rg --files 02_DESIGN' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg --files 03_API' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg --files 04_DOMAIN' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg --files 05_FRONTEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+02_DESIGN/README.md
+02_DESIGN/TYPOGRAPHY_SYSTEM.md
+02_DESIGN/PAGE_REQUIREMENTS/MY_PAGE.md
+02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md
+02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md
+02_DESIGN/PAGE_REQUIREMENTS/MAIN.md
+02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md
+02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md
+02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md
+02_DESIGN/PAGE_REQUIREMENTS/RESULT.md
+02_DESIGN/COLOR_SYSTEM.md
+exec
+/bin/zsh -lc 'rg --files 06_BACKEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+03_API/PAGE_MAP/MY_PAGE.md
+03_API/PAGE_MAP/SIGNUP.md
+03_API/PAGE_MAP/IN_GAME.md
+03_API/PAGE_MAP/BAN_PICK_SHOP.md
+03_API/PAGE_MAP/MAIN.md
+03_API/PAGE_MAP/ROOM_LIST.md
+03_API/PAGE_MAP/WELCOME.md
+03_API/PAGE_MAP/WAITING_ROOM.md
+03_API/PAGE_MAP/RESULT.md
+03_API/README.md
+03_API/CONTRACT/REST/AUTH_GUARDS.md
+03_API/CONTRACT/REST/OPENAPI.yaml.md
+03_API/CONTRACT/REST/ERROR_MODEL.md
+03_API/CONTRACT/REST/API_SUMMARY.md
+03_API/CONTRACT/REST/CONVENTIONS.md
+03_API/CONTRACT/REALTIME/EVENTS.md
+03_API/CONTRACT/REALTIME/COMMANDS.md
+03_API/CONTRACT/REALTIME/CONVENTIONS.md
+03_API/CONTRACT/REALTIME/TOPICS.md
+03_API/LIFECYCLE.md
+ succeeded in 53ms:
+04_DOMAIN/DB_NOTES.md
+04_DOMAIN/README.md
+04_DOMAIN/REDIS_DB_TIMING.md
+04_DOMAIN/DATA_MODEL.md
+ succeeded in 52ms:
+05_FRONTEND/FE_DESIGN_MAPPING.md
+05_FRONTEND/FE_COMPONENT_RULES.md
+05_FRONTEND/FE_REALTIME_RULES.md
+05_FRONTEND/FE_STYLING.md
+05_FRONTEND/README.md
+05_FRONTEND/VIBE_SNIPPETS.md
+05_FRONTEND/FE_STATE_RULES.md
+05_FRONTEND/FE_STACK.md
+05_FRONTEND/ANTI_PATTERNS.md
+05_FRONTEND/FE_ARCHITECTURE.md
+05_FRONTEND/FE_CONVENTIONS.md
+05_FRONTEND/FE_NOTIFICATION_MESSAGES.md
+05_FRONTEND/FE_API_CLIENT.md
+05_FRONTEND/FE_ROUTING_RULES.md
+ succeeded in 52ms:
+06_BACKEND/BE_CONVENTIONS.md
+06_BACKEND/BE_API_RULES.md
+06_BACKEND/README.md
+06_BACKEND/BE_TEST_RULES.md
+06_BACKEND/BE_ARCHITECTURE.md
+06_BACKEND/BE_DATA_MODEL_RULES.md
+06_BACKEND/BE_STACK.md
+06_BACKEND/BE_REALTIME_RULES.md
+
+thinking
+**Planning glossary term extraction**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"error","summary":"File inventory complete. Next I am reading area README/spec index files to identify canonical term definitions and cross-area aliases.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Correcting commentary formatting approach**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"error","summary":"Reading README and index-level SSOT documents now; I’ll extract canonical term definitions first, then compare aliases and naming in downstream files.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Adjusting response format approach**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"error","summary":"Starting README/index scan.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Confirming schema expectations**
+exec
+/bin/zsh -lc "sed -n '1,240p' 04_DOMAIN/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,220p' 01_PRODUCT/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 06_BACKEND/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 05_FRONTEND/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,220p' 02_DESIGN/README.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 03_API/README.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+**목적**
+- REST/실시간 계약과 페이지 맵의 단일 진실(SSOT)을 정의한다.
+- 프론트/백엔드 구현은 반드시 이 계약을 기준으로 한다.
+
+**범위**
+- 포함: OpenAPI, REST 규약, 실시간 규약, 페이지별 계약 매핑, 라이프사이클
+- 제외: 구현 코드, DB 모델 세부 설계
+
+**파일 구조**
+```text
+03_API/
+  README.md # 이 문서
+  LIFECYCLE.md # 로그인/복귀/게임 진행 흐름 기준
+  CONTRACT/
+    REST/
+      API_SUMMARY.md # REST API 요약
+      AUTH_GUARDS.md # 인증/인가 가드 규칙
+      CONVENTIONS.md # REST 공통 규약
+      ERROR_MODEL.md # 에러 모델 규칙
+      OPENAPI.yaml.md # REST API 스키마(OpenAPI)
+ succeeded in 52ms:
+**목적**
+- 백엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+
+**범위**
+- 포함: 아키텍처, API 규칙, 실시간 규칙, 데이터 모델 규칙, 테스트 규칙
+- 제외: 구현 코드, 인프라 프로비저닝
+
+**파일 구조**
+```text
+06_BACKEND/
+  README.md # 이 문서
+  BE_STACK.md # 백엔드 기술 스택 고정값
+  BE_ARCHITECTURE.md # 모듈 경계/레이어 책임 규칙
+  BE_CONVENTIONS.md # 네이밍/구조/코딩 컨벤션
+  BE_API_RULES.md # REST 구현 규칙
+  BE_REALTIME_RULES.md # 실시간(STOMP) 구현 규칙
+  BE_DATA_MODEL_RULES.md # 데이터 모델/DB 규칙
+  BE_TEST_RULES.md # 테스트 전략/규칙
+  BE_AGENT_SPLIT.md # 병렬 에이전트 분할 기준
+```
+ succeeded in 52ms:
+**목적**
+- 프론트엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+- UI 레이아웃/시각 디자인 자체는 범위에서 제외한다.
+
+**범위**
+- 포함: 아키텍처, 상태관리, API 클라이언트, 라우팅, 실시간, 스타일 적용 규칙, 안티패턴
+- 제외: 화면 레이아웃/컴포넌트 배치, 디자인 목업
+
+**파일 구조**
+```text
+05_FRONTEND/
+  README.md # 이 문서
+  FE_STACK.md # 프론트 기술 스택 고정값
+  FE_CONVENTIONS.md # 네이밍/구조/유닛 규칙
+  FE_ARCHITECTURE.md # 레이어 경계/모듈 책임 규칙
+  FE_ROUTING_RULES.md # 라우팅/가드/전환 규칙
+  FE_STATE_RULES.md # 상태 분리/스토어 구조 규칙
+  FE_API_CLIENT.md # REST 호출/에러 처리 규칙
+  FE_REALTIME_RULES.md # 실시간 구독/연결 규칙
+  FE_COMPONENT_RULES.md # 컴포넌트 API 설계 규칙
+ succeeded in 52ms:
+**목적**
+- 컬러/타이포 토큰과 페이지 요구사항(데이터/상태/상호작용)의 단일 진실(SSOT)을 정의한다.
+- 레이아웃/컴포넌트 위치/사이즈/화면 구성은 범위에서 제외한다.
+
+**범위**
+- 포함: 컬러 시스템, 타이포 시스템, 페이지별 필수 데이터/상태/상호작용
+- 제외: 화면 레이아웃, UI 배치, 컴포넌트 위치/크기, 픽셀 기반 목업
+
+**파일 구조**
+```text
+02_DESIGN/
+  README.md # 이 문서
+  COLOR_SYSTEM.md # 컬러 토큰 정의
+  TYPOGRAPHY_SYSTEM.md # 폰트/웨이트/라인하이트 토큰 정의
+  PAGE_REQUIREMENTS/
+    BAN_PICK_SHOP.md # BAN/PICK/SHOP 페이지 필수 데이터/상태
+    IN_GAME.md # IN_GAME 페이지 필수 데이터/상태
+    LOGIN.md # LOGIN/WELCOME 페이지 필수 데이터/상태
+    MAIN.md # MAIN 페이지 필수 데이터/상태
+    MY_PAGE.md # MY_PAGE 페이지 필수 데이터/상태
+ succeeded in 52ms:
+**목적**
+- 도메인 모델 및 DB 규칙의 단일 진실(SSOT)을 정의한다.
+
+**범위**
+- 포함: 데이터 모델, DB 설계 노트, Redis 타이밍 규칙
+- 제외: 구현 코드, API 계약 세부
+
+**파일 구조**
+```text
+04_DOMAIN/
+  README.md # 이 문서
+  DATA_MODEL.md # 엔티티/관계/도메인 모델 기준
+  DB_NOTES.md # DB 설계/정합성 메모
+  REDIS_DB_TIMING.md # Redis/DB 동기화 타이밍 규칙
+```
+
+**변경 원칙**
+- 데이터 모델 변경은 `04_DOMAIN/`에서 먼저 수정한다.
+ succeeded in 52ms:
+**목적**
+- 제품 요구사항/정책/카피의 단일 진실(SSOT)을 정의한다.
+- 기능/플로우/룰 변경은 반드시 이 디렉토리에서 먼저 갱신한다.
+
+**범위**
+- 포함: 요구사항, 유저 플로우, 게임 규칙, 경제/카탈로그, UI 카피
+- 제외: API 계약, 데이터 모델, 구현 규칙
+
+**파일 구조**
+```text
+01_PRODUCT/
+  README.md # 이 문서
+  CATALOG.md # 아이템/스펠/알고리즘 카탈로그 기준
+  COPY_TEXT.md # UI 문구/메시지 키 기준
+  ECONOMY.md # 재화/보상/가격 정책
+  GAME_RULES.md # 게임 규칙/승패/라운드 규정
+  REQUIREMENTS.md # 핵심 기능 요구사항
+  USER_FLOWS.md # 주요 사용자 플로우
+```
+
+
+thinking
+**Planning terminology conflict detection**
+exec
+/bin/zsh -lc "rg -n \"용어|정의|alias|별칭|동의어|terminology|\\bterm\\b|명칭|약어|canonical|정식\" 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+02_DESIGN/README.md:2:- 컬러/타이포 토큰과 페이지 요구사항(데이터/상태/상호작용)의 단일 진실(SSOT)을 정의한다.
+02_DESIGN/README.md:13:  COLOR_SYSTEM.md # 컬러 토큰 정의
+02_DESIGN/README.md:14:  TYPOGRAPHY_SYSTEM.md # 폰트/웨이트/라인하이트 토큰 정의
+02_DESIGN/README.md:24:    FE_NOTIFICATION_MESSAGES.md # 알림 및 오류 메시지 정의
+01_PRODUCT/CATALOG.md:2:- 이 문서는 아이템/스펠의 목록과 가격 정책을 정의한다.
+04_DOMAIN/DB_NOTES.md:80:- ROOM_PLAYER는 left_at NULL을 활성 상태로 정의해 재입장/이력 보존.
+04_DOMAIN/README.md:2:- 도메인 모델 및 DB 규칙의 단일 진실(SSOT)을 정의한다.
+05_FRONTEND/FE_COMPONENT_RULES.md:2:- UI 컴포넌트 API 설계 규칙을 정의한다.
+05_FRONTEND/FE_COMPONENT_RULES.md:15:- 기본값은 컴포넌트 내부에서 정의한다.
+05_FRONTEND/FE_COMPONENT_RULES.md:22:- 이벤트는 의도 기반(예: `submit`, `confirm`)으로 정의한다.
+05_FRONTEND/FE_COMPONENT_RULES.md:32:- 토큰 매핑은 [[02_DESIGN/COLOR_SYSTEM.md]], [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]] 기준으로만 정의한다.
+02_DESIGN/TYPOGRAPHY_SYSTEM.md:2:- 폰트 패밀리/크기/웨이트/라인하이트 토큰의 단일 진실을 정의한다.
+03_API/PAGE_MAP/MY_PAGE.md:2:- MY_PAGE 화면(내정보/통계/전적)의 REST 매핑을 정의한다.
+06_BACKEND/BE_API_RULES.md:2:- REST API 계약을 백엔드 코드로 구현하는 규칙을 정의한다.
+06_BACKEND/README.md:2:- 백엔드 구현 규칙/패턴/컨벤션의 단일 진실(SSOT)을 정의한다.
+06_BACKEND/README.md:28:- 백엔드 구현 규칙 변경은 `06_BACKEND/`에서만 정의한다.
+04_DOMAIN/REDIS_DB_TIMING.md:2:- Redis와 DB의 저장 타이밍(Write Policy)을 명확히 정의한다.
+04_DOMAIN/REDIS_DB_TIMING.md:17:## 2. Write Policy 정의
+03_API/PAGE_MAP/SIGNUP.md:2:- WELCOME 위 SIGNUP 오버레이(추가 정보 입력) 상태의 회원가입 REST 매핑을 정의한다.
+01_PRODUCT/USER_FLOWS.md:1:- 이 문서는 프론트엔드 구현을 위한 사용자 흐름 정의서다.
+
+thinking
+**Investigating page name conflicts**
+exec
+/bin/zsh -lc "sed -n '1,280p' 01_PRODUCT/USER_FLOWS.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 01_PRODUCT/REQUIREMENTS.md" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "sed -n '1,260p' 01_PRODUCT/GAME_RULES.md" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+- 이 문서는 게임이 성립하기 위한 **규칙과 판정 기준**을 정의한다.
+- 모든 규칙은 서버 기준(authoritative)으로 해석된다.
+- UI 표현, 통신 방식, 기술 스택은 다루지 않는다.
+## 관련 문서
+- [[01_PRODUCT/REQUIREMENTS.md]]
+- [[01_PRODUCT/ECONOMY.md]]
+- [[01_PRODUCT/CATALOG.md]]
+---
+## 1. 게임 기본 구조
+### 1.1 게임 인원
+- 최소 인원: 2명
+- 최대 인원: 6명
+- 게임 시작 이후 인원 변경은 불가능하다.
+### 1.2 게임 상태
+- 게임의 authoritative stage는 다음 enum으로 관리한다.
+  - LOBBY
+  - BAN
+  - PICK
+  - SHOP (구매)
+  - PLAY
+ succeeded in 51ms:
+- 이 문서는 League Of Algo Logic 서비스의 **기능 요구사항과 범위**를 정의한다.
+- “무엇을 제공해야 하는가”를 명확히 하며, 구현 방식은 다루지 않는다.
+- 프론트엔드(Antigravity)와 백엔드(Claude Code)는 이 문서를 기준으로 기능 누락이나 임의 확장을 해서는 안 된다.
+
+## 관련 문서
+- [[01_PRODUCT/GAME_RULES.md]]
+- [[01_PRODUCT/USER_FLOWS.md]]
+- [[01_PRODUCT/ECONOMY.md]]
+- [[01_PRODUCT/CATALOG.md]]
+
+---
+## 1. 서비스 접근 및 인증 요구사항
+### 1.1 로그인 및 회원가입 정책
+- 서비스 최초 진입 시 로그인 페이지로 진입한다.
+- 미로그인 상태에서는 어떠한 서비스 기능도 이용할 수 없다.
+- 로그인 방식은 카카오 OAuth 기반 소셜 로그인만 지원한다.
+- 카카오 로그인 성공 시 서버는 내부 회원 존재 여부를 판단한다.
+  - 기존 회원인 경우 즉시 로그인 처리한다.
+  - 미회원인 경우 SIGNUP_REQUIRED 상태를 반환한다.
+- SIGNUP_REQUIRED 상태인 사용자는 서비스 이용 전에 다음 정보를 입력해야 한다.
+ succeeded in 51ms:
+- 이 문서는 프론트엔드 구현을 위한 사용자 흐름 정의서다.
+- 페이지 단위 이동과 페이지 내부 상태 전환을 구분한다.
+- 정책을 새로 정의하지 않으며, 흐름에 필요한 분기 결과만 기술한다.
+  - 정책/권한/검증의 기준은 REQUIREMENTS / GAME_RULES / API 문서를 따른다.
+- Antigravity가 이 문서를 기반으로 페이지 구성과 라우팅 흐름을 구현할 수 있어야 한다.
+
+## 관련 문서
+- [[01_PRODUCT/REQUIREMENTS.md]]
+- [[01_PRODUCT/GAME_RULES.md]]
+- [[01_PRODUCT/COPY_TEXT.md]]
+
+---
+## 1. 전체 페이지 구성
+### 1.1 게임 관련 페이지
+게임과 직접적으로 연관된 페이지는 아래 4개로 고정된다.
+1. WAITING_ROOM
+2. BAN_PICK_SHOP (RANKED 전용)
+3. IN_GAME
+4. RESULT
+
+
+thinking
+**Scanning design docs for terms**
+exec
+/bin/zsh -lc "rg -n \"\\bWELCOME\\b|\\bLOGIN\\b|\\bSIGNUP\\b|\\bWAITING_ROOM\\b|\\bLOBBY\\b|\\bBAN_PICK_SHOP\\b|\\bIN_GAME\\b|\\bRESULT\\b|\\bROOM_LIST\\b|\\bMAIN\\b|\\bMY_PAGE\\b|\\bPageRoute\\b|\\bstage\\b|\\bSTATE\\b\" 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND 01_PRODUCT" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+04_DOMAIN/DB_NOTES.md:37:- index: stage
+02_DESIGN/README.md:16:    BAN_PICK_SHOP.md # BAN/PICK/SHOP 페이지 필수 데이터/상태
+02_DESIGN/README.md:17:    IN_GAME.md # IN_GAME 페이지 필수 데이터/상태
+02_DESIGN/README.md:18:    LOGIN.md # LOGIN/WELCOME 페이지 필수 데이터/상태
+02_DESIGN/README.md:19:    MAIN.md # MAIN 페이지 필수 데이터/상태
+02_DESIGN/README.md:20:    MY_PAGE.md # MY_PAGE 페이지 필수 데이터/상태
+02_DESIGN/README.md:21:    RESULT.md # RESULT 페이지 필수 데이터/상태
+02_DESIGN/README.md:22:    ROOM_LIST.md # ROOM_LIST 상태 필수 데이터/상태
+02_DESIGN/README.md:23:    WAITING_ROOM.md # WAITING_ROOM 페이지 필수 데이터/상태
+01_PRODUCT/COPY_TEXT.md:28:- MAIN.GO_ROOM_LIST = "방 목록"
+01_PRODUCT/COPY_TEXT.md:29:- MAIN.CREATE_ROOM = "방 생성"
+01_PRODUCT/COPY_TEXT.md:30:- MAIN.GO_MY_PAGE = "마이페이지"
+01_PRODUCT/COPY_TEXT.md:59:- RESULT.TITLE = "결과"
+01_PRODUCT/COPY_TEXT.md:60:- RESULT.WIN = "승리"
+01_PRODUCT/COPY_TEXT.md:61:- RESULT.LOSE = "패배"
+01_PRODUCT/COPY_TEXT.md:62:- RESULT.DRAW = "무승부"
+01_PRODUCT/COPY_TEXT.md:63:- RESULT.REWARD_SCORE = "점수"
+01_PRODUCT/COPY_TEXT.md:64:- RESULT.REWARD_COIN = "코인"
+01_PRODUCT/COPY_TEXT.md:65:- RESULT.REWARD_EXP = "경험치"
+01_PRODUCT/COPY_TEXT.md:66:- RESULT.GO_MAIN = "메인으로"
+
+thinking
+**Identifying conflicting PageRoute definitions**
+exec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_ROUTING_RULES.md | sed -n '1,120p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/OPENAPI.yaml.md | sed -n '120,145p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/CONTRACT/REST/CONVENTIONS.md | sed -n '120,190p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+     1	## 0. 문서 목적
+     2	- 라우팅/가드/전환의 **구현 패턴**을 정의한다.
+     3	- 사용자 흐름은 [[01_PRODUCT/USER_FLOWS.md]]가 단일 진실이다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[03_API/CONTRACT/REST/CONVENTIONS.md]]
+     8	- `[[03_API/PAGE_MAP/*.md]]`
+     9	- [[05_FRONTEND/FE_DESIGN_MAPPING.md]]
+    10	- [[05_FRONTEND/FE_STATE_RULES.md]]
+    11	
+    12	---
+    13	## 1. 라우트 네이밍 규칙
+    14	- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다.
+    15	- PageRoute 목록은 [[03_API/CONTRACT/REST/CONVENTIONS.md]]를 따른다.
+    16	- 예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`
+    17	
+    18	---
+    19	## 2. 가드 배치 규칙
+    20	- 전역 라우팅 가드는 `router` 초기화 시 1회만 등록한다.
+ succeeded in 52ms:
+   120	
+   121	### 7.2 PlayerState (Lobby)
+   122	- `READY`
+   123	- `UNREADY`
+   124	- `DISCONNECTED`
+   125	
+   126	### 7.3 GameStage (Authoritative)
+   127	- `LOBBY` (대기실)
+   128	- `BAN`
+   129	- `PICK`
+   130	- `SHOP`
+   131	- `PLAY` (인게임)
+   132	- `FINISHED`
+   133	
+   134	### 7.4 PageRoute (Frontend 매핑)
+   135	PageRoute는 프론트 라우팅 식별자이며, 상세 매핑은 PAGE_MAP에서 정의한다.
+   136	Active game 응답에는 `stage`와 `pageRoute`를 함께 제공한다.
+   137	PageRoute 값은 다음 3개만 사용한다.
+   138	- `WAITING_ROOM`
+   139	- `BAN_PICK_SHOP`
+ succeeded in 52ms:
+   120	
+   121	    GameStage:
+   122	      type: string
+   123	      enum: [LOBBY, BAN, PICK, SHOP, PLAY, FINISHED]
+   124	
+   125	    RoomStatus:
+   126	      type: string
+   127	      enum: [WAITING, IN_GAME]
+   128	
+   129	    PageRoute:
+   130	      type: string
+   131	      enum: [WAITING_ROOM, BAN_PICK_SHOP, IN_GAME]
+   132	
+   133	    MatchResult:
+   134	      type: string
+   135	      enum: [WIN, LOSE, DRAW]
+   136	
+   137	    UserSummary:
+   138	      type: object
+   139	      required: [userId, nickname, tier, score]
+
+thinking
+**Inspecting terminology alias conflicts**
+exec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_DESIGN_MAPPING.md | sed -n '1,120p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+     1	## 0. 문서 목적
+     2	- 라우트/상태별로 반드시 참조해야 할 **페이지 데이터 요구사항** 문서를 매핑한다.
+     3	- 프론트 구현은 아래 매핑 문서를 **필수로 참조**해야 한다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     8	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     9	- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+    10	
+    11	---
+    12	## 1. 페이지 매핑 (Route → Data Requirements)
+    13	| Route | Data Requirements | 비고 |
+    14	|---|---|---|
+    15	| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입
+    16	| MAIN | [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]] | 메인 대시보드
+    17	| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태
+    18	| WAITING_ROOM | [[02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md]] | 대기실
+    19	| BAN_PICK_SHOP | [[02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md]] | 랭크 전용 단계
+    20	| IN_GAME | [[02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md]] | 인게임
+
+thinking
+**Assessing route name conflicts**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"error","summary":"I identified a likely terminology conflict around `PageRoute` usage and am validating whether it appears consistently in backend/domain specs before finalizing findings.","findings":[],"metrics":{"files_scanned":0,"links_checked":0,"relations_checked":0},"started_at":"2026-02-12T00:00:00Z","finished_at":"2026-02-12T00:00:00Z"}
+
+thinking
+**Planning backend route search**
+exec
+/bin/zsh -lc 'rg -n "PageRoute|pageRoute|Route name|라우트" 05_FRONTEND' in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc 'rg -n "PageRoute|pageRoute|WELCOME|MAIN|RESULT|MY_PAGE|ROOM_LIST" 04_DOMAIN 06_BACKEND' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+04_DOMAIN/DATA_MODEL.md:25:- [[04_DOMAIN/REDIS_DB_TIMING.md]]
+04_DOMAIN/DATA_MODEL.md:90:| STAGE_REMAINING_MS | derived | 남은 시간(계산값) |
+04_DOMAIN/DATA_MODEL.md:690:### 9.2 STAGE_REMAINING_MS (derived)
+04_DOMAIN/DB_NOTES.md:6:- [[04_DOMAIN/DATA_MODEL.md]]
+04_DOMAIN/DB_NOTES.md:7:- [[04_DOMAIN/REDIS_DB_TIMING.md]]
+04_DOMAIN/REDIS_DB_TIMING.md:6:- [[04_DOMAIN/DATA_MODEL.md]]
+04_DOMAIN/REDIS_DB_TIMING.md:7:- [[04_DOMAIN/DB_NOTES.md]]
+06_BACKEND/README.md:25:- 도메인/DB: `04_DOMAIN/`
+04_DOMAIN/README.md:10:04_DOMAIN/
+04_DOMAIN/README.md:18:- 데이터 모델 변경은 `04_DOMAIN/`에서 먼저 수정한다.
+06_BACKEND/BE_DATA_MODEL_RULES.md:3:- 단일 진실은 `04_DOMAIN` 문서다.
+06_BACKEND/BE_DATA_MODEL_RULES.md:6:- [[04_DOMAIN/DATA_MODEL.md]]
+06_BACKEND/BE_DATA_MODEL_RULES.md:7:- [[04_DOMAIN/DB_NOTES.md]]
+ succeeded in 53ms:
+05_FRONTEND/FE_ROUTING_RULES.md:13:## 1. 라우트 네이밍 규칙
+05_FRONTEND/FE_ROUTING_RULES.md:14:- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다.
+05_FRONTEND/FE_ROUTING_RULES.md:15:- PageRoute 목록은 [[03_API/CONTRACT/REST/CONVENTIONS.md]]를 따른다.
+05_FRONTEND/FE_ROUTING_RULES.md:26:- 페이지 전환은 `PageRoute` 기준으로만 수행한다.
+05_FRONTEND/FE_ROUTING_RULES.md:27:- API 응답의 `pageRoute`가 유일한 전환 기준이다.
+05_FRONTEND/FE_ROUTING_RULES.md:32:- 라우트 컴포넌트는 `dynamic import`로 지연 로드한다.
+05_FRONTEND/FE_ROUTING_RULES.md:42:- 모든 라우트 구현은 [[05_FRONTEND/FE_DESIGN_MAPPING.md]]에 매핑된 디자인 문서를 반드시 참조한다.
+05_FRONTEND/FE_ARCHITECTURE.md:15:- `src/router`: 라우트 정의, 가드
+05_FRONTEND/FE_ARCHITECTURE.md:16:- `src/pages`: 라우트 단위 페이지
+05_FRONTEND/FE_DESIGN_MAPPING.md:2:- 라우트/상태별로 반드시 참조해야 할 **페이지 데이터 요구사항** 문서를 매핑한다.
+05_FRONTEND/FE_DESIGN_MAPPING.md:26:- 각 라우트/상태는 매핑된 데이터 요구사항 문서를 **필수로 참조**해야 한다.
+05_FRONTEND/README.md:22:  FE_DESIGN_MAPPING.md # 라우트→페이지 데이터 요구사항 매핑
+05_FRONTEND/FE_CONVENTIONS.md:24:- 라우트 단위 컴포넌트는 `src/pages/`에만 둔다.
+
+thinking
+**Planning term extraction from docs**
+exec
+/bin/zsh -lc "nl -ba 02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_DESIGN_MAPPING.md | sed -n '1,80p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/PAGE_MAP/WELCOME.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/PAGE_MAP/SIGNUP.md | sed -n '1,220p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+     1	## 목적
+     2	- WELCOME(로그인) 화면에 필요한 데이터/상태를 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/PAGE_MAP/WELCOME.md]]
+     6	- [[03_API/PAGE_MAP/SIGNUP.md]]
+     7	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     8	
+     9	## Required Data
+    10	- auth result: result code (OK/SIGNUP_REQUIRED)
+    11	- active game snapshot (pageRoute, stage) when available
+    12	- error code (auth failure)
+    13	
+    14	## Required States
+    15	- idle
+    16	- loading (oauth/login)
+    17	- signup required
+    18	- error (auth)
+    19	
+    20	## Interactions
+ succeeded in 53ms:
+     1	## 0. 문서 목적
+     2	- 라우트/상태별로 반드시 참조해야 할 **페이지 데이터 요구사항** 문서를 매핑한다.
+     3	- 프론트 구현은 아래 매핑 문서를 **필수로 참조**해야 한다.
+     4	
+     5	## 관련 문서
+     6	- [[01_PRODUCT/USER_FLOWS.md]]
+     7	- [[02_DESIGN/COLOR_SYSTEM.md]]
+     8	- [[02_DESIGN/TYPOGRAPHY_SYSTEM.md]]
+     9	- [[05_FRONTEND/FE_ROUTING_RULES.md]]
+    10	
+    11	---
+    12	## 1. 페이지 매핑 (Route → Data Requirements)
+    13	| Route | Data Requirements | 비고 |
+    14	|---|---|---|
+    15	| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입
+    16	| MAIN | [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]] | 메인 대시보드
+    17	| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태
+    18	| WAITING_ROOM | [[02_DESIGN/PAGE_REQUIREMENTS/WAITING_ROOM.md]] | 대기실
+    19	| BAN_PICK_SHOP | [[02_DESIGN/PAGE_REQUIREMENTS/BAN_PICK_SHOP.md]] | 랭크 전용 단계
+    20	| IN_GAME | [[02_DESIGN/PAGE_REQUIREMENTS/IN_GAME.md]] | 인게임
+ succeeded in 53ms:
+     1	## 목적
+     2	- WELCOME(로그인) 화면의 인증 진입 REST 매핑을 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     6	
+     7	---
+     8	## 1. 진입 시 REST
+     9	| 메서드 | 엔드포인트 | 목적 |
+    10	|---|---|---|
+    11	| GET | /users/me/active-game | 이미 로그인된 세션의 복귀 여부 확인 (필요 시) |
+    12	
+    13	---
+    14	## 2. 사용자 액션 → REST
+    15	| 사용자 액션 | 메서드 | 엔드포인트 | 비고 |
+    16	|---|---|---|---|
+    17	| 카카오 로그인 제출 | POST | /auth/kakao/login | authorizationCode 전달 |
+    18	| 로그인 성공(기존 회원) 후 복귀 판단 | GET | /users/me/active-game | null이면 MAIN, 값이 있으면 stage/pageRoute로 자동 이동 |
+    19	
+    20	---
+ succeeded in 53ms:
+     1	## 목적
+     2	- WELCOME 위 SIGNUP 오버레이(추가 정보 입력) 상태의 회원가입 REST 매핑을 정의한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     6	
+     7	---
+     8	## 1. 사용자 액션 → REST
+     9	| 사용자 액션 | 메서드 | 엔드포인트 | 비고 |
+    10	|---|---|---|---|
+    11	| 회원가입 완료 제출 | POST | /auth/signup | signupToken, nickname, language 전달 |
+    12	| 가입 완료 후 복귀 판단 | GET | /users/me/active-game | null이면 MAIN, 값이 있으면 stage/pageRoute로 자동 이동 |
+    13	
+    14	---
+    15	## 2. 주요 검증/에러
+    16	| 엔드포인트 | 상태 코드 | 의미 |
+    17	|---|---|---|
+    18	| /auth/signup | 400 | 닉네임/언어/토큰 검증 실패 |
+
+thinking
+**Assessing term conflicts beyond routing**
+exec
+/bin/zsh -lc "nl -ba 01_PRODUCT/USER_FLOWS.md | sed -n '20,110p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 03_API/PAGE_MAP/ROOM_LIST.md | sed -n '1,80p'" in /Users/kanggyeonggu/Documents/league-of-algologicexec
+/bin/zsh -lc "nl -ba 05_FRONTEND/FE_ROUTING_RULES.md | sed -n '12,32p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+    20	
+    21	### 1.2 서비스 페이지/상태
+    22	- WELCOME (로그인)
+    23	- MAIN
+    24	- MY_PAGE
+    25	- SIGNUP 오버레이 (WELCOME 위 상태)
+    26	- ROOM_LIST 패널 상태 (MAIN 헤더 하단 교체 상태)
+    27	
+    28	---
+    29	## 2. 전역 사용자 진입 흐름
+    30	### 2.1 최초 진입
+    31	1. 사용자가 웹사이트에 접근한다.
+    32	2. 로그인 여부를 확인한다.
+    33	   - 미로그인 상태: WELCOME으로 이동한다.
+    34	   - 로그인 상태: 서버에 active game 존재 여부를 조회한다.
+    35	3. active game 조회 결과에 따라 이동한다.
+    36	   - active game 없음: MAIN으로 이동한다.
+    37	   - active game 있음: 해당 게임의 현재 stage에 맞는 게임 페이지로 이동한다.
+    38	     - LOBBY -> WAITING_ROOM
+    39	     - BAN/PICK/SHOP -> BAN_PICK_SHOP
+ succeeded in 53ms:
+     1	## 목적
+     2	- MAIN 내부 ROOM_LIST 패널 상태의 방 탐색/참가 및 목록 동기화(REST/실시간)를 매핑한다.
+     3	
+     4	## 관련 문서
+     5	- [[03_API/CONTRACT/REST/OPENAPI.yaml.md]]
+     6	- [[03_API/CONTRACT/REALTIME/TOPICS.md]]
+     7	- [[03_API/CONTRACT/REALTIME/EVENTS.md]]
+     8	- [[03_API/CONTRACT/REALTIME/CONVENTIONS.md]]
+     9	
+    10	---
+    11	## 1. 진입 시 REST
+    12	| 메서드 | 엔드포인트 | 파라미터 | 목적 |
+    13	|---|---|---|---|
+    14	| GET | /rooms | roomName, language, gameType, cursor, limit | ROOM_LIST 패널 스냅샷 조회 (검색/필터/페이징 + listVersion) |
+    15	
+    16	---
+    17	## 2. 사용자 액션 → REST
+    18	| 사용자 액션 | 메서드 | 엔드포인트 | 비고 |
+    19	|---|---|---|---|
+    20	| 검색어/필터 변경 | GET | /rooms | query 변경값으로 재조회 |
+ succeeded in 53ms:
+    12	---
+    13	## 1. 라우트 네이밍 규칙
+    14	- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다.
+    15	- PageRoute 목록은 [[03_API/CONTRACT/REST/CONVENTIONS.md]]를 따른다.
+    16	- 예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`
+    17	
+    18	---
+    19	## 2. 가드 배치 규칙
+    20	- 전역 라우팅 가드는 `router` 초기화 시 1회만 등록한다.
+    21	- 인증/active game 체크는 **가드에서 수행**하며, 세부 규칙은 [[01_PRODUCT/USER_FLOWS.md]]를 따른다.
+    22	- 가드 로직에서 직접 REST 호출 금지(스토어/서비스를 통해 호출).
+    23	
+    24	---
+    25	## 3. 전환 규칙
+    26	- 페이지 전환은 `PageRoute` 기준으로만 수행한다.
+    27	- API 응답의 `pageRoute`가 유일한 전환 기준이다.
+    28	- 게임 FINISHED는 active game 대상이 아니며, RESULT는 이벤트 기반으로만 노출한다.
+    29	
+    30	---
+    31	## 4. 코드 스플리팅 규칙
+
+thinking
+**Assessing route naming conflicts**
+exec
+/bin/zsh -lc "nl -ba 03_API/LIFECYCLE.md | sed -n '172,205p'" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 51ms:
+   172	```mermaid
+   173	sequenceDiagram
+   174	  participant C as Client
+   175	  participant WS as WebSocket
+   176	  participant REST as REST API
+   177	
+   178	  C->>WS: Connect /ws (Bearer JWT)
+   179	  WS-->>C: Connected
+   180	  C->>WS: SUB /user/queue/errors, /user/queue/rooms, /user/queue/inventory
+   181	  C->>REST: GET /users/me/active-game
+   182	  REST-->>C: activeGame or null
+   183	  alt activeGame 있음
+   184	    C->>REST: pageRoute 확인
+   185	    alt pageRoute = WAITING_ROOM
+   186	      C->>WS: SUB /topic/rooms/{roomId}/lobby, /topic/rooms/{roomId}/chat
+   187	      C->>REST: GET /rooms/{roomId}
+   188	      REST-->>C: Room snapshot
+   189	    else pageRoute = BAN_PICK_SHOP
+   190	      C->>WS: SUB /topic/games/{gameId}, /topic/rooms/{roomId}/chat
+   191	      C->>REST: GET /games/{gameId}/state
+
+thinking
+**Assessing frontend route inconsistencies**
+exec
+/bin/zsh -lc 'rg -n "pageRoute|PageRoute|WELCOME|MAIN|RESULT|MY_PAGE|ROOM_LIST" 05_FRONTEND/*.md' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+05_FRONTEND/FE_DESIGN_MAPPING.md:15:| WELCOME | [[02_DESIGN/PAGE_REQUIREMENTS/LOGIN.md]] | 로그인/인증 진입
+05_FRONTEND/FE_DESIGN_MAPPING.md:16:| MAIN | [[02_DESIGN/PAGE_REQUIREMENTS/MAIN.md]] | 메인 대시보드
+05_FRONTEND/FE_DESIGN_MAPPING.md:17:| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태
+05_FRONTEND/FE_DESIGN_MAPPING.md:21:| RESULT | [[02_DESIGN/PAGE_REQUIREMENTS/RESULT.md]] | 결과
+05_FRONTEND/FE_DESIGN_MAPPING.md:22:| MY_PAGE | [[02_DESIGN/PAGE_REQUIREMENTS/MY_PAGE.md]] | 마이페이지
+05_FRONTEND/FE_ROUTING_RULES.md:14:- Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다.
+05_FRONTEND/FE_ROUTING_RULES.md:15:- PageRoute 목록은 [[03_API/CONTRACT/REST/CONVENTIONS.md]]를 따른다.
+05_FRONTEND/FE_ROUTING_RULES.md:16:- 예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`
+05_FRONTEND/FE_ROUTING_RULES.md:26:- 페이지 전환은 `PageRoute` 기준으로만 수행한다.
+05_FRONTEND/FE_ROUTING_RULES.md:27:- API 응답의 `pageRoute`가 유일한 전환 기준이다.
+05_FRONTEND/FE_ROUTING_RULES.md:28:- 게임 FINISHED는 active game 대상이 아니며, RESULT는 이벤트 기반으로만 노출한다.
+
+thinking
+**Assessing terminology conflicts and metrics**
+exec
+/bin/zsh -lc 'date -u +"%Y-%m-%dT%H:%M:%SZ"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+2026-02-12T12:20:23Z
+
+thinking
+**Scoping terminology conflict findings**
+exec
+/bin/zsh -lc "(rg --files 01_PRODUCT 02_DESIGN 03_API 04_DOMAIN 05_FRONTEND 06_BACKEND | wc -l) | tr -d ' '" in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 52ms:
+64
+
+thinking
+**Tracking task progress**
+exec
+/bin/zsh -lc 'date -u +"%Y-%m-%dT%H:%M:%SZ"' in /Users/kanggyeonggu/Documents/league-of-algologic succeeded in 53ms:
+2026-02-12T12:20:40Z
+
+thinking
+**Crafting detailed JSON findings**
+codex
+{"run_id":"20260212-211025","agent_id":"duplication-auditor","task_id":"DUP-TERMINOLOGY","target":{"kind":"duplication","id":"TERM_CONFLICT"},"status":"fail","summary":"Detected 2 terminology issues in scope: 1 high-severity `PageRoute` definition conflict and 1 medium-severity route/state alias ambiguity (`ROOM_LIST`).","findings":[{"severity":"high","code":"TERM_DEFINITION_CONFLICT_PAGEROUTE","message":"`PageRoute` has conflicting definitions across SSOT areas. API contracts define it as a 3-value active-game routing enum, while frontend routing rules redefine/expand it as general app routes (`WELCOME`, `MAIN`, `RESULT`, `MY_PAGE`, etc.) and require route naming to match `PageRoute`.","dedupe_key":"term_conflict:pageroute:api_vs_frontend","evidence":[{"path":"03_API/CONTRACT/REST/CONVENTIONS.md","line":137,"snippet":"PageRoute 값은 다음 3개만 사용한다."},{"path":"03_API/CONTRACT/REST/OPENAPI.yaml.md","line":131,"snippet":"enum: [WAITING_ROOM, BAN_PICK_SHOP, IN_GAME]"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":14,"snippet":"Route name은 `PageRoute`와 동일한 대문자 식별자를 사용한다."},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":16,"snippet":"예: `WELCOME`, `MAIN`, `WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`, `RESULT`, `MY_PAGE`"},{"path":"05_FRONTEND/FE_ROUTING_RULES.md","line":27,"snippet":"API 응답의 `pageRoute`가 유일한 전환 기준이다."}],"proposed_fix":"Reserve `PageRoute` for API active-game values only (`WAITING_ROOM`, `BAN_PICK_SHOP`, `IN_GAME`). Introduce a separate term (e.g., `AppRoute`) for full frontend navigation routes and document explicit mapping between `pageRoute` -> `AppRoute` where needed."},{"severity":"medium","code":"ALIAS_WITHOUT_MAPPING_ROOM_LIST_ROUTE_STATE","message":"`ROOM_LIST` is defined upstream as a MAIN-internal panel state, but frontend design mapping labels it as `Route` without an explicit canonical mapping (route vs panel-state key). This creates alias ambiguity and weak traceability.","dedupe_key":"alias_without_mapping:room_list:route_vs_state","evidence":[{"path":"01_PRODUCT/USER_FLOWS.md","line":26,"snippet":"ROOM_LIST 패널 상태 (MAIN 헤더 하단 교체 상태)"},{"path":"03_API/PAGE_MAP/ROOM_LIST.md","line":2,"snippet":"MAIN 내부 ROOM_LIST 패널 상태의 방 탐색/참가 및 목록 동기화..."},{"path":"05_FRONTEND/FE_DESIGN_MAPPING.md","line":12,"snippet":"## 1. 페이지 매핑 (Route → Data Requirements)"},{"path":"05_FRONTEND/FE_DESIGN_MAPPING.md","line":17,"snippet":"| ROOM_LIST | [[02_DESIGN/PAGE_REQUIREMENTS/ROOM_LIST.md]] | MAIN 내 패널 상태"}],"proposed_fix":"Make the mapping term explicit as `Route/State` (or split columns), and encode ROOM_LIST as a MAIN substate key (e.g., `MAIN.ROOM_LIST_PANEL`) rather than a standalone route identifier."}],"metrics":{"files_scanned":64,"links_checked":0,"relations_checked":2},"started_at":"2026-02-12T12:16:30Z","finished_at":"2026-02-12T12:20:40Z"}
+tokens used
+46,786

@@ -1,0 +1,26 @@
+{
+  "run_id": "20260212-210456",
+  "agent_id": "relation-auditor",
+  "task_id": "REL-API-FRONTEND",
+  "target": {
+    "kind": "relation",
+    "id": "API_FRONTEND"
+  },
+  "status": "error",
+  "summary": "Worker execution failed with code 2",
+  "findings": [
+    {
+      "severity": "high",
+      "code": "WORKER_EXECUTION_FAILED",
+      "message": "codex exec returned non-zero exit code",
+      "evidence": [
+        {
+          "path": "/Users/kanggyeonggu/Documents/league-of-algologic/AGENTS/CODEX/reports/ssot-spec-audit/20260212-210456/logs/REL-API-FRONTEND.stderr.log"
+        }
+      ]
+    }
+  ],
+  "metrics": {},
+  "started_at": "2026-02-12T12:04:56+00:00",
+  "finished_at": "2026-02-12T12:04:56+00:00"
+}

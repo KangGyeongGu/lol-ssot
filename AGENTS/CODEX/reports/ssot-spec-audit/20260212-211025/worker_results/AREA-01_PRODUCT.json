@@ -1,0 +1,19 @@
+{
+  "run_id": "20260212-211025",
+  "agent_id": "area-auditor",
+  "task_id": "AREA-01_PRODUCT",
+  "target": {
+    "kind": "area",
+    "id": "01_PRODUCT"
+  },
+  "status": "pass",
+  "summary": "01_PRODUCT required documents are present, internal references resolve, scope boundaries are explicitly declared, and normative statements are clear without redefining other area ownership.",
+  "findings": [],
+  "metrics": {
+    "files_scanned": 7,
+    "links_checked": 15,
+    "relations_checked": 4
+  },
+  "started_at": "2026-02-12T12:10:40Z",
+  "finished_at": "2026-02-12T12:13:28Z"
+}
